@@ -94,6 +94,20 @@ Runs **Planner → Research → Critic → Writer (outline scaffold) → Citatio
 pytest tests/test_w6_pipeline.py -q
 ```
 
+## W7 — Streamlit UI
+
+```bash
+# Requires OPENAI_API_KEY and dependencies from requirements.txt
+streamlit run app/streamlit_app.py
+# Or: bash scripts/run_streamlit.sh
+```
+
+Features: topic + constraints, full pipeline run with step progress, citation validation badges, critique evidence cards, outline scaffolding, academic-integrity banner, trace/timing table, JSON export/load.
+
+```bash
+pytest tests/test_streamlit_app.py -q
+```
+
 ## Project layout
 
 ```
