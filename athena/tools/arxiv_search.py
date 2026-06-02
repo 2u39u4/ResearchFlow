@@ -1,4 +1,6 @@
-"""arXiv search with minimum interval between requests."""
+"""arXiv search with rate limiting and exponential backoff retries."""
+
+from __future__ import annotations
 
 import time
 from dataclasses import dataclass
@@ -9,6 +11,7 @@ import arxiv
 from athena.config import get_settings
 
 _last_request_at: float = 0.0
+_MAX_RETRIES = 3
 
 
 @dataclass
@@ -43,24 +46,33 @@ def _throttle() -> None:
 
 def search_arxiv(query: str, *, max_results: int = 5) -> list[ArxivPaper]:
     """Search arXiv and return structured paper metadata."""
-    _throttle()
-    client = arxiv.Client()
-    search = arxiv.Search(
-        query=query,
-        max_results=max_results,
-        sort_by=arxiv.SortCriterion.Relevance,
-    )
-    papers: list[ArxivPaper] = []
-    for result in client.results(search):
-        arxiv_id = result.entry_id.split("/")[-1]
-        papers.append(
-            ArxivPaper(
-                arxiv_id=arxiv_id,
-                title=result.title,
-                authors=[a.name for a in result.authors],
-                published=result.published.isoformat() if result.published else "",
-                summary=(result.summary or "")[:500],
-                pdf_url=result.pdf_url or "",
+    last_error: Exception | None = None
+    for attempt in range(_MAX_RETRIES):
+        try:
+            _throttle()
+            client = arxiv.Client()
+            search = arxiv.Search(
+                query=query,
+                max_results=max_results,
+                sort_by=arxiv.SortCriterion.Relevance,
             )
-        )
-    return papers
+            papers: list[ArxivPaper] = []
+            for result in client.results(search):
+                arxiv_id = result.entry_id.split("/")[-1]
+                papers.append(
+                    ArxivPaper(
+                        arxiv_id=arxiv_id,
+                        title=result.title,
+                        authors=[a.name for a in result.authors],
+                        published=result.published.isoformat() if result.published else "",
+                        summary=(result.summary or "")[:2000],
+                        pdf_url=result.pdf_url or "",
+                    )
+                )
+            return papers
+        except Exception as exc:
+            last_error = exc
+            time.sleep(2**attempt)
+    if last_error:
+        raise last_error
+    return []

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import time
 from typing import Any
+from urllib.parse import quote
 
 import requests
 
@@ -65,6 +66,25 @@ def search_papers(query: str, *, limit: int = 5) -> list[dict[str, Any]]:
     if last_error:
         raise last_error
     return []
+
+
+def lookup_by_doi(doi: str) -> dict[str, Any] | None:
+    """Fetch paper metadata by DOI via Semantic Scholar."""
+    from athena.tools.normalize import normalize_doi
+
+    doi = normalize_doi(doi)
+    if not doi:
+        return None
+    paper_id = quote(f"DOI:{doi}", safe="")
+    _throttle()
+    url = f"{S2_BASE}/paper/{paper_id}"
+    params = {"fields": "title,authors,year,venue,externalIds,abstract,paperId"}
+    resp = requests.get(url, params=params, headers=_headers(), timeout=30)
+    if resp.status_code in (404, 429):
+        return None
+    resp.raise_for_status()
+    data = resp.json()
+    return data if isinstance(data, dict) and data.get("title") else None
 
 
 def ping() -> dict[str, Any]:

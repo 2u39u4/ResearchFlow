@@ -35,6 +35,11 @@ class Settings(BaseSettings):
     arxiv_min_interval_sec: float = 3.0
     semantic_scholar_min_interval_sec: float = 1.0
 
+    # Citation validator (W3)
+    citation_title_match_threshold: float = 90.0
+    citation_year_tolerance: int = 1
+    citation_search_top_k: int = 5
+
     @property
     def semantic_scholar_uses_anonymous(self) -> bool:
         return not bool(self.semantic_scholar_api_key.strip())
