@@ -40,6 +40,12 @@ class Settings(BaseSettings):
     citation_year_tolerance: int = 1
     citation_search_top_k: int = 5
 
+    # Critic agent (W5) — empty critic_llm_model uses default_llm_model
+    critic_llm_model: str = ""
+    critic_temperature: float = 0.3
+    critic_max_tokens: int = 2048
+    critic_max_critiques: int = 8
+
     @property
     def semantic_scholar_uses_anonymous(self) -> bool:
         return not bool(self.semantic_scholar_api_key.strip())

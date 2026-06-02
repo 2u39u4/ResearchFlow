@@ -5,12 +5,14 @@ from __future__ import annotations
 from typing import Any, TypedDict
 
 from athena.schemas.citation import Citation, ValidationResult
+from athena.schemas.critique import Critique
 from athena.schemas.knowledge_card import KnowledgeCard
 
 
 class AthenaState(TypedDict, total=False):
     topic: str
     papers: list[KnowledgeCard]
+    critiques: list[Critique]
     citations: list[Citation]
     validation_report: list[ValidationResult]
 

@@ -64,6 +64,23 @@ Full `dev_public` (~1,119 entries) hits Crossref/S2 APIs — use `--delay` and e
 pytest tests/test_hallmark_adapter.py -q
 ```
 
+## W5 — Critic Agent (evidence-grounded gaps)
+
+```bash
+# Retrieve papers then critique (needs OPENAI_API_KEY)
+python scripts/run_critic.py "retrieval augmented generation"
+
+# Reuse saved research JSON
+python scripts/run_research.py "your topic" > /tmp/papers.json
+python scripts/run_critic.py "your topic" --papers-json /tmp/papers.json
+```
+
+Outputs `gap` / `weakness` / `novelty` critiques. Each claim must cite `paper_id`s from the retrieved corpus; absolute novelty phrasing is rejected. Relative novelty must refer to the retrieved set (e.g. “Among the N retrieved papers…”).
+
+```bash
+pytest tests/test_critic.py -q
+```
+
 ## Project layout
 
 ```
