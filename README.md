@@ -43,6 +43,27 @@ Returns `verified` / `not_found` / `mismatch` per reference via Crossref + Seman
 pytest tests/test_citation_validator.py -q
 ```
 
+## W4 — HALLMARK benchmark evaluation
+
+Requires **Python 3.10+** (the main venv may be 3.9; use `python3.11` if available).
+
+```bash
+bash scripts/install_hallmark.sh   # .vendor/hallmark + .venv-eval (Python 3.10+)
+
+.venv-eval/bin/python scripts/run_hallmark_eval.py --stats-only
+.venv-eval/bin/python scripts/run_hallmark_eval.py --split dev_public --limit 50 --analyze \
+  --output results/athena_dev_public_50.json \
+  --comparison-md results/athena_vs_baselines.md
+```
+
+Maps Athena `verified` / `not_found` / `mismatch` → HALLMARK `VALID` / `HALLUCINATED` (see `eval/citebench/mapping.md`).
+
+Full `dev_public` (~1,119 entries) hits Crossref/S2 APIs — use `--delay` and expect long runtimes.
+
+```bash
+pytest tests/test_hallmark_adapter.py -q
+```
+
 ## Project layout
 
 ```

@@ -1,6 +1,7 @@
 # Environment
 .env
 .venv/
+.venv-eval/
 venv/
 env/
 
@@ -14,6 +15,9 @@ build/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Vendored HALLMARK (install via scripts/install_hallmark.sh)
+.vendor/
 
 # Athena runtime data
 data/
@@ -30,6 +34,9 @@ athena_cache/
 .vscode/
 *.swp
 .DS_Store
+
+# Eval outputs
+results/
 
 # Logs
 *.log
