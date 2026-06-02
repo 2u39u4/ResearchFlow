@@ -8,8 +8,7 @@ Multi-agent research copilot for academic literature review with citation verifi
 cd ResearchFlow
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements-w1.txt   # minimal W1 deps
-# pip install -r requirements.txt    # full stack (RAG, LangGraph, etc.)
+pip install -r requirements.txt
 cp .env.example .env
 # Edit .env — OPENAI_API_KEY optional for smoke test (LLM step skipped if empty)
 python scripts/smoke_test.py
