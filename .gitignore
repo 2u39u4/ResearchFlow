@@ -1,0 +1,41 @@
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Athena runtime data
+data/
+*.db
+.cache/
+athena_cache/
+
+# Vector stores
+*.faiss
+*.index
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Logs
+*.log
+
+# Local planning docs (Chinese, not for public / grad-application remote repo)
+execute.md
+deliverables.md
+plan.txt
+docs/local/
