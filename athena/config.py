@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     # LLM
     openai_api_key: str = ""
     openai_base_url: str = "https://api.openai.com/v1"
-    default_llm_model: str = "gpt-4o-mini"
+    default_llm_model: str = "gpt-5.5"
     default_llm_provider: str = "openai"  # openai | deepseek
 
     deepseek_api_key: str = ""
