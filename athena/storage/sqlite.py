@@ -142,3 +142,23 @@ def insert_sample_records() -> dict[str, Any]:
             (run_id, "init", json.dumps({"message": "smoke"}), now),
         )
     return {"run_id": run_id, "citation_id": citation_id}
+
+
+def persist_traces(run_id: str, traces: list[dict[str, Any]], db_path: str | None = None) -> int:
+    """Write pipeline trace steps to the trace table."""
+    if not run_id or not traces:
+        return 0
+    now = _utc_now()
+    count = 0
+    with get_db(db_path) as conn:
+        for entry in traces:
+            step = entry.get("step", "unknown")
+            conn.execute(
+                """
+                INSERT INTO trace (run_id, step, payload_json, created_at)
+                VALUES (?, ?, ?, ?)
+                """,
+                (run_id, step, json.dumps(entry, ensure_ascii=False), now),
+            )
+            count += 1
+    return count

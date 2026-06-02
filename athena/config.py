@@ -46,6 +46,17 @@ class Settings(BaseSettings):
     critic_max_tokens: int = 2048
     critic_max_critiques: int = 8
 
+    # Planner / Writer (W6)
+    planner_llm_model: str = ""
+    planner_temperature: float = 0.2
+    planner_max_tokens: int = 1024
+    writer_llm_model: str = ""
+    writer_temperature: float = 0.3
+    writer_max_tokens: int = 2048
+
+    # LangGraph checkpoints (W6)
+    athena_checkpoint_db: Path = Field(default=Path("./data/athena_checkpoints.db"))
+
     @property
     def semantic_scholar_uses_anonymous(self) -> bool:
         return not bool(self.semantic_scholar_api_key.strip())

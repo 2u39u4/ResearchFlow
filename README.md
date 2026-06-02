@@ -81,6 +81,19 @@ Outputs `gap` / `weakness` / `novelty` critiques. Each claim must cite `paper_id
 pytest tests/test_critic.py -q
 ```
 
+## W6 — End-to-end pipeline (LangGraph)
+
+```bash
+python scripts/run_pipeline.py "retrieval augmented generation"
+# Optional: --output results/pipeline_report.json --thread-id my-run-1
+```
+
+Runs **Planner → Research → Critic → Writer (outline scaffold) → Citation Validator** with step `trace` and SQLite checkpointing (`data/athena_checkpoints.db`).
+
+```bash
+pytest tests/test_w6_pipeline.py -q
+```
+
 ## Project layout
 
 ```

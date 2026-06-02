@@ -21,6 +21,8 @@ build/
 
 # Athena runtime data
 data/
+athena_checkpoints.db
+**/athena_checkpoints.db
 *.db
 .cache/
 athena_cache/
