@@ -12,7 +12,7 @@ from athena.schemas.task import Task
 
 
 class AthenaState(TypedDict, total=False):
-    """Full pipeline state (W6). Values may be models or dicts after checkpoint round-trip."""
+    """Full pipeline state. Values may be models or dicts after checkpoint round-trip."""
 
     run_id: str
     topic: str
@@ -20,6 +20,7 @@ class AthenaState(TypedDict, total=False):
     tasks: list[Task]
     papers: list[KnowledgeCard]
     research_errors: list[str]
+    research_sources_ok: dict[str, bool]
     critiques: list[Critique]
     critic_meta: dict[str, Any]
     draft: Outline

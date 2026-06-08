@@ -143,7 +143,8 @@ def main(argv: list[str] | None = None) -> int:
 
     print(f"\nResults: {result.tool_name} on {result.split_name}")
     print(f"  Detection rate:    {result.detection_rate:.3f}")
-    print(f"  False pos. rate:   {result.false_positive_rate:.3f}")
+    fpr = result.false_positive_rate
+    print(f"  False pos. rate:   {fpr:.3f}" if fpr is not None else "  False pos. rate:   n/a")
     print(f"  F1 (halluc.):      {result.f1_hallucination:.3f}")
     print(f"  Tier-weighted F1:  {result.tier_weighted_f1:.3f}")
     print(f"  ECE:               {result.ece:.3f}")

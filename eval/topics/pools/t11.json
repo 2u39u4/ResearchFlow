@@ -1,0 +1,412 @@
+{
+  "topic_id": "t11",
+  "topic": "causal inference observational healthcare",
+  "domain": "Health Informatics",
+  "protocol_version": 1,
+  "built_at": "2026-06-04T17:39:00.260228+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "arxiv:2601.01854v2",
+    "arxiv:2507.14528v1",
+    "doi:10.1145/3774816.3774835",
+    "doi:10.1093/9780197801819.003.0005",
+    "arxiv:2309.13103v1",
+    "arxiv:2303.15563v1",
+    "arxiv:2209.03013v1",
+    "arxiv:2202.02891v1",
+    "doi:10.4337/9781789909432.00024",
+    "arxiv:2109.07542v1",
+    "doi:10.1201/9781003039648-ch2",
+    "arxiv:1905.11374v5",
+    "doi:10.1093/infdis/jiy392",
+    "arxiv:1702.08615v1",
+    "doi:10.1111/cdoe.12231",
+    "arxiv:1506.03880v2",
+    "doi:10.1177/1745691610383511",
+    "doi:10.1177/1536867x0800700403",
+    "doi:10.1177/1536867x0700700403",
+    "doi:10.26481/dis.20241212hf"
+  ],
+  "cards": [
+    {
+      "paper_id": "arxiv:2601.01854v2",
+      "title": "Causal inference for censored data with continuous marks",
+      "authors": [
+        "Lianqiang Qu",
+        "Long Lv",
+        "Liuquan Sun"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2601.01854v2",
+      "abstract": "This paper presents a framework for causal inference in the presence of censored data,where the failure time is marked by a continuous variable referred to as a mark.The mark is observed after treatment and is not meaningful when the failure time is censored. In addition, due to the continuous nature of the marks, observations at each given mark are sparse. These facts make the identification and estimation of causality a challenging task. To address these issues, we define a new mark-specific treatment effect within the potential outcomes framework and characterize its identifying conditions. We then propose a local smoothing estimator for the causal effects and establish its asymptotic properties. We further develop testing methods to evaluate whether the treatment has an effect on the failure time when controlling the values of the mark at certain points or within a defined interval, and develop a Gaussian approximation method to obtain the critical values. We evaluate our method using simulation studies as well as a real dataset from the Antibody Mediated Prevention trials.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981182+00:00"
+    },
+    {
+      "paper_id": "arxiv:2507.14528v1",
+      "title": "Positive-Unlabeled Learning for Control Group Construction in Observational Causal Inference",
+      "authors": [
+        "Ilias Tsoumas",
+        "Dimitrios Bormpoudakis",
+        "Vasileios Sitokonstantinou",
+        "Athanasios Askitopoulos",
+        "Andreas Kalogeras",
+        "Charalampos Kontoes",
+        "Ioannis Athanasiadis"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2507.14528v1",
+      "abstract": "In causal inference, whether through randomized controlled trials or observational studies, access to both treated and control units is essential for estimating the effect of a treatment on an outcome of interest. When treatment assignment is random, the average treatment effect (ATE) can be estimated directly by comparing outcomes between groups. In non-randomized settings, various techniques are employed to adjust for confounding and approximate the counterfactual scenario to recover an unbiased ATE. A common challenge, especially in observational studies, is the absence of units clearly labeled as controls-that is, units known not to have received the treatment. To address this, we propose positive-unlabeled (PU) learning as a framework for identifying, with high confidence, control units from a pool of unlabeled ones, using only the available treated (positive) units. We evaluate this approach using both simulated and real-world data. We construct a causal graph with diverse relationships and use it to generate synthetic data under various scenarios, assessing how reliably the method recovers control groups that allow estimates of true ATE. We also apply our approach to real-world data on optimal sowing and fertilizer treatments in sustainable agriculture. Our findings show that PU learning can successfully identify control (negative) units from unlabeled data based only on treated units and, through the resulting control group, estimate an ATE that closely approximates the true value. This work has important implications for observational causal inference, especially in fields where randomized experiments are difficult or costly. In domains such as earth, environmental, and agricultural sciences, it enables a plethora of quasi-experiments by leveraging available earth observation and climate data, particularly when treated units are available but control units are lacking.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981170+00:00"
+    },
+    {
+      "paper_id": "doi:10.1145/3774816.3774835",
+      "title": "Propensity Score Estimation for Causal Inference in Observational Healthcare Studies",
+      "authors": [
+        "Nabila Sekar Ramadhanti",
+        "Suryani Lim",
+        "Michal Chorev",
+        "Madhu Chetty",
+        "Fadi Charchar"
+      ],
+      "year": 2025,
+      "venue": "Proceedings of the 2025 18th Health Informatics Knowledge Management Conference",
+      "doi": "10.1145/3774816.3774835",
+      "url": "https://doi.org/10.1145/3774816.3774835",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.252884+00:00"
+    },
+    {
+      "paper_id": "doi:10.1093/9780197801819.003.0005",
+      "title": "Causal Inference Using Observational Data",
+      "authors": [
+        "Aboozar Hadavand"
+      ],
+      "year": 2025,
+      "venue": "Cause, Effect, and Everything in Between",
+      "doi": "10.1093/9780197801819.003.0005",
+      "url": "https://doi.org/10.1093/9780197801819.003.0005",
+      "abstract": "<jats:title>Abstract</jats:title>\n               <jats:p>Chapter 5 addresses the complexities and methodologies of establishing causal relationships using observational data, where researchers cannot control treatment assignments. It emphasizes the challenge of confounding bias, which arises when the relationship between treatment and outcome is due to noncausal channels. The chapter highlights the importance of identifying and controlling for confounding variables to ensure unbiased causal inference. Additionally, the chapter discusses the limitations and potential biases inherent in observational studies, including unobserved confounding and collider bias.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.252980+00:00"
+    },
+    {
+      "paper_id": "arxiv:2309.13103v1",
+      "title": "OpportunityFinder: A Framework for Automated Causal Inference",
+      "authors": [
+        "Huy Nguyen",
+        "Prince Grover",
+        "Devashish Khatwani"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2309.13103v1",
+      "abstract": "We introduce OpportunityFinder, a code-less framework for performing a variety of causal inference studies with panel data for non-expert users. In its current state, OpportunityFinder only requires users to provide raw observational data and a configuration file. A pipeline is then triggered that inspects/processes data, chooses the suitable algorithm(s) to execute the causal study. It returns the causal impact of the treatment on the configured outcome, together with sensitivity and robustness results. Causal inference is widely studied and used to estimate the downstream impact of individual's interactions with products and features. It is common that these causal studies are performed by scientists and/or economists periodically. Business stakeholders are often bottle-necked on scientist or economist bandwidth to conduct causal studies. We offer OpportunityFinder as a solution for commonly performed causal studies with four key features: (1) easy to use for both Business Analysts and Scientists, (2) abstraction of multiple algorithms under a single I/O interface, (3) support for causal impact analysis under binary treatment with panel data and (4) dynamic selection of algorithm based on scale of data.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981167+00:00"
+    },
+    {
+      "paper_id": "arxiv:2303.15563v1",
+      "title": "Privacy-preserving machine learning for healthcare: open challenges and future perspectives",
+      "authors": [
+        "Alejandro Guerra-Manzanares",
+        "L. Julian Lechuga Lopez",
+        "Michail Maniatakos",
+        "Farah E. Shamout"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2303.15563v1",
+      "abstract": "Machine Learning (ML) has recently shown tremendous success in modeling various healthcare prediction tasks, ranging from disease diagnosis and prognosis to patient treatment. Due to the sensitive nature of medical data, privacy must be considered along the entire ML pipeline, from model training to inference. In this paper, we conduct a review of recent literature concerning Privacy-Preserving Machine Learning (PPML) for healthcare. We primarily focus on privacy-preserving training and inference-as-a-service, and perform a comprehensive review of existing trends, identify challenges, and discuss opportunities for future research directions. The aim of this review is to guide the development of private and efficient ML models in healthcare, with the prospects of translating research efforts into real-world settings.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981176+00:00"
+    },
+    {
+      "paper_id": "arxiv:2209.03013v1",
+      "title": "Quantitative probing: Validating causal models using quantitative domain knowledge",
+      "authors": [
+        "Daniel Grünbaum",
+        "Maike L. Stern",
+        "Elmar W. Lang"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2209.03013v1",
+      "abstract": "We present quantitative probing as a model-agnostic framework for validating causal models in the presence of quantitative domain knowledge. The method is constructed as an analogue of the train/test split in correlation-based machine learning and as an enhancement of current causal validation strategies that are consistent with the logic of scientific discovery. The effectiveness of the method is illustrated using Pearl's sprinkler example, before a thorough simulation-based investigation is conducted. Limits of the technique are identified by studying exemplary failing scenarios, which are furthermore used to propose a list of topics for future research and improvements of the presented version of quantitative probing. The code for integrating quantitative probing into causal analysis, as well as the code for the presented simulation-based studies of the effectiveness of quantitative probing is provided in two separate open-source Python packages.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981155+00:00"
+    },
+    {
+      "paper_id": "arxiv:2202.02891v1",
+      "title": "Causal Inference Using Tractable Circuits",
+      "authors": [
+        "Adnan Darwiche"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2202.02891v1",
+      "abstract": "The aim of this paper is to discuss a recent result which shows that probabilistic inference in the presence of (unknown) causal mechanisms can be tractable for models that have traditionally been viewed as intractable. This result was reported recently to facilitate model-based supervised learning but it can be interpreted in a causality context as follows. One can compile a non-parametric causal graph into an arithmetic circuit that supports inference in time linear in the circuit size. The circuit is also non-parametric so it can be used to estimate parameters from data and to further reason (in linear time) about the causal graph parametrized by these estimates. Moreover, the circuit size can sometimes be bounded even when the treewidth of the causal graph is not, leading to tractable inference on models that have been deemed intractable previously. This has been enabled by a new technique that can exploit causal mechanisms computationally but without needing to know their identities (the classical setup in causal inference). Our goal is to provide a causality-oriented exposure to these new results and to speculate on how they may potentially contribute to more scalable and versatile causal inference.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981173+00:00"
+    },
+    {
+      "paper_id": "doi:10.4337/9781789909432.00024",
+      "title": "Causal inference with observational data",
+      "authors": [
+        "Richard Breen"
+      ],
+      "year": 2022,
+      "venue": "Handbook of Sociological Science",
+      "doi": "10.4337/9781789909432.00024",
+      "url": "https://doi.org/10.4337/9781789909432.00024",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.252959+00:00"
+    },
+    {
+      "paper_id": "arxiv:2109.07542v1",
+      "title": "Text as Causal Mediators: Research Design for Causal Estimates of Differential Treatment of Social Groups via Language Aspects",
+      "authors": [
+        "Katherine A. Keith",
+        "Douglas Rice",
+        "Brendan O'Connor"
+      ],
+      "year": 2021,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2109.07542v1",
+      "abstract": "Using observed language to understand interpersonal interactions is important in high-stakes decision making. We propose a causal research design for observational (non-experimental) data to estimate the natural direct and indirect effects of social group signals (e.g. race or gender) on speakers' responses with separate aspects of language as causal mediators. We illustrate the promises and challenges of this framework via a theoretical case study of the effect of an advocate's gender on interruptions from justices during U.S. Supreme Court oral arguments. We also discuss challenges conceptualizing and operationalizing causal variables such as gender and language that comprise of many components, and we articulate technical open challenges such as temporal dependence between language mediators in conversational settings.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981163+00:00"
+    },
+    {
+      "paper_id": "doi:10.1201/9781003039648-ch2",
+      "title": "Causal Inference in Observational Studies",
+      "authors": [
+        "Paul R. Rosenbaum"
+      ],
+      "year": 2021,
+      "venue": "Replication and Evidence Factors in Observational Studies",
+      "doi": "10.1201/9781003039648-ch2",
+      "url": "https://doi.org/10.1201/9781003039648-ch2",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.253000+00:00"
+    },
+    {
+      "paper_id": "arxiv:1905.11374v5",
+      "title": "A Unifying Causal Framework for Analyzing Dataset Shift-stable Learning Algorithms",
+      "authors": [
+        "Adarsh Subbaswamy",
+        "Bryant Chen",
+        "Suchi Saria"
+      ],
+      "year": 2019,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1905.11374v5",
+      "abstract": "Recent interest in the external validity of prediction models (i.e., the problem of different train and test distributions, known as dataset shift) has produced many methods for finding predictive distributions that are invariant to dataset shifts and can be used for prediction in new, unseen environments. However, these methods consider different types of shifts and have been developed under disparate frameworks, making it difficult to theoretically analyze how solutions differ with respect to stability and accuracy. Taking a causal graphical view, we use a flexible graphical representation to express various types of dataset shifts. Given a known graph of the data generating process, we show that all invariant distributions correspond to a causal hierarchy of graphical operators which disable the edges in the graph that are responsible for the shifts. The hierarchy provides a common theoretical underpinning for understanding when and how stability to shifts can be achieved, and in what ways stable distributions can differ. We use it to establish conditions for minimax optimal performance across environments, and derive new algorithms that find optimal stable distributions. Using this new perspective, we empirically demonstrate that that there is a tradeoff between minimax and average performance.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981160+00:00"
+    },
+    {
+      "paper_id": "doi:10.1093/infdis/jiy392",
+      "title": "Causal Inference for Observational Studies",
+      "authors": [
+        "David Kaplan"
+      ],
+      "year": 2018,
+      "venue": "The Journal of Infectious Diseases",
+      "doi": "10.1093/infdis/jiy392",
+      "url": "https://doi.org/10.1093/infdis/jiy392",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.252950+00:00"
+    },
+    {
+      "paper_id": "arxiv:1702.08615v1",
+      "title": "Bridging Finite and Super Population Causal Inference",
+      "authors": [
+        "Peng Ding",
+        "Xinran Li",
+        "Luke W. Miratrix"
+      ],
+      "year": 2017,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1702.08615v1",
+      "abstract": "There are two general views in causal analysis of experimental data: the super population view that the units are an independent sample from some hypothetical infinite populations, and the finite population view that the potential outcomes of the experimental units are fixed and the randomness comes solely from the physical randomization of the treatment assignment. These two views differs conceptually and mathematically, resulting in different sampling variances of the usual difference-in-means estimator of the average causal effect. Practically, however, these two views result in identical variance estimators. By recalling a variance decomposition and exploiting a completeness-type argument, we establish a connection between these two views in completely randomized experiments. This alternative formulation could serve as a template for bridging finite and super population causal inference in other scenarios.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981179+00:00"
+    },
+    {
+      "paper_id": "doi:10.1111/cdoe.12231",
+      "title": "Causal inference from observational data",
+      "authors": [
+        "Stefan Listl",
+        "Hendrik Jürges",
+        "Richard G. Watt"
+      ],
+      "year": 2016,
+      "venue": "Community Dentistry and Oral Epidemiology",
+      "doi": "10.1111/cdoe.12231",
+      "url": "https://doi.org/10.1111/cdoe.12231",
+      "abstract": "<jats:title>Abstract</jats:title><jats:p>Randomized controlled trials have long been considered the ‘gold standard’ for causal inference in clinical research. In the absence of randomized experiments, identification of reliable intervention points to improve oral health is often perceived as a challenge. But other fields of science, such as social science, have always been challenged by ethical constraints to conducting randomized controlled trials. Methods have been established to make causal inference using observational data, and these methods are becoming increasingly relevant in clinical medicine, health policy and public health research. This study provides an overview of state‐of‐the‐art methods specifically designed for causal inference in observational data, including difference‐in‐differences (DiD) analyses, instrumental variables (<jats:styled-content style=\"fixed-case\">IV</jats:styled-content>), regression discontinuity designs (<jats:styled-content style=\"fixed-case\">RDD</jats:styled-content>) and fixed‐effects panel data analysis. The described methods may be particularly useful in dental research, not least because of the increasing availability of routinely collected administrative data and electronic health records (‘big data’).</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.252991+00:00"
+    },
+    {
+      "paper_id": "arxiv:1506.03880v2",
+      "title": "Causal inference via algebraic geometry: feasibility tests for functional causal structures with two binary observed variables",
+      "authors": [
+        "Ciarán M. Lee",
+        "Robert W. Spekkens"
+      ],
+      "year": 2015,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1506.03880v2",
+      "abstract": "We provide a scheme for inferring causal relations from uncontrolled statistical data based on tools from computational algebraic geometry, in particular, the computation of Groebner bases. We focus on causal structures containing just two observed variables, each of which is binary. We consider the consequences of imposing different restrictions on the number and cardinality of latent variables and of assuming different functional dependences of the observed variables on the latent ones (in particular, the noise need not be additive). We provide an inductive scheme for classifying functional causal structures into distinct observational equivalence classes. For each observational equivalence class, we provide a procedure for deriving constraints on the joint distribution that are necessary and sufficient conditions for it to arise from a model in that class. We also demonstrate how this sort of approach provides a means of determining which causal parameters are identifiable and how to solve for these. Prospects for expanding the scope of our scheme, in particular to the problem of quantum causal inference, are also discussed.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:38:57.981142+00:00"
+    },
+    {
+      "paper_id": "doi:10.1177/1745691610383511",
+      "title": "Causal Inference and Observational Research",
+      "authors": [
+        "Matt McGue",
+        "Merete Osler",
+        "Kaare Christensen"
+      ],
+      "year": 2010,
+      "venue": "Perspectives on Psychological Science",
+      "doi": "10.1177/1745691610383511",
+      "url": "https://doi.org/10.1177/1745691610383511",
+      "abstract": "<jats:p>Valid causal inference is central to progress in theoretical and applied psychology. Although the randomized experiment is widely considered the gold standard for determining whether a given exposure increases the likelihood of some specified outcome, experiments are not always feasible and in some cases can result in biased estimates of causal effects. Alternatively, standard observational approaches are limited by the possibility of confounding, reverse causation, and the nonrandom distribution of exposure (i.e., selection). We describe the counterfactual model of causation and apply it to the challenges of causal inference in observational research, with a particular focus on aging. We argue that the study of twin pairs discordant on exposure, and in particular discordant monozygotic twins, provides a useful analog to the idealized counterfactual design. A review of discordant-twin studies in aging reveals that they are consistent with, but do not unambiguously establish, a causal effect of lifestyle factors on important late-life outcomes. Nonetheless, the existing studies are few in number and have clear limitations that have not always been considered in interpreting their results. It is concluded that twin researchers could make greater use of the discordant-twin design as one approach to strengthen causal inferences in observational research.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.252970+00:00"
+    },
+    {
+      "paper_id": "doi:10.1177/1536867x0800700403",
+      "title": "Causal Inference with Observational Data",
+      "authors": [
+        "Austin Nichols"
+      ],
+      "year": 2007,
+      "venue": "The Stata Journal: Promoting communications on statistics and Stata",
+      "doi": "10.1177/1536867x0800700403",
+      "url": "https://doi.org/10.1177/1536867x0800700403",
+      "abstract": "<jats:p>Problems with inferring causal relationships from nonexperimental data are briefly reviewed, and four broad classes of methods designed to allow estimation of and inference about causal parameters are described: panel regression, matching or reweighting, instrumental variables, and regression discontinuity. Practical examples are offered, and discussion focuses on checking required assumptions to the extent possible.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.252912+00:00"
+    },
+    {
+      "paper_id": "doi:10.1177/1536867x0700700403",
+      "title": "Causal Inference with Observational Data",
+      "authors": [
+        "Austin Nichols"
+      ],
+      "year": 2007,
+      "venue": "The Stata Journal: Promoting communications on statistics and Stata",
+      "doi": "10.1177/1536867x0700700403",
+      "url": "https://doi.org/10.1177/1536867x0700700403",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.252940+00:00"
+    },
+    {
+      "paper_id": "doi:10.26481/dis.20241212hf",
+      "title": "Causal inference with observational data",
+      "authors": [
+        "Haidong Fang"
+      ],
+      "year": null,
+      "venue": "",
+      "doi": "10.26481/dis.20241212hf",
+      "url": "https://doi.org/10.26481/dis.20241212hf",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:39:00.252929+00:00"
+    }
+  ]
+}

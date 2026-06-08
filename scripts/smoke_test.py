@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""W1 smoke test: SQLite + arXiv + optional LLM + optional Semantic Scholar."""
+"""Project smoke test: SQLite + arXiv + optional LLM + optional Semantic Scholar."""
 
 from __future__ import annotations
 
@@ -50,7 +50,7 @@ def step_semantic_scholar() -> None:
         print(f"  OK — sample: {str(title)[:70]}")
     except Exception as exc:
         print(f"  SKIP — {exc}")
-        print("  (S2 optional for W1; retry after SEMANTIC_SCHOLAR_API_KEY is set)")
+        print("  (S2 optional; retry after SEMANTIC_SCHOLAR_API_KEY is set)")
 
 
 def step_llm() -> None:
@@ -80,7 +80,7 @@ def step_llm() -> None:
 
 
 def main() -> int:
-    print("Athena W1 smoke test")
+    print("Athena smoke test")
     settings = get_settings()
     settings.ensure_dirs()
     print(f"  data_dir={settings.athena_data_dir}")

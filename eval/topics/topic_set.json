@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "description": "Cross-domain TopicSet for RQ1/RQ2 evaluation. Reference pools built via fixed protocol in protocol.md.",
+  "topics": [
+    {"id": "t01", "topic": "retrieval augmented generation", "domain": "AI/NLP"},
+    {"id": "t02", "topic": "large language model alignment", "domain": "AI/NLP"},
+    {"id": "t03", "topic": "federated learning privacy", "domain": "AI/ML Systems"},
+    {"id": "t04", "topic": "computer vision self-supervised learning", "domain": "Computer Vision"},
+    {"id": "t05", "topic": "reinforcement learning from human feedback", "domain": "AI/NLP"},
+    {"id": "t06", "topic": "graph neural networks drug discovery", "domain": "Computational Biology"},
+    {"id": "t07", "topic": "CRISPR off-target prediction", "domain": "Genomics"},
+    {"id": "t08", "topic": "climate model downscaling deep learning", "domain": "Climate Science"},
+    {"id": "t09", "topic": "quantum error correction surface codes", "domain": "Physics"},
+    {"id": "t10", "topic": "supply chain resilience optimization", "domain": "Operations Research"},
+    {"id": "t11", "topic": "causal inference observational healthcare", "domain": "Health Informatics"},
+    {"id": "t12", "topic": "adversarial robustness malware detection", "domain": "Cybersecurity"},
+    {"id": "t13", "topic": "human-AI collaboration decision support", "domain": "HCI"},
+    {"id": "t14", "topic": "battery degradation prediction electric vehicles", "domain": "Energy Engineering"},
+    {"id": "t15", "topic": "single-cell RNA sequencing clustering", "domain": "Bioinformatics"},
+    {"id": "t16", "topic": "differential privacy machine learning", "domain": "AI/Security"},
+    {"id": "t17", "topic": "knowledge distillation for edge devices", "domain": "AI Systems"},
+    {"id": "t18", "topic": "automated theorem proving neural guidance", "domain": "Formal Methods"},
+    {"id": "t19", "topic": "sustainable agriculture remote sensing", "domain": "Remote Sensing"},
+    {"id": "t20", "topic": "mental health detection social media NLP", "domain": "NLP/Social Computing"}
+  ]
+}

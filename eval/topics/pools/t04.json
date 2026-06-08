@@ -1,0 +1,446 @@
+{
+  "topic_id": "t04",
+  "topic": "computer vision self-supervised learning",
+  "domain": "Computer Vision",
+  "protocol_version": 1,
+  "built_at": "2026-06-06T16:09:04.484513+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "doi:10.1007/978-3-032-25311-8_22",
+    "doi:10.1109/icipcn67432.2026.11438740",
+    "doi:10.52843/cassyni.jz8tyk",
+    "doi:10.1007/978-3-031-86623-4_11",
+    "arxiv:2405.18042v1",
+    "arxiv:2306.15111v2",
+    "doi:10.1016/j.media.2023.102844",
+    "arxiv:2210.16365v1",
+    "arxiv:2205.04675v2",
+    "arxiv:2208.05445v1",
+    "doi:10.1007/978-981-19-6901-0_116",
+    "doi:10.5772/intechopen.104785",
+    "doi:10.1007/978-981-16-9869-9_47",
+    "arxiv:2111.11066v1",
+    "arxiv:2101.06480v1",
+    "doi:10.26689/jera.v5i3.2320",
+    "arxiv:2008.10312v2",
+    "arxiv:2006.08967v1",
+    "arxiv:1909.10225v1",
+    "doi:10.1007/s41745-019-0099-3"
+  ],
+  "cards": [
+    {
+      "paper_id": "doi:10.1007/978-3-032-25311-8_22",
+      "title": "Computer Vision Self-Supervised Learning Methods on Time Series",
+      "authors": [
+        "Daesoo Lee",
+        "Erlend Aune"
+      ],
+      "year": 2026,
+      "venue": "Communications in Computer and Information Science",
+      "doi": "10.1007/978-3-032-25311-8_22",
+      "url": "https://doi.org/10.1007/978-3-032-25311-8_22",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480402+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/icipcn67432.2026.11438740",
+      "title": "A Self-Supervised Learning Framework for Low-Resource Computer Vision Applications",
+      "authors": [
+        "Rupam Sah",
+        "Praveen Gopal Gaonkar",
+        "Manas Singha",
+        "Rupam Bhagawati",
+        "Vengatesan.K",
+        "Aman Aditya"
+      ],
+      "year": 2026,
+      "venue": "2026 6th International Conference on Image Processing and Capsule Networks (ICIPCN)",
+      "doi": "10.1109/icipcn67432.2026.11438740",
+      "url": "https://doi.org/10.1109/icipcn67432.2026.11438740",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480422+00:00"
+    },
+    {
+      "paper_id": "doi:10.52843/cassyni.jz8tyk",
+      "title": "Rethinking Self-Supervised Learning in Computer Vision: Challenges, Tasks, and Methods",
+      "authors": [
+        "Zezhou Cheng"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.52843/cassyni.jz8tyk",
+      "url": "https://doi.org/10.52843/cassyni.jz8tyk",
+      "abstract": "<jats:p> Self-supervised learning has become a cornerstone of modern computer vision and multimodal foundation models, enabling scalable training on massive unlabeled data and driving recent advances in perception for autonomous agents. However, despite impressive performance on high-level semantic recognition, these models remain brittle in dynamic, open-world physical environments that demand robust spatial and temporal reasoning.  \nA key limitation is that spatiotemporal understanding is typically learned only indirectly from objectives targeting semantic recognition, rather than being treated as a foundational visual capability. In this talk, I will present our recent efforts to rethink self-supervised representation learning for vision including: \n(1) a comprehensive benchmarking of self-supervised learning methods across diverse non-semantic, mid-level vision tasks \n(2) a scalable framework that directly learn 3D geometry and scene dynamics from large-scale, in-the-wild video data\n(3) a method for learning 3D point cloud representations without any human-created 3D shapes</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480426+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-031-86623-4_11",
+      "title": "Automatic Labeling of Computer Vision Data Using Self-Supervised Learning",
+      "authors": [
+        "Abdulghani M. Abdulghani",
+        "Wilbur L. Walters",
+        "Khalid H. Abed"
+      ],
+      "year": 2025,
+      "venue": "Communications in Computer and Information Science",
+      "doi": "10.1007/978-3-031-86623-4_11",
+      "url": "https://doi.org/10.1007/978-3-031-86623-4_11",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480417+00:00"
+    },
+    {
+      "paper_id": "arxiv:2405.18042v1",
+      "title": "Visualizing the loss landscape of Self-supervised Vision Transformer",
+      "authors": [
+        "Youngwan Lee",
+        "Jeffrey Ryan Willette",
+        "Jonghee Kim",
+        "Sung Ju Hwang"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2405.18042v1",
+      "abstract": "The Masked autoencoder (MAE) has drawn attention as a representative self-supervised approach for masked image modeling with vision transformers. However, even though MAE shows better generalization capability than fully supervised training from scratch, the reason why has not been explored. In another line of work, the Reconstruction Consistent Masked Auto Encoder (RC-MAE), has been proposed which adopts a self-distillation scheme in the form of an exponential moving average (EMA) teacher into MAE, and it has been shown that the EMA-teacher performs a conditional gradient correction during optimization. To further investigate the reason for better generalization of the self-supervised ViT when trained by MAE (MAE-ViT) and the effect of the gradient correction of RC-MAE from the perspective of optimization, we visualize the loss landscapes of the self-supervised vision transformer by both MAE and RC-MAE and compare them with the supervised ViT (Sup-ViT). Unlike previous loss landscape visualizations of neural networks based on classification task loss, we visualize the loss landscape of ViT by computing pre-training task loss. Through the lens of loss landscapes, we find two interesting observations: (1) MAE-ViT has a smoother and wider overall loss curvature than Sup-ViT. (2) The EMA-teacher allows MAE to widen the region of convexity in both pretraining and linear probing, leading to quicker convergence. To the best of our knowledge, this work is the first to investigate the self-supervised ViT through the lens of the loss landscape.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726961+00:00"
+    },
+    {
+      "paper_id": "arxiv:2306.15111v2",
+      "title": "Self-Supervised Image Captioning with CLIP",
+      "authors": [
+        "Chuanyang Jin"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2306.15111v2",
+      "abstract": "Image captioning, a fundamental task in vision-language understanding, seeks to generate accurate natural language descriptions for provided images. Current image captioning approaches heavily rely on high-quality image-caption pairs, which can be hard to obtain for many domains. To address this, we introduce a self-supervised image captioning method. After learning an initial signal from a small labeled dataset, our method transitions to self-supervised learning on unlabeled data, leveraging the auxiliary task of enhancing the CLIP relevance between images and generated captions. Remarkably, despite utilizing less than 2% of the labeled COCO dataset, our method delivers a performance comparable to state-of-the-art models trained on the complete dataset. Human evaluations further reveal that our method produces captions with greater distinctiveness and informativeness, two attributes inherently challenging to achieve through supervised learning.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726981+00:00"
+    },
+    {
+      "paper_id": "doi:10.1016/j.media.2023.102844",
+      "title": "Dissecting self-supervised learning methods for surgical computer vision",
+      "authors": [
+        "Sanat Ramesh",
+        "Vinkle Srivastav",
+        "Deepak Alapatt",
+        "Tong Yu",
+        "Aditya Murali",
+        "Luca Sestini",
+        "Chinedu Innocent Nwoye",
+        "Idris Hamoud",
+        "Saurav Sharma",
+        "Antoine Fleurentin",
+        "Georgios Exarchakis",
+        "Alexandros Karargyris",
+        "Nicolas Padoy"
+      ],
+      "year": 2023,
+      "venue": "Medical Image Analysis",
+      "doi": "10.1016/j.media.2023.102844",
+      "url": "https://doi.org/10.1016/j.media.2023.102844",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480408+00:00"
+    },
+    {
+      "paper_id": "arxiv:2210.16365v1",
+      "title": "Elastic Weight Consolidation Improves the Robustness of Self-Supervised Learning Methods under Transfer",
+      "authors": [
+        "Andrius Ovsianas",
+        "Jason Ramapuram",
+        "Dan Busbridge",
+        "Eeshan Gunesh Dhekane",
+        "Russ Webb"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2210.16365v1",
+      "abstract": "Self-supervised representation learning (SSL) methods provide an effective label-free initial condition for fine-tuning downstream tasks. However, in numerous realistic scenarios, the downstream task might be biased with respect to the target label distribution. This in turn moves the learned fine-tuned model posterior away from the initial (label) bias-free self-supervised model posterior. In this work, we re-interpret SSL fine-tuning under the lens of Bayesian continual learning and consider regularization through the Elastic Weight Consolidation (EWC) framework. We demonstrate that self-regularization against an initial SSL backbone improves worst sub-group performance in Waterbirds by 5% and Celeb-A by 2% when using the ViT-B/16 architecture. Furthermore, to help simplify the use of EWC with SSL, we pre-compute and publicly release the Fisher Information Matrix (FIM), evaluated with 10,000 ImageNet-1K variates evaluated on large modern SSL architectures including ViT-B/16 and ResNet50 trained with DINO.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726965+00:00"
+    },
+    {
+      "paper_id": "arxiv:2205.04675v2",
+      "title": "Spatial Monitoring and Insect Behavioural Analysis Using Computer Vision for Precision Pollination",
+      "authors": [
+        "Malika Nisal Ratnayake",
+        "Don Chathurika Amarathunga",
+        "Asaduz Zaman",
+        "Adrian G. Dyer",
+        "Alan Dorin"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2205.04675v2",
+      "abstract": "Insects are the most important global pollinator of crops and play a key role in maintaining the sustainability of natural ecosystems. Insect pollination monitoring and management are therefore essential for improving crop production and food security. Computer vision facilitated pollinator monitoring can intensify data collection over what is feasible using manual approaches. The new data it generates may provide a detailed understanding of insect distributions and facilitate fine-grained analysis sufficient to predict their pollination efficacy and underpin precision pollination. Current computer vision facilitated insect tracking in complex outdoor environments is restricted in spatial coverage and often constrained to a single insect species. This limits its relevance to agriculture. Therefore, in this article we introduce a novel system to facilitate markerless data capture for insect counting, insect motion tracking, behaviour analysis and pollination prediction across large agricultural areas. Our system is comprised of edge computing multi-point video recording, offline automated multispecies insect counting, tracking and behavioural analysis. We implement and test our system on a commercial berry farm to demonstrate its capabilities. Our system successfully tracked four insect varieties, at nine monitoring stations within polytunnels, obtaining an F-score above 0.8 for each variety. The system enabled calculation of key metrics to assess the relative pollination impact of each insect variety. With this technological advancement, detailed, ongoing data collection for precision pollination becomes achievable. This is important to inform growers and apiarists managing crop pollination, as it allows data-driven decisions to be made to improve food production and food security.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726969+00:00"
+    },
+    {
+      "paper_id": "arxiv:2208.05445v1",
+      "title": "Non-Contrastive Self-supervised Learning for Utterance-Level Information Extraction from Speech",
+      "authors": [
+        "Jaejin Cho",
+        "Jes'us Villalba",
+        "Laureano Moro-Velazquez",
+        "Najim Dehak"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2208.05445v1",
+      "abstract": "In recent studies, self-supervised pre-trained models tend to outperform supervised pre-trained models in transfer learning. In particular, self-supervised learning (SSL) of utterance-level speech representation can be used in speech applications that require discriminative representation of consistent attributes within an utterance: speaker, language, emotion, and age. Existing frame-level self-supervised speech representation, e.g., wav2vec, can be used as utterance-level representation with pooling, but the models are usually large. There are also SSL techniques to learn utterance-level representation. One of the most successful is a contrastive method, which requires negative sampling: selecting alternative samples to contrast with the current sample (anchor). However, this does not ensure that all the negative samples belong to classes different from the anchor class without labels. This paper applies a non-contrastive self-supervised method to learn utterance-level embeddings. We adapted DIstillation with NO labels (DINO) from computer vision to speech. Unlike contrastive methods, DINO does not require negative sampling. We compared DINO to x-vector trained in a supervised manner. When transferred to down-stream tasks (speaker verification, speech emotion recognition (SER), and Alzheimer's disease detection), DINO outperformed x-vector. We studied the influence of several aspects during transfer learning such as dividing the fine-tuning process into steps, chunk lengths, or augmentation. During fine-tuning, tuning the last affine layers first and then the whole network surpassed fine-tuning all at once. Using shorter chunk lengths, although they generate more diverse inputs, did not necessarily improve performance, implying speech segments at least with a specific length are required for better performance per application. Augmentation was helpful in SER.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726977+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-981-19-6901-0_116",
+      "title": "Self-supervised Learning in Computer Vision: A Review",
+      "authors": [
+        "Zibei Wang"
+      ],
+      "year": 2022,
+      "venue": "Lecture Notes in Electrical Engineering",
+      "doi": "10.1007/978-981-19-6901-0_116",
+      "url": "https://doi.org/10.1007/978-981-19-6901-0_116",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480371+00:00"
+    },
+    {
+      "paper_id": "doi:10.5772/intechopen.104785",
+      "title": "Self-Supervised Contrastive Representation Learning in Computer Vision",
+      "authors": [
+        "Yalin Bastanlar",
+        "Semih Orhan"
+      ],
+      "year": 2022,
+      "venue": "Artificial Intelligence",
+      "doi": "10.5772/intechopen.104785",
+      "url": "https://doi.org/10.5772/intechopen.104785",
+      "abstract": "<jats:p>Although its origins date a few decades back, contrastive learning has recently gained popularity due to its achievements in self-supervised learning, especially in computer vision. Supervised learning usually requires a decent amount of labeled data, which is not easy to obtain for many applications. With self-supervised learning, we can use inexpensive unlabeled data and achieve a training on a pretext task. Such a training helps us to learn powerful representations. In most cases, for a downstream task, self-supervised training is fine-tuned with the available amount of labeled data. In this study, we review common pretext and downstream tasks in computer vision and we present the latest self-supervised contrastive learning techniques, which are implemented as Siamese neural networks. Lastly, we present a case study where self-supervised contrastive learning was applied to learn representations of semantic masks of images. Performance was evaluated on an image retrieval task and results reveal that, in accordance with the findings in the literature, fine-tuning the self-supervised training showed the best performance.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480388+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-981-16-9869-9_47",
+      "title": "Self-supervised Learning with Deep Neural Networks for Computer Vision",
+      "authors": [
+        "Tan Huan Xi Gregory",
+        "Neo Souw Chuan",
+        "Shen Bingquan"
+      ],
+      "year": 2022,
+      "venue": "IRC-SET 2021",
+      "doi": "10.1007/978-981-16-9869-9_47",
+      "url": "https://doi.org/10.1007/978-981-16-9869-9_47",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480413+00:00"
+    },
+    {
+      "paper_id": "arxiv:2111.11066v1",
+      "title": "FedCV: A Federated Learning Framework for Diverse Computer Vision Tasks",
+      "authors": [
+        "Chaoyang He",
+        "Alay Dilipbhai Shah",
+        "Zhenheng Tang",
+        "Di Fan1Adarshan Naiynar Sivashunmugam",
+        "Keerti Bhogaraju",
+        "Mita Shimpi",
+        "Li Shen",
+        "Xiaowen Chu",
+        "Mahdi Soltanolkotabi",
+        "Salman Avestimehr"
+      ],
+      "year": 2021,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2111.11066v1",
+      "abstract": "Federated Learning (FL) is a distributed learning paradigm that can learn a global or personalized model from decentralized datasets on edge devices. However, in the computer vision domain, model performance in FL is far behind centralized training due to the lack of exploration in diverse tasks with a unified FL framework. FL has rarely been demonstrated effectively in advanced computer vision tasks such as object detection and image segmentation. To bridge the gap and facilitate the development of FL for computer vision tasks, in this work, we propose a federated learning library and benchmarking framework, named FedCV, to evaluate FL on the three most representative computer vision tasks: image classification, image segmentation, and object detection. We provide non-I.I.D. benchmarking datasets, models, and various reference FL algorithms. Our benchmark study suggests that there are multiple challenges that deserve future exploration: centralized training tricks may not be directly applied to FL; the non-I.I.D. dataset actually downgrades the model accuracy to some degree in different tasks; improving the system efficiency of federated training is challenging given the huge number of parameters and the per-client memory cost. We believe that such a library and benchmark, along with comparable evaluation settings, is necessary to make meaningful progress in FL on computer vision tasks. FedCV is publicly available: https://github.com/FedML-AI/FedCV.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726952+00:00"
+    },
+    {
+      "paper_id": "arxiv:2101.06480v1",
+      "title": "SelfMatch: Combining Contrastive Self-Supervision and Consistency for Semi-Supervised Learning",
+      "authors": [
+        "Byoungjip Kim",
+        "Jinho Choo",
+        "Yeong-Dae Kwon",
+        "Seongho Joe",
+        "Seungjai Min",
+        "Youngjune Gwon"
+      ],
+      "year": 2021,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2101.06480v1",
+      "abstract": "This paper introduces SelfMatch, a semi-supervised learning method that combines the power of contrastive self-supervised learning and consistency regularization. SelfMatch consists of two stages: (1) self-supervised pre-training based on contrastive learning and (2) semi-supervised fine-tuning based on augmentation consistency regularization. We empirically demonstrate that SelfMatch achieves the state-of-the-art results on standard benchmark datasets such as CIFAR-10 and SVHN. For example, for CIFAR-10 with 40 labeled examples, SelfMatch achieves 93.19% accuracy that outperforms the strong previous methods such as MixMatch (52.46%), UDA (70.95%), ReMixMatch (80.9%), and FixMatch (86.19%). We note that SelfMatch can close the gap between supervised learning (95.87%) and semi-supervised learning (93.19%) by using only a few labels for each class.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726956+00:00"
+    },
+    {
+      "paper_id": "doi:10.26689/jera.v5i3.2320",
+      "title": "Research on Self-Supervised Comparative Learning for Computer Vision",
+      "authors": [
+        "Yuanyuan Liu",
+        "Qianqian Liu"
+      ],
+      "year": 2021,
+      "venue": "Journal of Electronic Research and Application",
+      "doi": "10.26689/jera.v5i3.2320",
+      "url": "https://doi.org/10.26689/jera.v5i3.2320",
+      "abstract": "<jats:p>In recent years, self-supervised learning which does not require a large number of manual labels generate supervised signals through the data itself to attain the characterization learning of samples. Self-supervised learning solves the problem of learning semantic features from unlabeled data, and realizes pre-training of models in large data sets. Its significant advantages have been extensively studied by scholars in recent years. There are usually three types of self-supervised learning: “Generative, Contrastive, and Generative-Contrastive.” The model of the comparative learning method is relatively simple, and the performance of the current downstream task is comparable to that of the supervised learning method. Therefore, we propose a conceptual analysis framework: data augmentation pipeline, architectures, pretext tasks, comparison methods, semi-supervised fine-tuning. Based on this conceptual framework, we qualitatively analyze the existing comparative self-supervised learning methods for computer vision, and then further analyze its performance at different stages, and finally summarize the research status of self-supervised comparative learning methods in other fields.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480397+00:00"
+    },
+    {
+      "paper_id": "arxiv:2008.10312v2",
+      "title": "Self-Supervised Learning for Large-Scale Unsupervised Image Clustering",
+      "authors": [
+        "Evgenii Zheltonozhskii",
+        "Chaim Baskin",
+        "Alex M. Bronstein",
+        "Avi Mendelson"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2008.10312v2",
+      "abstract": "Unsupervised learning has always been appealing to machine learning researchers and practitioners, allowing them to avoid an expensive and complicated process of labeling the data. However, unsupervised learning of complex data is challenging, and even the best approaches show much weaker performance than their supervised counterparts. Self-supervised deep learning has become a strong instrument for representation learning in computer vision. However, those methods have not been evaluated in a fully unsupervised setting. In this paper, we propose a simple scheme for unsupervised classification based on self-supervised representations. We evaluate the proposed approach with several recent self-supervised methods showing that it achieves competitive results for ImageNet classification (39% accuracy on ImageNet with 1000 clusters and 46% with overclustering). We suggest adding the unsupervised evaluation to a set of standard benchmarks for self-supervised learning. The code is available at https://github.com/Randl/kmeans_selfsuper",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726946+00:00"
+    },
+    {
+      "paper_id": "arxiv:2006.08967v1",
+      "title": "Robot Perception enables Complex Navigation Behavior via Self-Supervised Learning",
+      "authors": [
+        "Marvin Chancán",
+        "Michael Milford"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2006.08967v1",
+      "abstract": "Learning visuomotor control policies in robotic systems is a fundamental problem when aiming for long-term behavioral autonomy. Recent supervised-learning-based vision and motion perception systems, however, are often separately built with limited capabilities, while being restricted to few behavioral skills such as passive visual odometry (VO) or mobile robot visual localization. Here we propose an approach to unify those successful robot perception systems for active target-driven navigation tasks via reinforcement learning (RL). Our method temporally incorporates compact motion and visual perception data - directly obtained using self-supervision from a single image sequence - to enable complex goal-oriented navigation skills. We demonstrate our approach on two real-world driving dataset, KITTI and Oxford RobotCar, using the new interactive CityLearn framework. The results show that our method can accurately generalize to extreme environmental changes such as day to night cycles with up to an 80% success rate, compared to 30% for a vision-only navigation systems.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726974+00:00"
+    },
+    {
+      "paper_id": "arxiv:1909.10225v1",
+      "title": "WiCV 2019: The Sixth Women In Computer Vision Workshop",
+      "authors": [
+        "Irene Amerini",
+        "Elena Balashova",
+        "Sayna Ebrahimi",
+        "Kathryn Leonard",
+        "Arsha Nagrani",
+        "Amaia Salvador"
+      ],
+      "year": 2019,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1909.10225v1",
+      "abstract": "In this paper we present the Women in Computer Vision Workshop - WiCV 2019, organized in conjunction with CVPR 2019. This event is meant for increasing the visibility and inclusion of women researchers in the computer vision field. Computer vision and machine learning have made incredible progress over the past years, but the number of female researchers is still low both in academia and in industry. WiCV is organized especially for the following reason: to raise visibility of female researchers, to increase collaborations between them, and to provide mentorship to female junior researchers in the field. In this paper, we present a report of trends over the past years, along with a summary of statistics regarding presenters, attendees, and sponsorship for the current workshop.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-06T16:08:53.726914+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/s41745-019-0099-3",
+      "title": "Beyond Supervised Learning: A Computer Vision Perspective",
+      "authors": [
+        "Lovish Chum",
+        "Anbumani Subramanian",
+        "Vineeth N. Balasubramanian",
+        "C. V. Jawahar"
+      ],
+      "year": 2019,
+      "venue": "Journal of the Indian Institute of Science",
+      "doi": "10.1007/s41745-019-0099-3",
+      "url": "https://doi.org/10.1007/s41745-019-0099-3",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-06T16:09:04.480431+00:00"
+    }
+  ]
+}

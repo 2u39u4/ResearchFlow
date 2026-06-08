@@ -1,0 +1,443 @@
+{
+  "topic_id": "t01",
+  "topic": "retrieval augmented generation",
+  "domain": "AI/NLP",
+  "protocol_version": 1,
+  "built_at": "2026-06-04T15:59:57.074035+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "paper_ids": [
+    "arxiv:2605.12335v1",
+    "doi:10.1007/978-981-95-4632-9_4",
+    "doi:10.1007/978-3-032-08872-7_10",
+    "arxiv:2506.06962v3",
+    "arxiv:2504.13684v1",
+    "arxiv:2504.17204v1",
+    "arxiv:2504.14689v1",
+    "arxiv:2502.00306v2",
+    "arxiv:2507.23334v2",
+    "doi:10.1007/978-3-031-92285-5_7",
+    "doi:10.31224/5781",
+    "doi:10.1007/979-8-8688-1154-8_5",
+    "doi:10.1145/3726302.3729957",
+    "doi:10.1007/979-8-8688-1808-0",
+    "doi:10.2139/ssrn.5267341",
+    "doi:10.32388/gwq6lr",
+    "arxiv:2411.18583v1",
+    "arxiv:2402.12317v2",
+    "doi:10.1007/978-3-031-65647-7_7",
+    "arxiv:2309.15217v2"
+  ],
+  "cards": [
+    {
+      "paper_id": "arxiv:2605.12335v1",
+      "title": "EHR-RAGp: Retrieval-Augmented Prototype-Guided Foundation Model for Electronic Health Records",
+      "authors": [
+        "Saeed Shurrab",
+        "Mariam Al-Omari",
+        "Dana El Samad",
+        "Farah E. Shamout"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2605.12335v1",
+      "abstract": "Electronic Health Records (EHR) contain rich longitudinal patient information and are widely used in predictive modeling applications. However, effectively leveraging historical data remains challenging due to long trajectories, heterogeneous events, temporal irregularity, and the varying relevance of past clinical context. Existing approaches often rely on fixed windows or uniform aggregation, which can obscure clinically important signals. In this work, we introduce EHR-RAGp, a retrieval-augmented foundation model that dynamically integrates the most relevant patient history across diverse clinical event types. We propose a prototype-guided retrieval module that acts as an alignment mechanism and estimates the relevance of retrieved historical chunks with respect to a given prediction task, guiding the model towards the most informative context. Across multiple clinical prediction tasks, EHR-RAGp consistently outperforms state-of-the-art EHR foundation models and transformer-based baselines. Furthermore, integrating EHR-RAGp with existing clinical foundation models yields substantial performance gains. Overall, EHR-RAGp provides a scalable and efficient framework for leveraging long-range clinical context to improve downstream performance.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342296+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-981-95-4632-9_4",
+      "title": "Retrieval-Augmented Generation",
+      "authors": [
+        "Jingsong Shawn Yu",
+        "Yazhi Yao"
+      ],
+      "year": 2026,
+      "venue": "Intelligent Language Services",
+      "doi": "10.1007/978-981-95-4632-9_4",
+      "url": "https://doi.org/10.1007/978-981-95-4632-9_4",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066428+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-032-08872-7_10",
+      "title": "Information Retrieval and Retrieval-Augmented Generation",
+      "authors": [
+        "Diana Garcia Quevedo",
+        "Josue Kuri"
+      ],
+      "year": 2026,
+      "venue": "AI for Qualitative Research",
+      "doi": "10.1007/978-3-032-08872-7_10",
+      "url": "https://doi.org/10.1007/978-3-032-08872-7_10",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066520+00:00"
+    },
+    {
+      "paper_id": "arxiv:2506.06962v3",
+      "title": "AR-RAG: Autoregressive Retrieval Augmentation for Image Generation",
+      "authors": [
+        "Jingyuan Qi",
+        "Zhiyang Xu",
+        "Qifan Wang",
+        "Lifu Huang"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2506.06962v3",
+      "abstract": "We introduce Autoregressive Retrieval Augmentation (AR-RAG), a novel paradigm that enhances image generation by autoregressively incorporating knearest neighbor retrievals at the patch level. Unlike prior methods that perform a single, static retrieval before generation and condition the entire generation on fixed reference images, AR-RAG performs context-aware retrievals at each generation step, using prior-generated patches as queries to retrieve and incorporate the most relevant patch-level visual references, enabling the model to respond to evolving generation needs while avoiding limitations (e.g., over-copying, stylistic bias, etc.) prevalent in existing methods. To realize AR-RAG, we propose two parallel frameworks: (1) Distribution-Augmentation in Decoding (DAiD), a training-free plug-and-use decoding strategy that directly merges the distribution of model-predicted patches with the distribution of retrieved patches, and (2) Feature-Augmentation in Decoding (FAiD), a parameter-efficient fine-tuning method that progressively smooths the features of retrieved patches via multi-scale convolution operations and leverages them to augment the image generation process. We validate the effectiveness of AR-RAG on widely adopted benchmarks, including Midjourney-30K, GenEval and DPG-Bench, demonstrating significant performance gains over state-of-the-art image generation models.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342113+00:00"
+    },
+    {
+      "paper_id": "arxiv:2504.13684v1",
+      "title": "Intelligent Interaction Strategies for Context-Aware Cognitive Augmentation",
+      "authors": [
+        "Xiangrong",
+        "Zhu",
+        "Yuan Xu",
+        "Tianjian Liu",
+        "Jingwei Sun",
+        "Yu Zhang",
+        "Xin Tong"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2504.13684v1",
+      "abstract": "Human cognition is constrained by processing limitations, leading to cognitive overload and inefficiencies in knowledge synthesis and decision-making. Large Language Models (LLMs) present an opportunity for cognitive augmentation, but their current reactive nature limits their real-world applicability. This position paper explores the potential of context-aware cognitive augmentation, where LLMs dynamically adapt to users' cognitive states and task environments to provide appropriate support. Through a think-aloud study in an exhibition setting, we examine how individuals interact with multi-modal information and identify key cognitive challenges in structuring, retrieving, and applying knowledge. Our findings highlight the need for AI-driven cognitive support systems that integrate real-time contextual awareness, personalized reasoning assistance, and socially adaptive interactions. We propose a framework for AI augmentation that seamlessly transitions between real-time cognitive support and post-experience knowledge organization, contributing to the design of more effective human-centered AI systems.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342278+00:00"
+    },
+    {
+      "paper_id": "arxiv:2504.17204v1",
+      "title": "Factually: Exploring Wearable Fact-Checking for Augmented Truth Discernment",
+      "authors": [
+        "Chitralekha Gupta",
+        "Hanjun Wu",
+        "Praveen Sasikumar",
+        "Shreyas Sridhar",
+        "Priambudi Bagaskara",
+        "Suranga Nanayakkara"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2504.17204v1",
+      "abstract": "Wearable devices are transforming human capabilities by seamlessly augmenting cognitive functions. In this position paper, we propose a voice-based, interactive learning companion designed to amplify and extend cognitive abilities through informal learning. Our vision is threefold: (1) to enable users to discover new knowledge on-the-go through contextual interactive quizzes, fostering critical thinking and mindfulness, (2) to proactively detect misinformation, empowering users to critically assess information in real time, and (3) to provide spoken language correction and prompting hints for second language learning and effective communication. As an initial step toward this vision, we present Factually - a proactive, wearable fact-checking system integrated into devices like smartwatches or rings. Factually discreetly alerts users to potential falsehoods via vibrotactile feedback, helping them assess information critically. We demonstrate its utility through three illustrative scenarios, highlighting its potential to extend cognitive abilities for real-time misinformation detection. Early qualitative feedback suggests that Factually can enhance users' fact-checking capabilities, offering both practical and experiential benefits.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342285+00:00"
+    },
+    {
+      "paper_id": "arxiv:2504.14689v1",
+      "title": "Designing AI Systems that Augment Human Performed vs. Demonstrated Critical Thinking",
+      "authors": [
+        "Katelyn Xiaoying Mei",
+        "Nic Weber"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2504.14689v1",
+      "abstract": "The recent rapid advancement of LLM-based AI systems has accelerated our search and production of information. While the advantages brought by these systems seemingly improve the performance or efficiency of human activities, they do not necessarily enhance human capabilities. Recent research has started to examine the impact of generative AI on individuals' cognitive abilities, especially critical thinking. Based on definitions of critical thinking across psychology and education, this position paper proposes the distinction between demonstrated and performed critical thinking in the era of generative AI and discusses the implication of this distinction in research and development of AI systems that aim to augment human critical thinking.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342289+00:00"
+    },
+    {
+      "paper_id": "arxiv:2502.00306v2",
+      "title": "Riddle Me This! Stealthy Membership Inference for Retrieval-Augmented Generation",
+      "authors": [
+        "Ali Naseh",
+        "Yuefeng Peng",
+        "Anshuman Suri",
+        "Harsh Chaudhari",
+        "Alina Oprea",
+        "Amir Houmansadr"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2502.00306v2",
+      "abstract": "Retrieval-Augmented Generation (RAG) enables Large Language Models (LLMs) to generate grounded responses by leveraging external knowledge databases without altering model parameters. Although the absence of weight tuning prevents leakage via model parameters, it introduces the risk of inference adversaries exploiting retrieved documents in the model's context. Existing methods for membership inference and data extraction often rely on jailbreaking or carefully crafted unnatural queries, which can be easily detected or thwarted with query rewriting techniques common in RAG systems. In this work, we present Interrogation Attack (IA), a membership inference technique targeting documents in the RAG datastore. By crafting natural-text queries that are answerable only with the target document's presence, our approach demonstrates successful inference with just 30 queries while remaining stealthy; straightforward detectors identify adversarial prompts from existing methods up to ~76x more frequently than those generated by our attack. We observe a 2x improvement in TPR@1%FPR over prior inference attacks across diverse RAG configurations, all while costing less than $0.02 per document inference.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342305+00:00"
+    },
+    {
+      "paper_id": "arxiv:2507.23334v2",
+      "title": "MUST-RAG: MUSical Text Question Answering with Retrieval Augmented Generation",
+      "authors": [
+        "Daeyong Kwon",
+        "SeungHeon Doh",
+        "Juhan Nam"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2507.23334v2",
+      "abstract": "Recent advancements in Large language models (LLMs) have demonstrated remarkable capabilities across diverse domains. While they exhibit strong zero-shot performance on various tasks, LLMs' effectiveness in music-related applications remains limited due to the relatively small proportion of music-specific knowledge in their training data. To address this limitation, we propose MusT-RAG, a comprehensive framework based on Retrieval Augmented Generation (RAG) to adapt general-purpose LLMs for text-only music question answering (MQA) tasks. RAG is a technique that provides external knowledge to LLMs by retrieving relevant context information when generating answers to questions. To optimize RAG for the music domain, we (1) propose MusWikiDB, a music-specialized vector database for the retrieval stage, and (2) utilizes context information during both inference and fine-tuning processes to effectively transform general-purpose LLMs into music-specific models. Our experiment demonstrates that MusT-RAG significantly outperforms traditional fine-tuning approaches in enhancing LLMs' music domain adaptation capabilities, showing consistent improvements across both in-domain and out-of-domain MQA benchmarks. Additionally, our MusWikiDB proves substantially more effective than general Wikipedia corpora, delivering superior performance and computational efficiency.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342311+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-031-92285-5_7",
+      "title": "Retrieval-Augmented Generation",
+      "authors": [
+        "Filippo Bianchini"
+      ],
+      "year": 2025,
+      "venue": "Engineering Information Systems with Large Language Models",
+      "doi": "10.1007/978-3-031-92285-5_7",
+      "url": "https://doi.org/10.1007/978-3-031-92285-5_7",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066484+00:00"
+    },
+    {
+      "paper_id": "doi:10.31224/5781",
+      "title": "Retrieval-Augmented Generation",
+      "authors": [
+        "Charles Liu"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.31224/5781",
+      "url": "https://doi.org/10.31224/5781",
+      "abstract": "<jats:p>Retrieval-augmented generation (RAG) is a hybrid architecture that combines the generative power of large language models (LLMs) with the factual reliability of information retrieval systems. Although the emergence of large language models (LLMs) has significantly improved the performance of natural language understanding and generation tasks. However, these models often suffer from information distortion, outdated information, and lack of transparency. Retrieval-augmented generation (RAG) addresses these limitations by introducing an external retrieval mechanism into the generation process. RAG systems follow the retrieve first, then generate paradigm, which retrieves relevant documents from knowledge sources and uses them as input to the language model. This approach enables the model to generate more accurate, solid, and timely responses. RAG has become an infrastructure for knowledge-intensive natural language processing (NLP) and LLM. In this review, we comprehensively review the basic architecture of RAG systems, analyze key components such as retrievers and generators, compare mainstream implementations, and evaluate their performance on various tasks. We also discuss challenges in the RAG pipeline, including latency, hallucinations, context filtering, and knowledge freshness. Finally, we highlight future research directions in terms of scalability, personalization, and integration with structured knowledge sources.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066497+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/979-8-8688-1154-8_5",
+      "title": "Retrieval Augmented Generation",
+      "authors": [
+        "Arindam Ganguly"
+      ],
+      "year": 2025,
+      "venue": "Scaling Enterprise Solutions with Large Language Models",
+      "doi": "10.1007/979-8-8688-1154-8_5",
+      "url": "https://doi.org/10.1007/979-8-8688-1154-8_5",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066508+00:00"
+    },
+    {
+      "paper_id": "doi:10.1145/3726302.3729957",
+      "title": "Parametric Retrieval Augmented Generation",
+      "authors": [
+        "Weihang Su",
+        "Yichen Tang",
+        "Qingyao Ai",
+        "Junxi Yan",
+        "Changyue Wang",
+        "Hongning Wang",
+        "Ziyi Ye",
+        "Yujia Zhou",
+        "Yiqun Liu"
+      ],
+      "year": 2025,
+      "venue": "Proceedings of the 48th International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "doi": "10.1145/3726302.3729957",
+      "url": "https://doi.org/10.1145/3726302.3729957",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066574+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/979-8-8688-1808-0",
+      "title": "Mastering Retrieval-Augmented Generation",
+      "authors": [
+        "Ranajoy Bose"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.1007/979-8-8688-1808-0",
+      "url": "https://doi.org/10.1007/979-8-8688-1808-0",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066597+00:00"
+    },
+    {
+      "paper_id": "doi:10.2139/ssrn.5267341",
+      "title": "Corrective Retrieval Augmented Generation",
+      "authors": [
+        "Shi-Qi Yan",
+        "Jia-Chen Gu",
+        "Yun Zhu",
+        "Zhen-Hua Ling"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.2139/ssrn.5267341",
+      "url": "https://doi.org/10.2139/ssrn.5267341",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066605+00:00"
+    },
+    {
+      "paper_id": "doi:10.32388/gwq6lr",
+      "title": "GeAR: Generation Augmented Retrieval",
+      "authors": [
+        "Haoyu Liu",
+        "Shaohan Huang",
+        "Jianfeng Liu",
+        "Yuefeng Zhan",
+        "Hao Sun",
+        "Weiwei Deng",
+        "Feng Sun",
+        "Furu Wei",
+        "Qi Zhang"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.32388/gwq6lr",
+      "url": "https://doi.org/10.32388/gwq6lr",
+      "abstract": "<jats:p>Document retrieval techniques form the foundation for the development of large-scale information systems. The prevailing methodology is to construct a bi-encoder and compute the semantic similarity. However, such scalar similarity is difficult to reflect enough information and impedes our comprehension of the retrieval results. In addition, this computational process mainly emphasizes the global semantics and ignores the fine-grained semantic relationship between the query and the complex text in the document. In this paper, we propose a new method called Generation Augmented Retrieval (GEAR) that incorporates well-designed fusion and decoding modules. This enables GeAR to generate the relevant text from documents based on the fused representation of the query and the document, thus learning to \"focus on\" the fine-grained information. Also when used as a retriever, GeAR does not add any computational burden over bi-encoders. To support the training of the new framework, we have introduced a pipeline to efficiently synthesize high-quality data by utilizing large language models. GeAR exhibits competitive retrieval and localization performance across diverse scenarios and datasets. Moreover, the qualitative analysis and the results generated by GeAR provide novel insights into the interpretation of retrieval results. The code, data, and models will be released after completing technical review to facilitate future research.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066632+00:00"
+    },
+    {
+      "paper_id": "arxiv:2411.18583v1",
+      "title": "Automated Literature Review Using NLP Techniques and LLM-Based Retrieval-Augmented Generation",
+      "authors": [
+        "Nurshat Fateh Ali",
+        "Md. Mahdi Mohtasim",
+        "Shakil Mosharrof",
+        "T. Gopi Krishna"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2411.18583v1",
+      "abstract": "This research presents and compares multiple approaches to automate the generation of literature reviews using several Natural Language Processing (NLP) techniques and retrieval-augmented generation (RAG) with a Large Language Model (LLM). The ever-increasing number of research articles provides a huge challenge for manual literature review. It has resulted in an increased demand for automation. Developing a system capable of automatically generating the literature reviews from only the PDF files as input is the primary objective of this research work. The effectiveness of several Natural Language Processing (NLP) strategies, such as the frequency-based method (spaCy), the transformer model (Simple T5), and retrieval-augmented generation (RAG) with Large Language Model (GPT-3.5-turbo), is evaluated to meet the primary objective. The SciTLDR dataset is chosen for this research experiment and three distinct techniques are utilized to implement three different systems for auto-generating the literature reviews. The ROUGE scores are used for the evaluation of all three systems. Based on the evaluation, the Large Language Model GPT-3.5-turbo achieved the highest ROUGE-1 score, 0.364. The transformer model comes in second place and spaCy is at the last position. Finally, a graphical user interface is created for the best system based on the large language model.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342292+00:00"
+    },
+    {
+      "paper_id": "arxiv:2402.12317v2",
+      "title": "EVOR: Evolving Retrieval for Code Generation",
+      "authors": [
+        "Hongjin Su",
+        "Shuyang Jiang",
+        "Yuhang Lai",
+        "Haoyuan Wu",
+        "Boao Shi",
+        "Che Liu",
+        "Qian Liu",
+        "Tao Yu"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2402.12317v2",
+      "abstract": "Recently the retrieval-augmented generation (RAG) has been successfully applied in code generation. However, existing pipelines for retrieval-augmented code generation (RACG) employ static knowledge bases with a single source, limiting the adaptation capabilities of Large Language Models (LLMs) to domains they have insufficient knowledge of. In this work, we develop a novel pipeline, EVOR, that employs the synchronous evolution of both queries and diverse knowledge bases. On two realistic settings where the external knowledge is required to solve code generation tasks, we compile four new datasets associated with frequently updated libraries and long-tail programming languages, named EVOR-BENCH. Extensive experiments demonstrate that EVOR achieves two to four times of execution accuracy compared to other methods such as Reflexion (Shinn et al., 2024), DocPrompting (Zhou et al., 2023), etc. We demonstrate that EVOR is flexible and can be easily combined with them to achieve further improvement. Further analysis reveals that EVOR benefits from the synchronous evolution of queries and documents and the diverse information sources in the knowledge base. We hope that our studies will inspire more insights into the design of advanced RACG pipelines in future research. Our model, code, and data are available at https://arks-codegen.github.io.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342301+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-031-65647-7_7",
+      "title": "Retrieval-Augmented Generation",
+      "authors": [
+        "Uday Kamath",
+        "Kevin Keenan",
+        "Garrett Somers",
+        "Sarah Sorenson"
+      ],
+      "year": 2024,
+      "venue": "Large Language Models: A Deep Dive",
+      "doi": "10.1007/978-3-031-65647-7_7",
+      "url": "https://doi.org/10.1007/978-3-031-65647-7_7",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T15:59:57.066471+00:00"
+    },
+    {
+      "paper_id": "arxiv:2309.15217v2",
+      "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+      "authors": [
+        "Shahul Es",
+        "Jithin James",
+        "Luis Espinosa-Anke",
+        "Steven Schockaert"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2309.15217v2",
+      "abstract": "We introduce Ragas (Retrieval Augmented Generation Assessment), a framework for reference-free evaluation of Retrieval Augmented Generation (RAG) pipelines. RAG systems are composed of a retrieval and an LLM based generation module, and provide LLMs with knowledge from a reference textual database, which enables them to act as a natural language layer between a user and textual databases, reducing the risk of hallucinations. Evaluating RAG architectures is, however, challenging because there are several dimensions to consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages in a faithful way, or the quality of the generation itself. With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions \\textit{without having to rely on ground truth human annotations}. We posit that such a framework can crucially contribute to faster evaluation cycles of RAG architectures, which is especially important given the fast adoption of LLMs.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T15:59:53.342308+00:00"
+    }
+  ]
+}

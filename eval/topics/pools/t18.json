@@ -1,0 +1,401 @@
+{
+  "topic_id": "t18",
+  "topic": "automated theorem proving neural guidance",
+  "domain": "Formal Methods",
+  "protocol_version": 1,
+  "built_at": "2026-06-07T04:47:25.533724+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "arxiv:2601.07953v1",
+    "arxiv:2306.14753v1",
+    "arxiv:2305.08676v1",
+    "arxiv:2307.05639v2",
+    "arxiv:1902.00818v1",
+    "arxiv:1901.06610v2",
+    "arxiv:1905.05918v1",
+    "arxiv:1807.02477v1",
+    "arxiv:1609.04846v1",
+    "arxiv:1511.07654v1",
+    "doi:10.1017/cbo9781139026581.011",
+    "doi:10.1002/wcs.1269",
+    "doi:10.1007/978-0-85729-121-9_6",
+    "doi:10.1002/9780470050118.ecse434",
+    "doi:10.1007/978-1-4612-0159-5_6",
+    "doi:10.1007/978-1-4613-0089-2",
+    "doi:10.1007/978-3-322-90102-6",
+    "doi:10.1007/bf01934987",
+    "doi:10.1007/978-3-322-90100-2",
+    "doi:10.1016/c2009-0-12705-8"
+  ],
+  "cards": [
+    {
+      "paper_id": "arxiv:2601.07953v1",
+      "title": "Quantum automated theorem proving",
+      "authors": [
+        "Zheng-Zhi Sun",
+        "Qi Ye",
+        "Dong-Ling Deng"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2601.07953v1",
+      "abstract": "Automated theorem proving, or more broadly automated reasoning, aims at using computer programs to automatically prove or disprove mathematical theorems and logical statements. It takes on an essential role across a vast array of applications and the quest for enhanced theorem-proving capabilities remains a prominent pursuit in artificial intelligence. Here, we propose a generic framework for quantum automated theorem proving, where the intrinsic quantum superposition and entanglement features would lead to potential advantages. In particular, we introduce quantum representations of knowledge bases and propose corresponding reasoning algorithms for a variety of tasks. We show how automated reasoning can be achieved with quantum resolution in both propositional and first-order logic with quadratically reduced query complexity. In addition, we propose the quantum algebraic proving method for geometric theorems, extending Wu's algebraic approach beyond the classical setting. Through concrete examples, including geometry problems from the International Mathematical Olympiad, we demonstrate how a quantum computer may prove geometric theorems with quadratic better query complexity. Our results establish a primary approach towards building quantum automatic theorem provers, which would be crucial for practical applications of both near-term and future quantum technologies.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635283+00:00"
+    },
+    {
+      "paper_id": "arxiv:2306.14753v1",
+      "title": "The Deep Arbitrary Polynomial Chaos Neural Network or how Deep Artificial Neural Networks could benefit from Data-Driven Homogeneous Chaos Theory",
+      "authors": [
+        "Sergey Oladyshkin",
+        "Timothy Praditia",
+        "Ilja Kröker",
+        "Farid Mohammadi",
+        "Wolfgang Nowak",
+        "Sebastian Otte"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2306.14753v1",
+      "abstract": "Artificial Intelligence and Machine learning have been widely used in various fields of mathematical computing, physical modeling, computational science, communication science, and stochastic analysis. Approaches based on Deep Artificial Neural Networks (DANN) are very popular in our days. Depending on the learning task, the exact form of DANNs is determined via their multi-layer architecture, activation functions and the so-called loss function. However, for a majority of deep learning approaches based on DANNs, the kernel structure of neural signal processing remains the same, where the node response is encoded as a linear superposition of neural activity, while the non-linearity is triggered by the activation functions. In the current paper, we suggest to analyze the neural signal processing in DANNs from the point of view of homogeneous chaos theory as known from polynomial chaos expansion (PCE). From the PCE perspective, the (linear) response on each node of a DANN could be seen as a $1^{st}$ degree multi-variate polynomial of single neurons from the previous layer, i.e. linear weighted sum of monomials. From this point of view, the conventional DANN structure relies implicitly (but erroneously) on a Gaussian distribution of neural signals. Additionally, this view revels that by design DANNs do not necessarily fulfill any orthogonality or orthonormality condition for a majority of data-driven applications. Therefore, the prevailing handling of neural signals in DANNs could lead to redundant representation as any neural signal could contain some partial information from other neural signals. To tackle that challenge, we suggest to employ the data-driven generalization of PCE theory known as arbitrary polynomial chaos (aPC) to construct a corresponding multi-variate orthonormal representations on each node of a DANN to obtain Deep arbitrary polynomial chaos neural networks.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635274+00:00"
+    },
+    {
+      "paper_id": "arxiv:2305.08676v1",
+      "title": "An Ensemble Approach for Automated Theorem Proving Based on Efficient Name Invariant Graph Neural Representations",
+      "authors": [
+        "Achille Fokoue",
+        "Ibrahim Abdelaziz",
+        "Maxwell Crouse",
+        "Shajith Ikbal",
+        "Akihiro Kishimoto",
+        "Guilherme Lima",
+        "Ndivhuwo Makondo",
+        "Radu Marinescu"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2305.08676v1",
+      "abstract": "Using reinforcement learning for automated theorem proving has recently received much attention. Current approaches use representations of logical statements that often rely on the names used in these statements and, as a result, the models are generally not transferable from one domain to another. The size of these representations and whether to include the whole theory or part of it are other important decisions that affect the performance of these approaches as well as their runtime efficiency. In this paper, we present NIAGRA; an ensemble Name InvAriant Graph RepresentAtion. NIAGRA addresses this problem by using 1) improved Graph Neural Networks for learning name-invariant formula representations that is tailored for their unique characteristics and 2) an efficient ensemble approach for automated theorem proving. Our experimental evaluation shows state-of-the-art performance on multiple datasets from different domains with improvements up to 10% compared to the best learning-based approaches. Furthermore, transfer learning experiments show that our approach significantly outperforms other learning-based approaches by up to 28%.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635289+00:00"
+    },
+    {
+      "paper_id": "arxiv:2307.05639v2",
+      "title": "Learning Active Subspaces and Discovering Important Features with Gaussian Radial Basis Functions Neural Networks",
+      "authors": [
+        "Danny D'Agostino",
+        "Ilija Ilievski",
+        "Christine Annette Shoemaker"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2307.05639v2",
+      "abstract": "Providing a model that achieves a strong predictive performance and is simultaneously interpretable by humans is one of the most difficult challenges in machine learning research due to the conflicting nature of these two objectives. To address this challenge, we propose a modification of the radial basis function neural network model by equipping its Gaussian kernel with a learnable precision matrix. We show that precious information is contained in the spectrum of the precision matrix that can be extracted once the training of the model is completed. In particular, the eigenvectors explain the directions of maximum sensitivity of the model revealing the active subspace and suggesting potential applications for supervised dimensionality reduction. At the same time, the eigenvectors highlight the relationship in terms of absolute variation between the input and the latent variables, thereby allowing us to extract a ranking of the input variables based on their importance to the prediction task enhancing the model interpretability. We conducted numerical experiments for regression, classification, and feature selection tasks, comparing our model against popular machine learning models, the state-of-the-art deep learning-based embedding feature selection techniques, and a transformer model for tabular data. Our results demonstrate that the proposed model does not only yield an attractive prediction performance compared to the competitors but also provides meaningful and interpretable results that potentially could assist the decision-making process in real-world applications. A PyTorch implementation of the model is available on GitHub at the following link. https://github.com/dannyzx/Gaussian-RBFNN",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635292+00:00"
+    },
+    {
+      "paper_id": "arxiv:1902.00818v1",
+      "title": "Automated ZFC Theorem Proving with E",
+      "authors": [
+        "John Hester"
+      ],
+      "year": 2019,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1902.00818v1",
+      "abstract": "I introduce an approach for automated reasoning in first order set theories that are not finitely axiomatizable, such as $ZFC$, and describe its implementation alongside the automated theorem proving software E. I then compare the results of proof search in the class based set theory $NBG$ with those of $ZFC$.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635286+00:00"
+    },
+    {
+      "paper_id": "arxiv:1901.06610v2",
+      "title": "Hierarchical Attentional Hybrid Neural Networks for Document Classification",
+      "authors": [
+        "Jader Abreu",
+        "Luis Fred",
+        "David Macêdo",
+        "Cleber Zanchettin"
+      ],
+      "year": 2019,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1901.06610v2",
+      "abstract": "Document classification is a challenging task with important applications. The deep learning approaches to the problem have gained much attention recently. Despite the progress, the proposed models do not incorporate the knowledge of the document structure in the architecture efficiently and not take into account the contexting importance of words and sentences. In this paper, we propose a new approach based on a combination of convolutional neural networks, gated recurrent units, and attention mechanisms for document classification tasks. The main contribution of this work is the use of convolution layers to extract more meaningful, generalizable and abstract features by the hierarchical representation. The proposed method in this paper improves the results of the current attention-based approaches for document classification.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635296+00:00"
+    },
+    {
+      "paper_id": "arxiv:1905.05918v1",
+      "title": "A Neural Network-Evolutionary Computational Framework for Remaining Useful Life Estimation of Mechanical Systems",
+      "authors": [
+        "David Laredo",
+        "Zhaoyin Chen",
+        "Oliver Schütze",
+        "Jian-Qiao Sun"
+      ],
+      "year": 2019,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1905.05918v1",
+      "abstract": "This paper presents a framework for estimating the remaining useful life (RUL) of mechanical systems. The framework consists of a multi-layer perceptron and an evolutionary algorithm for optimizing the data-related parameters. The framework makes use of a strided time window to estimate the RUL for mechanical components. Tuning the data-related parameters can become a very time consuming task. The framework presented here automatically reshapes the data such that the efficiency of the model is increased. Furthermore, the complexity of the model is kept low, e.g. neural networks with few hidden layers and few neurons at each layer. Having simple models has several advantages like short training times and the capacity of being in environments with limited computational resources such as embedded systems. The proposed method is evaluated on the publicly available C-MAPSS dataset, its accuracy is compared against other state-of-the art methods for the same dataset.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635299+00:00"
+    },
+    {
+      "paper_id": "arxiv:1807.02477v1",
+      "title": "Development of a sensory-neural network for medical diagnosing",
+      "authors": [
+        "Igor Grabec",
+        "Eva Švegl",
+        "Mihael Sok"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1807.02477v1",
+      "abstract": "Performance of a sensory-neural network developed for diagnosing of diseases is described. Information about patient's condition is provided by answers to the questionnaire. Questions correspond to sensors generating signals when patients acknowledge symptoms. These signals excite neurons in which characteristics of the diseases are represented by synaptic weights associated with indicators of symptoms. The disease corresponding to the most excited neuron is proposed as the result of diagnosing. Its reliability is estimated by the likelihood defined by the ratio of excitation of the most excited neuron and the complete neural network.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635302+00:00"
+    },
+    {
+      "paper_id": "arxiv:1609.04846v1",
+      "title": "A Tutorial about Random Neural Networks in Supervised Learning",
+      "authors": [
+        "Sebastián Basterrech",
+        "Gerardo Rubino"
+      ],
+      "year": 2016,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1609.04846v1",
+      "abstract": "Random Neural Networks (RNNs) are a class of Neural Networks (NNs) that can also be seen as a specific type of queuing network. They have been successfully used in several domains during the last 25 years, as queuing networks to analyze the performance of resource sharing in many engineering areas, as learning tools and in combinatorial optimization, where they are seen as neural systems, and also as models of neurological aspects of living beings. In this article we focus on their learning capabilities, and more specifically, we present a practical guide for using the RNN to solve supervised learning problems. We give a general description of these models using almost indistinctly the terminology of Queuing Theory and the neural one. We present the standard learning procedures used by RNNs, adapted from similar well-established improvements in the standard NN field. We describe in particular a set of learning algorithms covering techniques based on the use of first order and, then, of second order derivatives. We also discuss some issues related to these objects and present new perspectives about their use in supervised learning problems. The tutorial describes their most relevant applications, and also provides a large bibliography.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635279+00:00"
+    },
+    {
+      "paper_id": "arxiv:1511.07654v1",
+      "title": "Automated Guidance of Collective Movement in a Multi-Agent Model of Physarum polycephalum",
+      "authors": [
+        "Jeff Jones"
+      ],
+      "year": 2015,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1511.07654v1",
+      "abstract": "Collective movement occurs in living systems where the simple movements of individual members of a pop- ulation are combined to generate movement of the collective as a whole, displaying complex dynamics which cannot be found in the component parts themselves. The plasmodium stage of slime mould Physarum polycephalum displays complex amoeboid movement during its foraging and hazard avoidance and its movement can be influenced by the spatial placement of attractant and repellent stimuli. Slime mould is attractive to robotics due to its simple component parts and the distributed nature of its control and locomotion mechanisms. We investigate methods of automated guidance of a multi-agent swarm collective along a pre-defined path to a goal location. We demonstrate a closed-loop feedback mechanism using attractant and repellent stimuli. We find that guidance by repellent stimuli (a light illumination mask) provides faster and more accurate guidance than attractant sources, which exhibit overshooting phenomena at path turns. The method allows traversal of convoluted arenas with challenging obstacles and provides an insight into how unconven- tional computing substrates may be hybridised with classical computing methods to take advantage of the benefits of both approaches.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:47:21.635262+00:00"
+    },
+    {
+      "paper_id": "doi:10.1017/cbo9781139026581.011",
+      "title": "Automated Theorem Proving",
+      "authors": [],
+      "year": 2015,
+      "venue": "Computation, Proof, Machine",
+      "doi": "10.1017/cbo9781139026581.011",
+      "url": "https://doi.org/10.1017/cbo9781139026581.011",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530568+00:00"
+    },
+    {
+      "paper_id": "doi:10.1002/wcs.1269",
+      "title": "Automated theorem proving",
+      "authors": [
+        "David A. Plaisted"
+      ],
+      "year": 2014,
+      "venue": "WIREs Cognitive Science",
+      "doi": "10.1002/wcs.1269",
+      "url": "https://doi.org/10.1002/wcs.1269",
+      "abstract": "<jats:p>Automated theorem proving is the use of computers to prove or disprove mathematical or logical statements. Such statements can express properties of hardware or software systems, or facts about the world that are relevant for applications such as natural language processing and planning. A brief introduction to propositional and first‐order logic is given, along with some of the main methods of automated theorem proving in these logics. These methods of theorem proving include resolution, Davis and Putnam‐style approaches, and others. Methods for handling the equality axioms are also presented. Methods of theorem proving in propositional logic are presented first, and then methods for first‐order logic.  <jats:italic>WIREs Cogn Sci</jats:italic> 2014, 5:115–128. doi: 10.1002/wcs.1269</jats:p><jats:p>This article is categorized under:\n<jats:list list-type=\"explicit-label\">\n<jats:list-item><jats:p>Computer Science &gt; Artificial Intelligence</jats:p></jats:list-item>\n<jats:list-item><jats:p>Philosophy &gt; Artificial Intelligence</jats:p></jats:list-item>\n<jats:list-item><jats:p>Philosophy &gt; Knowledge and Belief</jats:p></jats:list-item>\n</jats:list></jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530554+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-0-85729-121-9_6",
+      "title": "Automated Theorem Proving",
+      "authors": [
+        "Gilles Dowek"
+      ],
+      "year": 2011,
+      "venue": "Undergraduate Topics in Computer Science",
+      "doi": "10.1007/978-0-85729-121-9_6",
+      "url": "https://doi.org/10.1007/978-0-85729-121-9_6",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530557+00:00"
+    },
+    {
+      "paper_id": "doi:10.1002/9780470050118.ecse434",
+      "title": "Automated Theorem Proving",
+      "authors": [],
+      "year": 2008,
+      "venue": "Wiley Encyclopedia of Computer Science and Engineering",
+      "doi": "10.1002/9780470050118.ecse434",
+      "url": "https://doi.org/10.1002/9780470050118.ecse434",
+      "abstract": "<jats:title>Abstract</jats:title><jats:p>Automated theorem proving is the study of techniques for programming computers to search for proofs of formal assertions, either fully automatically or with varying degrees of human guidance. This discipline is potentially of tremendous value, because reasoning and inference underlie so many human activities. Automated (or mechanical) theorem proving is based on a foundation of formal logic that has been developed over the past several centuries by mathematicians and philosophers. This heritage of formal logic is often taken for granted, despite the tremendous amount of thought and effort that went into its development. The possibility that theorem proving programs can exist is closely tied to some properties of formal logic, which we now describe.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530564+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-1-4612-0159-5_6",
+      "title": "Automated Theorem Proving",
+      "authors": [
+        "Hongbo Li"
+      ],
+      "year": 2001,
+      "venue": "Geometric Algebra with Applications in Science and Engineering",
+      "doi": "10.1007/978-1-4612-0159-5_6",
+      "url": "https://doi.org/10.1007/978-1-4612-0159-5_6",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530548+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-1-4613-0089-2",
+      "title": "Automated Theorem Proving",
+      "authors": [
+        "Monty Newborn"
+      ],
+      "year": 2001,
+      "venue": "",
+      "doi": "10.1007/978-1-4613-0089-2",
+      "url": "https://doi.org/10.1007/978-1-4613-0089-2",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530571+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-322-90102-6",
+      "title": "Automated Theorem Proving",
+      "authors": [
+        "Wolfgang Bibel"
+      ],
+      "year": 1987,
+      "venue": "",
+      "doi": "10.1007/978-3-322-90102-6",
+      "url": "https://doi.org/10.1007/978-3-322-90102-6",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530561+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/bf01934987",
+      "title": "Automated theorem proving methods",
+      "authors": [
+        "Rolf Nossum"
+      ],
+      "year": 1985,
+      "venue": "BIT",
+      "doi": "10.1007/bf01934987",
+      "url": "https://doi.org/10.1007/bf01934987",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530578+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-322-90100-2",
+      "title": "Automated Theorem Proving",
+      "authors": [
+        "Wolfgang Bibel"
+      ],
+      "year": 1982,
+      "venue": "",
+      "doi": "10.1007/978-3-322-90100-2",
+      "url": "https://doi.org/10.1007/978-3-322-90100-2",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530574+00:00"
+    },
+    {
+      "paper_id": "doi:10.1016/c2009-0-12705-8",
+      "title": "Automated Theorem Proving",
+      "authors": [],
+      "year": 1978,
+      "venue": "",
+      "doi": "10.1016/c2009-0-12705-8",
+      "url": "https://doi.org/10.1016/c2009-0-12705-8",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:47:25.530534+00:00"
+    }
+  ]
+}

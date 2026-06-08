@@ -1,8 +1,39 @@
 # Athena Research Assistant
 
-Multi-agent research copilot for academic literature review with citation verification and evidence-grounded gap analysis.
+Multi-agent **research copilot** for academic literature review: evidence-grounded gap analysis, outline scaffolding (not full-paper generation), and **deterministic** citation verification against scholarly APIs.
 
-## Quick start (W1)
+> **Research positioning:** Athena targets LLM hallucination and shallow synthesis in scholarly settings. It is a *research assistance* tool with an academic-integrity banner in the UI — not an essay or paper ghostwriter.
+
+> **Local planning docs** (`execute.md`, `deliverables.md`, `docs/local/`) are gitignored and not part of the public repository.
+
+## What it does
+
+| Capability | Description |
+|------------|-------------|
+| **Multi-source retrieval** | arXiv, Semantic Scholar, Crossref → structured `KnowledgeCard` metadata (API-only, no invented DOIs) |
+| **Citation Validator** | `verified` / `not_found` / `mismatch` via Crossref + S2 + fuzzy title match — **no LLM** in the match logic |
+| **Critic** | Gap / weakness / relative-novelty critiques, each bound to `evidence_paper_ids` from the corpus |
+| **Writer** | Outline scaffold with author-completion markers |
+| **Pipeline** | LangGraph: Planner → Research → Critic → Writer → Validator |
+| **Evaluation** | HALLMARK benchmark (F1-H **0.747** on `dev_public`) + RQ1/RQ2/RQ3 TopicSet experiments |
+
+## Architecture
+
+```
+Topic (+ optional PDFs)
+        │
+        ▼
+   Planner ──► Research ──► Critic ──► Writer ──► Validator ──► Report
+                  │            │           │            │
+                  │            │           │            └─ deterministic API match
+                  │            │           └─ outline scaffold only
+                  │            └─ evidence-bound critiques
+                  └─ arXiv / S2 / Crossref
+```
+
+**Documentation:** [docs/README.md](docs/README.md) — technical report, HALLMARK reproduction, experiment reproduction, resume bullets.
+
+## Quick start
 
 ```bash
 cd ResearchFlow
@@ -12,10 +43,10 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env — OPENAI_API_KEY optional for smoke test (LLM step skipped if empty)
 python scripts/smoke_test.py
-pytest tests/test_w1_storage.py -q
+pytest tests/test_storage.py -q
 ```
 
-## W2 — Research retrieval
+## Research retrieval
 
 ```bash
 python scripts/run_research.py "retrieval augmented generation"
@@ -24,13 +55,17 @@ python scripts/run_research.py "retrieval augmented generation"
 
 Searches **arXiv**, **Semantic Scholar**, and **Crossref**, deduplicates by DOI/title, returns `KnowledgeCard` metadata from APIs only (no LLM-hallucinated titles).
 
+```bash
+pytest tests/test_dedup.py tests/test_converters.py tests/test_research.py -q
+```
+
 ## Semantic Scholar
 
 `SEMANTIC_SCHOLAR_API_KEY` is optional. Without a key, the client uses **anonymous** access (~1 req/s). Add the key to `.env` when approved.
 
 Set `CROSSREF_MAILTO` in `.env` for Crossref polite pool (recommended).
 
-## W3 — Citation validation (deterministic, no LLM)
+## Citation validation (deterministic, no LLM)
 
 ```bash
 python scripts/validate_citations.py
@@ -43,9 +78,9 @@ Returns `verified` / `not_found` / `mismatch` per reference via Crossref + Seman
 pytest tests/test_citation_validator.py -q
 ```
 
-## W4 — HALLMARK benchmark evaluation
+## HALLMARK benchmark evaluation
 
-Requires **Python 3.10+** (the main venv may be 3.9; use `python3.11` if available).
+Requires **Python 3.10+** (the main venv may be 3.9; use `python3.11` if available). Full guide: [docs/HALLMARK.md](docs/HALLMARK.md).
 
 ```bash
 bash scripts/install_hallmark.sh   # .vendor/hallmark + .venv-eval (Python 3.10+)
@@ -64,7 +99,7 @@ Full `dev_public` (~1,119 entries) hits Crossref/S2 APIs — use `--delay` and e
 pytest tests/test_hallmark_adapter.py -q
 ```
 
-## W5 — Critic Agent (evidence-grounded gaps)
+## Critic Agent (evidence-grounded gaps)
 
 ```bash
 # Retrieve papers then critique (needs OPENAI_API_KEY)
@@ -81,7 +116,7 @@ Outputs `gap` / `weakness` / `novelty` critiques. Each claim must cite `paper_id
 pytest tests/test_critic.py -q
 ```
 
-## W6 — End-to-end pipeline (LangGraph)
+## End-to-end pipeline (LangGraph)
 
 ```bash
 python scripts/run_pipeline.py "retrieval augmented generation"
@@ -91,10 +126,10 @@ python scripts/run_pipeline.py "retrieval augmented generation"
 Runs **Planner → Research → Critic → Writer (outline scaffold) → Citation Validator** with step `trace` and SQLite checkpointing (`data/athena_checkpoints.db`).
 
 ```bash
-pytest tests/test_w6_pipeline.py -q
+pytest tests/test_pipeline.py -q
 ```
 
-## W7 — Streamlit UI
+## Streamlit UI
 
 ```bash
 # Requires OPENAI_API_KEY and dependencies from requirements.txt
@@ -102,21 +137,76 @@ streamlit run app/streamlit_app.py
 # Or: bash scripts/run_streamlit.sh
 ```
 
-Features: topic + constraints, full pipeline run with step progress, citation validation badges, critique evidence cards, outline scaffolding, academic-integrity banner, trace/timing table, JSON export/load.
+Features: topic + constraints, full pipeline run with step progress, citation validation badges, critique evidence cards, outline scaffolding, academic-integrity banner, trace/timing table, JSON export/load. Optional password gate via `ATHENA_UI_PASSWORD` when not running on localhost only.
 
 ```bash
 pytest tests/test_streamlit_app.py -q
 ```
 
+## Evaluation experiments (RQ1 / RQ2 / RQ3)
+
+Cross-domain **TopicSet** (20 topics), **LLM-as-judge** (configured separately from the subject model), and reproducible RQ scripts. Full guide: [docs/REPRODUCTION.md](docs/REPRODUCTION.md). Results write-up: [docs/TECHNICAL_REPORT.md](docs/TECHNICAL_REPORT.md).
+
+```bash
+pip install matplotlib scipy   # figures + stats
+
+# 1) Build reference pools (fixed protocol; slow — arXiv rate limits)
+python scripts/run_experiments.py build-pools --limit 5
+
+# 2) RQ3 only (bundled examples/ samples; no LLM; no large results/ files required)
+python scripts/run_experiments.py rq3
+
+# Judge smoke test (Gemini — paste GEMINI_API_KEY in .env first)
+python scripts/smoke_judge_gemini.py
+
+# 3) RQ1 / RQ2 (needs OPENAI_API_KEY; set JUDGE_LLM_* to a different provider/model, e.g. gemini)
+python scripts/run_experiments.py rq1 --limit 3 --repeats 3
+python scripts/run_experiments.py rq2 --limit 3 --repeats 3
+
+# Pilot without judge API calls:
+python scripts/run_experiments.py rq1 --topic-ids t01 --repeats 1 --skip-judge
+
+# 4) Figures + markdown summary
+python scripts/run_experiments.py analysis
+```
+
+**Outputs** (under `results/experiments/`, gitignored locally):
+
+| Path | Description |
+|------|-------------|
+| `rq1/latest.json`, `rq2/latest.json`, `rq3/latest.json` | Per-RQ raw results |
+| `figures/rq1_coverage.png`, `rq2_ablation.png`, `rq3_fake_citation.png` | Summary plots |
+| `experiment_summary.md` | Statistical summary (CI, *t*-tests, human-anchor agreement) |
+
+Human anchor template: `eval/judges/human_anchor_template.csv` (~20% stratified sample).
+
+```bash
+pytest tests/test_eval_metrics.py -q
+```
+
 ## Project layout
 
 ```
-athena/          # core package (agents, tools, llm, storage, graph, rag)
-eval/            # benchmarks & experiments (HALLMARK in W4)
-app/             # Streamlit UI (W7)
-scripts/         # smoke_test.py, run_research.py
-tests/
+athena/          # Core: agents, tools, llm, storage, graph, rag
+eval/            # HALLMARK adapter (citebench), LLM judge, RQ experiments, analysis
+  topics/pools/  # Committed reference pools (20 topics) — skip slow build-pools on clone
+app/             # Streamlit demo UI
+docs/            # Technical report, HALLMARK & experiment reproduction, resume bullets
+examples/        # Minimal RQ3 / pipeline samples (no results/ required)
+scripts/         # CLI entry points
+tests/           # Offline unit tests
+.github/         # CI workflow (pytest)
 ```
+
+Licensed under [MIT](LICENSE).
+
+## Reproducing published numbers
+
+| Metric | Command / doc |
+|--------|----------------|
+| HALLMARK F1-H 0.747 | [docs/HALLMARK.md](docs/HALLMARK.md) |
+| RQ1/RQ2/RQ3 stats | [docs/REPRODUCTION.md](docs/REPRODUCTION.md) |
+| Seeds & cache | `EVAL_RANDOM_SEED=42`, `athena_cache/` |
 
 ## Clear LLM cache
 

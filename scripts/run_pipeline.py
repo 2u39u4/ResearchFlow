@@ -15,11 +15,12 @@ if str(ROOT) not in sys.path:
 
 from athena.graph.build_graph import build_athena_graph, initial_state
 from athena.graph.report import state_to_report
+from athena.agents.research import CriticalResearchSourcesError
 from athena.storage.sqlite import init_db, persist_traces
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Athena W6 end-to-end pipeline")
+    parser = argparse.ArgumentParser(description="Athena end-to-end pipeline")
     parser.add_argument("topic", help="Research topic")
     parser.add_argument("--thread-id", help="LangGraph thread id for checkpoint resume")
     parser.add_argument(
@@ -58,7 +59,12 @@ def main() -> int:
     )
 
     print(f"Running pipeline (thread_id={thread_id})...", file=sys.stderr)
-    final = graph.invoke(state, config=config)
+    try:
+        final = graph.invoke(state, config=config)
+    except CriticalResearchSourcesError as exc:
+        for err in exc.errors:
+            print(f"Research failed: {err}", file=sys.stderr)
+        return 1
     report = state_to_report(final)
 
     if report.get("run_id"):

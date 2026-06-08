@@ -132,7 +132,7 @@ def insert_sample_records() -> dict[str, Any]:
             INSERT INTO experiments (name, config_json, result_json, created_at)
             VALUES (?, ?, ?, ?)
             """,
-            ("smoke", json.dumps({"rq": "w1"}), json.dumps({"ok": True}), now),
+            ("smoke", json.dumps({"rq": "smoke"}), json.dumps({"ok": True}), now),
         )
         conn.execute(
             """

@@ -75,6 +75,8 @@ def _safe_lookup_doi(doi: str) -> Optional[dict[str, Any]]:
         if exc.response is not None and exc.response.status_code == 404:
             return None
         raise
+    except requests.RequestException:
+        return None
 
 
 def _arxiv_id_from_doi(doi: str) -> Optional[str]:
@@ -132,7 +134,11 @@ def _search_candidates(title: str, top_k: int) -> list[ResolvedWork]:
     candidates: list[ResolvedWork] = []
     seen_doi: set[str] = set()
 
-    for work in search_by_title(title, rows=top_k):
+    try:
+        crossref_works = search_by_title(title, rows=top_k)
+    except requests.RequestException:
+        crossref_works = []
+    for work in crossref_works:
         resolved = _work_from_crossref(work)
         if resolved and resolved.doi and resolved.doi not in seen_doi:
             seen_doi.add(resolved.doi)

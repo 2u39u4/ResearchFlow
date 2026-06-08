@@ -1,0 +1,434 @@
+{
+  "topic_id": "t12",
+  "topic": "adversarial robustness malware detection",
+  "domain": "Cybersecurity",
+  "protocol_version": 1,
+  "built_at": "2026-06-04T17:40:33.398472+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "doi:10.2139/ssrn.6722779",
+    "doi:10.1016/j.compeleceng.2025.110845",
+    "doi:10.1109/miucc66482.2025.11196809",
+    "doi:10.1109/ijcnn64981.2025.11228087",
+    "doi:10.1109/icme59968.2025.11209896",
+    "doi:10.1007/978-3-031-80408-3_17",
+    "arxiv:2305.02559v2",
+    "arxiv:2304.07989v3",
+    "arxiv:2305.02396v2",
+    "doi:10.1007/978-3-031-24848-1_13",
+    "arxiv:2211.10048v1",
+    "arxiv:2210.00008v2",
+    "doi:10.1007/978-3-030-97532-6_1",
+    "doi:10.1109/icc42927.2021.9500425",
+    "arxiv:2006.16545v1",
+    "arxiv:2004.07919v3",
+    "arxiv:2007.08428v4",
+    "doi:10.1109/globecom42002.2020.9322377",
+    "arxiv:1801.02950v3",
+    "arxiv:1507.03467v1"
+  ],
+  "cards": [
+    {
+      "paper_id": "doi:10.2139/ssrn.6722779",
+      "title": "Enhancing Malware Detection Robustness through Hybrid Adversarial Machine Learning",
+      "authors": [
+        "Mounira Redjimi",
+        "Amina Makhlouf",
+        "Majda Maatallah",
+        "Abdelmadjid Benmachiche",
+        "Soundes Oumaima Boufaida"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.2139/ssrn.6722779",
+      "url": "https://doi.org/10.2139/ssrn.6722779",
+      "abstract": "<jats:p>Cybersecurity now relies heavily on machine learning (ML) technology for things like identifying malware, detecting intrusions, and preventing fraud. Unfortunately, the models used to implement ML-based cybersecurity are at risk of being manipulated. Specifically, hackers can create malicious input data to trick classifiers without changing their maliciousness. Most existing defenses against adversarial attacks cannot successfully respond to new and greater levels of threat. This article presents a new way of combining adversarial training and defensive distillation using Hybrid Adversarial Learning (HAL) to create sequencebased enhancements to the overall robustness of ML-based cybersecurity systems. Through adversarial training, the model will see noise input training data, which will help create stronger local decision boundaries. On the other hand, through defensive distillation, we will help to create smoother global decision boundaries and make the model less vulnerable to being attacked by adversaries that attempt to transfer their input data attacks from one model to another. HAL was tested using Microsoft's Malware Classification Challenge, EMBER and Malimg datasets and consistently produced results superior to baseline and any individual type of defensive measure. Under both white-box and black-box attack scenarios HAL produced superior levels of resilience compared to the baseline or any individual type of measure while producing acceptable levels of accuracy in classification. The results demonstrate the methodology and structure of HAL as a practical means of developing more robust ML-based cybersecurity systems for use in real-world environments.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391263+00:00"
+    },
+    {
+      "paper_id": "doi:10.1016/j.compeleceng.2025.110845",
+      "title": "Evaluating the robustness of adversarial defenses in malware detection systems",
+      "authors": [
+        "Mostafa Jafari",
+        "Alireza Shameli-Sendi"
+      ],
+      "year": 2026,
+      "venue": "Computers and Electrical Engineering",
+      "doi": "10.1016/j.compeleceng.2025.110845",
+      "url": "https://doi.org/10.1016/j.compeleceng.2025.110845",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391326+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/miucc66482.2025.11196809",
+      "title": "Beyond Accuracy: Robustness and Explainability in Adversarial Malware Detection",
+      "authors": [
+        "Eslam Amer",
+        "Gelayol Golcarenarenji",
+        "Alaa Mohasseb",
+        "Tamer Elboghdadly"
+      ],
+      "year": 2025,
+      "venue": "2025 International Mobile, Intelligent, and Ubiquitous Computing Conference (MIUCC)",
+      "doi": "10.1109/miucc66482.2025.11196809",
+      "url": "https://doi.org/10.1109/miucc66482.2025.11196809",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391294+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/ijcnn64981.2025.11228087",
+      "title": "ExpanQN: Enhancing Android Malware Detection with Dataset Expansion and Adversarial Robustness",
+      "authors": [
+        "Kumarakrishna Valeti",
+        "Siddhant Kulkarni",
+        "Hemant Rathore"
+      ],
+      "year": 2025,
+      "venue": "2025 International Joint Conference on Neural Networks (IJCNN)",
+      "doi": "10.1109/ijcnn64981.2025.11228087",
+      "url": "https://doi.org/10.1109/ijcnn64981.2025.11228087",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391357+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/icme59968.2025.11209896",
+      "title": "MalDenoise: Enhancing Robustness of API-Based Malware Detection Against Adversarial Attacks",
+      "authors": [
+        "Xiaohui Chen",
+        "Xin Wang",
+        "Zuhui Yue",
+        "Zheng Li",
+        "Peipei Liu",
+        "Hongsong Zhu"
+      ],
+      "year": 2025,
+      "venue": "2025 IEEE International Conference on Multimedia and Expo (ICME)",
+      "doi": "10.1109/icme59968.2025.11209896",
+      "url": "https://doi.org/10.1109/icme59968.2025.11209896",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391371+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-031-80408-3_17",
+      "title": "Adversarial Malware Detection",
+      "authors": [
+        "Ashish Vishwakarma",
+        "Umesh Kashyap",
+        "Sk Subidh Ali"
+      ],
+      "year": 2024,
+      "venue": "Lecture Notes in Computer Science",
+      "doi": "10.1007/978-3-031-80408-3_17",
+      "url": "https://doi.org/10.1007/978-3-031-80408-3_17",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391347+00:00"
+    },
+    {
+      "paper_id": "arxiv:2305.02559v2",
+      "title": "Madvex: Instrumentation-based Adversarial Attacks on Machine Learning Malware Detection",
+      "authors": [
+        "Nils Loose",
+        "Felix Mächtle",
+        "Claudius Pott",
+        "Volodymyr Bezsmertnyi",
+        "Thomas Eisenbarth"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2305.02559v2",
+      "abstract": "WebAssembly (Wasm) is a low-level binary format for web applications, which has found widespread adoption due to its improved performance and compatibility with existing software. However, the popularity of Wasm has also led to its exploitation for malicious purposes, such as cryptojacking, where malicious actors use a victim's computing resources to mine cryptocurrencies without their consent. To counteract this threat, machine learning-based detection methods aiming to identify cryptojacking activities within Wasm code have emerged. It is well-known that neural networks are susceptible to adversarial attacks, where inputs to a classifier are perturbed with minimal changes that result in a crass misclassification. While applying changes in image classification is easy, manipulating binaries in an automated fashion to evade malware classification without changing functionality is non-trivial. In this work, we propose a new approach to include adversarial examples in the code section of binaries via instrumentation. The introduced gadgets allow for the inclusion of arbitrary bytes, enabling efficient adversarial attacks that reliably bypass state-of-the-art machine learning classifiers such as the CNN-based Minos recently proposed at NDSS 2021. We analyze the cost and reliability of instrumentation-based adversarial example generation and show that the approach works reliably at minimal size and performance overheads.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576627+00:00"
+    },
+    {
+      "paper_id": "arxiv:2304.07989v3",
+      "title": "IMCDCF: An Incremental Malware Detection Approach Using Hidden Markov Models",
+      "authors": [
+        "Ran Liu",
+        "Charles Nicholas"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2304.07989v3",
+      "abstract": "The popularity of dynamic malware analysis has grown significantly, as it enables analysts to observe the behavior of executing samples, thereby enhancing malware detection and classification decisions. With the continuous increase in new malware variants, there is an urgent need for an automated malware analysis engine capable of accurately identifying malware samples. In this paper, we provide a brief overview of malware detection and classification methodologies. Moreover, we introduce a novel framework tailored for the dynamic analysis environment, called the Incremental Malware Detection and Classification Framework (IMDCF). IMDCF offers a comprehensive solution for general-purpose malware detection and classification, achieving an accuracy rate of 96.49% while maintaining a simple architecture.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576643+00:00"
+    },
+    {
+      "paper_id": "arxiv:2305.02396v2",
+      "title": "Can Feature Engineering Help Quantum Machine Learning for Malware Detection?",
+      "authors": [
+        "Ran Liu",
+        "Maksim Eren",
+        "Charles Nicholas"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2305.02396v2",
+      "abstract": "With the increasing number and sophistication of malware attacks, malware detection systems based on machine learning (ML) grow in importance. At the same time, many popular ML models used in malware classification are supervised solutions. These supervised classifiers often do not generalize well to novel malware. Therefore, they need to be re-trained frequently to detect new malware specimens, which can be time-consuming. Our work addresses this problem in a hybrid framework of theoretical Quantum ML, combined with feature selection strategies to reduce the data size and malware classifier training time. The preliminary results show that VQC with XGBoost selected features can get a 78.91% test accuracy on the simulator. The average accuracy for the model trained using the features selected with XGBoost was 74% (+- 11.35%) on the IBM 5 qubits machines.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576666+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-031-24848-1_13",
+      "title": "Enhancing Robustness of Malware Detection Model Against White Box Adversarial Attacks",
+      "authors": [
+        "Riya Singhal",
+        "Meet Soni",
+        "Shruti Bhatt",
+        "Manav Khorasiya",
+        "Devesh C. Jinwala"
+      ],
+      "year": 2023,
+      "venue": "Lecture Notes in Computer Science",
+      "doi": "10.1007/978-3-031-24848-1_13",
+      "url": "https://doi.org/10.1007/978-3-031-24848-1_13",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391384+00:00"
+    },
+    {
+      "paper_id": "arxiv:2211.10048v1",
+      "title": "Clustering based opcode graph generation for malware variant detection",
+      "authors": [
+        "Kar Wai Fok",
+        "Vrizlynn L. L. Thing"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2211.10048v1",
+      "abstract": "Malwares are the key means leveraged by threat actors in the cyber space for their attacks. There is a large array of commercial solutions in the market and significant scientific research to tackle the challenge of the detection and defense against malwares. At the same time, attackers also advance their capabilities in creating polymorphic and metamorphic malwares to make it increasingly challenging for existing solutions. To tackle this issue, we propose a methodology to perform malware detection and family attribution. The proposed methodology first performs the extraction of opcodes from malwares in each family and constructs their respective opcode graphs. We explore the use of clustering algorithms on the opcode graphs to detect clusters of malwares within the same malware family. Such clusters can be seen as belonging to different sub-family groups. Opcode graph signatures are built from each detected cluster. Hence, for each malware family, a group of signatures is generated to represent the family. These signatures are used to classify an unknown sample as benign or belonging to one the malware families. We evaluate our methodology by performing experiments on a dataset consisting of both benign files and malware samples belonging to a number of different malware families and comparing the results to existing approach.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576617+00:00"
+    },
+    {
+      "paper_id": "arxiv:2210.00008v2",
+      "title": "Adversarial Attacks on Transformers-Based Malware Detectors",
+      "authors": [
+        "Yash Jakhotiya",
+        "Heramb Patil",
+        "Jugal Rawlani",
+        "Sunil B. Mane"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2210.00008v2",
+      "abstract": "Signature-based malware detectors have proven to be insufficient as even a small change in malignant executable code can bypass these signature-based detectors. Many machine learning-based models have been proposed to efficiently detect a wide variety of malware. Many of these models are found to be susceptible to adversarial attacks - attacks that work by generating intentionally designed inputs that can force these models to misclassify. Our work aims to explore vulnerabilities in the current state of the art malware detectors to adversarial attacks. We train a Transformers-based malware detector, carry out adversarial attacks resulting in a misclassification rate of 23.9% and propose defenses that reduce this misclassification rate to half. An implementation of our work can be found at https://github.com/yashjakhotiya/Adversarial-Attacks-On-Transformers.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576673+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-030-97532-6_1",
+      "title": "Adversarial Robustness of Image Based Android Malware Detection Models",
+      "authors": [
+        "Hemant Rathore",
+        "Taeeb Bandwala",
+        "Sanjay K. Sahay",
+        "Mohit Sewak"
+      ],
+      "year": 2022,
+      "venue": "Communications in Computer and Information Science",
+      "doi": "10.1007/978-3-030-97532-6_1",
+      "url": "https://doi.org/10.1007/978-3-030-97532-6_1",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391306+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/icc42927.2021.9500425",
+      "title": "Robustness of Image-based Android Malware Detection Under Adversarial Attacks",
+      "authors": [
+        "Asim Darwaish",
+        "Farid Nait-Abdesselam",
+        "Chafiq Titouna",
+        "Sumera Sattar"
+      ],
+      "year": 2021,
+      "venue": "ICC 2021 - IEEE International Conference on Communications",
+      "doi": "10.1109/icc42927.2021.9500425",
+      "url": "https://doi.org/10.1109/icc42927.2021.9500425",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391337+00:00"
+    },
+    {
+      "paper_id": "arxiv:2006.16545v1",
+      "title": "Adversarial Deep Ensemble: Evasion Attacks and Defenses for Malware Detection",
+      "authors": [
+        "Deqiang Li",
+        "Qianmu Li"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2006.16545v1",
+      "abstract": "Malware remains a big threat to cyber security, calling for machine learning based malware detection. While promising, such detectors are known to be vulnerable to evasion attacks. Ensemble learning typically facilitates countermeasures, while attackers can leverage this technique to improve attack effectiveness as well. This motivates us to investigate which kind of robustness the ensemble defense or effectiveness the ensemble attack can achieve, particularly when they combat with each other. We thus propose a new attack approach, named mixture of attacks, by rendering attackers capable of multiple generative methods and multiple manipulation sets, to perturb a malware example without ruining its malicious functionality. This naturally leads to a new instantiation of adversarial training, which is further geared to enhancing the ensemble of deep neural networks. We evaluate defenses using Android malware detectors against 26 different attacks upon two practical datasets. Experimental results show that the new adversarial training significantly enhances the robustness of deep neural networks against a wide range of attacks, ensemble methods promote the robustness when base classifiers are robust enough, and yet ensemble attacks can evade the enhanced malware detectors effectively, even notably downgrading the VirusTotal service.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576593+00:00"
+    },
+    {
+      "paper_id": "arxiv:2004.07919v3",
+      "title": "A Framework for Enhancing Deep Neural Networks Against Adversarial Malware",
+      "authors": [
+        "Deqiang Li",
+        "Qianmu Li",
+        "Yanfang Ye",
+        "Shouhuai Xu"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2004.07919v3",
+      "abstract": "Machine learning-based malware detection is known to be vulnerable to adversarial evasion attacks. The state-of-the-art is that there are no effective defenses against these attacks. As a response to the adversarial malware classification challenge organized by the MIT Lincoln Lab and associated with the AAAI-19 Workshop on Artificial Intelligence for Cyber Security (AICS'2019), we propose six guiding principles to enhance the robustness of deep neural networks. Some of these principles have been scattered in the literature, but the others are introduced in this paper for the first time. Under the guidance of these six principles, we propose a defense framework to enhance the robustness of deep neural networks against adversarial malware evasion attacks. By conducting experiments with the Drebin Android malware dataset, we show that the framework can achieve a 98.49\\% accuracy (on average) against grey-box attacks, where the attacker knows some information about the defense and the defender knows some information about the attack, and an 89.14% accuracy (on average) against the more capable white-box attacks, where the attacker knows everything about the defense and the defender knows some information about the attack. The framework wins the AICS'2019 challenge by achieving a 76.02% accuracy, where neither the attacker (i.e., the challenge organizer) knows the framework or defense nor we (the defender) know the attacks. This gap highlights the importance of knowing about the attack.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576635+00:00"
+    },
+    {
+      "paper_id": "arxiv:2007.08428v4",
+      "title": "On Adversarial Robustness: A Neural Architecture Search perspective",
+      "authors": [
+        "Chaitanya Devaguptapu",
+        "Devansh Agarwal",
+        "Gaurav Mittal",
+        "Pulkit Gopalani",
+        "Vineeth N Balasubramanian"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2007.08428v4",
+      "abstract": "Adversarial robustness of deep learning models has gained much traction in the last few years. Various attacks and defenses are proposed to improve the adversarial robustness of modern-day deep learning architectures. While all these approaches help improve the robustness, one promising direction for improving adversarial robustness is unexplored, i.e., the complex topology of the neural network architecture. In this work, we address the following question: Can the complex topology of a neural network give adversarial robustness without any form of adversarial training?. We answer this empirically by experimenting with different hand-crafted and NAS-based architectures. Our findings show that, for small-scale attacks, NAS-based architectures are more robust for small-scale datasets and simple tasks than hand-crafted architectures. However, as the size of the dataset or the complexity of task increases, hand-crafted architectures are more robust than NAS-based architectures. Our work is the first large-scale study to understand adversarial robustness purely from an architectural perspective. Our study shows that random sampling in the search space of DARTS (a popular NAS method) with simple ensembling can improve the robustness to PGD attack by nearly~12\\%. We show that NAS, which is popular for achieving SoTA accuracy, can provide adversarial accuracy as a free add-on without any form of adversarial training. Our results show that leveraging the search space of NAS methods with methods like ensembles can be an excellent way to achieve adversarial robustness without any form of adversarial training. We also introduce a metric that can be used to calculate the trade-off between clean accuracy and adversarial robustness. Code and pre-trained models will be made available at \\url{https://github.com/tdchaitanya/nas-robustness}",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576681+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/globecom42002.2020.9322377",
+      "title": "Enhancing Robustness of Malware Detection using Synthetically-Adversarial Samples",
+      "authors": [
+        "Wee Ling Tan",
+        "Tram Truong-Huu"
+      ],
+      "year": 2020,
+      "venue": "GLOBECOM 2020 - 2020 IEEE Global Communications Conference",
+      "doi": "10.1109/globecom42002.2020.9322377",
+      "url": "https://doi.org/10.1109/globecom42002.2020.9322377",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:40:33.391316+00:00"
+    },
+    {
+      "paper_id": "arxiv:1801.02950v3",
+      "title": "Adversarial Deep Learning for Robust Detection of Binary Encoded Malware",
+      "authors": [
+        "Abdullah Al-Dujaili",
+        "Alex Huang",
+        "Erik Hemberg",
+        "Una-May O'Reilly"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1801.02950v3",
+      "abstract": "Malware is constantly adapting in order to avoid detection. Model based malware detectors, such as SVM and neural networks, are vulnerable to so-called adversarial examples which are modest changes to detectable malware that allows the resulting malware to evade detection. Continuous-valued methods that are robust to adversarial examples of images have been developed using saddle-point optimization formulations. We are inspired by them to develop similar methods for the discrete, e.g. binary, domain which characterizes the features of malware. A specific extra challenge of malware is that the adversarial examples must be generated in a way that preserves their malicious functionality. We introduce methods capable of generating functionally preserved adversarial malware examples in the binary domain. Using the saddle-point formulation, we incorporate the adversarial examples into the training of models that are robust to them. We evaluate the effectiveness of the methods and others in the literature on a set of Portable Execution~(PE) files. Comparison prompts our introduction of an online measure computed during training to assess general expectation of robustness.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576651+00:00"
+    },
+    {
+      "paper_id": "arxiv:1507.03467v1",
+      "title": "Using HTML5 to Prevent Detection of Drive-by-Download Web Malware",
+      "authors": [
+        "Alfredo De Santis",
+        "Giancarlo De Maio",
+        "Umberto Ferraro Petrillo"
+      ],
+      "year": 2015,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1507.03467v1",
+      "abstract": "The web is experiencing an explosive growth in the last years. New technologies are introduced at a very fast-pace with the aim of narrowing the gap between web-based applications and traditional desktop applications. The results are web applications that look and feel almost like desktop applications while retaining the advantages of being originated from the web. However, these advancements come at a price. The same technologies used to build responsive, pleasant and fully-featured web applications, can also be used to write web malware able to escape detection systems. In this article we present new obfuscation techniques, based on some of the features of the upcoming HTML5 standard, which can be used to deceive malware detection systems. The proposed techniques have been experimented on a reference set of obfuscated malware. Our results show that the malware rewritten using our obfuscation techniques go undetected while being analyzed by a large number of detection systems. The same detection systems were able to correctly identify the same malware in its original unobfuscated form. We also provide some hints about how the existing malware detection systems can be modified in order to cope with these new techniques.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:40:31.576659+00:00"
+    }
+  ]
+}

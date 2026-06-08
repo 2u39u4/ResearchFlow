@@ -1,4 +1,4 @@
-"""W6 pipeline tests — graph compile, trace, citations, mocked agents."""
+"""Pipeline tests — graph compile, trace, citations, mocked agents."""
 
 from __future__ import annotations
 
@@ -94,6 +94,7 @@ def test_research_node(mock_research):
         topic="rag",
         cards=[_card("a:1")],
         errors=[],
+        sources_ok={"arxiv": True, "semantic_scholar": True, "crossref": True},
     )
     out = research_node(
         {
@@ -135,6 +136,7 @@ def test_pipeline_invoke_mocked(
         topic="rag",
         cards=[_card("a:1"), _card("a:2")],
         errors=[],
+        sources_ok={"arxiv": True, "semantic_scholar": False, "crossref": True},
     )
     mock_critic.return_value = CriticResult(
         topic="rag",

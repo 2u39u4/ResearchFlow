@@ -1,4 +1,4 @@
-"""W2 tests — dedup and KnowledgeCard (no network)."""
+"""Research dedup and KnowledgeCard tests — no network."""
 
 from athena.schemas.knowledge_card import KnowledgeCard
 from athena.tools.dedup import deduplicate_cards

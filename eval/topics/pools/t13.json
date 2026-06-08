@@ -1,0 +1,426 @@
+{
+  "topic_id": "t13",
+  "topic": "human-AI collaboration decision support",
+  "domain": "HCI",
+  "protocol_version": 1,
+  "built_at": "2026-06-04T17:42:07.423025+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "arxiv:2603.08190v2",
+    "doi:10.55041/ijcope.v2i4.523",
+    "doi:10.1007/978-3-032-16758-3_4",
+    "arxiv:2504.15894v1",
+    "arxiv:2504.16770v1",
+    "arxiv:2504.14689v1",
+    "arxiv:2510.16097v1",
+    "arxiv:2504.14996v1",
+    "arxiv:2503.02631v2",
+    "doi:10.71465/mrcis134",
+    "doi:10.4337/9781035346240.00019",
+    "doi:10.30574/wjaets.2025.15.1.0498",
+    "arxiv:2405.14107v1",
+    "doi:10.1145/3660515.3661324",
+    "doi:10.1162/tacl_a_00679",
+    "arxiv:2302.02944v2",
+    "doi:10.1038/d41591-023-00022-w",
+    "doi:10.4018/979-8-3693-0892-9.ch016",
+    "arxiv:2206.13202v2",
+    "doi:10.29007/9qxd"
+  ],
+  "cards": [
+    {
+      "paper_id": "arxiv:2603.08190v2",
+      "title": "Human-AI Collaboration for Scaling Agile Regression Testing: An Agentic-AI Teammate from Manual to Automated Testing",
+      "authors": [
+        "Moustapha El Outmani",
+        "Manthan Venkataramana Shenoy",
+        "Ahmad Hatahet",
+        "Andreas Rausch",
+        "Tim Niklas Kniep",
+        "Thomas Raddatz",
+        "Benjamin King"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2603.08190v2",
+      "abstract": "Automated regression testing is essential for maintaining rapid, high-quality delivery in Agile and Scrum organizations. Many teams, including Hacon (a Siemens company), face a persistent gap: validated test specifications accumulate faster than they are automated, limiting regression coverage and increasing manual work. This paper reports an exploratory industrial case study of the Hacon Test Automation Copilot, an agentic AI system that generates system-level regression test scripts from validated specifications using retrieval-augmented generation and a multi-agent workflow. Integrated with Hacon's CI pipelines, the Copilot operates asynchronously as a \"silent AI teammate\", producing candidate scripts for human review. Mixed-method evaluation shows the AI accelerates script authoring and increases throughput, with 30-50% code reuse. However, human review remains necessary for maintainability and correct domain interpretation. Clear specifications, explicit governance, and ongoing human-AI collaboration are critical. We conclude with lessons for scaling regression automation and enabling effective human-AI teaming in Agile settings.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636491+00:00"
+    },
+    {
+      "paper_id": "doi:10.55041/ijcope.v2i4.523",
+      "title": "Human-AI Collaboration and Decision Making",
+      "authors": [
+        "Yash Tyagi Yash Tyagi",
+        "Lakshay Lakshay",
+        "Dr. Deepti Sharma Dr. Deepti Sharma"
+      ],
+      "year": 2026,
+      "venue": "International Journal of Creative and Open Research in Engineering and Management",
+      "doi": "10.55041/ijcope.v2i4.523",
+      "url": "https://doi.org/10.55041/ijcope.v2i4.523",
+      "abstract": "<jats:p>The collaboration between humans and artificial intelligence (AI) has become increasingly intricate and significant. Despite rapid advancements, the literature remains fragmented, with limited integrative frameworks to explain how AI-human dynamics and decision-making outcomes. We have explores the theoretical foundations, methodologies, and practical implications of human–AI collaborative systems. It investigates how such systems influence decision accuracy, trust, and accountability. This study addresses this critical gap by conducting a systematic review\n, culminating in a novel conceptual framework. The framework identifies two critical dimensions, AI-human dynamics and decision typologies, that shape decision outcomes and introduces four distinct paradigms of AI-human collaborative decision-making: adaptive intuitive decision, programmed algorithmic decision, interpretive analytical decision and integrative hybrid decision. By synthesizing these paradigms, this research advances the theoretical understanding of hybrid decision-making systems and provides actionable insights for organizations navigating complex and AI-driven environments. By elucidating the mechanisms and trade-offs inherent in AI-human collaboration, this work lays a robust foundation for future research on adaptive decision systems in an era marked by accelerating technological change.\n\n\nKEYWORDS: Human-AI collaboration, decision making, Artificial intelligence, Productivity, Machine learning.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415608+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-032-16758-3_4",
+      "title": "Human - AI Collaboration in Organisational Decision-Making",
+      "authors": [
+        "Milan Bokan",
+        "Adam Jacobson",
+        "Niki Chatzipanagiotou"
+      ],
+      "year": 2026,
+      "venue": "Communications in Computer and Information Science",
+      "doi": "10.1007/978-3-032-16758-3_4",
+      "url": "https://doi.org/10.1007/978-3-032-16758-3_4",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415657+00:00"
+    },
+    {
+      "paper_id": "arxiv:2504.15894v1",
+      "title": "Supporting Data-Frame Dynamics in AI-assisted Decision Making",
+      "authors": [
+        "Chengbo Zheng",
+        "Tim Miller",
+        "Alina Bialkowski",
+        "H Peter Soyer",
+        "Monika Janda"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2504.15894v1",
+      "abstract": "High stakes decision-making often requires a continuous interplay between evolving evidence and shifting hypotheses, a dynamic that is not well supported by current AI decision support systems. In this paper, we introduce a mixed-initiative framework for AI assisted decision making that is grounded in the data-frame theory of sensemaking and the evaluative AI paradigm. Our approach enables both humans and AI to collaboratively construct, validate, and adapt hypotheses. We demonstrate our framework with an AI-assisted skin cancer diagnosis prototype that leverages a concept bottleneck model to facilitate interpretable interactions and dynamic updates to diagnostic hypotheses.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636419+00:00"
+    },
+    {
+      "paper_id": "arxiv:2504.16770v1",
+      "title": "DeBiasMe: De-biasing Human-AI Interactions with Metacognitive AIED (AI in Education) Interventions",
+      "authors": [
+        "Chaeyeon Lim"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2504.16770v1",
+      "abstract": "While generative artificial intelligence (Gen AI) increasingly transforms academic environments, a critical gap exists in understanding and mitigating human biases in AI interactions, such as anchoring and confirmation bias. This position paper advocates for metacognitive AI literacy interventions to help university students critically engage with AI and address biases across the Human-AI interaction workflows. The paper presents the importance of considering (1) metacognitive support with deliberate friction focusing on human bias; (2) bi-directional Human-AI interaction intervention addressing both input formulation and output interpretation; and (3) adaptive scaffolding that responds to diverse user engagement patterns. These frameworks are illustrated through ongoing work on \"DeBiasMe,\" AIED (AI in Education) interventions designed to enhance awareness of cognitive biases while empowering user agency in AI interactions. The paper invites multiple stakeholders to engage in discussions on design and evaluation methods for scaffolding mechanisms, bias visualization, and analysis frameworks. This position contributes to the emerging field of AI-augmented learning by emphasizing the critical role of metacognition in helping students navigate the complex interaction between human, statistical, and systemic biases in AI use while highlighting how cognitive adaptation to AI systems must be explicitly integrated into comprehensive AI literacy frameworks.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636438+00:00"
+    },
+    {
+      "paper_id": "arxiv:2504.14689v1",
+      "title": "Designing AI Systems that Augment Human Performed vs. Demonstrated Critical Thinking",
+      "authors": [
+        "Katelyn Xiaoying Mei",
+        "Nic Weber"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2504.14689v1",
+      "abstract": "The recent rapid advancement of LLM-based AI systems has accelerated our search and production of information. While the advantages brought by these systems seemingly improve the performance or efficiency of human activities, they do not necessarily enhance human capabilities. Recent research has started to examine the impact of generative AI on individuals' cognitive abilities, especially critical thinking. Based on definitions of critical thinking across psychology and education, this position paper proposes the distinction between demonstrated and performed critical thinking in the era of generative AI and discusses the implication of this distinction in research and development of AI systems that aim to augment human critical thinking.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636446+00:00"
+    },
+    {
+      "paper_id": "arxiv:2510.16097v1",
+      "title": "Narrowing Action Choices with AI Improves Human Sequential Decisions",
+      "authors": [
+        "Eleni Straitouri",
+        "Stratis Tsirtsis",
+        "Ander Artola Velasco",
+        "Manuel Gomez-Rodriguez"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2510.16097v1",
+      "abstract": "Recent work has shown that, in classification tasks, it is possible to design decision support systems that do not require human experts to understand when to cede agency to a classifier or when to exercise their own agency to achieve complementarity$\\unicode{x2014}$experts using these systems make more accurate predictions than those made by the experts or the classifier alone. The key principle underpinning these systems reduces to adaptively controlling the level of human agency, by design. Can we use the same principle to achieve complementarity in sequential decision making tasks? In this paper, we answer this question affirmatively. We develop a decision support system that uses a pre-trained AI agent to narrow down the set of actions a human can take to a subset, and then asks the human to take an action from this action set. Along the way, we also introduce a bandit algorithm that leverages the smoothness properties of the action sets provided by our system to efficiently optimize the level of human agency. To evaluate our decision support system, we conduct a large-scale human subject study ($n = 1{,}600$) where participants play a wildfire mitigation game. We find that participants who play the game supported by our system outperform those who play on their own by $\\sim$$30$% and the AI agent used by our system by $>$$2$%, even though the AI agent largely outperforms participants playing without support. We have made available the data gathered in our human subject study as well as an open source implementation of our system at https://github.com/Networks-Learning/narrowing-action-choices .",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636455+00:00"
+    },
+    {
+      "paper_id": "arxiv:2504.14996v1",
+      "title": "Distributed Cognition for AI-supported Remote Operations: Challenges and Research Directions",
+      "authors": [
+        "Rune Møberg Jacobsen",
+        "Joel Wester",
+        "Helena Bøjer Djernæs",
+        "Niels van Berkel"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2504.14996v1",
+      "abstract": "This paper investigates the impact of artificial intelligence integration on remote operations, emphasising its influence on both distributed and team cognition. As remote operations increasingly rely on digital interfaces, sensors, and networked communication, AI-driven systems transform decision-making processes across domains such as air traffic control, industrial automation, and intelligent ports. However, the integration of AI introduces significant challenges, including the reconfiguration of human-AI team cognition, the need for adaptive AI memory that aligns with human distributed cognition, and the design of AI fallback operators to maintain continuity during communication disruptions. Drawing on theories of distributed and team cognition, we analyse how cognitive overload, loss of situational awareness, and impaired team coordination may arise in AI-supported environments. Based on real-world intelligent port scenarios, we propose research directions that aim to safeguard human reasoning and enhance collaborative decision-making in AI-augmented remote operations.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636469+00:00"
+    },
+    {
+      "paper_id": "arxiv:2503.02631v2",
+      "title": "Reflection on Data Storytelling Tools in the Generative AI Era from the Human-AI Collaboration Perspective",
+      "authors": [
+        "Haotian Li",
+        "Yun Wang",
+        "Huamin Qu"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2503.02631v2",
+      "abstract": "Human-AI collaborative tools attract attentions from the data storytelling community to lower the expertise barrier and streamline the workflow. The recent advance in large-scale generative AI techniques, e.g., large language models (LLMs) and text-to-image models, has the potential to enhance data storytelling with their power in visual and narration generation. After two years since these techniques were publicly available, it is important to reflect our progress of applying them and have an outlook for future opportunities. To achieve the goal, we compare the collaboration patterns of the latest tools with those of earlier ones using a dedicated framework for understanding human-AI collaboration in data storytelling. Through comparison, we identify consistently widely studied patterns, e.g., human-creator + AI-assistant, and newly explored or emerging ones, e.g., AI-creator + human-reviewer. The benefits of these AI techniques and implications to human-AI collaboration are also revealed. We further propose future directions to hopefully ignite innovations.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636477+00:00"
+    },
+    {
+      "paper_id": "doi:10.71465/mrcis134",
+      "title": "HUMAN–AI COLLABORATION IN INTELLIGENT DECISION SUPPORT SYSTEMS",
+      "authors": [
+        "Amna Qazi",
+        "Sami Ullah"
+      ],
+      "year": 2025,
+      "venue": "Multidisciplinary Research in Computing Information Systems",
+      "doi": "10.71465/mrcis134",
+      "url": "https://doi.org/10.71465/mrcis134",
+      "abstract": "<jats:p>Human–AI collaboration has emerged as a central paradigm in the evolution of intelligent decision support systems (IDSS). As artificial intelligence (AI) continues to advance in accuracy, scalability, and analytical depth, integrating human judgment with machine intelligence is essential for enhancing decision quality across domains such as healthcare, finance, governance, manufacturing, and disaster response. This article examines frameworks of human–AI collaboration, interaction models, algorithmic transparency, and shared decision-making methodologies. Two graphs illustrate decision accuracy improvements and the increasing adoption rate of hybrid human–AI systems. The article concludes with challenges—such as ethical concerns, interpretability, trust, and cognitive load—and future opportunities in adaptive collaboration, explainable AI, and context-aware IDSS designs.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415544+00:00"
+    },
+    {
+      "paper_id": "doi:10.4337/9781035346240.00019",
+      "title": "Human–AI collaboration in decision making",
+      "authors": [
+        "Hassan Qudrat-Ullah"
+      ],
+      "year": 2025,
+      "venue": "Understanding Advanced Decision Making",
+      "doi": "10.4337/9781035346240.00019",
+      "url": "https://doi.org/10.4337/9781035346240.00019",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415586+00:00"
+    },
+    {
+      "paper_id": "doi:10.30574/wjaets.2025.15.1.0498",
+      "title": "Human-AI collaboration in decision-making",
+      "authors": [
+        "Simi Abdul Shukkoor"
+      ],
+      "year": 2025,
+      "venue": "World Journal of Advanced Engineering Technology and Sciences",
+      "doi": "10.30574/wjaets.2025.15.1.0498",
+      "url": "https://doi.org/10.30574/wjaets.2025.15.1.0498",
+      "abstract": "<jats:p>The convergence of artificial intelligence and cloud computing represents a transformative paradigm in organizational decision-making, fundamentally reshaping technological capabilities across diverse industries. This article reveals how advanced computational architectures enable organizations to transcend traditional constraints, creating intelligent systems that can process complex datasets, generate nuanced insights, and provide adaptive decision support. By integrating sophisticated machine learning algorithms with scalable cloud infrastructures, businesses can develop more responsive, precise, and strategically intelligent methods to data analysis, challenge resolution, and operational optimization. The article examines cloud-powered AI decision support systems, decision-making enhancement mechanisms, industry-specific applications with a particular focus on healthcare, challenges including transparency and privacy concerns, and emerging technological frontiers that promise to further revolutionize AI capabilities.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415597+00:00"
+    },
+    {
+      "paper_id": "arxiv:2405.14107v1",
+      "title": "Towards Feature Engineering with Human and AI's Knowledge: Understanding Data Science Practitioners' Perceptions in Human&AI-Assisted Feature Engineering Design",
+      "authors": [
+        "Qian Zhu",
+        "Dakuo Wang",
+        "Shuai Ma",
+        "April Yi Wang",
+        "Zixin Chen",
+        "Udayan Khurana",
+        "Xiaojuan Ma"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2405.14107v1",
+      "abstract": "As AI technology continues to advance, the importance of human-AI collaboration becomes increasingly evident, with numerous studies exploring its potential in various fields. One vital field is data science, including feature engineering (FE), where both human ingenuity and AI capabilities play pivotal roles. Despite the existence of AI-generated recommendations for FE, there remains a limited understanding of how to effectively integrate and utilize humans' and AI's knowledge. To address this gap, we design a readily-usable prototype, human\\&AI-assisted FE in Jupyter notebooks. It harnesses the strengths of humans and AI to provide feature suggestions to users, seamlessly integrating these recommendations into practical workflows. Using the prototype as a research probe, we conducted an exploratory study to gain valuable insights into data science practitioners' perceptions, usage patterns, and their potential needs when presented with feature suggestions from both humans and AI. Through qualitative analysis, we discovered that the Creator of the feature (i.e., AI or human) significantly influences users' feature selection, and the semantic clarity of the suggested feature greatly impacts its adoption rate. Furthermore, our findings indicate that users perceive both differences and complementarity between features generated by humans and those generated by AI. Lastly, based on our study results, we derived a set of design recommendations for future human&AI FE design. Our findings show the collaborative potential between humans and AI in the field of FE.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636484+00:00"
+    },
+    {
+      "paper_id": "doi:10.1145/3660515.3661324",
+      "title": "AI-Driven Personalization to Support Human-AI Collaboration",
+      "authors": [
+        "Cristina Conati"
+      ],
+      "year": 2024,
+      "venue": "Companion of the16th ACM SIGCHI Symposium on Engineering Interactive Computing Systems",
+      "doi": "10.1145/3660515.3661324",
+      "url": "https://doi.org/10.1145/3660515.3661324",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415574+00:00"
+    },
+    {
+      "paper_id": "doi:10.1162/tacl_a_00679",
+      "title": "Decision-Oriented Dialogue for Human-AI Collaboration",
+      "authors": [
+        "Jessy Lin",
+        "Nicholas Tomlin",
+        "Jacob Andreas",
+        "Jason Eisner"
+      ],
+      "year": 2024,
+      "venue": "Transactions of the Association for Computational Linguistics",
+      "doi": "10.1162/tacl_a_00679",
+      "url": "https://doi.org/10.1162/tacl_a_00679",
+      "abstract": "<jats:title>Abstract</jats:title>\n               <jats:p>We describe a class of tasks called decision-oriented dialogues, in which AI assistants such as large language models (LMs) must collaborate with one or more humans via natural language to help them make complex decisions. We formalize three domains in which users face everyday decisions: (1) choosing an assignment of reviewers to conference papers, (2) planning a multi-step itinerary in a city, and (3) negotiating travel plans for a group of friends. In each of these settings, AI assistants and users have disparate abilities that they must combine to arrive at the best decision: Assistants can access and process large amounts of information, while users have preferences and constraints external to the system. For each task, we build a dialogue environment where agents receive a reward based on the quality of the final decision they reach. We evaluate LMs in self-play and in collaboration with humans and find that they fall short compared to human assistants, achieving much lower rewards despite engaging in longer dialogues. We highlight a number of challenges models face in decision-oriented dialogues, ranging from goal-directed behavior to reasoning and optimization, and release our environments as a testbed for future work.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415668+00:00"
+    },
+    {
+      "paper_id": "arxiv:2302.02944v2",
+      "title": "Learning Complementary Policies for Human-AI Teams",
+      "authors": [
+        "Ruijiang Gao",
+        "Maytal Saar-Tsechansky",
+        "Maria De-Arteaga"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2302.02944v2",
+      "abstract": "This paper tackles the critical challenge of human-AI complementarity in decision-making. Departing from the traditional focus on algorithmic performance in favor of performance of the human-AI team, and moving past the framing of collaboration as classification to focus on decision-making tasks, we introduce a novel approach to policy learning. Specifically, we develop a robust solution for human-AI collaboration when outcomes are only observed under assigned actions. We propose a deferral collaboration approach that maximizes decision rewards by exploiting the distinct strengths of humans and AI, strategically allocating instances among them. Critically, our method is robust to misspecifications in both the human behavior and reward models. Leveraging the insight that performance gains stem from divergent human and AI behavioral patterns, we demonstrate, using synthetic and real human responses, that our proposed method significantly outperforms independent human and algorithmic decision-making. Moreover, we show that substantial performance improvements are achievable by routing only a small fraction of instances to human decision-makers, highlighting the potential for efficient and effective human-AI collaboration in complex management settings.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636499+00:00"
+    },
+    {
+      "paper_id": "doi:10.1038/d41591-023-00022-w",
+      "title": "Human–AI collaboration boosts mental health support",
+      "authors": [
+        "Karen O’Leary"
+      ],
+      "year": 2023,
+      "venue": "Nature Medicine",
+      "doi": "10.1038/d41591-023-00022-w",
+      "url": "https://doi.org/10.1038/d41591-023-00022-w",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415636+00:00"
+    },
+    {
+      "paper_id": "doi:10.4018/979-8-3693-0892-9.ch016",
+      "title": "Human-AI Collaboration in Environmental Decision Making",
+      "authors": [
+        "Aakanksha Goalla",
+        "P. Shefali",
+        "Koshika Sushmitha"
+      ],
+      "year": 2023,
+      "venue": "Advances in Environmental Engineering and Green Technologies",
+      "doi": "10.4018/979-8-3693-0892-9.ch016",
+      "url": "https://doi.org/10.4018/979-8-3693-0892-9.ch016",
+      "abstract": "<jats:p>In a crowded, interconnected world, it is becoming increasingly important to consider the ethical implications of decisions made by humans and AI. When AI and humans work together on decision-making in environmental policy, novel ethical considerations arise that require both parties to work in cooperation with one another. One party may be more knowledgeable about the situation at hand while the other may have access to resources not as readily available for a single party. There are many potential benefits for human-AI collaboration including efficiency, improving accuracy of predictions, expanding knowledge base and breadth of expertise without bias from a single perspective, etc. However, there are also potential drawbacks such as differing stances on ethics among different parties involved in collaboration. It is also possible that a party working in collaboration with a machine may not realize the extent of its involvement.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415646+00:00"
+    },
+    {
+      "paper_id": "arxiv:2206.13202v2",
+      "title": "Human-AI Collaboration in Decision-Making: Beyond Learning to Defer",
+      "authors": [
+        "Diogo Leitão",
+        "Pedro Saleiro",
+        "Mário A. T. Figueiredo",
+        "Pedro Bizarro"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2206.13202v2",
+      "abstract": "Human-AI collaboration (HAIC) in decision-making aims to create synergistic teaming between human decision-makers and AI systems. Learning to defer (L2D) has been presented as a promising framework to determine who among humans and AI should make which decisions in order to optimize the performance and fairness of the combined system. Nevertheless, L2D entails several often unfeasible requirements, such as the availability of predictions from humans for every instance or ground-truth labels that are independent from said humans. Furthermore, neither L2D nor alternative approaches tackle fundamental issues of deploying HAIC systems in real-world settings, such as capacity management or dealing with dynamic environments. In this paper, we aim to identify and review these and other limitations, pointing to where opportunities for future research in HAIC may lie.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:42:04.636462+00:00"
+    },
+    {
+      "paper_id": "doi:10.29007/9qxd",
+      "title": "Clinician-AI Collaboration for Decision Support in Telemedicine",
+      "authors": [
+        "Ryan Harari",
+        "Nima Ahmadi",
+        "Shiva Pourfalatoun",
+        "Abdullah Al-Taweel",
+        "Hamid Shokoohi"
+      ],
+      "year": null,
+      "venue": "EPiC Series in Computing",
+      "doi": "10.29007/9qxd",
+      "url": "https://doi.org/10.29007/9qxd",
+      "abstract": "<jats:p>AI systems, particularly Large Language Models (LLMs), have the potential to improve telemedicine. However, there is a need to further investigate the effectiveness of AI decision support and clinician-AI collaboration in this context. This study examines the impact of AI-only and clinician-AI support systems on trust, acceptance, usability, and cognitive load in telemedicine scenarios. In a randomized controlled study, twenty non-medical participants were randomly assigned to receive support from an AI-only or clinician-AI decision support system during cardiopulmonary resuscitation (CPR) scenarios simulated in an augmented reality (AR) headset. We used ChatGPT 3, a widely used LLM, as the AI system. Participants' responses were measured using trust, acceptance, and usability questionnaires, as well as a wearable wristband to collect physiological data. The results show that the clinician-AI scenario was perceived as more useful compared to the ChatGPT-only scenario. The collaborative approach also led to higher heart rate variability (HRV) and lower LF/HF ratio, indicating potentially lower mental effort compared to ChatGPT-only. No significant differences were found in system usability scale (SUS) and electrodermal activity (EDA) levels between the scenarios. These findings highlight the importance of involving clinicians in AI- supported telemedicine. Further research should explore real-world applications to validate the preliminary results.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:42:07.415625+00:00"
+    }
+  ]
+}

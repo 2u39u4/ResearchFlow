@@ -1,0 +1,450 @@
+{
+  "topic_id": "t14",
+  "topic": "battery degradation prediction electric vehicles",
+  "domain": "Energy Engineering",
+  "protocol_version": 1,
+  "built_at": "2026-06-04T17:43:41.252580+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "arxiv:2511.07713v1",
+    "arxiv:2505.11027v2",
+    "doi:10.1016/j.energy.2025.134663",
+    "doi:10.2991/978-94-6463-928-5_10",
+    "arxiv:2410.14347v1",
+    "arxiv:2404.04429v1",
+    "arxiv:2410.01685v1",
+    "doi:10.21275/sr24312045250",
+    "doi:10.21275/sr24312045251",
+    "doi:10.1016/j.apenergy.2023.122090",
+    "arxiv:2308.03056v1",
+    "doi:10.1109/access.2023.3271287",
+    "arxiv:2203.04642v1",
+    "arxiv:2212.08273v2",
+    "arxiv:2204.12825v2",
+    "doi:10.1142/9781800611429_0011",
+    "doi:10.1109/upec.2019.8893474",
+    "arxiv:1801.06523v1",
+    "doi:10.1002/9783527693924.ch01",
+    "doi:10.1109/citres.2010.5619782"
+  ],
+  "cards": [
+    {
+      "paper_id": "arxiv:2511.07713v1",
+      "title": "Synergistic Development of Cybersecurity and Functional Safety for Smart Electric Vehicles",
+      "authors": [
+        "Siddhesh Pimpale"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2511.07713v1",
+      "abstract": "The introduction of Smart Electric Vehicles (SEVs) represents an increasingly disruption on automotive area, once integrates advanced computer and communication technologies to highly electrical cars, which come with high performances, environment friendly and user friendly characteristics . But the increasing complexity of SEVs prompted by greater dependence on interconnected systems, autonomous capabilities and electrification, presents new challenges in cybersecurity as well as functional safety. The safety and reliability of such vehicles is paramount, as unsafe or unreliable operation in either case represents an unacceptable risk in terms of the performance of the vehicle and safety of the passenger. This paper investigates the integrated development of cybersecurity and functional safety for SEVs, emphasizing the requirement for the parallel development of these domains as components that are not treated separately. In SEVs, cybersecurity is quite crucial in order to prevent the threats of hacking, data breaches and unauthorized access to vehicle systems. Functional safety ensures that important vehicle functions (braking, steering, battery control, etc.) keep working even if some part fails. This convergence of functional safety issues with cybersecurity issues is becoming more crucial, since a security incident can result in a failure of catastrophic consequences for a functional safety system and, conversely. This paper reports the current state of cybersecurity and functional safety standards for SEVs, highlighting challenges that include the weaknesses of communication networks, the potential security threats of over-the-air updates, and the demand for real-time responsive systems for failure.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852755+00:00"
+    },
+    {
+      "paper_id": "arxiv:2505.11027v2",
+      "title": "A User-centric Game for Balancing V2G Benefits with Battery Degradation of Electric Vehicles",
+      "authors": [
+        "Arghya Mallick",
+        "Georgios Pantazis",
+        "Peyman Mohajerin Esfahani",
+        "Sergio Grammatico"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2505.11027v2",
+      "abstract": "We present a novel user-centric vehicle-to-grid (V2G) framework that enables electric vehicle (EV) users to balance the trade-off between financial benefits from V2G and battery health degradation based on individual preference signals.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852787+00:00"
+    },
+    {
+      "paper_id": "doi:10.1016/j.energy.2025.134663",
+      "title": "Prediction of lithium-ion battery degradation trajectory in electric vehicles under real-world scenarios",
+      "authors": [
+        "Fang Li",
+        "Haonan Feng",
+        "Yongjun Min",
+        "Yong Zhang",
+        "Hongfu Zuo",
+        "Fang Bai",
+        "Ying Zhang"
+      ],
+      "year": 2025,
+      "venue": "Energy",
+      "doi": "10.1016/j.energy.2025.134663",
+      "url": "https://doi.org/10.1016/j.energy.2025.134663",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245520+00:00"
+    },
+    {
+      "paper_id": "doi:10.2991/978-94-6463-928-5_10",
+      "title": "Battery-Electric Vehicles",
+      "authors": [
+        "Daniel Karthe",
+        "Luisa F. S. Prates",
+        "Gantuya Ganbat",
+        "Minjeong Choi",
+        "Serena Caucci",
+        "Seoyoung Lim",
+        "Lulu Zhang",
+        "Lili Wang",
+        "Jack O’Connor",
+        "Christina Dornack",
+        "Alexey V. Alekseenko",
+        "Yubin Yang"
+      ],
+      "year": 2025,
+      "venue": "Advances in Engineering Research",
+      "doi": "10.2991/978-94-6463-928-5_10",
+      "url": "https://doi.org/10.2991/978-94-6463-928-5_10",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245556+00:00"
+    },
+    {
+      "paper_id": "arxiv:2410.14347v1",
+      "title": "A Scientific Machine Learning Approach for Predicting and Forecasting Battery Degradation in Electric Vehicles",
+      "authors": [
+        "Sharv Murgai",
+        "Hrishikesh Bhagwat",
+        "Raj Abhijit Dandekar",
+        "Rajat Dandekar",
+        "Sreedath Panat"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2410.14347v1",
+      "abstract": "Carbon emissions are rising at an alarming rate, posing a significant threat to global efforts to mitigate climate change. Electric vehicles have emerged as a promising solution, but their reliance on lithium-ion batteries introduces the critical challenge of battery degradation. Accurate prediction and forecasting of battery degradation over both short and long time spans are essential for optimizing performance, extending battery life, and ensuring effective long-term energy management. This directly influences the reliability, safety, and sustainability of EVs, supporting their widespread adoption and aligning with key UN SDGs. In this paper, we present a novel approach to the prediction and long-term forecasting of battery degradation using Scientific Machine Learning framework which integrates domain knowledge with neural networks, offering more interpretable and scientifically grounded solutions for both predicting short-term battery health and forecasting degradation over extended periods. This hybrid approach captures both known and unknown degradation dynamics, improving predictive accuracy while reducing data requirements. We incorporate ground-truth data to inform our models, ensuring that both the predictions and forecasts reflect practical conditions. The model achieved MSE of 9.90 with the UDE and 11.55 with the NeuralODE, in experimental data, a loss of 1.6986 with the UDE, and a MSE of 2.49 in the NeuralODE, demonstrating the enhanced precision of our approach. This integration of data-driven insights with SciML's strengths in interpretability and scalability allows for robust battery management. By enhancing battery longevity and minimizing waste, our approach contributes to the sustainability of energy systems and accelerates the global transition toward cleaner, more responsible energy solutions, aligning with the UN's SDG agenda.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852715+00:00"
+    },
+    {
+      "paper_id": "arxiv:2404.04429v1",
+      "title": "Physics-Informed Machine Learning for Battery Degradation Diagnostics: A Comparison of State-of-the-Art Methods",
+      "authors": [
+        "Sina Navidi",
+        "Adam Thelen",
+        "Tingkai Li",
+        "Chao Hu"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2404.04429v1",
+      "abstract": "Monitoring the health of lithium-ion batteries' internal components as they age is crucial for optimizing cell design and usage control strategies. However, quantifying component-level degradation typically involves aging many cells and destructively analyzing them throughout the aging test, limiting the scope of quantifiable degradation to the test conditions and duration. Fortunately, recent advances in physics-informed machine learning (PIML) for modeling and predicting the battery state of health demonstrate the feasibility of building models to predict the long-term degradation of a lithium-ion battery cell's major components using only short-term aging test data by leveraging physics. In this paper, we present four approaches for building physics-informed machine learning models and comprehensively compare them, considering accuracy, complexity, ease-of-implementation, and their ability to extrapolate to untested conditions. We delve into the details of each physics-informed machine learning method, providing insights specific to implementing them on small battery aging datasets. Our study utilizes long-term cycle aging data from 24 implantable-grade lithium-ion cells subjected to varying temperatures and C-rates over four years. This paper aims to facilitate the selection of an appropriate physics-informed machine learning method for predicting long-term degradation in lithium-ion batteries, using short-term aging data while also providing insights about when to choose which method for general predictive purposes.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852763+00:00"
+    },
+    {
+      "paper_id": "arxiv:2410.01685v1",
+      "title": "Effects of eco-driving on energy consumption and battery degradation for electric vehicles at signalized intersections",
+      "authors": [
+        "Yongqiang Wang",
+        "Suresh G. Advani",
+        "Ajay K. Prasad"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2410.01685v1",
+      "abstract": "Eco-driving has been shown to reduce energy consumption for electric vehicles (EVs). Such strategies can also be implemented to both reduce energy consumption and improve battery lifetime. This study considers the eco-driving of a connected electric vehicle equipped with vehicle-to-infrastructure (V2I) communication passing through two signalized intersections. Dynamic programming is employed to construct an eco-driving algorithm that incorporates a battery degradation model in addition to minimizing energy consumption to optimize the vehicle's speed trajectory while transiting the control zone. A parametric study is conducted for various signal timings and distances between the two intersections. It is found that eco-driving can provide up to 49\\% in cost benefits over regular driving due to energy savings and improved battery life which could boost consumers' interests on EVs. This study also considered different battery capacity decay rates based on battery chemistry. Although a higher decay rate affects the optimal speed trajectories only slightly, it amplifies the benefits of eco-driving on battery life. Two battery sizes were also studied to show that the larger battery is associated with a drastically increased lifetime, thus creating opportunities for electric vehicles in other applications such as vehicle-to-grid (V2G) integration. Field tests were also conducted using a simplified rule-based version of the eco-driving algorithm implemented as a phone app which issues audio speed recommendations to the driver. The field test results were promising and validated the results from simulations. The phone app implementation is convenient and could facilitate broader adoption and widespread use of eco-driving which helps to improve transportation efficiency and protect the environment.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852795+00:00"
+    },
+    {
+      "paper_id": "doi:10.21275/sr24312045250",
+      "title": "Range Prediction based on Battery Degradation and Vehicle Mileage for Battery Electric Vehicles",
+      "authors": [
+        "Srinivas Naveen D. Surabhi",
+        "Chirag Shah",
+        "Vishwanadham Mandala",
+        "Priyank Shah"
+      ],
+      "year": 2024,
+      "venue": "International Journal of Science and Research (IJSR)",
+      "doi": "10.21275/sr24312045250",
+      "url": "https://doi.org/10.21275/sr24312045250",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245430+00:00"
+    },
+    {
+      "paper_id": "doi:10.21275/sr24312045251",
+      "title": "Range Prediction based on Battery Degradation and Vehicle Mileage for Battery Electric Vehicles",
+      "authors": [
+        "Srinivas Naveen D Surabhi",
+        "Chirag Shah",
+        "Vishwanadham Mandala",
+        "Priyank Shah"
+      ],
+      "year": 2024,
+      "venue": "International Journal of Science and Research (IJSR)",
+      "doi": "10.21275/sr24312045251",
+      "url": "https://doi.org/10.21275/sr24312045251",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245460+00:00"
+    },
+    {
+      "paper_id": "doi:10.1016/j.apenergy.2023.122090",
+      "title": "Optimal battery thermal management for electric vehicles with battery degradation minimization",
+      "authors": [
+        "Yue Wu",
+        "Zhiwu Huang",
+        "Dongjun Li",
+        "Heng Li",
+        "Jun Peng",
+        "Daniel Stroe",
+        "Ziyou Song"
+      ],
+      "year": 2024,
+      "venue": "Applied Energy",
+      "doi": "10.1016/j.apenergy.2023.122090",
+      "url": "https://doi.org/10.1016/j.apenergy.2023.122090",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245508+00:00"
+    },
+    {
+      "paper_id": "arxiv:2308.03056v1",
+      "title": "Optimal battery thermal management for electric vehicles with battery degradation minimization",
+      "authors": [
+        "Yue Wu",
+        "Zhiwu Huang",
+        "Dongjun Li",
+        "Heng Li",
+        "Jun Peng",
+        "Daniel Stroe",
+        "Ziyou Song"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2308.03056v1",
+      "abstract": "The control of a battery thermal management system (BTMS) is essential for the thermal safety, energy efficiency, and durability of electric vehicles (EVs) in hot weather. To address the battery cooling optimization problem, this paper utilizes dynamic programming (DP) to develop an online rule-based control strategy. Firstly, an electrical-thermal-aging model of the $\\rm LiFePO_4$ battery pack is established. A control-oriented onboard BTMS model is proposed and verified under different speed profiles and temperatures. Then in the DP framework, a cost function consisting of battery aging cost and cooling-induced electricity cost is minimized to obtain the optimal compressor power. By exacting three rules \"fast cooling, slow cooling, and temperature-maintaining\" from the DP result, a near-optimal rule-based cooling strategy, which uses as much regenerative energy as possible to cool the battery pack, is proposed for online execution. Simulation results show that the proposed online strategy can dramatically improve the driving economy and reduce battery degradation under diverse operation conditions, achieving less than a 3% difference in battery loss compared to the offline DP. Recommendations regarding battery cooling under different real-world cases are finally provided.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852772+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/access.2023.3271287",
+      "title": "Battery Degradation in Electric and Hybrid Electric Vehicles: A Survey Study",
+      "authors": [
+        "Laxman Timilsina",
+        "Payam R. Badr",
+        "Phuong H. Hoang",
+        "Gokhan Ozkan",
+        "Behnaz Papari",
+        "Christopher S. Edrington"
+      ],
+      "year": 2023,
+      "venue": "IEEE Access",
+      "doi": "10.1109/access.2023.3271287",
+      "url": "https://doi.org/10.1109/access.2023.3271287",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245531+00:00"
+    },
+    {
+      "paper_id": "arxiv:2203.04642v1",
+      "title": "Electrical Vehicle Fleet Routing Accounting for Dynamic Battery Degradation",
+      "authors": [
+        "Daniel Gebbran",
+        "Jeppe Rich",
+        "Tomislav Dragicevic"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2203.04642v1",
+      "abstract": "The increasing uptake of electrical vehicles (EVs) has increased the awareness of battery degradation costs and how they can be minimized. However, from a planning perspective it is difficult to integrate battery degradation models into existing route planning models and to assess how policies that aim at reducing battery degradation affect route planning costs and degradation across the fleet. In this paper, a simple transportation vehicle routing problem (VRP) is formulated as a mixed-integer nonlinear problem (MINLP), with a modification that allows monitoring the maximum and minimum depth-of-discharge (DoD) of the entire fleet. This allows us to measure the battery health degradation during the online optimization process. The results show that accounting for the impact of different route characteristics on battery degradation can have an impact on the route planning of the entire fleet as well as the battery degradation for all vehicles. The latter is achieved by forcing vehicles to adapt to certain DoD boundaries in the long term.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852737+00:00"
+    },
+    {
+      "paper_id": "arxiv:2212.08273v2",
+      "title": "Learning for Vehicle-to-Vehicle Cooperative Perception under Lossy Communication",
+      "authors": [
+        "Jinlong Li",
+        "Runsheng Xu",
+        "Xinyu Liu",
+        "Jin Ma",
+        "Zicheng Chi",
+        "Jiaqi Ma",
+        "Hongkai Yu"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2212.08273v2",
+      "abstract": "Deep learning has been widely used in the perception (e.g., 3D object detection) of intelligent vehicle driving. Due to the beneficial Vehicle-to-Vehicle (V2V) communication, the deep learning based features from other agents can be shared to the ego vehicle so as to improve the perception of the ego vehicle. It is named as Cooperative Perception in the V2V research, whose algorithms have been dramatically advanced recently. However, all the existing cooperative perception algorithms assume the ideal V2V communication without considering the possible lossy shared features because of the Lossy Communication (LC) which is common in the complex real-world driving scenarios. In this paper, we first study the side effect (e.g., detection performance drop) by the lossy communication in the V2V Cooperative Perception, and then we propose a novel intermediate LC-aware feature fusion method to relieve the side effect of lossy communication by a LC-aware Repair Network (LCRN) and enhance the interaction between the ego vehicle and other vehicles by a specially designed V2V Attention Module (V2VAM) including intra-vehicle attention of ego vehicle and uncertainty-aware inter-vehicle attention. The extensive experiment on the public cooperative perception dataset OPV2V (based on digital-twin CARLA simulator) demonstrates that the proposed method is quite effective for the cooperative point cloud based 3D object detection under lossy V2V communication.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852779+00:00"
+    },
+    {
+      "paper_id": "arxiv:2204.12825v2",
+      "title": "Uncertainty-Aware Prediction of Battery Energy Consumption for Hybrid Electric Vehicles",
+      "authors": [
+        "Jihed Khiari",
+        "Cristina Olaverri-Monreal"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2204.12825v2",
+      "abstract": "The usability of vehicles is highly dependent on their energy consumption. In particular, one of the main factors hindering the mass adoption of electric (EV), hybrid (HEV), and plug-in hybrid (PHEV) vehicles is range anxiety, which occurs when a driver is uncertain about the availability of energy for a given trip. To tackle this problem, we propose a machine learning approach for modeling the battery energy consumption. By reducing predictive uncertainty, this method can help increase trust in the vehicle's performance and thus boost its usability. Most related work focuses on physical and/or chemical models of the battery that affect the energy consumption. We propose a data-driven approach which relies on real-world datasets including battery related attributes. Our approach showed an improvement in terms of predictive uncertainty as well as in accuracy compared to traditional methods.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852803+00:00"
+    },
+    {
+      "paper_id": "doi:10.1142/9781800611429_0011",
+      "title": "Applying Data Reduction Methods to Battery Degradation Prediction Models for Electric Vehicles",
+      "authors": [
+        "Philipp Staudt",
+        "Jennifer Schoch",
+        "Thomas Setzer"
+      ],
+      "year": 2022,
+      "venue": "Electric Vehicles in Shared Fleets",
+      "doi": "10.1142/9781800611429_0011",
+      "url": "https://doi.org/10.1142/9781800611429_0011",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245473+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/upec.2019.8893474",
+      "title": "Modeling of Battery Electric Vehicles for Degradation Studies",
+      "authors": [
+        "Lisa Calearo",
+        "Andreas Thingvad",
+        "Mattia Marinelli"
+      ],
+      "year": 2019,
+      "venue": "2019 54th International Universities Power Engineering Conference (UPEC)",
+      "doi": "10.1109/upec.2019.8893474",
+      "url": "https://doi.org/10.1109/upec.2019.8893474",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245495+00:00"
+    },
+    {
+      "paper_id": "arxiv:1801.06523v1",
+      "title": "How would surround vehicles move? A Unified Framework for Maneuver Classification and Motion Prediction",
+      "authors": [
+        "Nachiket Deo",
+        "Akshay Rangesh",
+        "Mohan M. Trivedi"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1801.06523v1",
+      "abstract": "Reliable prediction of surround vehicle motion is a critical requirement for path planning for autonomous vehicles. In this paper we propose a unified framework for surround vehicle maneuver classification and motion prediction that exploits multiple cues, namely, the estimated motion of vehicles, an understanding of typical motion patterns of freeway traffic and inter-vehicle interaction. We report our results in terms of maneuver classification accuracy and mean and median absolute error of predicted trajectories against the ground truth for real traffic data collected using vehicle mounted sensors on freeways. An ablative analysis is performed to analyze the relative importance of each cue for trajectory prediction. Additionally, an analysis of execution time for the components of the framework is presented. Finally, we present multiple case studies analyzing the outputs of our model for complex traffic scenarios",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:43:38.852747+00:00"
+    },
+    {
+      "paper_id": "doi:10.1002/9783527693924.ch01",
+      "title": "Battery Electric Vehicles",
+      "authors": [
+        "Bruno Gnörich",
+        "Lutz Eckstein"
+      ],
+      "year": 2016,
+      "venue": "Fuel Cells : Data, Facts and Figures",
+      "doi": "10.1002/9783527693924.ch01",
+      "url": "https://doi.org/10.1002/9783527693924.ch01",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245541+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/citres.2010.5619782",
+      "title": "Modeling Lithium Ion battery degradation in electric vehicles",
+      "authors": [
+        "Alan Millner"
+      ],
+      "year": 2010,
+      "venue": "2010 IEEE Conference on Innovative Technologies for an Efficient and Reliable Electricity Supply",
+      "doi": "10.1109/citres.2010.5619782",
+      "url": "https://doi.org/10.1109/citres.2010.5619782",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:43:41.245484+00:00"
+    }
+  ]
+}

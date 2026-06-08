@@ -31,6 +31,7 @@ def state_to_report(state: dict[str, Any]) -> dict[str, Any]:
         "planner_meta": state.get("planner_meta"),
         "tasks": _dump(state.get("tasks") or []),
         "research_errors": state.get("research_errors") or [],
+        "research_sources_ok": state.get("research_sources_ok") or {},
         "papers": _dump(state.get("papers") or []),
         "critic_meta": state.get("critic_meta"),
         "critiques": _dump(state.get("critiques") or []),

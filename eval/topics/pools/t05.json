@@ -1,0 +1,436 @@
+{
+  "topic_id": "t05",
+  "topic": "reinforcement learning from human feedback",
+  "domain": "AI/NLP",
+  "protocol_version": 1,
+  "built_at": "2026-06-04T17:15:08.842747+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "arxiv:2602.12375v1",
+    "arxiv:2506.08266v1",
+    "doi:10.1016/b978-0-443-27436-7.00008-4",
+    "doi:10.18653/v1/2025.acl-long.1146",
+    "doi:10.1609/aaai.v39i27.35123",
+    "doi:10.1007/978-981-95-4094-5_14",
+    "arxiv:2407.17482v2",
+    "arxiv:2401.13148v2",
+    "doi:10.52202/079017-3942",
+    "doi:10.1515/9783111425078-007",
+    "doi:10.32628/ijsrset2411211",
+    "doi:10.52202/079017-1664",
+    "doi:10.1109/isceic63613.2024.10810206",
+    "arxiv:2308.04332v1",
+    "arxiv:2312.14925v3",
+    "doi:10.65109/aywk9567",
+    "arxiv:2206.13316v1",
+    "arxiv:2011.02511v3",
+    "arxiv:1808.04096v1",
+    "arxiv:1807.05037v1"
+  ],
+  "cards": [
+    {
+      "paper_id": "arxiv:2602.12375v1",
+      "title": "Value Bonuses using Ensemble Errors for Exploration in Reinforcement Learning",
+      "authors": [
+        "Abdul Wahab",
+        "Raksha Kumaraswamy",
+        "Martha White"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2602.12375v1",
+      "abstract": "Optimistic value estimates provide one mechanism for directed exploration in reinforcement learning (RL). The agent acts greedily with respect to an estimate of the value plus what can be seen as a value bonus. The value bonus can be learned by estimating a value function on reward bonuses, propagating local uncertainties around rewards. However, this approach only increases the value bonus for an action retroactively, after seeing a higher reward bonus from that state and action. Such an approach does not encourage the agent to visit a state and action for the first time. In this work, we introduce an algorithm for exploration called Value Bonuses with Ensemble errors (VBE), that maintains an ensemble of random action-value functions (RQFs). VBE uses the errors in the estimation of these RQFs to design value bonuses that provide first-visit optimism and deep exploration. The key idea is to design the rewards for these RQFs in such a way that the value bonus can decrease to zero. We show that VBE outperforms Bootstrap DQN and two reward bonus approaches (RND and ACB) on several classic environments used to test exploration and provide demonstrative experiments that it can scale easily to more complex environments like Atari.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129190+00:00"
+    },
+    {
+      "paper_id": "arxiv:2506.08266v1",
+      "title": "Reinforcement Learning from Human Feedback with High-Confidence Safety Constraints",
+      "authors": [
+        "Yaswanth Chittepu",
+        "Blossom Metevier",
+        "Will Schwarzer",
+        "Austin Hoag",
+        "Scott Niekum",
+        "Philip S. Thomas"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2506.08266v1",
+      "abstract": "Existing approaches to language model alignment often treat safety as a tradeoff against helpfulness, which can lead to unacceptable responses in sensitive domains. To ensure reliable performance in such settings, we propose High-Confidence Safe Reinforcement Learning from Human Feedback (HC-RLHF), a method that provides high-confidence safety guarantees while maximizing helpfulness. Similar to previous methods, HC-RLHF explicitly decouples human preferences into helpfulness and harmlessness (safety), which are learned by training a reward model and a cost model, respectively. It then employs a two-step process to find safe solutions. In the first step, it optimizes the reward function under an intentionally pessimistic version of the cost constraint. In the second step, the trained model undergoes a safety test to verify whether its performance stays within an upper-confidence bound of the actual cost constraint. We provide a theoretical analysis of HC-RLHF, including proof that it will not return an unsafe solution with a probability greater than a user-specified threshold. For our empirical analysis, we apply HC-RLHF to align three different language models (Qwen2-1.5B, Qwen2.5-3B, and LLaMa3.2-3B) with human preferences. Our results demonstrate that HC-RLHF produces safe models with high probability and can improve harmlessness and helpfulness compared to previous methods.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129208+00:00"
+    },
+    {
+      "paper_id": "doi:10.1016/b978-0-443-27436-7.00008-4",
+      "title": "Human feedback reinforcement learning",
+      "authors": [
+        "Ge Cheng"
+      ],
+      "year": 2025,
+      "venue": "ChatGPT",
+      "doi": "10.1016/b978-0-443-27436-7.00008-4",
+      "url": "https://doi.org/10.1016/b978-0-443-27436-7.00008-4",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835339+00:00"
+    },
+    {
+      "paper_id": "doi:10.18653/v1/2025.acl-long.1146",
+      "title": "Curiosity-Driven Reinforcement Learning from Human Feedback",
+      "authors": [
+        "Haoran Sun",
+        "Yekun Chai",
+        "Shuohuan Wang",
+        "Yu Sun",
+        "Hua Wu",
+        "Haifeng Wang"
+      ],
+      "year": 2025,
+      "venue": "Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+      "doi": "10.18653/v1/2025.acl-long.1146",
+      "url": "https://doi.org/10.18653/v1/2025.acl-long.1146",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835406+00:00"
+    },
+    {
+      "paper_id": "doi:10.1609/aaai.v39i27.35123",
+      "title": "Efficient and Robust Reinforcement Learning from Human Feedback",
+      "authors": [
+        "Huazheng Wang"
+      ],
+      "year": 2025,
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "doi": "10.1609/aaai.v39i27.35123",
+      "url": "https://doi.org/10.1609/aaai.v39i27.35123",
+      "abstract": "<jats:p>Reinforcement Learning (RL) has emerged as a powerful paradigm for sequential decision-making with numerous real-world applications. However, in practical environments such as recommender systems, search engines, and LLMs, RL algorithms must efficiently learn from biased human feedback that may be subject to corruption. In this talk, I will present our recent efforts in developing robust RL algorithms that can provably effectively handle such challenging scenarios. First, I will introduce our works on reinforcement learning from biased click feedback in ranking. While previous approaches typically relied on strong assumptions about human click behavior (formalized as click models) and required specialized debiasing methods for different models, we propose a novel unified framework that formulates the ranking process under general click models as a Markov Decision Process, enabling the development of a click model-agnostic RL algorithm.  Second, I will introduce the fundamental vulnerability of bandits and reinforcement learning under corrupted feedback. Our theoretical analysis provides complete necessity and sufficiency characterizations of the attackability of linear bandits and linear RL, revealing their intrinsic robustness and limitations. Lastly, I will discuss our recent works on improving RL finetuning for LLMs, including sample efficient off-policy RLHF and solving the gradient entanglement issue in margin-based alignment methods.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835428+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-981-95-4094-5_14",
+      "title": "Reward Calibration for Continual Reinforcement Learning from Human Feedback",
+      "authors": [
+        "Jiaqi Lang",
+        "Jiahao Zhao",
+        "Linjing Li",
+        "Daniel Dajun Zeng"
+      ],
+      "year": 2025,
+      "venue": "Communications in Computer and Information Science",
+      "doi": "10.1007/978-981-95-4094-5_14",
+      "url": "https://doi.org/10.1007/978-981-95-4094-5_14",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835462+00:00"
+    },
+    {
+      "paper_id": "arxiv:2407.17482v2",
+      "title": "Reinforcement Learning from Human Feedback: Whose Culture, Whose Values, Whose Perspectives?",
+      "authors": [
+        "Kristian González Barman",
+        "Simon Lohse",
+        "Henk de Regt"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2407.17482v2",
+      "abstract": "We argue for the epistemic and ethical advantages of pluralism in Reinforcement Learning from Human Feedback (RLHF) in the context of Large Language Models (LLM). Drawing on social epistemology and pluralist philosophy of science, we suggest ways in which RHLF can be made more responsive to human needs and how we can address challenges along the way. The paper concludes with an agenda for change, i.e. concrete, actionable steps to improve LLM development.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129184+00:00"
+    },
+    {
+      "paper_id": "arxiv:2401.13148v2",
+      "title": "Stable and Safe Human-aligned Reinforcement Learning through Neural Ordinary Differential Equations",
+      "authors": [
+        "Liqun Zhao",
+        "Keyan Miao",
+        "Konstantinos Gatsis",
+        "Antonis Papachristodoulou"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2401.13148v2",
+      "abstract": "Reinforcement learning (RL) excels in applications such as video games, but ensuring safety as well as the ability to achieve the specified goals remains challenging when using RL for real-world problems, such as human-aligned tasks where human safety is paramount. This paper provides safety and stability definitions for such human-aligned tasks, and then proposes an algorithm that leverages neural ordinary differential equations (NODEs) to predict human and robot movements and integrates the control barrier function (CBF) and control Lyapunov function (CLF) with the actor-critic method to help to maintain the safety and stability for human-aligned tasks. Simulation results show that the algorithm helps the controlled robot to reach the desired goal state with fewer safety violations and better sample efficiency compared to other methods in a human-aligned task.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129215+00:00"
+    },
+    {
+      "paper_id": "doi:10.52202/079017-3942",
+      "title": "Robust Reinforcement Learning from Corrupted Human Feedback",
+      "authors": [
+        "Alexander Bukharin",
+        "Ilgee Hong",
+        "Haoming Jiang",
+        "Zichong Li",
+        "Qingru Zhang",
+        "Zixuan Zhang",
+        "Tuo Zhao"
+      ],
+      "year": 2024,
+      "venue": "Advances in Neural Information Processing Systems 37",
+      "doi": "10.52202/079017-3942",
+      "url": "https://doi.org/10.52202/079017-3942",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835371+00:00"
+    },
+    {
+      "paper_id": "doi:10.1515/9783111425078-007",
+      "title": "7 Reinforcement Learning from Human Feedback (RLHF)",
+      "authors": [
+        "Dawn Sivan",
+        "K. Satheesh Kumar",
+        "Veena Raj",
+        "Rajan Jose"
+      ],
+      "year": 2024,
+      "venue": "Generative AI and LLMs",
+      "doi": "10.1515/9783111425078-007",
+      "url": "https://doi.org/10.1515/9783111425078-007",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835384+00:00"
+    },
+    {
+      "paper_id": "doi:10.32628/ijsrset2411211",
+      "title": "Reinforcement Learning from Human Feedback - A Review",
+      "authors": [
+        "Prof. (Dr) Satya Singh",
+        "Ratnesh Kumar Sharma"
+      ],
+      "year": 2024,
+      "venue": "International Journal of Scientific Research in Science, Engineering and Technology",
+      "doi": "10.32628/ijsrset2411211",
+      "url": "https://doi.org/10.32628/ijsrset2411211",
+      "abstract": "<jats:p>Reinforcement Learning from Human Feedback (RLHF) is a burgeoning field at the intersection of artificial intelligence and human interaction. This approach involves training models to make decisions in dynamic environments by iteratively receiving feedback from human evaluators. In this process, initial models interact with the environment, and human evaluators provide feedback on the model's actions. The model is then updated based on this feedback, enhancing its decision-making capabilities over time.  RLHF  is  particularly  valuable  in  scenarios  where  predefine d  rules  may  be inadequate, emphasizing adaptability and learning from real-world experiences. This abstract explores the applications, advantages, and challenges of RLHF, highlighting its promising results in domains such as robotics, gaming, and natural l anguage processing. The collaboration between machine learning algorithms and human intuition in RLHF presents a compelling synergy that addresses complex problems more effectively than traditional methods. As technology advances, RLHF is poised to unlock new possibilities and drive innovations across diverse fields.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835395+00:00"
+    },
+    {
+      "paper_id": "doi:10.52202/079017-1664",
+      "title": "Personalizing Reinforcement Learning from Human Feedback with Variational Preference Learning",
+      "authors": [
+        "Abhishek Gupta",
+        "Hamish Ivison",
+        "Natasha Jaques",
+        "Sriyash Poddar",
+        "Yanming Wan"
+      ],
+      "year": 2024,
+      "venue": "Advances in Neural Information Processing Systems 37",
+      "doi": "10.52202/079017-1664",
+      "url": "https://doi.org/10.52202/079017-1664",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835440+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/isceic63613.2024.10810206",
+      "title": "Traffic Sign Classification with Reinforcement Learning from Human Feedback",
+      "authors": [
+        "Shengyu Dai",
+        "Zuo Chen",
+        "Zhongwen Hu",
+        "Lei Zhou"
+      ],
+      "year": 2024,
+      "venue": "2024 5th International Symposium on Computer Engineering and Intelligent Communications (ISCEIC)",
+      "doi": "10.1109/isceic63613.2024.10810206",
+      "url": "https://doi.org/10.1109/isceic63613.2024.10810206",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835451+00:00"
+    },
+    {
+      "paper_id": "arxiv:2308.04332v1",
+      "title": "RLHF-Blender: A Configurable Interactive Interface for Learning from Diverse Human Feedback",
+      "authors": [
+        "Yannick Metz",
+        "David Lindner",
+        "Raphaël Baur",
+        "Daniel Keim",
+        "Mennatallah El-Assady"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2308.04332v1",
+      "abstract": "To use reinforcement learning from human feedback (RLHF) in practical applications, it is crucial to learn reward models from diverse sources of human feedback and to consider human factors involved in providing feedback of different types. However, the systematic study of learning from diverse types of feedback is held back by limited standardized tooling available to researchers. To bridge this gap, we propose RLHF-Blender, a configurable, interactive interface for learning from human feedback. RLHF-Blender provides a modular experimentation framework and implementation that enables researchers to systematically investigate the properties and qualities of human feedback for reward learning. The system facilitates the exploration of various feedback types, including demonstrations, rankings, comparisons, and natural language instructions, as well as studies considering the impact of human factors on their effectiveness. We discuss a set of concrete research opportunities enabled by RLHF-Blender. More information is available at https://rlhfblender.info/.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129167+00:00"
+    },
+    {
+      "paper_id": "arxiv:2312.14925v3",
+      "title": "A Survey of Reinforcement Learning from Human Feedback",
+      "authors": [
+        "Timo Kaufmann",
+        "Paul Weng",
+        "Viktor Bengs",
+        "Eyke Hüllermeier"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2312.14925v3",
+      "abstract": "Reinforcement learning from human feedback (RLHF) is a variant of reinforcement learning (RL) that learns from human feedback instead of relying on an engineered reward function. Building on prior work on the related setting of preference-based reinforcement learning (PbRL), it stands at the intersection of artificial intelligence and human-computer interaction. This positioning provides a promising approach to enhance the performance and adaptability of intelligent systems while also improving the alignment of their objectives with human values. The success in training large language models (LLMs) has impressively demonstrated this potential in recent years, where RLHF has played a decisive role in directing the model's capabilities towards human objectives. This article provides an overview of the fundamentals of RLHF, exploring how RL agents interact with human feedback. While recent focus has been on RLHF for LLMs, our survey covers the technique across multiple domains. We provide our most comprehensive coverage in control and robotics, where many fundamental techniques originate, alongside a dedicated LLM section. We examine the core principles that underpin RLHF, how algorithms and human feedback work together, and the main research trends in the field. Our goal is to give researchers and practitioners a clear understanding of this rapidly growing field.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129220+00:00"
+    },
+    {
+      "paper_id": "doi:10.65109/aywk9567",
+      "title": "Learning Constraints From Human Stop-Feedback in Reinforcement Learning",
+      "authors": [
+        "Silvia Poletti",
+        "Alberto Testolin",
+        "Sebastian Tschiatschek"
+      ],
+      "year": 2023,
+      "venue": "International Joint Conference on Autonomous Agents and Multiagent Systems",
+      "doi": "10.65109/aywk9567",
+      "url": "https://doi.org/10.65109/aywk9567",
+      "abstract": "<jats:p>We investigate an approach for enabling a reinforcement learning agent to learn about dangerous states or constraints from stop-feedback preventing the agent from taking any further, potentially dangerous, actions. Such feedback could be provided by human supervisors overseeing the RL agent's behavior while carrying out some complex tasks. To enable the RL agent to learn from the supervisor's feedback, we propose a probabilistic model for approximating how the supervisor's feedback could have been generated and consider a Bayesian approach for inferring dangerous states. We evaluated our approach using an OpenAI Safety Gym environment and demonstrated that our agent can effectively infer the imposed safety constraints. Furthermore, we conducted a user study to validate our human-inspired feedback model and to obtain insights into the human provision of stop-feedback.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:15:08.835417+00:00"
+    },
+    {
+      "paper_id": "arxiv:2206.13316v1",
+      "title": "Humans are not Boltzmann Distributions: Challenges and Opportunities for Modelling Human Feedback and Interaction in Reinforcement Learning",
+      "authors": [
+        "David Lindner",
+        "Mennatallah El-Assady"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2206.13316v1",
+      "abstract": "Reinforcement learning (RL) commonly assumes access to well-specified reward functions, which many practical applications do not provide. Instead, recently, more work has explored learning what to do from interacting with humans. So far, most of these approaches model humans as being (nosily) rational and, in particular, giving unbiased feedback. We argue that these models are too simplistic and that RL researchers need to develop more realistic human models to design and evaluate their algorithms. In particular, we argue that human models have to be personal, contextual, and dynamic. This paper calls for research from different disciplines to address key questions about how humans provide feedback to AIs and how we can build more robust human-in-the-loop RL systems.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129199+00:00"
+    },
+    {
+      "paper_id": "arxiv:2011.02511v3",
+      "title": "Offline Reinforcement Learning from Human Feedback in Real-World Sequence-to-Sequence Tasks",
+      "authors": [
+        "Julia Kreutzer",
+        "Stefan Riezler",
+        "Carolin Lawrence"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2011.02511v3",
+      "abstract": "Large volumes of interaction logs can be collected from NLP systems that are deployed in the real world. How can this wealth of information be leveraged? Using such interaction logs in an offline reinforcement learning (RL) setting is a promising approach. However, due to the nature of NLP tasks and the constraints of production systems, a series of challenges arise. We present a concise overview of these challenges and discuss possible solutions.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129223+00:00"
+    },
+    {
+      "paper_id": "arxiv:1808.04096v1",
+      "title": "Directed Policy Gradient for Safe Reinforcement Learning with Human Advice",
+      "authors": [
+        "Hélène Plisnier",
+        "Denis Steckelmacher",
+        "Tim Brys",
+        "Diederik M. Roijers",
+        "Ann Nowé"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1808.04096v1",
+      "abstract": "Many currently deployed Reinforcement Learning agents work in an environment shared with humans, be them co-workers, users or clients. It is desirable that these agents adjust to people's preferences, learn faster thanks to their help, and act safely around them. We argue that most current approaches that learn from human feedback are unsafe: rewarding or punishing the agent a-posteriori cannot immediately prevent it from wrong-doing. In this paper, we extend Policy Gradient to make it robust to external directives, that would otherwise break the fundamentally on-policy nature of Policy Gradient. Our technique, Directed Policy Gradient (DPG), allows a teacher or backup policy to override the agent before it acts undesirably, while allowing the agent to leverage human advice or directives to learn faster. Our experiments demonstrate that DPG makes the agent learn much faster than reward-based approaches, while requiring an order of magnitude less advice.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129195+00:00"
+    },
+    {
+      "paper_id": "arxiv:1807.05037v1",
+      "title": "Exploring Hierarchy-Aware Inverse Reinforcement Learning",
+      "authors": [
+        "Chris Cundy",
+        "Daniel Filan"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1807.05037v1",
+      "abstract": "We introduce a new generative model for human planning under the Bayesian Inverse Reinforcement Learning (BIRL) framework which takes into account the fact that humans often plan using hierarchical strategies. We describe the Bayesian Inverse Hierarchical RL (BIHRL) algorithm for inferring the values of hierarchical planners, and use an illustrative toy model to show that BIHRL retains accuracy where standard BIRL fails. Furthermore, BIHRL is able to accurately predict the goals of `Wikispeedia' game players, with inclusion of hierarchical structure in the model resulting in a large boost in accuracy. We show that BIHRL is able to significantly outperform BIRL even when we only have a weak prior on the hierarchical structure of the plans available to the agent, and discuss the significant challenges that remain for scaling up this framework to more realistic settings.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:15:05.129203+00:00"
+    }
+  ]
+}

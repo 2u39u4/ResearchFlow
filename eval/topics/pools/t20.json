@@ -1,0 +1,421 @@
+{
+  "topic_id": "t20",
+  "topic": "mental health detection social media NLP",
+  "domain": "NLP/Social Computing",
+  "protocol_version": 1,
+  "built_at": "2026-06-07T04:51:38.991275+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "doi:10.55041/isjem06379",
+    "doi:10.64388/irev9i11-1717981",
+    "arxiv:2511.07914v1",
+    "arxiv:2504.12337v1",
+    "doi:10.1109/icsima66552.2025.11233519",
+    "doi:10.56726/irjmets84237",
+    "doi:10.62311/nesx/rphcr9",
+    "doi:10.22214/ijraset.2025.69105",
+    "doi:10.14201/adcaij.32449",
+    "doi:10.1007/978-3-031-96231-8_33",
+    "arxiv:2401.17477v2",
+    "doi:10.1109/icicec62498.2024.10808285",
+    "arxiv:2305.18907v2",
+    "arxiv:2312.11326v2",
+    "arxiv:2307.10513v2",
+    "arxiv:2011.05233v2",
+    "arxiv:2008.08370v2",
+    "doi:10.25215/8194288797.18",
+    "arxiv:1604.02522v2",
+    "arxiv:1611.04989v2"
+  ],
+  "cards": [
+    {
+      "paper_id": "doi:10.55041/isjem06379",
+      "title": "SUSTAINABLE AI-NLP FRAMEWORK FOR EARLY DETECTION OF MENTAL HEALTH RISKS IN SOCIAL MEDIA POST",
+      "authors": [
+        "Aravind Potharaju",
+        "Begum Jahanara",
+        "Hema Mannem",
+        "Rahul Rathla",
+        "Dhanunjay Vemula"
+      ],
+      "year": 2026,
+      "venue": "International Scientific Journal of Engineering and Management",
+      "doi": "10.55041/isjem06379",
+      "url": "https://doi.org/10.55041/isjem06379",
+      "abstract": "<jats:p>Abstract-- Early identification of mental health disorders is vital but is frequently hindered by conventional methods of assessment. In this work, we apply natural language processing (NLP) and machine learning (ML) techniques to predict mental health disorders from social media posts. Raw textual data is preprocessed and then TF-IDF, embeddings, and sentiment scores are used to represent the text as features. SVM, Random Forest, LSTM and BERT. The results demonstrate that transformer based models are better than classical based models, suggesting that social media analytics can provide a scalable and non-intrusive tool for early screening of individuals for mental health disorders with due consideration to privacy and ethical issues.\n\nKeywords— Mental health prediction, Social media posts, Natural Language Processing (NLP) , Machine Learning, BERT, LSTM , TF-IDF , Sentiment analysis , Early detection , Privacy and ethics</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.982953+00:00"
+    },
+    {
+      "paper_id": "doi:10.64388/irev9i11-1717981",
+      "title": "Mental Health Detection, Social Media Analysis, Machine Learning",
+      "authors": [],
+      "year": 2026,
+      "venue": "Iconic Research and Engineering Journals",
+      "doi": "10.64388/irev9i11-1717981",
+      "url": "https://doi.org/10.64388/irev9i11-1717981",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.983004+00:00"
+    },
+    {
+      "paper_id": "arxiv:2511.07914v1",
+      "title": "Social Media for Mental Health: Data, Methods, and Findings",
+      "authors": [
+        "Nur Shazwani Kamarudin",
+        "Ghazaleh Beigi",
+        "Lydia Manikonda",
+        "Huan Liu"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2511.07914v1",
+      "abstract": "There is an increasing number of virtual communities and forums available on the web. With social media, people can freely communicate and share their thoughts, ask personal questions, and seek peer-support, especially those with conditions that are highly stigmatized, without revealing personal identity. We study the state-of-the-art research methodologies and findings on mental health challenges like depression, anxiety, suicidal thoughts, from the pervasive use of social media data. We also discuss how these novel thinking and approaches can help to raise awareness of mental health issues in an unprecedented way. Specifically, this chapter describes linguistic, visual, and emotional indicators expressed in user disclosures. The main goal of this chapter is to show how this new source of data can be tapped to improve medical practice, provide timely support, and influence government or policymakers. In the context of social media for mental health issues, this chapter categorizes social media data used, introduces different deployed machine learning, feature engineering, natural language processing, and surveys methods and outlines directions for future research.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508163+00:00"
+    },
+    {
+      "paper_id": "arxiv:2504.12337v1",
+      "title": "\"It Listens Better Than My Therapist\": Exploring Social Media Discourse on LLMs as Mental Health Tool",
+      "authors": [
+        "Anna-Carolina Haensch"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2504.12337v1",
+      "abstract": "The emergence of generative AI chatbots such as ChatGPT has prompted growing public and academic interest in their role as informal mental health support tools. While early rule-based systems have been around for several years, large language models (LLMs) offer new capabilities in conversational fluency, empathy simulation, and availability. This study explores how users engage with LLMs as mental health tools by analyzing over 10,000 TikTok comments from videos referencing LLMs as mental health tools. Using a self-developed tiered coding schema and supervised classification models, we identify user experiences, attitudes, and recurring themes. Results show that nearly 20% of comments reflect personal use, with these users expressing overwhelmingly positive attitudes. Commonly cited benefits include accessibility, emotional support, and perceived therapeutic value. However, concerns around privacy, generic responses, and the lack of professional oversight remain prominent. It is important to note that the user feedback does not indicate which therapeutic framework, if any, the LLM-generated output aligns with. While the findings underscore the growing relevance of AI in everyday practices, they also highlight the urgent need for clinical and ethical scrutiny in the use of AI for mental health support.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508172+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/icsima66552.2025.11233519",
+      "title": "Real-Time NLP-Based Stress Detection in Social Media for Digital Mental Health Intervention",
+      "authors": [
+        "Nur Alya Batrisyia Nazri",
+        "Nurul Fariza Zulkurnain",
+        "Teddy Surya Gunawan",
+        "Norafiza Zainuddin",
+        "Mira Kartiwi",
+        "Nelidya Md Yusoff"
+      ],
+      "year": 2025,
+      "venue": "2025 IEEE 11th International Conference on Smart Instrumentation, Measurement and Applications (ICSIMA)",
+      "doi": "10.1109/icsima66552.2025.11233519",
+      "url": "https://doi.org/10.1109/icsima66552.2025.11233519",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.982918+00:00"
+    },
+    {
+      "paper_id": "doi:10.56726/irjmets84237",
+      "title": "Predicting Mental Health Risk Using Social Media Data and NLP",
+      "authors": [],
+      "year": 2025,
+      "venue": "International Research Journal of Modernization in Engineering Technology &amp; Science",
+      "doi": "10.56726/irjmets84237",
+      "url": "https://doi.org/10.56726/irjmets84237",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.982937+00:00"
+    },
+    {
+      "paper_id": "doi:10.62311/nesx/rphcr9",
+      "title": "Mental Health Monitoring from Social Media Using Emotion-Aware NLP Models",
+      "authors": [
+        "Murali Krishna Pasupuleti"
+      ],
+      "year": 2025,
+      "venue": "International Journal of Academic and Industrial Research Innovations(IJAIRI)",
+      "doi": "10.62311/nesx/rphcr9",
+      "url": "https://doi.org/10.62311/nesx/rphcr9",
+      "abstract": "<jats:p>Abstract:\nMental health disorders are on the rise globally, and early detection through non-invasive means has become a critical public health need. Social media platforms serve as real-time expressions of public emotions and personal states, offering a rich source for mental health assessment. This study explores the use of emotion-aware natural language processing (NLP) models, including RoBERTa, BERTweet, and DistilBERT, for detecting signs of depression, anxiety, and emotional distress from Twitter and Reddit posts. Using fine-tuned models on annotated mental health datasets, we evaluate performance across emotion classification, risk scoring, and early warning detection. Regression and predictive analyses show strong correlations (R² &gt; 0.85) between linguistic features (e.g., affective valence, negation frequency) and mental health indicators. Interpretability tools such as SHAP and LIME validate the decision-making process of the models, ensuring transparency and reliability.\nKeywords:\nMental Health, Social Media, Emotion Detection, NLP, BERTweet, RoBERTa, SHAP, LIME, Depression Detection, Anxiety Classification</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.982964+00:00"
+    },
+    {
+      "paper_id": "doi:10.22214/ijraset.2025.69105",
+      "title": "Detecting Mental Health Issues Through Social Media Using NLP and Machine Learning",
+      "authors": [
+        "Aditya Yadav"
+      ],
+      "year": 2025,
+      "venue": "International Journal for Research in Applied Science and Engineering Technology",
+      "doi": "10.22214/ijraset.2025.69105",
+      "url": "https://doi.org/10.22214/ijraset.2025.69105",
+      "abstract": "<jats:p>This study proposes a new framework of AI that socially mines media for effective preemptive detection and diagnosis\nof mental disorders including, but not limited to, depression, anxiety, bipolar disorder, and schizophrenia. The framework utilizes natural language processing (NLP), machine learning (ML), feature learning via Convolutional Neural Networks (CNN), and\nclassification using XGBoost. Data comprising approximately 200,000 posts was scraped from Reddit and Twitter through the\nPushshift API and Tweepy,. Cleansing processes including tokenization, stop-word elimination, and vectorization through\nTFIDF and Word2Vec were conducted so that the data was ready for analysis. The hybrid CNN-XGBoost model yielded outstanding results achieving 92.3% accuracy for classifying depression posts, 89.7% for anxiety, 86.4% for bipolar disorder, and\n81.5% for schizophrenia. These results surpass those obtained from traditional models which SVM (Support Vector Machine)\nand Random Forest algorithms are based on for classifying performance. Trust and ethical gaps, challenges of the frameworks\nhad, were resolved adding Explanable Artificial Intelligence (XAI) feature integrating SHAP and LIME which greatly enhanced\nsystem trust and verifiability. The model was also enhanced by addressing the class imbalance problem with oversampling and\nthe SMOTE technique to enhance the model. Defending dependability claims was placed of the model’s main goal, justifying for\ncontextual underrepresentation. Examples of anticipated practical Inquiries include cross-discipline social media and mental\nhealth tracking for mental health monitoring that offers proactive engagement opportunities via early predictive algorithms. The\nmodel's proactive detection features could alleviate some operational strain placed on the infrastructure of conventional\nhealthcare systems. Additional multilingual clinical validation research will focus on broadening the model’s exploration scope\nalongside enhancing its practical usability. The development of AI tools has surged, and this particular tool serves as a noteworthy early example of ethically grounded, impactful AI implementation in the realm of mental health care.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.982974+00:00"
+    },
+    {
+      "paper_id": "doi:10.14201/adcaij.32449",
+      "title": "Explainable Machine Learning for Mental Health Detection Using NLP",
+      "authors": [
+        "Noor Ul Ain Mushtaq",
+        "Sanam Narejo",
+        "Syed Amjad Ali",
+        "Muhammad Moazzam Jawaid"
+      ],
+      "year": 2025,
+      "venue": "ADCAIJ: Advances in Distributed Computing and Artificial Intelligence Journal",
+      "doi": "10.14201/adcaij.32449",
+      "url": "https://doi.org/10.14201/adcaij.32449",
+      "abstract": "<jats:p>Humans’ mental conditions are often revealed through their social media activity, facilitated by the anonymity of the internet. Early detection of psy- chiatric issues through these activities can lead to timely interventions, po- tentially preventing severe mental health disorders such as depression and anxiety. However, the complexity of state-of-the-art machine learning (ML) models has led to challenges in interpretability, often resulting in these models being viewed as «black boxes». This paper provides a comprehensive analysis of explainable AI (XAI) within the framework of Natural Language Processing (NLP) and ML. Thus, NLP techniques improve the performance of learning-based methods by incorporating the semantic and syntactic features of the text. The application of ML in healthcare is gaining traction, particularly in extracting novel scientific insights from observational or simulated data. Domain knowledge is crucial for achieving scientific consistency and explainability. In our study, we implemented Naïve Bayes and Random Forest algorithms, achieving accuracies of 92 % and 99 %, respectively. To further explore transparency, interpretability, and explainability, we applied explainable ML techniques, with LIME emerging as a popular tool. Our findings underscore the importance of integrating XAI methods to better understand and interpret the decisions made by complex ML models.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.982986+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-031-96231-8_33",
+      "title": "Unified Mental Health Disorder Detection on Social Media",
+      "authors": [
+        "Dan Dodun-Des-Perrieres",
+        "Madalina Raschip"
+      ],
+      "year": 2025,
+      "venue": "IFIP Advances in Information and Communication Technology",
+      "doi": "10.1007/978-3-031-96231-8_33",
+      "url": "https://doi.org/10.1007/978-3-031-96231-8_33",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.982995+00:00"
+    },
+    {
+      "paper_id": "arxiv:2401.17477v2",
+      "title": "Detecting mental disorder on social media: a ChatGPT-augmented explainable approach",
+      "authors": [
+        "Loris Belcastro",
+        "Riccardo Cantini",
+        "Fabrizio Marozzo",
+        "Domenico Talia",
+        "Paolo Trunfio"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2401.17477v2",
+      "abstract": "In the digital era, the prevalence of depressive symptoms expressed on social media has raised serious concerns, necessitating advanced methodologies for timely detection. This paper addresses the challenge of interpretable depression detection by proposing a novel methodology that effectively combines Large Language Models (LLMs) with eXplainable Artificial Intelligence (XAI) and conversational agents like ChatGPT. In our methodology, explanations are achieved by integrating BERTweet, a Twitter-specific variant of BERT, into a novel self-explanatory model, namely BERT-XDD, capable of providing both classification and explanations via masked attention. The interpretability is further enhanced using ChatGPT to transform technical explanations into human-readable commentaries. By introducing an effective and modular approach for interpretable depression detection, our methodology can contribute to the development of socially responsible digital platforms, fostering early intervention and support for mental health challenges under the guidance of qualified healthcare professionals.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508166+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/icicec62498.2024.10808285",
+      "title": "Next-Gen Mental Health Detection through Deep Learning and NLP in Social Media",
+      "authors": [
+        "Jagan. A",
+        "Senthil Kumar D",
+        "S. Karunakaran",
+        "Nageswari D",
+        "Regina Shoba Dass",
+        "J. Seetha"
+      ],
+      "year": 2024,
+      "venue": "2024 First International Conference on Innovations in Communications, Electrical and Computer Engineering (ICICEC)",
+      "doi": "10.1109/icicec62498.2024.10808285",
+      "url": "https://doi.org/10.1109/icicec62498.2024.10808285",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.982838+00:00"
+    },
+    {
+      "paper_id": "arxiv:2305.18907v2",
+      "title": "Multitask learning for recognizing stress and depression in social media",
+      "authors": [
+        "Loukas Ilias",
+        "Dimitris Askounis"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2305.18907v2",
+      "abstract": "Stress and depression are prevalent nowadays across people of all ages due to the quick paces of life. People use social media to express their feelings. Thus, social media constitute a valuable form of information for the early detection of stress and depression. Although many research works have been introduced targeting the early recognition of stress and depression, there are still limitations. There have been proposed multi-task learning settings, which use depression and emotion (or figurative language) as the primary and auxiliary tasks respectively. However, although stress is inextricably linked with depression, researchers face these two tasks as two separate tasks. To address these limitations, we present the first study, which exploits two different datasets collected under different conditions, and introduce two multitask learning frameworks, which use depression and stress as the main and auxiliary tasks respectively. Specifically, we use a depression dataset and a stressful dataset including stressful posts from ten subreddits of five domains. In terms of the first approach, each post passes through a shared BERT layer, which is updated by both tasks. Next, two separate BERT encoder layers are exploited, which are updated by each task separately. Regarding the second approach, it consists of shared and task-specific layers weighted by attention fusion networks. We conduct a series of experiments and compare our approaches with existing research initiatives, single-task learning, and transfer learning. Experiments show multiple advantages of our approaches over state-of-the-art ones.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508136+00:00"
+    },
+    {
+      "paper_id": "arxiv:2312.11326v2",
+      "title": "Topic Shifts as a Proxy for Assessing Politicization in Social Media",
+      "authors": [
+        "Marcelo Sartori Locatelli",
+        "Pedro Calais",
+        "Matheus Prado Miranda",
+        "João Pedro Junho",
+        "Tomas Lacerda Muniz",
+        "Wagner Meira",
+        "Virgilio Almeida"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2312.11326v2",
+      "abstract": "Politicization is a social phenomenon studied by political science characterized by the extent to which ideas and facts are given a political tone. A range of topics, such as climate change, religion and vaccines has been subject to increasing politicization in the media and social media platforms. In this work, we propose a computational method for assessing politicization in online conversations based on topic shifts, i.e., the degree to which people switch topics in online conversations. The intuition is that topic shifts from a non-political topic to politics are a direct measure of politicization -- making something political, and that the more people switch conversations to politics, the more they perceive politics as playing a vital role in their daily lives. A fundamental challenge that must be addressed when one studies politicization in social media is that, a priori, any topic may be politicized. Hence, any keyword-based method or even machine learning approaches that rely on topic labels to classify topics are expensive to run and potentially ineffective. Instead, we learn from a seed of political keywords and use Positive-Unlabeled (PU) Learning to detect political comments in reaction to non-political news articles posted on Twitter, YouTube, and TikTok during the 2022 Brazilian presidential elections. Our findings indicate that all platforms show evidence of politicization as discussion around topics adjacent to politics such as economy, crime and drugs tend to shift to politics. Even the least politicized topics had the rate in which their topics shift to politics increased in the lead up to the elections and after other political events in Brazil -- an evidence of politicization.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508146+00:00"
+    },
+    {
+      "paper_id": "arxiv:2307.10513v2",
+      "title": "Technology in Association With Mental Health: Meta-ethnography",
+      "authors": [
+        "Hamza Mohammed"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2307.10513v2",
+      "abstract": "This research paper presents a meta-analysis of the multifaceted role of technology in mental health. The pervasive influence of technology on daily lives necessitates a deep understanding of its impact on mental health services. This study synthesizes literature covering Behavioral Intervention Technologies (BITs), digital mental health interventions during COVID-19, young men's attitudes toward mental health technologies, technology-based interventions for university students, and the applicability of mobile health technologies for individuals with serious mental illnesses. BITs are recognized for their potential to provide evidence-based interventions for mental health conditions, especially anxiety disorders. The COVID-19 pandemic acted as a catalyst for the adoption of digital mental health services, underscoring their crucial role in providing accessible and quality care; however, their efficacy needs to be reinforced by workforce training, high-quality evidence, and digital equity. A nuanced understanding of young men's attitudes toward mental health is imperative for devising effective online services. Technology-based interventions for university students are promising, although variable in effectiveness; their deployment must be evidence-based and tailored to individual needs. Mobile health technologies, particularly activity tracking, hold promise for individuals with serious mental illnesses. Collectively, technology has immense potential to revolutionize mental health care. However, the implementation must be evidence-based, ethical, and equitable, with continued research focusing on experiences across diverse populations, ensuring accessibility and efficacy for all.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508160+00:00"
+    },
+    {
+      "paper_id": "arxiv:2011.05233v2",
+      "title": "On the State of Social Media Data for Mental Health Research",
+      "authors": [
+        "Keith Harrigian",
+        "Carlos Aguirre",
+        "Mark Dredze"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2011.05233v2",
+      "abstract": "Data-driven methods for mental health treatment and surveillance have become a major focus in computational science research in the last decade. However, progress in the domain, in terms of both medical understanding and system performance, remains bounded by the availability of adequate data. Prior systematic reviews have not necessarily made it possible to measure the degree to which data-related challenges have affected research progress. In this paper, we offer an analysis specifically on the state of social media data that exists for conducting mental health research. We do so by introducing an open-source directory of mental health datasets, annotated using a standardized schema to facilitate meta-analysis.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508150+00:00"
+    },
+    {
+      "paper_id": "arxiv:2008.08370v2",
+      "title": "Coordinated Behavior on Social Media in 2019 UK General Election",
+      "authors": [
+        "Leonardo Nizzoli",
+        "Serena Tardelli",
+        "Marco Avvenuti",
+        "Stefano Cresci",
+        "Maurizio Tesconi"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2008.08370v2",
+      "abstract": "Coordinated online behaviors are an essential part of information and influence operations, as they allow a more effective disinformation's spread. Most studies on coordinated behaviors involved manual investigations, and the few existing computational approaches make bold assumptions or oversimplify the problem to make it tractable. Here, we propose a new network-based framework for uncovering and studying coordinated behaviors on social media. Our research extends existing systems and goes beyond limiting binary classifications of coordinated and uncoordinated behaviors. It allows to expose different coordination patterns and to estimate the degree of coordination that characterizes diverse communities. We apply our framework to a dataset collected during the 2019 UK General Election, detecting and characterizing coordinated communities that participated in the electoral debate. Our work conveys both theoretical and practical implications and provides more nuanced and fine-grained results for studying online information manipulation.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508153+00:00"
+    },
+    {
+      "paper_id": "doi:10.25215/8194288797.18",
+      "title": "MENTAL HEALTH AND DEPRESSION DETECTION FROM SOCIAL MEDIA POSTS USING MACHINE LEARNING AND NLP",
+      "authors": [
+        "Likhith, Akhila, Gana K V"
+      ],
+      "year": 2020,
+      "venue": "INTERNATIONAL CONFERENCE ON ADVANCED IT, ENGINEERING AND MANAGEMENT SACAIM 2025 (Volume - 2)",
+      "doi": "10.25215/8194288797.18",
+      "url": "https://doi.org/10.25215/8194288797.18",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:51:38.982887+00:00"
+    },
+    {
+      "paper_id": "arxiv:1604.02522v2",
+      "title": "Understanding Musical Diversity via Online Social Media",
+      "authors": [
+        "Minsu Park",
+        "Ingmar Weber",
+        "Mor Naaman",
+        "Sarah Vieweg"
+      ],
+      "year": 2016,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1604.02522v2",
+      "abstract": "Musicologists and sociologists have long been interested in patterns of music consumption and their relation to socioeconomic status. In particular, the Omnivore Thesis examines the relationship between these variables and the diversity of music a person consumes. Using data from social media users of Last.fm and Twitter, we design and evaluate a measure that reasonably captures diversity of musical tastes. We use that measure to explore associations between musical diversity and variables that capture socioeconomic status, demographics, and personal traits such as openness and degree of interest in music (into-ness). Our musical diversity measure can provide a useful means for studies of musical preferences and consumption. Also, our study of the Omnivore Thesis provides insights that extend previous survey and interview-based studies.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508157+00:00"
+    },
+    {
+      "paper_id": "arxiv:1611.04989v2",
+      "title": "Recurrent Neural Network based Part-of-Speech Tagger for Code-Mixed Social Media Text",
+      "authors": [
+        "Raj Nath Patel",
+        "Prakash B. Pimpale",
+        "M Sasikumar"
+      ],
+      "year": 2016,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1611.04989v2",
+      "abstract": "This paper describes Centre for Development of Advanced Computing's (CDACM) submission to the shared task-'Tool Contest on POS tagging for Code-Mixed Indian Social Media (Facebook, Twitter, and Whatsapp) Text', collocated with ICON-2016. The shared task was to predict Part of Speech (POS) tag at word level for a given text. The code-mixed text is generated mostly on social media by multilingual users. The presence of the multilingual words, transliterations, and spelling variations make such content linguistically complex. In this paper, we propose an approach to POS tag code-mixed social media text using Recurrent Neural Network Language Model (RNN-LM) architecture. We submitted the results for Hindi-English (hi-en), Bengali-English (bn-en), and Telugu-English (te-en) code-mixed data.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:51:35.508169+00:00"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 import time
-from typing import TYPE_CHECKING, Any, Optional
+from typing import TYPE_CHECKING, Any, Callable, Optional
 
 from athena.config import Settings, get_settings
 from athena.schemas.citation import Citation, ValidationResult, ValidationStatus
@@ -90,6 +90,7 @@ def run_athena_on_blind_entries(
     settings: Optional[Settings] = None,
     delay_seconds: float = 0.0,
     validator: Optional[CitationValidator] = None,
+    on_prediction: Callable[[int, Any, "Prediction"], None] | None = None,
 ) -> list[Prediction]:
     """Validate each blind entry with Athena and return HALLMARK predictions."""
     from hallmark.dataset.schema import Prediction
@@ -116,10 +117,20 @@ def run_athena_on_blind_entries(
             )
             continue
 
-        result = validator.validate(citation)
-        pred = validation_result_to_prediction(result, entry.bibtex_key)
+        try:
+            result = validator.validate(citation)
+            pred = validation_result_to_prediction(result, entry.bibtex_key)
+        except Exception as exc:
+            pred = Prediction(
+                bibtex_key=entry.bibtex_key,
+                label="UNCERTAIN",
+                confidence=0.5,
+                reason=f"athena:validate_error ({type(exc).__name__}: {exc})",
+            )
         pred.wall_clock_seconds = time.perf_counter() - t0
         predictions.append(pred)
+        if on_prediction is not None:
+            on_prediction(i, entry, pred)
 
     return predictions
 

@@ -1,5 +1,5 @@
 """
-Athena Research Assistant — Streamlit demo (W7).
+Athena Research Assistant — Streamlit demo UI.
 
 Run: streamlit run app/streamlit_app.py
 """
@@ -27,6 +27,9 @@ from app.components import (  # noqa: E402
     status_badge,
     trace_timings,
 )
+from app.upload_utils import load_bounded_json, resolve_upload_path  # noqa: E402
+from athena.agents.research import CriticalResearchSourcesError  # noqa: E402
+from athena.config import get_settings  # noqa: E402
 from athena.graph.build_graph import build_athena_graph, initial_state  # noqa: E402
 from athena.graph.report import state_to_report  # noqa: E402
 from athena.storage.sqlite import init_db, persist_traces  # noqa: E402
@@ -45,10 +48,27 @@ def _save_uploaded_pdf(uploaded_file) -> Path | None:
     if uploaded_file is None:
         return None
     upload_dir = ROOT / "data" / "uploads"
-    upload_dir.mkdir(parents=True, exist_ok=True)
-    dest = upload_dir / uploaded_file.name
+    dest = resolve_upload_path(upload_dir, uploaded_file.name)
     dest.write_bytes(uploaded_file.getvalue())
     return dest
+
+
+def _require_ui_auth() -> None:
+    """Optional password gate when ATHENA_UI_PASSWORD is set."""
+    password = get_settings().athena_ui_password.strip()
+    if not password:
+        return
+    if st.session_state.get("ui_authenticated"):
+        return
+    st.subheader("Sign in")
+    st.caption("Set `ATHENA_UI_PASSWORD` in `.env` when exposing this app beyond localhost.")
+    entered = st.text_input("Password", type="password", key="ui_password_input")
+    if st.button("Unlock", type="primary"):
+        if entered == password:
+            st.session_state.ui_authenticated = True
+            st.rerun()
+        st.error("Invalid password.")
+    st.stop()
 
 
 def _run_pipeline(
@@ -56,7 +76,7 @@ def _run_pipeline(
     constraints: dict[str, Any],
     *,
     use_sqlite_checkpoint: bool,
-) -> dict[str, Any]:
+) -> dict[str, Any] | None:
     init_db()
     graph = build_athena_graph(use_sqlite=use_sqlite_checkpoint)
     thread_id = f"ui-{uuid.uuid4().hex[:12]}"
@@ -67,15 +87,22 @@ def _run_pipeline(
     progress = st.progress(0.0, text="Starting pipeline…")
     log = st.empty()
 
-    for event in graph.stream(state, config=config, stream_mode="updates"):
-        for node_name in event:
-            completed.append(node_name)
-            idx = len(completed)
-            progress.progress(
-                idx / len(PIPELINE_STEPS),
-                text=f"Completed: {node_name} ({idx}/{len(PIPELINE_STEPS)})",
-            )
-            log.markdown(f"- Finished **{node_name}**")
+    try:
+        for event in graph.stream(state, config=config, stream_mode="updates"):
+            for node_name in event:
+                completed.append(node_name)
+                idx = len(completed)
+                progress.progress(
+                    idx / len(PIPELINE_STEPS),
+                    text=f"Completed: {node_name} ({idx}/{len(PIPELINE_STEPS)})",
+                )
+                log.markdown(f"- Finished **{node_name}**")
+    except CriticalResearchSourcesError as exc:
+        progress.empty()
+        st.error("Research stopped: arXiv and Semantic Scholar both failed.")
+        for err in exc.errors:
+            st.caption(err)
+        return None
 
     snapshot = graph.get_state(config)
     final_state = dict(snapshot.values) if snapshot and snapshot.values else {}
@@ -101,6 +128,10 @@ def _render_overview(report: dict[str, Any]) -> None:
 
     if report.get("research_errors"):
         st.warning("Research warnings:\n" + "\n".join(f"- {e}" for e in report["research_errors"]))
+    sources = report.get("research_sources_ok") or {}
+    if sources:
+        labels = ", ".join(f"{k}: {'OK' if v else 'fail'}" for k, v in sources.items())
+        st.caption(f"Retrieval sources — {labels}")
 
 
 def _render_papers(report: dict[str, Any]) -> None:
@@ -210,6 +241,7 @@ def main() -> None:
     st.caption("Multi-agent literature review · citation verification · evidence-grounded gaps")
 
     render_integrity_banner()
+    _require_ui_auth()
 
     if "report" not in st.session_state:
         st.session_state.report = None
@@ -241,9 +273,12 @@ def main() -> None:
         st.subheader("Load saved report")
         uploaded_json = st.file_uploader("JSON report", type=["json"])
         if uploaded_json and st.button("Load JSON"):
-            st.session_state.report = json.loads(uploaded_json.read().decode())
-            st.session_state.last_run_at = datetime.now(timezone.utc).isoformat()
-            st.success("Report loaded.")
+            try:
+                st.session_state.report = load_bounded_json(uploaded_json.getvalue())
+                st.session_state.last_run_at = datetime.now(timezone.utc).isoformat()
+                st.success("Report loaded.")
+            except (ValueError, json.JSONDecodeError) as exc:
+                st.error(f"Could not load report: {exc}")
 
     constraints: dict[str, Any] = {
         "min_cards": min_cards,
@@ -266,6 +301,8 @@ def main() -> None:
                     constraints,
                     use_sqlite_checkpoint=use_checkpoint,
                 )
+            if report is None:
+                st.stop()
             st.session_state.report = report
             st.session_state.last_run_at = datetime.now(timezone.utc).isoformat()
             st.success("Pipeline finished.")

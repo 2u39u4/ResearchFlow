@@ -1,4 +1,4 @@
-"""W1 unit tests — no network."""
+"""Storage and cache unit tests — no network."""
 
 import json
 import tempfile

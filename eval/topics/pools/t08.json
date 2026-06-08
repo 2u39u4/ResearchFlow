@@ -1,0 +1,456 @@
+{
+  "topic_id": "t08",
+  "topic": "climate model downscaling deep learning",
+  "domain": "Climate Science",
+  "protocol_version": 1,
+  "built_at": "2026-06-04T17:34:16.528990+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "doi:10.5194/egusphere-egu25-15363",
+    "doi:10.22541/essoar.176538428.86776886/v1",
+    "doi:10.1007/s11356-025-36872-9",
+    "arxiv:2409.18574v2",
+    "arxiv:2406.02587v1",
+    "arxiv:2305.00975v1",
+    "arxiv:2305.00974v1",
+    "arxiv:2306.11144v1",
+    "arxiv:2306.11113v2",
+    "arxiv:2305.14452v2",
+    "doi:10.1029/2022ms003593",
+    "doi:10.1007/s41060-023-00397-6",
+    "doi:10.1016/j.heliyon.2023.e18200",
+    "doi:10.22541/essoar.167214210.02213149/v1",
+    "doi:10.5194/egusphere-egu22-11855",
+    "doi:10.5194/gmd-15-6747-2022",
+    "doi:10.5194/gmd-2022-57",
+    "arxiv:2105.04026v2",
+    "arxiv:2012.10394v1",
+    "arxiv:2008.01035v1"
+  ],
+  "cards": [
+    {
+      "paper_id": "doi:10.5194/egusphere-egu25-15363",
+      "title": "Multivariate climate downscaling using deep learning models",
+      "authors": [
+        "Pascal Horton",
+        "Maxim Samarin",
+        "Noelia Otero",
+        "Sam Allen",
+        "Michele Volpi"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.5194/egusphere-egu25-15363",
+      "url": "https://doi.org/10.5194/egusphere-egu25-15363",
+      "abstract": "<jats:p>Climate change is profoundly affecting ecosystems and societies. Impacts on hydrological regimes, water resources, and urban heatwaves are particularly important, emphasizing the need for a detailed understanding of these changes at local scales to inform effective adaptation strategies. Achieving this requires reliable, high-resolution projections of future climate conditions. However, current climate models operate at coarse spatial resolutions, limiting their ability to capture small-scale processes and extreme weather events. To bridge this gap, robust downscaling techniques are essential for refining the outputs of global and regional climate models.We propose a multivariate super-resolution (SR) approach to downscale temperature and precipitation data in Switzerland to improve the representation of localized patterns, particularly in Alpine regions, while simultaneously capturing the interdependencies between temperature and precipitation, which are crucial for hydrological applications. We leverage advanced machine learning techniques, including Generative Adversarial Networks (GANs) and Diffusion models, to overcome the limitations of classical methods in capturing inter-variable dependencies. These models provide an ensemble framework, providing multiple possible realizations, to account for downscaling uncertainties, resulting in more robust and reliable outputs for impact modeling and decision-making. We test different loss functions, like a regional CRPS, to allow for variability in the generated meteorological fields.We compare the performance of GANs and Diffusion models along with the differences between univariate and multivariate settings. Our approach includes applying a multivariate bias correction prior to downscaling. The downscaled results are compared to a setting based on univariate bias correction. Additionally, we present the pipeline, which integrates bias correction and downscaling and is intended to be open source.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521452+00:00"
+    },
+    {
+      "paper_id": "doi:10.22541/essoar.176538428.86776886/v1",
+      "title": "Observational Uncertainty in Deep Learning Climate Downscaling and Projections",
+      "authors": [
+        "Samuel Reyes-Elgueta",
+        "Jose González-Abad",
+        "Javier Diez-Sierra",
+        "Sixto Herrera",
+        "José Manuel Gutiérrez"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.22541/essoar.176538428.86776886/v1",
+      "url": "https://doi.org/10.22541/essoar.176538428.86776886/v1",
+      "abstract": "<jats:p>\n                  Deep learning (DL) models are increasingly used for climate downscaling,\nyet the impact of observational uncertainty on their performance remains\npoorly understood. Here we assess this effect by training ensembles of\nDL downscaling models using four independent gridded observational\ndatasets over continental Spain that differ in source, methodology, and\nspatial coverage. Each ensemble includes multiple training realizations\nof the same model to capture training variability. The models are then\napplied to downscale global climate model temperature projections.\nResults show that both intra-model (across realizations) and\ninter-dataset (across observational products) variability substantially\ninfluence the downscaled climate change signal. Differences among\ndatasets dominate this uncertainty, especially for extremes (annual 99th\npercentile) at regional scales, leading to warming discrepancies of up\nto 2.5 Â{degree sign}C. However, these discrepancies are smaller for\nhigh-quality regional datasets built from dense observation networks and\nrigorous quality control, whereas global observational datasets, known\nto misrepresent local climate features\n                  <jats:italic toggle=\"yes\">\\cite{bedia_dangers_2013}</jats:italic>\n                  , exert a larger impact on\ndownscaled projections. These findings highlight that the use of\nwell-constructed regional datasets can substantially reduce uncertainty\nand improve the reliability of deep learningâ€”based downscaling.\nExplicitly incorporating observational uncertainty into training and\nevaluation frameworks remains essential to ensure robust and credible\nregional climate projections.\n                </jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521496+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/s11356-025-36872-9",
+      "title": "Regional climate projections using a deep-learning–based model-ranking and downscaling framework: application to European climate zones",
+      "authors": [
+        "Parthiban Loganathan",
+        "Elias Zea",
+        "Ricardo Vinuesa",
+        "Evelyn Otero"
+      ],
+      "year": 2025,
+      "venue": "Environmental Science and Pollution Research",
+      "doi": "10.1007/s11356-025-36872-9",
+      "url": "https://doi.org/10.1007/s11356-025-36872-9",
+      "abstract": "<jats:title>Abstract</jats:title>\n          <jats:p>Accurate regional climate projection calls for high-resolution downscaling of Global Climate Models (GCMs). This work presents a deep-learning-based multi-model evaluation and downscaling framework ranking 32 Coupled Model Intercomparison Project Phase 6 (CMIP6) models using a Deep Learning-TOPSIS (DL-TOPSIS) mechanism and refines outputs using advanced deep-learning models. Using nine performance criteria, five Köppen-Geiger climate zones—Tropical, Arid, Temperate, Continental, and Polar—are investigated over four seasons. While TaiESM1 and CMCC-CM2-SR5 show notable biases, ranking results show that NorESM2-LM, GISS-E2-1-G, and HadGEM3-GC31-LL outperform other models. Four models contribute to downscaling the top-ranked GCMs to 0.1<jats:inline-formula>\n              <jats:alternatives>\n                <jats:tex-math>$$^\\circ $$</jats:tex-math>\n                <mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\">\n                  <mml:mmultiscripts>\n                    <mml:mrow/>\n                    <mml:mrow/>\n                    <mml:mo>∘</mml:mo>\n                  </mml:mmultiscripts>\n                </mml:math>\n              </jats:alternatives>\n            </jats:inline-formula> resolution (Vision Transformer (ViT), Geospatial Spatiotemporal Transformer with Attention and Imbalance-Aware Network (GeoSTANet), CNN-LSTM, CNN-Long Short-Term Memory (ConvLSTM)). Effectively capturing temperature extremes (TXx, TNn), GeoSTANet achieves the highest accuracy (Root Mean Square Error (RMSE) = 1.57<jats:inline-formula>\n              <jats:alternatives>\n                <jats:tex-math>$$^\\circ $$</jats:tex-math>\n                <mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\">\n                  <mml:mmultiscripts>\n                    <mml:mrow/>\n                    <mml:mrow/>\n                    <mml:mo>∘</mml:mo>\n                  </mml:mmultiscripts>\n                </mml:math>\n              </jats:alternatives>\n            </jats:inline-formula>C, Kling-Gupta Efficiency (KGE) = 0.89, Nash-Sutcliffe Efficiency (NSE) = 0.85, Correlation (r) = 0.92), so reducing RMSE by 20% over ConvLSTM. CNN-LSTM and ConvLSTM do well in Continental and Temperate zones; ViT finds fine-scale temperature fluctuations difficult. These results confirm that multi-criteria ranking improves GCM selection for regional climate studies and transformer-based downscaling exceeds conventional deep-learning methods. This framework offers a scalable method to enhance high-resolution climate projections, benefiting impact assessments and adaptation plans. The present study has the following limitations, which will be addressed in future works: (i) temperature-only focus, (ii) unquantified scenario uncertainty, and (iii) higher computational cost of transformer models.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521544+00:00"
+    },
+    {
+      "paper_id": "arxiv:2409.18574v2",
+      "title": "Climate Adaptation with Reinforcement Learning: Experiments with Flooding and Transportation in Copenhagen",
+      "authors": [
+        "Miguel Costa",
+        "Morten W. Petersen",
+        "Arthur Vandervoort",
+        "Martin Drews",
+        "Karyn Morrissey",
+        "Francisco C. Pereira"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2409.18574v2",
+      "abstract": "Due to climate change the frequency and intensity of extreme rainfall events, which contribute to urban flooding, are expected to increase in many places. These floods can damage transport infrastructure and disrupt mobility, highlighting the need for cities to adapt to escalating risks. Reinforcement learning (RL) serves as a powerful tool for uncovering optimal adaptation strategies, determining how and where to deploy adaptation measures effectively, even under significant uncertainty. In this study, we leverage RL to identify the most effective timing and locations for implementing measures, aiming to reduce both direct and indirect impacts of flooding. Our framework integrates climate change projections of future rainfall events and floods, models city-wide motorized trips, and quantifies direct and indirect impacts on infrastructure and mobility. Preliminary results suggest that our RL-based approach can significantly enhance decision-making by prioritizing interventions in specific urban areas and identifying the optimal periods for their implementation. Our framework is publicly available: \\url{https://github.com/MLSM-at-DTU/floods_transport_rl}.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.687980+00:00"
+    },
+    {
+      "paper_id": "arxiv:2406.02587v1",
+      "title": "Capturing Climatic Variability: Using Deep Learning for Stochastic Downscaling",
+      "authors": [
+        "Kiri Daust",
+        "Adam Monahan"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2406.02587v1",
+      "abstract": "Adapting to the changing climate requires accurate local climate information, a computationally challenging problem. Recent studies have used Generative Adversarial Networks (GANs), a type of deep learning, to learn complex distributions and downscale climate variables efficiently. Capturing variability while downscaling is crucial for estimating uncertainty and characterising extreme events - critical information for climate adaptation. Since downscaling is an undetermined problem, many fine-scale states are physically consistent with the coarse-resolution state. To quantify this ill-posed problem, downscaling techniques should be stochastic, able to sample realisations from a high-resolution distribution conditioned on low-resolution input. Previous stochastic downscaling attempts have found substantial underdispersion, with models failing to represent the full distribution. We propose approaches to improve the stochastic calibration of GANs in three ways: a) injecting noise inside the network, b) adjusting the training process to explicitly account for the stochasticity, and c) using a probabilistic loss metric. We tested our models first on a synthetic dataset with known distributional properties, and then on a realistic downscaling scenario, predicting high-resolution wind components from low-resolution climate covariates. Injecting noise, on its own, substantially improved the quality of conditional and full distributions in tests with synthetic data, but performed less well for wind field downscaling, where models remained underdispersed. For wind downscaling, we found that adjusting the training method and including the probabilistic loss improved calibration. The best model, with all three changes, showed much improved skill at capturing the full variability of the high-resolution distribution and thus at characterising extremes.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.688022+00:00"
+    },
+    {
+      "paper_id": "arxiv:2305.00975v1",
+      "title": "Deep Ensembles to Improve Uncertainty Quantification of Statistical Downscaling Models under Climate Change Conditions",
+      "authors": [
+        "Jose González-Abad",
+        "Jorge Baño-Medina"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2305.00975v1",
+      "abstract": "Recently, deep learning has emerged as a promising tool for statistical downscaling, the set of methods for generating high-resolution climate fields from coarse low-resolution variables. Nevertheless, their ability to generalize to climate change conditions remains questionable, mainly due to the stationarity assumption. We propose deep ensembles as a simple method to improve the uncertainty quantification of statistical downscaling models. By better capturing uncertainty, statistical downscaling models allow for superior planning against extreme weather events, a source of various negative social and economic impacts. Since no observational future data exists, we rely on a pseudo reality experiment to assess the suitability of deep ensembles for quantifying the uncertainty of climate change projections. Deep ensembles allow for a better risk assessment, highly demanded by sectoral applications to tackle climate change.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.687994+00:00"
+    },
+    {
+      "paper_id": "arxiv:2305.00974v1",
+      "title": "On the use of Deep Generative Models for Perfect Prognosis Climate Downscaling",
+      "authors": [
+        "Jose González-Abad",
+        "Jorge Baño-Medina",
+        "Ignacio Heredia Cachá"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2305.00974v1",
+      "abstract": "Deep Learning has recently emerged as a perfect prognosis downscaling technique to compute high-resolution fields from large-scale coarse atmospheric data. Despite their promising results to reproduce the observed local variability, they are based on the estimation of independent distributions at each location, which leads to deficient spatial structures, especially when downscaling precipitation. This study proposes the use of generative models to improve the spatial consistency of the high-resolution fields, very demanded by some sectoral applications (e.g., hydrology) to tackle climate change.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.687999+00:00"
+    },
+    {
+      "paper_id": "arxiv:2306.11144v1",
+      "title": "Evaluating Loss Functions and Learning Data Pre-Processing for Climate Downscaling Deep Learning Models",
+      "authors": [
+        "Xingying Huang"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2306.11144v1",
+      "abstract": "Deep learning models have gained popularity in climate science, following their success in computer vision and other domains. For instance, researchers are increasingly employing deep learning techniques for downscaling climate data, drawing inspiration from image super-resolution models. However, there are notable differences between image data and climate data. While image data typically falls within a specific range (e.g., [0, 255]) and exhibits a relatively uniform or normal distribution, climate data can possess arbitrary value ranges and highly uneven distributions, such as precipitation data. This non-uniform distribution presents challenges when attempting to directly apply existing computer vision models to climate science tasks. Few studies have addressed this issue thus far. In this study, we explore the effects of loss functions and non-linear data pre-processing methods for deep learning models in the context of climate downscaling. We employ a climate downscaling experiment as an example to evaluate these factors. Our findings reveal that L1 loss and L2 loss perform similarly on some more balanced data like temperature data while for some imbalanced data like precipitation data, L2 loss performs significantly better than L1 loss. Additionally, we propose an approach to automatically learn the non-linear pre-processing function, which further enhances model accuracy and achieves the best results.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.688002+00:00"
+    },
+    {
+      "paper_id": "arxiv:2306.11113v2",
+      "title": "Learn to Accumulate Evidence from All Training Samples: Theory and Practice",
+      "authors": [
+        "Deep Pandey",
+        "Qi Yu"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2306.11113v2",
+      "abstract": "Evidential deep learning, built upon belief theory and subjective logic, offers a principled and computationally efficient way to turn a deterministic neural network uncertainty-aware. The resultant evidential models can quantify fine-grained uncertainty using the learned evidence. To ensure theoretically sound evidential models, the evidence needs to be non-negative, which requires special activation functions for model training and inference. This constraint often leads to inferior predictive performance compared to standard softmax models, making it challenging to extend them to many large-scale datasets. To unveil the real cause of this undesired behavior, we theoretically investigate evidential models and identify a fundamental limitation that explains the inferior performance: existing evidential activation functions create zero evidence regions, which prevent the model to learn from training samples falling into such regions. A deeper analysis of evidential activation functions based on our theoretical underpinning inspires the design of a novel regularizer that effectively alleviates this fundamental limitation. Extensive experiments over many challenging real-world datasets and settings confirm our theoretical findings and demonstrate the effectiveness of our proposed approach.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.688006+00:00"
+    },
+    {
+      "paper_id": "arxiv:2305.14452v2",
+      "title": "Fourier Neural Operators for Arbitrary Resolution Climate Data Downscaling",
+      "authors": [
+        "Qidong Yang",
+        "Alex Hernandez-Garcia",
+        "Paula Harder",
+        "Venkatesh Ramesh",
+        "Prasanna Sattegeri",
+        "Daniela Szwarcman",
+        "Campbell D. Watson",
+        "David Rolnick"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2305.14452v2",
+      "abstract": "Climate simulations are essential in guiding our understanding of climate change and responding to its effects. However, it is computationally expensive to resolve complex climate processes at high spatial resolution. As one way to speed up climate simulations, neural networks have been used to downscale climate variables from fast-running low-resolution simulations, but high-resolution training data are often unobtainable or scarce, greatly limiting accuracy. In this work, we propose a downscaling method based on the Fourier neural operator. It trains with data of a small upsampling factor and then can zero-shot downscale its input to arbitrary unseen high resolution. Evaluated both on ERA5 climate model data and on the Navier-Stokes equation solution data, our downscaling model significantly outperforms state-of-the-art convolutional and generative adversarial downscaling models, both in standard single-resolution downscaling and in zero-shot generalization to higher upsampling factors. Furthermore, we show that our method also outperforms state-of-the-art data-driven partial differential equation solvers on Navier-Stokes equations. Overall, our work bridges the gap between simulation of a physical process and interpolation of low-resolution output, showing that it is possible to combine both approaches and significantly improve upon each other.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.688019+00:00"
+    },
+    {
+      "paper_id": "doi:10.1029/2022ms003593",
+      "title": "Deep Learning Regional Climate Model Emulators: A Comparison of Two Downscaling Training Frameworks",
+      "authors": [
+        "Marijn van der Meer",
+        "Sophie de Roda Husman",
+        "Stef Lhermitte"
+      ],
+      "year": 2023,
+      "venue": "Journal of Advances in Modeling Earth Systems",
+      "doi": "10.1029/2022ms003593",
+      "url": "https://doi.org/10.1029/2022ms003593",
+      "abstract": "<jats:title>Abstract</jats:title><jats:p>Regional climate models (RCMs) have a high computational cost due to their higher spatial resolution compared to global climate models (GCMs). Therefore, various downscaling approaches have been developed as a surrogate for the dynamical downscaling of GCMs. This study assesses the potential of using a cost‐efficient machine learning alternative to dynamical downscaling by using the example case study of emulating surface mass balance (SMB) over the Antarctic Peninsula. More specifically, we determine the impact of the training framework by comparing two training scenarios: (a) a perfect and (b) an imperfect model framework. In the perfect model framework, the RCM‐emulator learns only the downscaling function; therefore, it was trained with upscaled RCM (UPRCM) features at GCM resolution. This emulator accurately reproduced SMB when evaluated on UPRCM, but its predictions on GCM data conserved RCM‐GCM inconsistencies and led to underestimation. In the imperfect model framework, the RCM‐emulator was trained with GCM features and downscaled the GCM while exposed to RCM‐GCM inconsistencies. This emulator predicted SMB close to the truth, showing it learned the underlying inconsistencies and dynamics. Our results suggest that a deep learning RCM‐emulator can learn the proper GCM to RCM downscaling function while working directly with GCM data. Furthermore, the RCM‐emulator presents a significant computational gain compared to an RCM simulation. We conclude that machine learning emulators can be applied to produce fast and fine‐scaled predictions of RCM simulations from GCM data.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521508+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/s41060-023-00397-6",
+      "title": "Downscaling daily wind speed with Bayesian deep learning for climate monitoring",
+      "authors": [
+        "Firas Gerges",
+        "Michel C. Boufadel",
+        "Elie Bou-Zeid",
+        "Hani Nassif",
+        "Jason T. L. Wang"
+      ],
+      "year": 2023,
+      "venue": "International Journal of Data Science and Analytics",
+      "doi": "10.1007/s41060-023-00397-6",
+      "url": "https://doi.org/10.1007/s41060-023-00397-6",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521568+00:00"
+    },
+    {
+      "paper_id": "doi:10.1016/j.heliyon.2023.e18200",
+      "title": "An improved deep learning procedure for statistical downscaling of climate data",
+      "authors": [
+        "Ahmed M.S. Kheir",
+        "Abdelrazek Elnashar",
+        "Alaa Mosad",
+        "Ajit Govind"
+      ],
+      "year": 2023,
+      "venue": "Heliyon",
+      "doi": "10.1016/j.heliyon.2023.e18200",
+      "url": "https://doi.org/10.1016/j.heliyon.2023.e18200",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521581+00:00"
+    },
+    {
+      "paper_id": "doi:10.22541/essoar.167214210.02213149/v1",
+      "title": "Deep Learning Regional Climate Model Emulators: a comparison of two downscaling training frameworks",
+      "authors": [
+        "Marijn van der Meer",
+        "Sophie de Roda Husman",
+        "S Lhermitte"
+      ],
+      "year": 2022,
+      "venue": "",
+      "doi": "10.22541/essoar.167214210.02213149/v1",
+      "url": "https://doi.org/10.22541/essoar.167214210.02213149/v1",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521482+00:00"
+    },
+    {
+      "paper_id": "doi:10.5194/egusphere-egu22-11855",
+      "title": "Testing deep learning methods for downscaling climate change projections: The DeepESD multi-model dataset",
+      "authors": [
+        "Jorge Baño-Medina",
+        "Rodrigo Manzanas",
+        "Ezequiel Cimadevilla",
+        "Jesús Fernández",
+        "Antonio S. Cofiño",
+        "Jose Manuel Gutiérrez"
+      ],
+      "year": 2022,
+      "venue": "",
+      "doi": "10.5194/egusphere-egu22-11855",
+      "url": "https://doi.org/10.5194/egusphere-egu22-11855",
+      "abstract": "<jats:p>&amp;lt;p&amp;gt;Deep Learning (DL) has recently emerged as a powerful approach to downscale climate variables from low-resolution GCM fields, showing promising capabilities to reproduce the local scale in present conditions [1]. There have also been some prospects assessing the potential of DL techniques to downscale climate change projections, in particular convolutional neural networks (CNNs) [2]. However, it is still an open question whether they are able to properly generalize to climate change conditions which have been never seen before and produce plausible results.&amp;amp;#160;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Following the &amp;amp;#8220;perfect-prognosis&amp;amp;#8221; approach, we use in this study the CNNs assessed in [2] to downscale precipitation and temperature for the historical (1975-2005) and RCP8.5 (2006-2100) scenarios of&amp;amp;#160; an ensemble of eight Global Climate Models (GCMs) over Europe. The resulting future projections, which are gathered in a new dataset called DeepESD, are compared with 1) those derived from benchmark statistical models (linear and generalized linear models), and 2) a set of state-of-the-art regional climate models (RCM) which are considered the &amp;amp;#8220;ground-truth&amp;amp;#8221;. Overall, CNNs lead to climate change signals that are in good agreement with those obtained from RCMs (especially for precipitation), which indicates their potential ability to generalize to future climates. Nevertheless, for some GCMs we find&amp;amp;#160; that there are considerable regional differences between the &amp;amp;#8220;raw&amp;amp;#8221; and the downscaled climate change signals, an important aspect which was unnoticed in a previous work that focused exclusively on one single GCM [2]. This highlights the importance of considering&amp;amp;#160; muti-model ensembles of downscaled projections (such as the one presented here) to conduct a comprehensive analysis of the suitability of DL techniques for climate change applications. Indeed, understanding the nature of the mentioned differences is necessary and future work towards this aim would imply carefully analyzing some of the assumptions made in&amp;amp;#8220;perfect-prognosis&amp;amp;#8221; downscaling (e.g., stationarity of the predictor-predictand link, adaptation of the statistical function to the climate model space). Therefore, following the FAIR (Findability, Accessibility, Interoperability and Reuse) principles we have made publicly available DeepESD through the Earth System Grid Federation (ESGF), which will allow the scientific community to continue exploring the benefits and shortcomings of DL techniques for statistical downscaling of climate change projections.&amp;amp;#160;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;References:&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;[1] Ba&amp;amp;#241;o-Medina, J., Manzanas, R., and Guti&amp;amp;#233;rrez, J. M.: Configuration and intercomparison of deep learning neural models for statistical downscaling, Geoscientific Model Development, 13, 2109&amp;amp;#8211;2124, 2020.&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;[2] Ba&amp;amp;#241;o-Medina, J., Manzanas, R., and Guti&amp;amp;#233;rrez, J. M.: On the suitability of deep convolutional neural networks for continental-wide downscaling of climate change projections, Climate Dynamics, pp. 1&amp;amp;#8211;11, 2021&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;amp;#160;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;Acknowledgements&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;The authors would like to acknowledge projects ATLAS (PID2019-111481RB-I00) and CORDyS (PID2020-116595RB-I00), funded by MCIN/AEI (doi:10.13039/501100011033). We also acknowledge support from Universidad de Cantabria and Consejer&amp;amp;#237;a de Universidades, Igualdad, Cultura y Deporte del Gobierno de Cantabria via the &amp;amp;#8220;instrumentaci&amp;amp;#243;n y ciencia de datos para sondear la naturaleza del universo&amp;amp;#8221; project for funding this work. A.S.C and E.C. acknowledge project IS-ENES3 funded by the EU H2020 (#824084).&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/p&amp;gt;</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521521+00:00"
+    },
+    {
+      "paper_id": "doi:10.5194/gmd-15-6747-2022",
+      "title": "Downscaling multi-model climate projection ensembles with deep learning (DeepESD): contribution to CORDEX EUR-44",
+      "authors": [
+        "Jorge Baño-Medina",
+        "Rodrigo Manzanas",
+        "Ezequiel Cimadevilla",
+        "Jesús Fernández",
+        "Jose González-Abad",
+        "Antonio S. Cofiño",
+        "José Manuel Gutiérrez"
+      ],
+      "year": 2022,
+      "venue": "Geoscientific Model Development",
+      "doi": "10.5194/gmd-15-6747-2022",
+      "url": "https://doi.org/10.5194/gmd-15-6747-2022",
+      "abstract": "<jats:p>Abstract. Deep learning (DL) has recently emerged as an innovative tool to downscale climate variables from large-scale atmospheric fields under the perfect-prognosis (PP) approach. Different convolutional neural networks (CNNs) have been applied under present-day conditions with promising results, but little is known about their suitability for extrapolating future climate change conditions. Here, we analyze this problem from a multi-model perspective, developing and evaluating an ensemble of CNN-based downscaled projections (hereafter DeepESD) for temperature and precipitation over the European EUR-44i (0.5∘) domain, based on eight global circulation models (GCMs) from the Coupled Model Intercomparison Project Phase 5 (CMIP5). To our knowledge, this is the first time that CNNs have been used to produce downscaled multi-model ensembles based on the perfect-prognosis approach, allowing us to quantify inter-model uncertainty in climate change signals. The results are compared with those corresponding to an EUR-44 ensemble of regional climate models (RCMs) showing that DeepESD reduces distributional biases in the historical period. Moreover, the resulting climate change signals are broadly comparable to those obtained with the RCMs, with similar spatial structures. As for the uncertainty of the climate change signal (measured on the basis of inter-model spread), DeepESD preserves the uncertainty for temperature and results in a reduced uncertainty for precipitation. To facilitate further studies of this downscaling approach, we follow FAIR principles and make publicly available the code (a Jupyter notebook) and the DeepESD dataset. In particular, DeepESD is published at the Earth System Grid Federation (ESGF), as the first continental-wide PP dataset contributing to CORDEX (EUR-44).</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521533+00:00"
+    },
+    {
+      "paper_id": "doi:10.5194/gmd-2022-57",
+      "title": "Downscaling Multi-Model Climate Projection Ensembles with Deep Learning (DeepESD): Contribution to CORDEX EUR-44",
+      "authors": [
+        "Jorge Baño-Medina",
+        "Rodrigo Manzanas",
+        "Ezequiel Cimadevilla",
+        "Jesús Fernández",
+        "Jose González-Abad",
+        "Antonio Santiago Cofiño",
+        "José Manuel Gutiérrez"
+      ],
+      "year": 2022,
+      "venue": "",
+      "doi": "10.5194/gmd-2022-57",
+      "url": "https://doi.org/10.5194/gmd-2022-57",
+      "abstract": "<jats:p>Abstract. Deep Learning (DL) has recently emerged as an innovative tool to downscale climate variables from large-scale atmospheric fields under the perfect prognosis (PP) approach. Different Convolutional Neural Networks (CNN) have been applied under present-day conditions with promising results, but little is known about their suitability for extrapolating future climate change conditions. Here, we analyze this problem from a multi-model perspective, developing and evaluating an ensemble of CNN-based downscaled projections (DeepESD) for temperature and precipitation over the European EUR-44i (0.5º) domain, based on eight GCMs from the Coupled Model Intercomparison Project Phase 5 (CMIP5). To our knowledge, this is the first time that CNNs have been used to produce multi-model ensembles of downscaled projections, allowing to quantify inter-model uncertainty in climate change signals. The results are compared with those corresponding to an EUR-44 ensemble of regional climate models (RCMs) showing that DeepESD reduces distributional biases in the historical period. Moreover, the resulting climate change signals are broadly comparable to those obtained with the RCMs, with similar spatial structures. As for the uncertainty of the climate change signal (measured on the basis of inter-model spread), DeepESD yields a smaller uncertainty for precipitation, but a similar uncertainty for temperature. To facilitate further studies of this downscaling approach we follow FAIR principles and make publicly available the code (a Jupyter notebook) and the DeepESD dataset. In particular, DeepESD is published at the Earth System Grid Federation (ESGF), as the first continental-wide PP dataset contributing to CORDEX (EUR-44).</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:34:16.521557+00:00"
+    },
+    {
+      "paper_id": "arxiv:2105.04026v2",
+      "title": "The Modern Mathematics of Deep Learning",
+      "authors": [
+        "Julius Berner",
+        "Philipp Grohs",
+        "Gitta Kutyniok",
+        "Philipp Petersen"
+      ],
+      "year": 2021,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2105.04026v2",
+      "abstract": "We describe the new field of mathematical analysis of deep learning. This field emerged around a list of research questions that were not answered within the classical framework of learning theory. These questions concern: the outstanding generalization power of overparametrized neural networks, the role of depth in deep architectures, the apparent absence of the curse of dimensionality, the surprisingly successful optimization performance despite the non-convexity of the problem, understanding what features are learned, why deep architectures perform exceptionally well in physical problems, and which fine aspects of an architecture affect the behavior of a learning task in which way. We present an overview of modern approaches that yield partial answers to these questions. For selected approaches, we describe the main ideas in more detail.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.688009+00:00"
+    },
+    {
+      "paper_id": "arxiv:2012.10394v1",
+      "title": "Deep Learning for Climate Model Output Statistics",
+      "authors": [
+        "Michael Steininger",
+        "Daniel Abel",
+        "Katrin Ziegler",
+        "Anna Krause",
+        "Heiko Paeth",
+        "Andreas Hotho"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2012.10394v1",
+      "abstract": "Climate models are an important tool for the assessment of prospective climate change effects but they suffer from systematic and representation errors, especially for precipitation. Model output statistics (MOS) reduce these errors by fitting the model output to observational data with machine learning. In this work, we explore the feasibility and potential of deep learning with convolutional neural networks (CNNs) for MOS. We propose the CNN architecture ConvMOS specifically designed for reducing errors in climate model outputs and apply it to the climate model REMO. Our results show a considerable reduction of errors and mostly improved performance compared to three commonly used MOS approaches.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.688012+00:00"
+    },
+    {
+      "paper_id": "arxiv:2008.01035v1",
+      "title": "Invasive species, extreme fire risk, and toxin release under a changing climate",
+      "authors": [
+        "Kimberley Miner",
+        "Laura Meyerson",
+        ". Climate Change Institute",
+        "School of Earth",
+        "Climate Sciences",
+        "University of Maine",
+        "Orono",
+        "ME 04469 2. Department of Natural Resources Science",
+        "University of Rhode Island",
+        "Kingston",
+        "RI 02881"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2008.01035v1",
+      "abstract": "Mediterranean ecosystems such as those found in California, Central Chile, Southern Europe, and Southwest Australia host numerous, diverse, fire-adapted micro-ecosystems. These micro-ecosystems are as diverse as mountainous conifer to desert-like chaparral communities. Over the last few centuries, human intervention, invasive species, and climate warming have drastically affected the composition and health of Mediterranean ecosystems on almost every continent. Increased fuel load from fire suppression policies and the continued range expansion of non-native insects and plants, some driven by long-term drought, produced the deadliest wildfire season on record in 2018. As a consequence of these fires, a large number of structures are destroyed, releasing household chemicals into the environment as uncontrolled toxins. The mobilization of these materials can lead to health risks and disruption in both human and natural systems. This article identifies drivers that led to a structural weakening of the mosaic of fire-adapted ecosystems in California, and subsequently increased the risk of destructive and explosive wildfires throughout the state. Under a new climate regime, managing the impacts on systems moving out-of-phase with natural processes may protect lives and ensure the stability of ecosystem services.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:34:14.688016+00:00"
+    }
+  ]
+}

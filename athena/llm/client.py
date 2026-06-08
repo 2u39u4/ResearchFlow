@@ -13,7 +13,7 @@ Message = dict[str, str]
 
 
 class LLMClient:
-    """OpenAI-compatible chat client (OpenAI / DeepSeek)."""
+    """OpenAI-compatible chat client (OpenAI / DeepSeek / Gemini)."""
 
     def __init__(self, settings: Settings | None = None, *, use_cache: bool = True):
         self.settings = settings or get_settings()
@@ -31,6 +31,13 @@ class LLMClient:
             return OpenAI(
                 api_key=self.settings.deepseek_api_key,
                 base_url=self.settings.deepseek_base_url,
+            )
+        if p == "gemini":
+            if not self.settings.gemini_api_key:
+                raise ValueError("GEMINI_API_KEY is not set")
+            return OpenAI(
+                api_key=self.settings.gemini_api_key,
+                base_url=self.settings.gemini_base_url,
             )
         if not self.settings.openai_api_key:
             raise ValueError("OPENAI_API_KEY is not set")

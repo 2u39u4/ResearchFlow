@@ -36,6 +36,7 @@ athena_cache/
 .vscode/
 *.swp
 .DS_Store
+.mplconfig/
 
 # Eval outputs
 results/
@@ -43,8 +44,11 @@ results/
 # Logs
 *.log
 
-# Local planning docs (Chinese, not for public / grad-application remote repo)
+# Local-only planning (week milestones, Chinese notes — NOT for public GitHub)
 execute.md
 deliverables.md
 plan.txt
 docs/local/
+
+# Generated experiment outputs (run `python scripts/run_experiments.py analysis` locally)
+# Summary: results/experiments/experiment_summary.md

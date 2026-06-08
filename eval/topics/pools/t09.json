@@ -1,0 +1,420 @@
+{
+  "topic_id": "t09",
+  "topic": "quantum error correction surface codes",
+  "domain": "Physics",
+  "protocol_version": 1,
+  "built_at": "2026-06-04T17:35:51.945974+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "arxiv:2605.17156v2",
+    "doi:10.1038/s42005-026-02681-w",
+    "doi:10.38124/ijisrt/25jun909",
+    "doi:10.1007/978-3-031-85902-1_7",
+    "doi:10.2139/ssrn.5765046",
+    "arxiv:2410.20233v1",
+    "arxiv:2305.01301v4",
+    "doi:10.1109/qce57702.2023.00106",
+    "doi:10.1109/fccm57271.2023.00045",
+    "doi:10.1007/978-3-030-91214-7_6",
+    "doi:10.1364/cleopr.2020.c12c_4",
+    "arxiv:1910.03672v1",
+    "arxiv:1610.04013v1",
+    "arxiv:1311.2485v2",
+    "arxiv:0811.3734v1",
+    "arxiv:0602157v1",
+    "arxiv:0304016v2",
+    "arxiv:9911011v3",
+    "doi:10.1007/3-540-49208-9_28",
+    "doi:10.17771/pucrio.acad.59800"
+  ],
+  "cards": [
+    {
+      "paper_id": "arxiv:2605.17156v2",
+      "title": "Sparse Mamba Decoder for Quantum Error Correction: Efficient Defect-Centric Processing of Surface Code Syndromes",
+      "authors": [
+        "Samira Sayedsalehi",
+        "Nader Bagherzadeh",
+        "Maxim Shcherbakov",
+        "Jean-Luc Gaudiot"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2605.17156v2",
+      "abstract": "Quantum error correction (QEC) is essential for building fault-tolerant quantum computers, requiring decoders that are simultaneously accurate, fast, and scalable. Most state-of-the-art neural decoders achieve high accuracy but process the full dense syndrome array of size $O(d^2 R) $regardless of the actual error rate, where d is the code distance and R is the number of measurement rounds. At physically relevant error rates (p ~ 0.1%), fewer than 5% of syndrome entries contain active detection events -- yet existing decoders process the entire syndrome volume. We introduce the Sparse Mamba Decoder (SMD), a defect-centric neural decoder that processes only the k active detection events using a 13-dimensional feature representation per defect and a Mamba state-space backbone, achieving $O(k)$ complexity. Across depolarizing, uniform circuit-level, SI1000, and Google Sycamore experimental benchmarks, SMD reduces the MWPM logical error rate by up to 49% at $d \\le 5$ under SI1000 noise, runs 95-467x faster than the Tesseract near-MLD decoder and 232-463x faster than Belief Matching, and maintains nearly constant latency (24-57 us) across d = 3-9 under uniform circuit-level noise. On the Sycamore experimental dataset, the SMD ensemble matches or slightly surpasses the dense Mamba decoder of Varbanov et al. All results are obtained on commodity NVIDIA GPUs with 7.5-16M parameters, without specialized accelerators.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617497+00:00"
+    },
+    {
+      "paper_id": "doi:10.1038/s42005-026-02681-w",
+      "title": "Variational graphical quantum error correction codes",
+      "authors": [
+        "Yuguo Shao",
+        "Yong-Chang Li",
+        "Fuchuan Wei",
+        "Hao Zhan",
+        "Ben Wang",
+        "Zhaohui Wei",
+        "Lijian Zhang",
+        "Zhengwei Liu"
+      ],
+      "year": 2026,
+      "venue": "Communications Physics",
+      "doi": "10.1038/s42005-026-02681-w",
+      "url": "https://doi.org/10.1038/s42005-026-02681-w",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938768+00:00"
+    },
+    {
+      "paper_id": "doi:10.38124/ijisrt/25jun909",
+      "title": "Quantum Error Correction: Understanding from  Bell States to Surface Codes",
+      "authors": [
+        "Arnav Angarkar"
+      ],
+      "year": 2025,
+      "venue": "International Journal of Innovative Science and Research Technology",
+      "doi": "10.38124/ijisrt/25jun909",
+      "url": "https://doi.org/10.38124/ijisrt/25jun909",
+      "abstract": "<jats:p>This paper presents our comprehensive understanding of quantum error correction (QEC) through a systematic exploration\nfrom fundamental quantum phenomena to advanced error correction schemes. Beginning with quantum entanglement and Bell\nstates, we demonstrate how these foundational concepts enable quantum telepor-tation and ultimately lead to sophisticated\nerror correction protocols. Our analy- sis covers the three fundamental types of quantum errors—bit-flip, phase-flip, and\ncombined errors—and examines three major error correction approaches: the 3- qubit repetition code, Shor’sinnovative 9-\nqubit code, and topological surface codes. Through detailed mathematical derivations and comparative analysis, we reveal how\nquantum mechanics’ unique properties, initially seen as obstacles, become powerful resources for protecting quantum\ninformation. Our investigation shows that surface codes, with their high error threshold and hardware compatibility,\nrepresent the most promising path toward practical fault-tolerant quantum computing.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938733+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-031-85902-1_7",
+      "title": "Quantum Error Correction in Repetition Codes",
+      "authors": [
+        "James A. Williams",
+        "Douglas D. Hodson",
+        "Laurence D. Merkle"
+      ],
+      "year": 2025,
+      "venue": "Communications in Computer and Information Science",
+      "doi": "10.1007/978-3-031-85902-1_7",
+      "url": "https://doi.org/10.1007/978-3-031-85902-1_7",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938744+00:00"
+    },
+    {
+      "paper_id": "doi:10.2139/ssrn.5765046",
+      "title": "Adaptive Reinforcement Learning for Autonomous Quantum Error Correction in Surface Codes",
+      "authors": [
+        "Sami Rashid Mohammed Shibah"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.2139/ssrn.5765046",
+      "url": "https://doi.org/10.2139/ssrn.5765046",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938778+00:00"
+    },
+    {
+      "paper_id": "arxiv:2410.20233v1",
+      "title": "Characterization of $n$-Dimensional Toric and Burst-Error-Correcting Quantum Codes from Lattice Codes",
+      "authors": [
+        "Cibele Cristina Trinca",
+        "Reginaldo Palazzo",
+        "J. Carmelo Interlando",
+        "Ricardo Augusto Watanabe",
+        "Clarice Dias de Albuquerque",
+        "Edson Donizete de Carvalho",
+        "Antonio Aparecido de Andrade"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2410.20233v1",
+      "abstract": "Quantum error correction is essential for the development of any scalable quantum computer. In this work we introduce a generalization of a quantum interleaving method for combating clusters of errors in toric quantum error-correcting codes. We present new $n$-dimensional toric quantum codes, where $n\\geq 5$, which are featured by lattice codes and apply the proposed quantum interleaving method to such new $n$-dimensional toric quantum codes. Through the application of this method to these novel $n$-dimensional toric quantum codes we derive new $n$-dimensional quantum burst-error-correcting codes. Consequently, $n$-dimensional toric quantum codes and burst-error-correcting quantum codes are provided offering both a good code rate and a significant coding gain when it comes to toric quantum codes. Another important consequence from the presented $n$-dimensional toric quantum codes is that if the Golomb and Welch conjecture in \\cite{perfcodes} regarding the Lee sphere in $n$ dimensions for the respective close packings holds true, then it follows that these $n$-dimensional toric quantum codes are the only possible ones to be obtained from lattice codes. Moreover, such a methodology can be applied for burst error correction in cases involving localized errors, quantum data storage and quantum channels with memory.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617482+00:00"
+    },
+    {
+      "paper_id": "arxiv:2305.01301v4",
+      "title": "Performance Analysis of Quantum CSS Error-Correcting Codes via MacWilliams Identities",
+      "authors": [
+        "Diego Forlivesi",
+        "Lorenzo Valentini",
+        "Marco Chiani"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2305.01301v4",
+      "abstract": "We analyze the performance of quantum stabilizer codes, one of the most important classes for practical implementations, on both symmetric and asymmetric quantum channels. To this aim, we first derive the weight enumerator (WE) for the undetectable errors based on the quantum MacWilliams identities. The WE is then used to evaluate tight upper bounds on the error rate of CSS quantum codes with \\acl{MW} decoding. For surface codes we also derive a simple closed form expression of the bounds over the depolarizing channel. We introduce a novel approach that combines the knowledge of WE with a logical operator analysis, allowing the derivation of the exact asymptotic error rate for short codes. For example, on a depolarizing channel with physical error rate $ρ\\to 0$, the logical error rate $ρ_\\mathrm{L}$ is asymptotically $ρ_\\mathrm{L} \\approx 16 ρ^2$ for the $[[9,1,3]]$ Shor code, $ρ_\\mathrm{L} \\approx 16.3 ρ^2$ for the $[[7,1,3]]$ Steane code, $ρ_\\mathrm{L} \\approx 18.7 ρ^2$ for the $[[13,1,3]]$ surface code, and $ρ_\\mathrm{L} \\approx 149.3 ρ^3$ for the $[[41,1,5]]$ surface code. For larger codes our bound provides $ρ_\\mathrm{L} \\approx 1215 ρ^4$ and $ρ_\\mathrm{L} \\approx 663 ρ^5$ for the $[[85,1,7]]$ and the $[[181,1,10]]$ surface codes, respectively. Finally, we extend our analysis to include realistic, noisy syndrome extraction circuits by modeling error propagation throughout gadgets. This enables estimation of logical error rates under faulty measurements. The performance analysis serves as a design tool for developing fault-tolerant quantum systems by guiding the selection of quantum codes based on their error correction capability. Additionally, it offers a novel perspective on quantum degeneracy, showing it represents the fraction of non-correctable error patterns shared by multiple logical operators.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617525+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/qce57702.2023.00106",
+      "title": "Scalable Quantum Error Correction for Surface Codes Using FPGA",
+      "authors": [
+        "Namitha Liyanage",
+        "Yue Wu",
+        "Alexander Deters",
+        "Lin Zhong"
+      ],
+      "year": 2023,
+      "venue": "2023 IEEE International Conference on Quantum Computing and Engineering (QCE)",
+      "doi": "10.1109/qce57702.2023.00106",
+      "url": "https://doi.org/10.1109/qce57702.2023.00106",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938683+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/fccm57271.2023.00045",
+      "title": "Scalable Quantum Error Correction for Surface Codes using FPGA",
+      "authors": [
+        "Namitha Liyanage",
+        "Yue Wu",
+        "Alexander Deters",
+        "Lin Zhong"
+      ],
+      "year": 2023,
+      "venue": "2023 IEEE 31st Annual International Symposium on Field-Programmable Custom Computing Machines (FCCM)",
+      "doi": "10.1109/fccm57271.2023.00045",
+      "url": "https://doi.org/10.1109/fccm57271.2023.00045",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938697+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-030-91214-7_6",
+      "title": "Quantum Error-Correction Codes",
+      "authors": [
+        "Mahn-Soo Choi"
+      ],
+      "year": 2022,
+      "venue": "A Quantum Computation Workbook",
+      "doi": "10.1007/978-3-030-91214-7_6",
+      "url": "https://doi.org/10.1007/978-3-030-91214-7_6",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938648+00:00"
+    },
+    {
+      "paper_id": "doi:10.1364/cleopr.2020.c12c_4",
+      "title": "Quantum multiplexing for error correction codes",
+      "authors": [
+        "Nicolo Lo Piparo",
+        "Michael Hanks",
+        "Claude Gravel",
+        "William J. Munro",
+        "Kae Nemoto"
+      ],
+      "year": 2020,
+      "venue": "14th Pacific Rim Conference on Lasers and Electro-Optics (CLEO PR 2020)",
+      "doi": "10.1364/cleopr.2020.c12c_4",
+      "url": "https://doi.org/10.1364/cleopr.2020.c12c_4",
+      "abstract": "<jats:p>Quantum error correction codes require several physical resources for their implementation. Here, we show that the number of photons and qubits can be reduced for two quantum error correction codes through the quantum multiplexing approach.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938755+00:00"
+    },
+    {
+      "paper_id": "arxiv:1910.03672v1",
+      "title": "Quantum Error Correction",
+      "authors": [
+        "Todd A. Brun"
+      ],
+      "year": 2019,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1910.03672v1",
+      "abstract": "Quantum error correction is a set of methods to protect quantum information--that is, quantum states--from unwanted environmental interactions (decoherence) and other forms of noise. The information is stored in a quantum error-correcting code, which is a subspace in a larger Hilbert space. This code is designed so that the most common errors move the state into an error space orthogonal to the original code space while preserving the information in the state. It is possible to determine whether an error has occurred by a suitable measurement and to apply a unitary correction that returns the state to the code space, without measuring (and hence disturbing) the protected state itself. In general, codewords of a quantum code are entangled states. No code that stores information can protect against all possible errors; instead, codes are designed to correct a specific error set, which should be chosen to match the most likely types of noise. An error set is represented by a set of operators that can multiply the codeword state. Quantum error correction is used to protect information in quantum communication (where quantum states pass through noisy channels) and quantum computation (where quantum states are transformed through a sequence of imperfect computational steps in the presence of environmental decoherence to solve a computational problem). In quantum computation, error correction is just one component of fault-tolerant design.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617504+00:00"
+    },
+    {
+      "paper_id": "arxiv:1610.04013v1",
+      "title": "Entanglement-Assisted Quantum Error-Correcting Codes",
+      "authors": [
+        "Todd Brun",
+        "Min-Hsiu Hsieh"
+      ],
+      "year": 2016,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1610.04013v1",
+      "abstract": "We provide a self-contained introduction for entanglement-assisted quantum error-correcting codes in this book chapter.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617445+00:00"
+    },
+    {
+      "paper_id": "arxiv:1311.2485v2",
+      "title": "Continuous-time quantum error correction",
+      "authors": [
+        "Ognyan Oreshkov"
+      ],
+      "year": 2013,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1311.2485v2",
+      "abstract": "Continuous-time quantum error correction (CTQEC) is an approach to protecting quantum information from noise in which both the noise and the error correcting operations are treated as processes that are continuous in time. This chapter investigates CTQEC based on continuous weak measurements and feedback from the point of view of the subsystem principle, which states that protected quantum information is contained in a subsystem of the Hilbert space. We study how to approach the problem of constructing CTQEC protocols by looking at the evolution of the state of the system in an encoded basis in which the subsystem containing the protected information is explicit. This point of view allows us to reduce the problem to that of protecting a known state, and to design CTQEC procedures from protocols for the protection of a single qubit. We show how previously studied CTQEC schemes with both direct and indirect feedback can be obtained from strategies for the protection of a single qubit via weak measurements and weak unitary operations. We also review results on the performance of CTQEC with direct feedback in cases of Markovian and non-Markovian decoherence, where we have shown that due to the existence of a Zeno regime in non-Markovian dynamics, the performance of CTQEC can exhibit a quadratic improvement if the time resolution of the weak error-correcting operations is high enough to reveal the non-Markovian character of the noise process.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617464+00:00"
+    },
+    {
+      "paper_id": "arxiv:0811.3734v1",
+      "title": "Quantum error correction beyond qubits",
+      "authors": [
+        "Takao Aoki",
+        "Go Takahashi",
+        "Tadashi Kajiya",
+        "Jun-ichi Yoshikawa",
+        "Samuel L. Braunstein",
+        "Peter van Loock",
+        "Akira Furusawa"
+      ],
+      "year": 2008,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/0811.3734v1",
+      "abstract": "Quantum computation and communication rely on the ability to manipulate quantum states robustly and with high fidelity. Thus, some form of error correction is needed to protect fragile quantum superposition states from corruption by so-called decoherence noise. Indeed, the discovery of quantum error correction (QEC) turned the field of quantum information from an academic curiosity into a developing technology. Here we present a continuous-variable experimental implementation of a QEC code, based upon entanglement among 9 optical beams. In principle, this 9-wavepacket adaptation of Shor's original 9-qubit scheme allows for full quantum error correction against an arbitrary single-beam (single-party) error.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617532+00:00"
+    },
+    {
+      "paper_id": "arxiv:0602157v1",
+      "title": "An Introduction to Error-Correcting Codes: From Classical to Quantum",
+      "authors": [
+        "Hsun-Hsien Chang"
+      ],
+      "year": 2006,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/quant-ph/0602157v1",
+      "abstract": "This report surveys quantum error-correcting codes. As Preskill claimed, 21st century would be the golden age of quantum error correction. Quantum channels behave differently from classical channels, so researchers face difficulties in developing robust quantum codes. Fortunately, the classical error control methods have been well developed. If we can learn many lessons from classical coding theory, we can expedite the development of quantum codes. Scientists have discovered that quantum error correction shares many concepts with classical counterpart. Both quantum and classical coding schemes add redundancy to information to protect against noises. They also have similar conditions for error detectability and correctability.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617473+00:00"
+    },
+    {
+      "paper_id": "arxiv:0304016v2",
+      "title": "Quantum Computing and Error Correction",
+      "authors": [
+        "A. M. Steane"
+      ],
+      "year": 2003,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/quant-ph/0304016v2",
+      "abstract": "The main ideas of quantum error correction are introduced. These are encoding, extraction of syndromes, error operators, and code construction. It is shown that general noise and relaxation of a set of 2-state quantum systems can always be understood as a combination of Pauli operators acting on the system. Each quantum error correcting code allows a subset of these errors to be corrected. In many situations the noise is such that the remaining uncorrectable errors are unlikely to arise, and hence quantum error correction has a high probability of success. In order to achieve the best noise tolerance in the presence of noise and imprecision throughout the computer, a hierarchical construction of a quantum computer is proposed.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617512+00:00"
+    },
+    {
+      "paper_id": "arxiv:9911011v3",
+      "title": "Constructing quantum error-correcting codes for p^m-state systems from classical error-correcting codes",
+      "authors": [
+        "Ryutaroh Matsumoto",
+        "Tomohiko Uyematsu"
+      ],
+      "year": 1999,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/quant-ph/9911011v3",
+      "abstract": "We generalize the construction of quantum error-correcting codes from GF(4)-linear codes by Calderbank et al. to p^m-state systems. Then we show how to determine the error from a syndrome. Finally we discuss a systematic construction of quantum codes with efficient decoding algorithms.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:35:48.617489+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/3-540-49208-9_28",
+      "title": "Quantum Convolutional Error Correction Codes",
+      "authors": [
+        "H. F. Chau"
+      ],
+      "year": 1999,
+      "venue": "Lecture Notes in Computer Science",
+      "doi": "10.1007/3-540-49208-9_28",
+      "url": "https://doi.org/10.1007/3-540-49208-9_28",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938723+00:00"
+    },
+    {
+      "paper_id": "doi:10.17771/pucrio.acad.59800",
+      "title": "EVOLVING QUANTUM ERROR CORRECTION CODES",
+      "authors": [
+        "DANIEL RIBAS TANDEITNIK"
+      ],
+      "year": null,
+      "venue": "",
+      "doi": "10.17771/pucrio.acad.59800",
+      "url": "https://doi.org/10.17771/pucrio.acad.59800",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:35:51.938712+00:00"
+    }
+  ]
+}

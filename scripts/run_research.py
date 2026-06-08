@@ -11,11 +11,11 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from athena.agents.research import run_research
+from athena.agents.research import CriticalResearchSourcesError, run_research
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Athena W2 research retrieval")
+    parser = argparse.ArgumentParser(description="Athena research retrieval")
     parser.add_argument("topic", help="Research topic or query string")
     parser.add_argument(
         "--per-source",
@@ -42,6 +42,9 @@ def main() -> int:
         print("\nWarnings:", file=sys.stderr)
         for err in result.errors:
             print(f"  - {err}", file=sys.stderr)
+
+    if not result.critical_sources_ok:
+        return 1
 
     if len(result.cards) < args.min_cards:
         return 1

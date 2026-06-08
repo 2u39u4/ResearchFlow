@@ -32,7 +32,7 @@ SAMPLE = [
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Athena W3 citation validator")
+    parser = argparse.ArgumentParser(description="Athena citation validator")
     parser.add_argument(
         "input",
         nargs="?",

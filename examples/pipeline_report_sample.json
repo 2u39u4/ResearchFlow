@@ -1,0 +1,484 @@
+{
+  "run_id": "sample-rq3-demo",
+  "topic": "retrieval augmented generation",
+  "validation_report": [
+    {
+      "status": "not_found",
+      "citation": {
+        "title": "EHR-RAGp: Retrieval-Augmented Prototype-Guided Foundation Model for Electronic Health Records",
+        "authors": [
+          "Saeed Shurrab",
+          "Mariam Al-Omari",
+          "Dana El Samad",
+          "Farah E. Shamout"
+        ],
+        "year": 2026,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "",
+      "matched_doi": "",
+      "matched_authors": [],
+      "matched_year": null,
+      "match_score": 0.0,
+      "details": {
+        "reason": "no_title_match",
+        "best_score": 67.41573033707866,
+        "threshold": 90.0,
+        "candidates_checked": 5
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "AR-RAG: Autoregressive Retrieval Augmentation for Image Generation",
+        "authors": [
+          "Jingyuan Qi",
+          "Zhiyang Xu",
+          "Qifan Wang",
+          "Lifu Huang"
+        ],
+        "year": 2025,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "AR-RAG: Autoregressive Retrieval Augmentation for Image Generation",
+      "matched_doi": "10.48550/arxiv.2506.06962",
+      "matched_authors": [
+        "Jingyuan Qi",
+        "Zhiyang Xu",
+        "Qifan Wang",
+        "Lifu Huang"
+      ],
+      "matched_year": 2025,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "semantic_scholar"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "EVOR: Evolving Retrieval for Code Generation",
+        "authors": [
+          "Hongjin Su",
+          "Shuyang Jiang",
+          "Yuhang Lai",
+          "Haoyuan Wu",
+          "Boao Shi",
+          "Che Liu",
+          "Qian Liu",
+          "Tao Yu"
+        ],
+        "year": 2024,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "EvoR: Evolving Retrieval for Code Generation",
+      "matched_doi": "10.18653/v1/2024.findings-emnlp.143",
+      "matched_authors": [
+        "Hongjin Su",
+        "Shuyang Jiang",
+        "Yuhang Lai",
+        "Haoyuan Wu",
+        "Boao Shi",
+        "Che Liu",
+        "Qian Liu",
+        "Tao Yu"
+      ],
+      "matched_year": 2024,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "crossref"
+      }
+    },
+    {
+      "status": "not_found",
+      "citation": {
+        "title": "Intelligent Interaction Strategies for Context-Aware Cognitive Augmentation",
+        "authors": [
+          "Xiangrong",
+          "Zhu",
+          "Yuan Xu",
+          "Tianjian Liu",
+          "Jingwei Sun",
+          "Yu Zhang",
+          "Xin Tong"
+        ],
+        "year": 2025,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "",
+      "matched_doi": "",
+      "matched_authors": [],
+      "matched_year": null,
+      "match_score": 0.0,
+      "details": {
+        "reason": "no_title_match",
+        "best_score": 60.74074074074074,
+        "threshold": 90.0,
+        "candidates_checked": 5
+      }
+    },
+    {
+      "status": "not_found",
+      "citation": {
+        "title": "Factually: Exploring Wearable Fact-Checking for Augmented Truth Discernment",
+        "authors": [
+          "Chitralekha Gupta",
+          "Hanjun Wu",
+          "Praveen Sasikumar",
+          "Shreyas Sridhar",
+          "Priambudi Bagaskara",
+          "Suranga Nanayakkara"
+        ],
+        "year": 2025,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "",
+      "matched_doi": "",
+      "matched_authors": [],
+      "matched_year": null,
+      "match_score": 0.0,
+      "details": {
+        "reason": "no_title_match",
+        "best_score": 60.71428571428572,
+        "threshold": 90.0,
+        "candidates_checked": 5
+      }
+    },
+    {
+      "status": "not_found",
+      "citation": {
+        "title": "Designing AI Systems that Augment Human Performed vs. Demonstrated Critical Thinking",
+        "authors": [
+          "Katelyn Xiaoying Mei",
+          "Nic Weber"
+        ],
+        "year": 2025,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "",
+      "matched_doi": "",
+      "matched_authors": [],
+      "matched_year": null,
+      "match_score": 0.0,
+      "details": {
+        "reason": "no_title_match",
+        "best_score": 50.88757396449704,
+        "threshold": 90.0,
+        "candidates_checked": 5
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Riddle Me This! Stealthy Membership Inference for Retrieval-Augmented Generation",
+        "authors": [
+          "Ali Naseh",
+          "Yuefeng Peng",
+          "Anshuman Suri",
+          "Harsh Chaudhari",
+          "Alina Oprea",
+          "Amir Houmansadr"
+        ],
+        "year": 2025,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "Riddle Me This! Stealthy Membership Inference for Retrieval-Augmented Generation",
+      "matched_doi": "10.1145/3719027.3744840",
+      "matched_authors": [
+        "Ali Naseh",
+        "Yuefeng Peng",
+        "Anshuman Suri",
+        "Harsh Chaudhari",
+        "Alina Oprea",
+        "Amir Houmansadr"
+      ],
+      "matched_year": 2025,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "crossref"
+      }
+    },
+    {
+      "status": "not_found",
+      "citation": {
+        "title": "MUST-RAG: MUSical Text Question Answering with Retrieval Augmented Generation",
+        "authors": [
+          "Daeyong Kwon",
+          "SeungHeon Doh",
+          "Juhan Nam"
+        ],
+        "year": 2025,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "",
+      "matched_doi": "",
+      "matched_authors": [],
+      "matched_year": null,
+      "match_score": 0.0,
+      "details": {
+        "reason": "no_title_match",
+        "best_score": 76.64670658682635,
+        "threshold": 90.0,
+        "candidates_checked": 5
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Automated Literature Review Using NLP Techniques and LLM-Based Retrieval-Augmented Generation",
+        "authors": [
+          "Nurshat Fateh Ali",
+          "Md. Mahdi Mohtasim",
+          "Shakil Mosharrof",
+          "T. Gopi Krishna"
+        ],
+        "year": 2024,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "Automated Literature Review Using NLP Techniques and LLM-Based Retrieval-Augmented Generation",
+      "matched_doi": "10.1109/iciset62123.2024.10939517",
+      "matched_authors": [
+        "Nurshat Fateh Ali",
+        "Md. Mahdi Mohtasim",
+        "Shakil Mosharrof",
+        "T. Gopi Krishna"
+      ],
+      "matched_year": 2024,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "crossref"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Retrieval-Augmented Generation (RAG): Architecture, Ethical Challenges, and Optimization Strategies",
+        "authors": [
+          "Sushika Reddy Gade",
+          "Dhanush Ponna",
+          "Janvi Shah",
+          "Kinjal A Patel"
+        ],
+        "year": 2026,
+        "doi": "10.1109/icmlas67792.2026.11483907",
+        "venue": "2026 International Conference on Machine Learning and Autonomous Systems (ICMLAS)"
+      },
+      "matched_title": "Retrieval-Augmented Generation (RAG): Architecture, Ethical Challenges, and Optimization Strategies",
+      "matched_doi": "10.1109/icmlas67792.2026.11483907",
+      "matched_authors": [
+        "Sushika Reddy Gade",
+        "Dhanush Ponna",
+        "Janvi Shah",
+        "Kinjal A Patel"
+      ],
+      "matched_year": 2026,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "doi:crossref"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Retrieval-Augmented Generation (RAG)",
+        "authors": [
+          "Michael Klesel",
+          "H. Felix Wittmann"
+        ],
+        "year": 2025,
+        "doi": "10.1007/s12599-025-00945-3",
+        "venue": "Business &amp; Information Systems Engineering"
+      },
+      "matched_title": "Retrieval-Augmented Generation (RAG)",
+      "matched_doi": "10.1007/s12599-025-00945-3",
+      "matched_authors": [
+        "Michael Klesel",
+        "H. Felix Wittmann"
+      ],
+      "matched_year": 2025,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "doi:crossref"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Retrieval Augmented Generation (RAG) Model",
+        "authors": [
+          "Aniket Mishra",
+          "Aniket Gupta",
+          "Anil Kumar Sagar"
+        ],
+        "year": 2025,
+        "doi": "10.63169/gcared2025.p16",
+        "venue": "Proceedings of First Global Conference on AI Research and Emerging Developments (G-CARED)"
+      },
+      "matched_title": "Retrieval Augmented Generation (RAG) Model",
+      "matched_doi": "10.63169/gcared2025.p16",
+      "matched_authors": [
+        "Aniket Mishra",
+        "Aniket Gupta",
+        "Anil Kumar Sagar"
+      ],
+      "matched_year": 2025,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "doi:crossref"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Retrieval Augmented Generation (RAG) Model",
+        "authors": [
+          "Ankit Mishra",
+          "Aniket Gupta"
+        ],
+        "year": 2025,
+        "doi": "10.55248/gengpi.6.0125.0635",
+        "venue": "International Journal of Research Publication and Reviews"
+      },
+      "matched_title": "Retrieval Augmented Generation (RAG) Model",
+      "matched_doi": "10.55248/gengpi.6.0125.0635",
+      "matched_authors": [
+        "Ankit Mishra",
+        "Aniket Gupta"
+      ],
+      "matched_year": 2025,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "doi:crossref"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Overview of Retrieval-Augmented Generation (RAG)",
+        "authors": [
+          "Avik Bhattacharjee"
+        ],
+        "year": 2025,
+        "doi": "10.1007/979-8-8688-1414-3_6",
+        "venue": "A Practical Guide to Generative AI Using Amazon Bedrock"
+      },
+      "matched_title": "Overview of Retrieval-Augmented Generation (RAG)",
+      "matched_doi": "10.1007/979-8-8688-1414-3_6",
+      "matched_authors": [
+        "Avik Bhattacharjee"
+      ],
+      "matched_year": 2025,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "doi:crossref"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Building Retrieval-Augmented Generation (RAG) Systems",
+        "authors": [
+          "Sanath Raj B Narayan",
+          "Nitin Agarwal"
+        ],
+        "year": 2025,
+        "doi": "10.1007/979-8-8688-1718-2_5",
+        "venue": "Mastering LangChain"
+      },
+      "matched_title": "Building Retrieval-Augmented Generation (RAG) Systems",
+      "matched_doi": "10.1007/979-8-8688-1718-2_5",
+      "matched_authors": [
+        "Sanath Raj B Narayan",
+        "Nitin Agarwal"
+      ],
+      "matched_year": 2025,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "doi:crossref"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Introduction to Retrieval-Augmented Generation (RAG)",
+        "authors": [
+          "Ranajoy Bose"
+        ],
+        "year": 2025,
+        "doi": "10.1007/979-8-8688-1808-0_1",
+        "venue": "Mastering Retrieval-Augmented Generation"
+      },
+      "matched_title": "Introduction to Retrieval-Augmented Generation (RAG)",
+      "matched_doi": "10.1007/979-8-8688-1808-0_1",
+      "matched_authors": [
+        "Ranajoy Bose"
+      ],
+      "matched_year": 2025,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "doi:crossref"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Retrieval-Augmented Generation Architecture Framework: Harnessing the Power of RAG",
+        "authors": [
+          "Richard Shan",
+          "Tony Shan"
+        ],
+        "year": 2024,
+        "doi": "10.1007/978-3-031-77954-1_6",
+        "venue": "Lecture Notes in Computer Science"
+      },
+      "matched_title": "Retrieval-Augmented Generation Architecture Framework: Harnessing the Power of RAG",
+      "matched_doi": "10.1007/978-3-031-77954-1_6",
+      "matched_authors": [
+        "Richard Shan",
+        "Tony Shan"
+      ],
+      "matched_year": 2024,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "doi:crossref"
+      }
+    },
+    {
+      "status": "verified",
+      "citation": {
+        "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+        "authors": [
+          "Shahul Es",
+          "Jithin James",
+          "Luis Espinosa-Anke",
+          "Steven Schockaert"
+        ],
+        "year": 2023,
+        "doi": "",
+        "venue": "arXiv"
+      },
+      "matched_title": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+      "matched_doi": "10.18653/v1/2024.eacl-demo.16",
+      "matched_authors": [
+        "Shahul Es",
+        "Jithin James",
+        "Luis Espinosa Anke",
+        "Steven Schockaert"
+      ],
+      "matched_year": 2024,
+      "match_score": 100.0,
+      "details": {
+        "resolved_via": "crossref"
+      }
+    }
+  ]
+}

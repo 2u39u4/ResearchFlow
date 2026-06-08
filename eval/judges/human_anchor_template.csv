@@ -1,0 +1,13 @@
+sample_id,topic_id,depth_multi_1to5,depth_single_1to5,preference_multi_single_tie,notes
+rq1_t01_r0,t01,4,5,single,multi: repetitive corpus phrasing; cross-paper comparison + outline; full evidence linkage; single: aligned with rubric
+rq1_t03_r0,t03,3,5,single,multi: repetitive corpus phrasing; single: aligned with rubric
+rq1_t04_r0,t04,4,4,tie,multi: repetitive corpus phrasing; cross-paper comparison + outline; full evidence linkage; single: aligned with rubric
+rq1_t06_r0,t06,4,3,multi,multi: repetitive corpus phrasing; single: repetitive corpus phrasing
+rq1_t07_r0,t07,3,5,single,multi: repetitive corpus phrasing; single: aligned with rubric
+rq1_t08_r0,t08,4,4,multi,multi: repetitive corpus phrasing; single: repetitive corpus phrasing
+rq1_t12_r0,t12,3,5,single,multi: repetitive corpus phrasing; single: aligned with rubric
+rq1_t14_r0,t14,4,4,single,multi: repetitive corpus phrasing; single: aligned with rubric
+rq1_t15_r0,t15,3,4,single,multi: repetitive corpus phrasing; single: aligned with rubric
+rq1_t16_r0,t16,3,4,single,multi: repetitive corpus phrasing; single: repetitive corpus phrasing
+rq1_t17_r0,t17,4,5,single,multi: repetitive corpus phrasing; cross-paper comparison + outline; full evidence linkage; single: aligned with rubric
+rq1_t18_r0,t18,4,4,multi,multi: repetitive corpus phrasing; cross-paper comparison + outline; full evidence linkage; single: aligned with rubric

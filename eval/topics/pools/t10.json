@@ -1,0 +1,403 @@
+{
+  "topic_id": "t10",
+  "topic": "supply chain resilience optimization",
+  "domain": "Operations Research",
+  "protocol_version": 1,
+  "built_at": "2026-06-04T17:37:26.570711+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "doi:10.1007/s10479-026-07238-2",
+    "doi:10.1201/9781003597520-9",
+    "doi:10.1007/978-3-032-21838-4_1",
+    "arxiv:2507.09223v1",
+    "arxiv:2507.21502v1",
+    "arxiv:2506.17203v1",
+    "doi:10.4135/9798348830960",
+    "arxiv:2406.07766v1",
+    "arxiv:2406.10109v1",
+    "arxiv:2409.06004v1",
+    "doi:10.2139/ssrn.4884242",
+    "arxiv:2210.11479v3",
+    "arxiv:2209.09780v3",
+    "doi:10.1007/978-3-030-95401-7",
+    "arxiv:2011.14231v1",
+    "doi:10.1007/978-981-15-2870-5",
+    "doi:10.4018/978-1-7998-0945-6.ch093",
+    "doi:10.4324/9781351285124-3",
+    "doi:10.4018/978-1-4666-9639-6.ch009",
+    "arxiv:1004.3271v1"
+  ],
+  "cards": [
+    {
+      "paper_id": "doi:10.1007/s10479-026-07238-2",
+      "title": "Reliability evaluation and optimization of supply chain resilience",
+      "authors": [
+        "Cheng-Ta Yeh",
+        "Ding-Hsiang Huang"
+      ],
+      "year": 2026,
+      "venue": "Annals of Operations Research",
+      "doi": "10.1007/s10479-026-07238-2",
+      "url": "https://doi.org/10.1007/s10479-026-07238-2",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563453+00:00"
+    },
+    {
+      "paper_id": "doi:10.1201/9781003597520-9",
+      "title": "Supply chain resilience",
+      "authors": [
+        "Arnab Mukherjee",
+        "Sachin Kumar"
+      ],
+      "year": 2026,
+      "venue": "Organizational Resilience and Artificial Intelligence",
+      "doi": "10.1201/9781003597520-9",
+      "url": "https://doi.org/10.1201/9781003597520-9",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563507+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-032-21838-4_1",
+      "title": "Supply Chain Resilience",
+      "authors": [
+        "Dmitry Ivanov"
+      ],
+      "year": 2026,
+      "venue": "Business Guides on the Go",
+      "doi": "10.1007/978-3-032-21838-4_1",
+      "url": "https://doi.org/10.1007/978-3-032-21838-4_1",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563526+00:00"
+    },
+    {
+      "paper_id": "arxiv:2507.09223v1",
+      "title": "Coordinated Communication and Inventory Optimization in Multi-Retailer Supply Chains",
+      "authors": [
+        "Sagar Sudhakara",
+        "Yuchong Zhang"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2507.09223v1",
+      "abstract": "We consider a multi-retailer supply chain where each retailer can dynamically choose when to share information (e.g., local inventory levels or demand observations) with other retailers, incurring a communication cost for each sharing event. This flexible information exchange mechanism contrasts with fixed protocols such as always sharing or never sharing. We formulate a joint optimization of inventory control and communication strategies, aiming to balance the trade-off between communication overhead and operational performance (service levels, holding, and stockout costs). We adopt a common information framework and derive a centralized Partially Observable Markov Decision Process (POMDP) model for a supply chain coordinator. Solving this coordinator's POMDP via dynamic programming characterizes the structure of optimal policies, determining when retailers should communicate and how they should adjust orders based on available information. We show that, in this setting, retailers can often act optimally by sharing only limited summaries of their private data, reducing communication frequency without compromising performance. We also incorporate practical constraints on communication frequency and propose an approximate point-based POMDP solution method (PBVI/SARSOP) to address computational complexity. Numerical experiments on multi-retailer inventory scenarios demonstrate that our approach significantly improves the cost-service trade-off compared to static information sharing policies, effectively optimizing the schedule of information exchange for cooperative inventory control.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447654+00:00"
+    },
+    {
+      "paper_id": "arxiv:2507.21502v1",
+      "title": "Large Language Models for Supply Chain Decisions",
+      "authors": [
+        "David Simchi-Levi",
+        "Konstantina Mellou",
+        "Ishai Menache",
+        "Jeevan Pathuri"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2507.21502v1",
+      "abstract": "Supply Chain Management requires addressing a variety of complex decision-making challenges, from sourcing strategies to planning and execution. Over the last few decades, advances in computation and information technologies have enabled the transition from manual, intuition and experience-based decision-making, into more automated and data-driven decisions using a variety of tools that apply optimization techniques. These techniques use mathematical methods to improve decision-making.\n  Unfortunately, business planners and executives still need to spend considerable time and effort to (i) understand and explain the recommendations coming out of these technologies; (ii) analyze various scenarios and answer what-if questions; and (iii) update the mathematical models used in these tools to reflect current business environments. Addressing these challenges requires involving data science teams and/or the technology providers to explain results or make the necessary changes in the technology and hence significantly slows down decision making.\n  Motivated by the recent advances in Large Language Models (LLMs), we report how this disruptive technology can democratize supply chain technology - namely, facilitate the understanding of tools' outcomes, as well as the interaction with supply chain tools without human-in-the-loop. Specifically, we report how we apply LLMs to address the three challenges described above, thus substantially reducing the time to decision from days and weeks to minutes and hours as well as dramatically increasing planners' and executives' productivity and impact.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447657+00:00"
+    },
+    {
+      "paper_id": "arxiv:2506.17203v1",
+      "title": "Confidence Scoring for LLM-Generated SQL in Supply Chain Data Extraction",
+      "authors": [
+        "Jiekai Ma",
+        "Yikai Zhao"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2506.17203v1",
+      "abstract": "Large Language Models (LLMs) have recently enabled natural language interfaces that translate user queries into executable SQL, offering a powerful solution for non-technical stakeholders to access structured data. However, one of the limitation that LLMs do not natively express uncertainty makes it difficult to assess the reliability of their generated queries. This paper presents a case study that evaluates multiple approaches to estimate confidence scores for LLM-generated SQL in supply chain data retrieval. We investigated three strategies: (1) translation-based consistency checks; (2) embedding-based semantic similarity between user questions and generated SQL; and (3) self-reported confidence scores directly produced by the LLM. Our findings reveal that LLMs are often overconfident in their own outputs, which limits the effectiveness of self-reported confidence. In contrast, embedding-based similarity methods demonstrate strong discriminative power in identifying inaccurate SQL.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447661+00:00"
+    },
+    {
+      "paper_id": "doi:10.4135/9798348830960",
+      "title": "Supply Chain Resilience",
+      "authors": [
+        "Laura Purvis"
+      ],
+      "year": 2025,
+      "venue": "",
+      "doi": "10.4135/9798348830960",
+      "url": "https://doi.org/10.4135/9798348830960",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563465+00:00"
+    },
+    {
+      "paper_id": "arxiv:2406.07766v1",
+      "title": "An Integrated Supply Chain Network Design for Advanced Air Mobility Aircraft Manufacturing Using Stochastic Optimization",
+      "authors": [
+        "Esrat Farhana Dulia",
+        "Syed A. M. Shihab"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2406.07766v1",
+      "abstract": "Electric vertical takeoff and landing (eVTOL) aircraft manufacturers await numerous pre-orders for eVTOLs and expect demand for such advanced air mobility (AAM) aircraft to rise dramatically soon. However, eVTOL manufacturers (EMs) cannot commence mass production of commercial eVTOLs due to a lack of supply chain planning for eVTOL manufacturing. The eVTOL supply chain differs from traditional ones due to stringent quality standards and limited suppliers for eVTOL parts, shortages in skilled labor and machinery, and contract renegotiations with major aerospace suppliers. The emerging AAM aircraft market introduces uncertainties in supplier pricing and capacities, eVTOL manufacturing costs, and eVTOL demand, further compounding the supply chain planning challenges for EMs. Despite this critical need, no study has been conducted to develop a comprehensive supply chain planning model for EMs. To address this research gap, we propose a stochastic optimization model for integrated supply chain planning of EMs while maximizing their operating profits under the abovementioned uncertainties. We conduct various numerical cases to analyze the impact of 1) endogenous eVTOL demand influenced by the quality of eVTOLs, 2) supply chain disruptions caused by geopolitical conflicts and resource scarcity, and 3) high-volume eVTOL demand similar to that experienced by automotive manufacturers, on EM supply chain planning. The results indicate that our proposed model is adaptable in all cases and outperforms established benchmark stochastic models. The findings suggest that EMs can commence mass eVTOL production with our model, enabling them to make optimal decisions and profits even under potential disruptions.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447637+00:00"
+    },
+    {
+      "paper_id": "arxiv:2406.10109v1",
+      "title": "SoK: Analysis of Software Supply Chain Security by Establishing Secure Design Properties",
+      "authors": [
+        "Chinenye Okafor",
+        "Taylor R. Schorlemmer",
+        "Santiago Torres-Arias",
+        "James C. Davis"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2406.10109v1",
+      "abstract": "This paper systematizes knowledge about secure software supply chain patterns. It identifies four stages of a software supply chain attack and proposes three security properties crucial for a secured supply chain: transparency, validity, and separation. The paper describes current security approaches and maps them to the proposed security properties, including research ideas and case studies of supply chains in practice. It discusses the strengths and weaknesses of current approaches relative to known attacks and details the various security frameworks put out to ensure the security of the software supply chain. Finally, the paper highlights potential gaps in actor and operation-centered supply chain security techniques",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447646+00:00"
+    },
+    {
+      "paper_id": "arxiv:2409.06004v1",
+      "title": "Simulation Models for Sustainable, Resilient, and Optimized Global Electric Vehicles Supply Chain",
+      "authors": [
+        "Tareq Alsaleh",
+        "Bilal Farooq"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2409.06004v1",
+      "abstract": "While the transition to electric vehicles (EVs) is essential for decarbonizing the transportation system, the production and distribution of EVs entail substantial carbon costs. To ensure these emissions are accurately accounted for and effectively mitigated, this research introduces a digital twin of the EV's supply chain, addressing a critical gap in current EV life cycle analyses and providing the first comprehensive quantification of its environmental sustainability and resilience. This simulation model replicates global market dynamics and captures the complexity and uncertainty of the EV supply chain, enabling a thorough evaluation of its carbon footprint, sustainability, resilience, and what-if counterfactual scenarios for alternative market structures. The results reveal that average supply chain emissions range from 6.42 to 6.94 Kg e-CO2/KWh across different battery technologies. Additionally, the mass flow analysis shows unbalanced dependencies at all supply phases, with one geographical region significantly dominating the supply chain structure, highlighting the current supply chain architecture's low resilience and high vulnerability. In light of these findings, the study introduces an optimization model for hub and resource allocation configuration, effectively reducing vulnerability levels and supply chain emissions by up to 80%.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447671+00:00"
+    },
+    {
+      "paper_id": "doi:10.2139/ssrn.4884242",
+      "title": "Enhancing Supply Chain Resilience Through Machine Learning Optimization",
+      "authors": [
+        "Rafat Mahmud Hridoy",
+        "Nourin Mohsin"
+      ],
+      "year": 2024,
+      "venue": "",
+      "doi": "10.2139/ssrn.4884242",
+      "url": "https://doi.org/10.2139/ssrn.4884242",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563415+00:00"
+    },
+    {
+      "paper_id": "arxiv:2210.11479v3",
+      "title": "Exploitation of material consolidation trade-offs in multi-tier complex supply networks",
+      "authors": [
+        "Vinod Kumar Chauhan",
+        "Muhannad Alomari",
+        "James Arney",
+        "Ajith Kumar Parlikad",
+        "Alexandra Brintrup"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2210.11479v3",
+      "abstract": "While consolidation strategies form the backbone of many supply chain optimisation problems, exploitation of multi-tier material relationships through consolidation remains an understudied area, despite being a prominent feature of industries that produce complex made-to-order products. In this paper, we propose an optimisation framework for exploiting multi-to-multi relationship between tiers of a supply chain. The resulting formulation is flexible such that quantity discounts, inventory holding, and transport costs can be included. The framework introduces a new trade-off between tiers, leading to cost reductions in one tier but increased costs in the other, which helps to reduce the overall procurement cost in the supply chain. A mixed integer linear programming model is developed and tested with a range of small to large-scale test problems from aerospace manufacturing. Our comparison to benchmark results shows that there is indeed a cost trade-off between two tiers, and that its reduction can be achieved using a holistic approach to reconfiguration. Costs are decreased when second tier fixed ordering costs and the number of machining options increase. Consolidation results in reduced inventory holding costs in all scenarios. Several secondary effects such as simplified supplier selection may also be observed.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447617+00:00"
+    },
+    {
+      "paper_id": "arxiv:2209.09780v3",
+      "title": "Dislocated Accountabilities in the AI Supply Chain: Modularity and Developers' Notions of Responsibility",
+      "authors": [
+        "David Gray Widder",
+        "Dawn Nafus"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2209.09780v3",
+      "abstract": "Responsible artificial intelligence guidelines ask engineers to consider how their systems might harm. However, contemporary artificial intelligence systems are built by composing many preexisting software modules that pass through many hands before becoming a finished product or service. How does this shape responsible artificial intelligence practice? In interviews with 27 artificial intelligence engineers across industry, open source, and academia, our participants often did not see the questions posed in responsible artificial intelligence guidelines to be within their agency, capability, or responsibility to address. We use Suchman's \"located accountability\" to show how responsible artificial intelligence labor is currently organized and to explore how it could be done differently. We identify cross-cutting social logics, like modularizability, scale, reputation, and customer orientation, that organize which responsible artificial intelligence actions do take place and which are relegated to low status staff or believed to be the work of the next or previous person in the imagined \"supply chain.\" We argue that current responsible artificial intelligence interventions, like ethics checklists and guidelines that assume panoptical knowledge and control over systems, could be improved by taking a located accountability approach, recognizing where relations and obligations might intertwine inside and outside of this supply chain.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447674+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-030-95401-7",
+      "title": "Supply Chain Resilience",
+      "authors": [],
+      "year": 2022,
+      "venue": "Springer Series in Supply Chain Management",
+      "doi": "10.1007/978-3-030-95401-7",
+      "url": "https://doi.org/10.1007/978-3-030-95401-7",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563516+00:00"
+    },
+    {
+      "paper_id": "arxiv:2011.14231v1",
+      "title": "The Vaccine Supply Chain: A Call for Resilience Analytics to Support COVID-19 Vaccine Production and Distribution",
+      "authors": [
+        "Maureen S. Golan",
+        "Benjamin D. Trump",
+        "Jeffrey C. Cegan",
+        "Igor Linkov"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2011.14231v1",
+      "abstract": "The COVID19 pandemic has highlighted the lack of resilience in supply chains, as global networks fail from disruptions at single nodes and connections. Through an overview of the existing vaccine and pharmaceutical supply chain publications focusing on resilience, as well as recent papers reporting modeling of resilience in supply chains across multiple fields, we find that models for supply chain resilience are few and most of them are focused on individual dimensions of resilience rather than on comprehensive strategy necessary for scaling up vaccine production and distribution in emergency settings. We find that COVID19 resulted in a wave of interest to supply chain resilience, but publications from 2020 are narrow in focus and largely qualitative in nature; evidence-based models and measures are rare. Further, publications often focus exclusively on specific portions of the specific supply chain of interest, excluding associated supporting networks, such as transportation, social and command and control (C2) necessary for vaccine production and equitable distribution. This lack of network analysis is a major gap in the literature that needs to be bridged in order to create methods of real-time analysis and decision tools for the COVID19 vaccine supply chain. We conclude that a comprehensive, quantitative approach to network resilience that encompasses the supply chain in the context of other social and physical networks is needed in order to address the emerging challenges of a large-scale COVID-19 vaccination program. We further find that the COVID-19 pandemic underscores the necessity of positioning supply chain resilience within a multi-network context and formally incorporating temporal dimensions into analysis through the NAS definition of resilience, plan, absorb, recover, adapt, to ensure essential needs are met across all dimensions of society.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447642+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-981-15-2870-5",
+      "title": "Supply Chain Resilience",
+      "authors": [],
+      "year": 2020,
+      "venue": "",
+      "doi": "10.1007/978-981-15-2870-5",
+      "url": "https://doi.org/10.1007/978-981-15-2870-5",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563475+00:00"
+    },
+    {
+      "paper_id": "doi:10.4018/978-1-7998-0945-6.ch093",
+      "title": "Supply Chain Resilience",
+      "authors": [
+        "Alessandra Vecchi",
+        "Valentina Vallisi"
+      ],
+      "year": 2020,
+      "venue": "Supply Chain and Logistics Management",
+      "doi": "10.4018/978-1-7998-0945-6.ch093",
+      "url": "https://doi.org/10.4018/978-1-7998-0945-6.ch093",
+      "abstract": "<jats:p>The chapter will consist of a literature review that will be framed to address the following three questions. The first question is “What is a resilient supply chain?” The aim is to provide an in-depth understanding of resilience and to distinguish a supply chain which is resilient from one which is not. The second question is “Why companies should build a resilient supply chain?” Some factors have increased firms' vulnerability and the losses associated with unpredictable events. Companies should understand that the advantages linked to building resilience do not become evident only in case of disastrous events, but also during the ordinary operations execution. The third question is: “How to build resilience?” The most relevant ways to build resilience will be illustrated by drawing on some short case studies that were purposefully chosen in order to present a practical implementation of some of the different techniques used to create resilience. At the end of the chapter, conclusion, managerial implications, limitations and directions for future research will be provided. </jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563486+00:00"
+    },
+    {
+      "paper_id": "doi:10.4324/9781351285124-3",
+      "title": "Supply chain resilience",
+      "authors": [
+        "Edgar Bellow"
+      ],
+      "year": 2017,
+      "venue": "Implementing Triple Bottom Line Sustainability into Global Supply Chains",
+      "doi": "10.4324/9781351285124-3",
+      "url": "https://doi.org/10.4324/9781351285124-3",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563535+00:00"
+    },
+    {
+      "paper_id": "doi:10.4018/978-1-4666-9639-6.ch009",
+      "title": "Supply Chain Resilience",
+      "authors": [
+        "Alessandra Vecchi",
+        "Valentina Vallisi"
+      ],
+      "year": 2016,
+      "venue": "Advances in Logistics, Operations, and Management Science",
+      "doi": "10.4018/978-1-4666-9639-6.ch009",
+      "url": "https://doi.org/10.4018/978-1-4666-9639-6.ch009",
+      "abstract": "<jats:p>The chapter will consist of a literature review that will be framed to address the following three questions. The first question is “What is a resilient supply chain?” The aim is to provide an in-depth understanding of resilience and to distinguish a supply chain which is resilient from one which is not. The second question is “Why companies should build a resilient supply chain?” Some factors have increased firms' vulnerability and the losses associated with unpredictable events. Companies should understand that the advantages linked to building resilience do not become evident only in case of disastrous events, but also during the ordinary operations execution. The third question is: “How to build resilience?” The most relevant ways to build resilience will be illustrated by drawing on some short case studies that were purposefully chosen in order to present a practical implementation of some of the different techniques used to create resilience. At the end of the chapter, conclusion, managerial implications, limitations and directions for future research will be provided. </jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-04T17:37:26.563497+00:00"
+    },
+    {
+      "paper_id": "arxiv:1004.3271v1",
+      "title": "A General Simulation Framework for Supply Chain Modeling: State of the Art and Case Study",
+      "authors": [
+        "Antonio Cimino",
+        "Francesco Longo",
+        "Giovanni Mirabelli"
+      ],
+      "year": 2010,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1004.3271v1",
+      "abstract": "Nowadays there is a large availability of discrete event simulation software that can be easily used in different domains: from industry to supply chain, from healthcare to business management, from training to complex systems design. Simulation engines of commercial discrete event simulation software use specific rules and logics for simulation time and events management. Difficulties and limitations come up when commercial discrete event simulation software are used for modeling complex real world-systems (i.e. supply chains, industrial plants). The objective of this paper is twofold: first a state of the art on commercial discrete event simulation software and an overview on discrete event simulation models development by using general purpose programming languages are presented; then a Supply Chain Order Performance Simulator (SCOPS, developed in C++) for investigating the inventory management problem along the supply chain under different supply chain scenarios is proposed to readers.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-04T17:37:23.447664+00:00"
+    }
+  ]
+}

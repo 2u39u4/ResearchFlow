@@ -1,0 +1,442 @@
+{
+  "topic_id": "t17",
+  "topic": "knowledge distillation for edge devices",
+  "domain": "AI Systems",
+  "protocol_version": 1,
+  "built_at": "2026-06-07T04:45:17.818036+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "arxiv:2602.14301v1",
+    "arxiv:2602.13567v1",
+    "doi:10.1142/s0218001426400070",
+    "doi:10.31130/ud-jst.2025.23(9d).568e",
+    "doi:10.1109/iciiet65921.2025.11377539",
+    "doi:10.1109/iccit68739.2025.11490190",
+    "arxiv:2405.09820v1",
+    "doi:10.1007/978-3-031-51026-7_18",
+    "doi:10.1145/3716554.3716621",
+    "doi:10.1109/akgec62572.2024.10868709",
+    "arxiv:2306.10687v1",
+    "doi:10.1109/lra.2023.3330054",
+    "doi:10.1016/j.jksuci.2023.101616",
+    "arxiv:2210.16611v2",
+    "arxiv:2004.08116v1",
+    "arxiv:2007.06889v2",
+    "doi:10.1109/hpcc-smartcity-dss50907.2020.00129",
+    "arxiv:1909.11723v3",
+    "arxiv:1812.00660v1",
+    "arxiv:1411.3958v3"
+  ],
+  "cards": [
+    {
+      "paper_id": "arxiv:2602.14301v1",
+      "title": "DeepFusion: Accelerating MoE Training via Federated Knowledge Distillation from Heterogeneous Edge Devices",
+      "authors": [
+        "Songyuan Li",
+        "Jia Hu",
+        "Ahmed M. Abdelmoniem",
+        "Geyong Min",
+        "Haojun Huang",
+        "Jiwei Huang"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2602.14301v1",
+      "abstract": "Recent Mixture-of-Experts (MoE)-based large language models (LLMs) such as Qwen-MoE and DeepSeek-MoE are transforming generative AI in natural language processing. However, these models require vast and diverse training data. Federated learning (FL) addresses this challenge by leveraging private data from heterogeneous edge devices for privacy-preserving MoE training. Nonetheless, traditional FL approaches require devices to host local MoE models, which is impractical for resource-constrained devices due to large model sizes. To address this, we propose DeepFusion, the first scalable federated MoE training framework that enables the fusion of heterogeneous on-device LLM knowledge via federated knowledge distillation, yielding a knowledge-abundant global MoE model. Specifically, DeepFusion features each device to independently configure and train an on-device LLM tailored to its own needs and hardware limitations. Furthermore, we propose a novel View-Aligned Attention (VAA) module that integrates multi-stage feature representations from the global MoE model to construct a predictive perspective aligned with on-device LLMs, thereby enabling effective cross-architecture knowledge distillation. By explicitly aligning predictive perspectives, VAA resolves the view-mismatch problem in traditional federated knowledge distillation, which arises from heterogeneity in model architectures and prediction behaviors between on-device LLMs and the global MoE model. Experiments with industry-level MoE models (Qwen-MoE and DeepSeek-MoE) and real-world datasets (medical and finance) demonstrate that DeepFusion achieves performance close to centralized MoE training. Compared with key federated MoE baselines, DeepFusion reduces communication costs by up to 71% and improves token perplexity by up to 5.28%.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201600+00:00"
+    },
+    {
+      "paper_id": "arxiv:2602.13567v1",
+      "title": "DistillLens: Symmetric Knowledge Distillation Through Logit Lens",
+      "authors": [
+        "Manish Dhakal",
+        "Uthman Jinadu",
+        "Anjila Budathoki",
+        "Rajshekhar Sunderraman",
+        "Yi Ding"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2602.13567v1",
+      "abstract": "Standard Knowledge Distillation (KD) compresses Large Language Models (LLMs) by optimizing final outputs, yet it typically treats the teacher's intermediate layer's thought process as a black box. While feature-based distillation attempts to bridge this gap, existing methods (e.g., MSE and asymmetric KL divergence) ignore the rich uncertainty profiles required for the final output. In this paper, we introduce DistillLens, a framework that symmetrically aligns the evolving thought processes of student and teacher models. By projecting intermediate hidden states into the vocabulary space via the Logit Lens, we enforce structural alignment using a symmetric divergence objective. Our analysis proves that this constraint imposes a dual-sided penalty, preventing both overconfidence and underconfidence while preserving the high-entropy information conduits essential for final deduction. Extensive experiments on GPT-2 and Llama architectures demonstrate that DistillLens consistently outperforms standard KD and feature-transfer baselines on diverse instruction-following benchmarks. The code is available at https://github.com/manishdhakal/DistillLens.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201616+00:00"
+    },
+    {
+      "paper_id": "doi:10.1142/s0218001426400070",
+      "title": "Model Compression for IoT Edge Devices Based on Knowledge Distillation",
+      "authors": [
+        "Kequan Lin",
+        "Zhenjie Lin",
+        "Shiran Wang"
+      ],
+      "year": 2026,
+      "venue": "International Journal of Pattern Recognition and Artificial Intelligence",
+      "doi": "10.1142/s0218001426400070",
+      "url": "https://doi.org/10.1142/s0218001426400070",
+      "abstract": "<jats:p>With the proliferation of IoT technologies and the development of edge computing, achieving efficient deep learning inference on resource-constrained edge devices has become a critical challenge. This paper proposes a model compression framework for IoT edge devices based on knowledge distillation (PKD), aimed at effectively compressing models while enhancing their robustness and privacy protection on edge devices. Specifically, the proposed PKD framework introduces three key technical components: (1) a partitioned knowledge distillation strategy that enables efficient deployment of teacher models in distributed edge environments, (2) a Gradient-Weighted Feature Attention Loss (GW-FAL) mechanism to improve feature-level knowledge transfer, and (3) a Targeted Fast Gradient Perturbation (TFGP) method to enhance model robustness against adversarial disturbances. By partitioning the teacher model deployment, applying GW-FAL to improve knowledge transfer, and introducing adversarial perturbations to enhance model robustness, PKD achieves a high compression rate without significantly sacrificing accuracy. Through extensive experiments, the PKD framework demonstrates superior noise robustness and defense against adversarial attacks while improving model compression efficiency. The experimental results show that the framework provides an ideal balance between accuracy and speed on resource-constrained devices, making it suitable for practical applications such as IoT.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814558+00:00"
+    },
+    {
+      "paper_id": "doi:10.31130/ud-jst.2025.23(9d).568e",
+      "title": "Lightweight fall detection on edge devices via knowledge distillation",
+      "authors": [
+        "Quang Nhut Pham",
+        "Duy Khanh Ninh"
+      ],
+      "year": 2025,
+      "venue": "The University of Danang - Journal of Science and Technology",
+      "doi": "10.31130/ud-jst.2025.23(9d).568e",
+      "url": "https://doi.org/10.31130/ud-jst.2025.23(9d).568e",
+      "abstract": "<jats:p>Falls pose a significant risk to the elderly, often leading to severe injuries and medical emergencies. Timely and accurate fall detection is crucial for effective intervention. While vision-based approaches offer high accuracy and non-intrusive monitoring, they typically require large-scale deep learning models, making deployment on resource-constrained edge devices impractical due to high computational demands. To address this challenge, we propose an efficient fall detection framework using knowledge distillation to transfer knowledge from a high-performance teacher model to a compact student model. This approach significantly reduces model complexity without sacrificing accuracy. We apply cross-background and cross-person validation for robust evaluation. Experimental results show our model improves F1-score by up to 7% while requiring only 1/200 of the teacher’s parameters, making it suitable for real-time edge deployment.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814552+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/iciiet65921.2025.11377539",
+      "title": "Optimizing Large Language Model for Edge Devices Using Knowledge Distillation",
+      "authors": [
+        "Karthika Renuka",
+        "R. Anusuya",
+        "Naveen V",
+        "Prince Albert R",
+        "Ranjith R",
+        "Shyam Surya S G"
+      ],
+      "year": 2025,
+      "venue": "2025 International Conference on Intelligent Innovations in Engineering and Technology (ICIIET)",
+      "doi": "10.1109/iciiet65921.2025.11377539",
+      "url": "https://doi.org/10.1109/iciiet65921.2025.11377539",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814569+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/iccit68739.2025.11490190",
+      "title": "Optimizing Brain Tumor Classification for Edge Devices with Knowledge Distillation",
+      "authors": [
+        "Mohammad Sadequl Islam",
+        "Supta Deb Nath",
+        "Tanvir Azhar",
+        "Mohammed Maruf Hossen",
+        "M Shahriar Mahmud Rafi"
+      ],
+      "year": 2025,
+      "venue": "2025 28th International Conference on Computer and Information Technology (ICCIT)",
+      "doi": "10.1109/iccit68739.2025.11490190",
+      "url": "https://doi.org/10.1109/iccit68739.2025.11490190",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814574+00:00"
+    },
+    {
+      "paper_id": "arxiv:2405.09820v1",
+      "title": "Densely Distilling Cumulative Knowledge for Continual Learning",
+      "authors": [
+        "Zenglin Shi",
+        "Pei Liu",
+        "Tong Su",
+        "Yunpeng Wu",
+        "Kuien Liu",
+        "Yu Song",
+        "Meng Wang"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2405.09820v1",
+      "abstract": "Continual learning, involving sequential training on diverse tasks, often faces catastrophic forgetting. While knowledge distillation-based approaches exhibit notable success in preventing forgetting, we pinpoint a limitation in their ability to distill the cumulative knowledge of all the previous tasks. To remedy this, we propose Dense Knowledge Distillation (DKD). DKD uses a task pool to track the model's capabilities. It partitions the output logits of the model into dense groups, each corresponding to a task in the task pool. It then distills all tasks' knowledge using all groups. However, using all the groups can be computationally expensive, we also suggest random group selection in each optimization step. Moreover, we propose an adaptive weighting scheme, which balances the learning of new classes and the retention of old classes, based on the count and similarity of the classes. Our DKD outperforms recent state-of-the-art baselines across diverse benchmarks and scenarios. Empirical analysis underscores DKD's ability to enhance model stability, promote flatter minima for improved generalization, and remains robust across various memory budgets and task orders. Moreover, it seamlessly integrates with other CL methods to boost performance and proves versatile in offline scenarios like model compression.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201628+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-031-51026-7_18",
+      "title": "FeDZIO: Decentralized Federated Knowledge Distillation on Edge Devices",
+      "authors": [
+        "Luca Palazzo",
+        "Matteo Pennisi",
+        "Giovanni Bellitto",
+        "Isaak Kavasidis"
+      ],
+      "year": 2024,
+      "venue": "Lecture Notes in Computer Science",
+      "doi": "10.1007/978-3-031-51026-7_18",
+      "url": "https://doi.org/10.1007/978-3-031-51026-7_18",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814536+00:00"
+    },
+    {
+      "paper_id": "doi:10.1145/3716554.3716621",
+      "title": "Evaluating Knowledge Distillation and Compression Techniques for Edge Class Devices",
+      "authors": [
+        "Fotios Paparounas",
+        "Vasileios Christofas",
+        "Petros Amanatidis",
+        "Dimitris Karampatzakis",
+        "Thomas Lagkas"
+      ],
+      "year": 2024,
+      "venue": "Proceedings of the 28th Pan-Hellenic Conference on Progress in Computing and Informatics",
+      "doi": "10.1145/3716554.3716621",
+      "url": "https://doi.org/10.1145/3716554.3716621",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814563+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/akgec62572.2024.10868709",
+      "title": "Disparity-constrained Knowledge Distillation for Cyber-Physical Systems and Edge Devices",
+      "authors": [
+        "Karuna Yogesh Sunami",
+        "Brejesh Lall"
+      ],
+      "year": 2024,
+      "venue": "2024 2nd International Conference on Advancements and Key Challenges in Green Energy and Computing (AKGEC)",
+      "doi": "10.1109/akgec62572.2024.10868709",
+      "url": "https://doi.org/10.1109/akgec62572.2024.10868709",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814583+00:00"
+    },
+    {
+      "paper_id": "arxiv:2306.10687v1",
+      "title": "Categories of Response-Based, Feature-Based, and Relation-Based Knowledge Distillation",
+      "authors": [
+        "Chuanguang Yang",
+        "Xinqiang Yu",
+        "Zhulin An",
+        "Yongjun Xu"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2306.10687v1",
+      "abstract": "Deep neural networks have achieved remarkable performance for artificial intelligence tasks. The success behind intelligent systems often relies on large-scale models with high computational complexity and storage costs. The over-parameterized networks are often easy to optimize and can achieve better performance. However, it is challenging to deploy them over resource-limited edge-devices. Knowledge Distillation (KD) aims to optimize a lightweight network from the perspective of over-parameterized training. The traditional offline KD transfers knowledge from a cumbersome teacher to a small and fast student network. When a sizeable pre-trained teacher network is unavailable, online KD can improve a group of models by collaborative or mutual learning. Without needing extra models, Self-KD boosts the network itself using attached auxiliary architectures. KD mainly involves knowledge extraction and distillation strategies these two aspects. Beyond KD schemes, various KD algorithms are widely used in practical applications, such as multi-teacher KD, cross-modal KD, attention-based KD, data-free KD and adversarial KD. This paper provides a comprehensive KD survey, including knowledge categories, distillation schemes and algorithms, as well as some empirical studies on performance comparison. Finally, we discuss the open challenges of existing KD works and prospect the future directions.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201624+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/lra.2023.3330054",
+      "title": "Edge Devices Friendly Self-Supervised Monocular Depth Estimation via Knowledge Distillation",
+      "authors": [
+        "Wei Gao",
+        "Di Rao",
+        "Yang Yang",
+        "Jie Chen"
+      ],
+      "year": 2023,
+      "venue": "IEEE Robotics and Automation Letters",
+      "doi": "10.1109/lra.2023.3330054",
+      "url": "https://doi.org/10.1109/lra.2023.3330054",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814588+00:00"
+    },
+    {
+      "paper_id": "doi:10.1016/j.jksuci.2023.101616",
+      "title": "Compressing medical deep neural network models for edge devices using knowledge distillation",
+      "authors": [
+        "F. MohiEldeen Alabbasy",
+        "A.S. Abohamama",
+        "Mohammed F. Alrahmawy"
+      ],
+      "year": 2023,
+      "venue": "Journal of King Saud University - Computer and Information Sciences",
+      "doi": "10.1016/j.jksuci.2023.101616",
+      "url": "https://doi.org/10.1016/j.jksuci.2023.101616",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814592+00:00"
+    },
+    {
+      "paper_id": "arxiv:2210.16611v2",
+      "title": "Application of Knowledge Distillation to Multi-task Speech Representation Learning",
+      "authors": [
+        "Mine Kerpicci",
+        "Van Nguyen",
+        "Shuhua Zhang",
+        "Erik Visser"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2210.16611v2",
+      "abstract": "Model architectures such as wav2vec 2.0 and HuBERT have been proposed to learn speech representations from audio waveforms in a self-supervised manner. When they are combined with downstream tasks such as keyword spotting and speaker verification, they provide state-of-the-art performance. However, these models use a large number of parameters, the smallest version of which has 95 million parameters. This constitutes a challenge for edge AI device deployments. In this paper, we investigate the application of knowledge distillation to speech representation learning (SRL) models followed by joint fine-tuning with multiple downstream voice-activated tasks. In our experiments on two such tasks, our approach results in nearly 75% reduction in model size while suffering only 0.1% accuracy and 0.9% equal error rate degradation compared to the full-size model. In addition, we show that fine-tuning the SRL models results in a significant performance boost compared to using frozen SRL models.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201640+00:00"
+    },
+    {
+      "paper_id": "arxiv:2004.08116v1",
+      "title": "Triplet Loss for Knowledge Distillation",
+      "authors": [
+        "Hideki Oki",
+        "Motoshi Abe",
+        "Junichi Miyao",
+        "Takio Kurita"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2004.08116v1",
+      "abstract": "In recent years, deep learning has spread rapidly, and deeper, larger models have been proposed. However, the calculation cost becomes enormous as the size of the models becomes larger. Various techniques for compressing the size of the models have been proposed to improve performance while reducing computational costs. One of the methods to compress the size of the models is knowledge distillation (KD). Knowledge distillation is a technique for transferring knowledge of deep or ensemble models with many parameters (teacher model) to smaller shallow models (student model). Since the purpose of knowledge distillation is to increase the similarity between the teacher model and the student model, we propose to introduce the concept of metric learning into knowledge distillation to make the student model closer to the teacher model using pairs or triplets of the training samples. In metric learning, the researchers are developing the methods to build a model that can increase the similarity of outputs for similar samples. Metric learning aims at reducing the distance between similar and increasing the distance between dissimilar. The functionality of the metric learning to reduce the differences between similar outputs can be used for the knowledge distillation to reduce the differences between the outputs of the teacher model and the student model. Since the outputs of the teacher model for different objects are usually different, the student model needs to distinguish them. We think that metric learning can clarify the difference between the different outputs, and the performance of the student model could be improved. We have performed experiments to compare the proposed method with state-of-the-art knowledge distillation methods.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201612+00:00"
+    },
+    {
+      "paper_id": "arxiv:2007.06889v2",
+      "title": "Knowledge Distillation for Multi-task Learning",
+      "authors": [
+        "Wei-Hong Li",
+        "Hakan Bilen"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2007.06889v2",
+      "abstract": "Multi-task learning (MTL) is to learn one single model that performs multiple tasks for achieving good performance on all tasks and lower cost on computation. Learning such a model requires to jointly optimize losses of a set of tasks with different difficulty levels, magnitudes, and characteristics (e.g. cross-entropy, Euclidean loss), leading to the imbalance problem in multi-task learning. To address the imbalance problem, we propose a knowledge distillation based method in this work. We first learn a task-specific model for each task. We then learn the multi-task model for minimizing task-specific loss and for producing the same feature with task-specific models. As the task-specific network encodes different features, we introduce small task-specific adaptors to project multi-task features to the task-specific features. In this way, the adaptors align the task-specific feature and the multi-task feature, which enables a balanced parameter sharing across tasks. Extensive experimental results demonstrate that our method can optimize a multi-task learning model in a more balanced way and achieve better overall performance.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201643+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/hpcc-smartcity-dss50907.2020.00129",
+      "title": "Quantization and Knowledge Distillation for Efficient Federated Learning on Edge Devices",
+      "authors": [
+        "Xiaoyang Qu",
+        "Jianzong Wang",
+        "Jing Xiao"
+      ],
+      "year": 2020,
+      "venue": "2020 IEEE 22nd International Conference on High Performance Computing and Communications; IEEE 18th International Conference on Smart City; IEEE 6th International Conference on Data Science and Systems (HPCC/SmartCity/DSS)",
+      "doi": "10.1109/hpcc-smartcity-dss50907.2020.00129",
+      "url": "https://doi.org/10.1109/hpcc-smartcity-dss50907.2020.00129",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:45:17.814579+00:00"
+    },
+    {
+      "paper_id": "arxiv:1909.11723v3",
+      "title": "Revisiting Knowledge Distillation via Label Smoothing Regularization",
+      "authors": [
+        "Li Yuan",
+        "Francis E. H. Tay",
+        "Guilin Li",
+        "Tao Wang",
+        "Jiashi Feng"
+      ],
+      "year": 2019,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1909.11723v3",
+      "abstract": "Knowledge Distillation (KD) aims to distill the knowledge of a cumbersome teacher model into a lightweight student model. Its success is generally attributed to the privileged information on similarities among categories provided by the teacher model, and in this sense, only strong teacher models are deployed to teach weaker students in practice. In this work, we challenge this common belief by following experimental observations: 1) beyond the acknowledgment that the teacher can improve the student, the student can also enhance the teacher significantly by reversing the KD procedure; 2) a poorly-trained teacher with much lower accuracy than the student can still improve the latter significantly. To explain these observations, we provide a theoretical analysis of the relationships between KD and label smoothing regularization. We prove that 1) KD is a type of learned label smoothing regularization and 2) label smoothing regularization provides a virtual teacher model for KD. From these results, we argue that the success of KD is not fully due to the similarity information between categories from teachers, but also to the regularization of soft targets, which is equally or even more important.\n  Based on these analyses, we further propose a novel Teacher-free Knowledge Distillation (Tf-KD) framework, where a student model learns from itself or manuallydesigned regularization distribution. The Tf-KD achieves comparable performance with normal KD from a superior teacher, which is well applied when a stronger teacher model is unavailable. Meanwhile, Tf-KD is generic and can be directly deployed for training deep neural networks. Without any extra computation cost, Tf-KD achieves up to 0.65\\% improvement on ImageNet over well-established baseline models, which is superior to label smoothing regularization.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201636+00:00"
+    },
+    {
+      "paper_id": "arxiv:1812.00660v1",
+      "title": "Knowledge Distillation with Feature Maps for Image Classification",
+      "authors": [
+        "Wei-Chun Chen",
+        "Chia-Che Chang",
+        "Chien-Yu Lu",
+        "Che-Rung Lee"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1812.00660v1",
+      "abstract": "The model reduction problem that eases the computation costs and latency of complex deep learning architectures has received an increasing number of investigations owing to its importance in model deployment. One promising method is knowledge distillation (KD), which creates a fast-to-execute student model to mimic a large teacher network. In this paper, we propose a method, called KDFM (Knowledge Distillation with Feature Maps), which improves the effectiveness of KD by learning the feature maps from the teacher network. Two major techniques used in KDFM are shared classifier and generative adversarial network. Experimental results show that KDFM can use a four layers CNN to mimic DenseNet-40 and use MobileNet to mimic DenseNet-100. Both student networks have less than 1\\% accuracy loss comparing to their teacher models for CIFAR-100 datasets. The student networks are 2-6 times faster than their teacher models for inference, and the model size of MobileNet is less than half of DenseNet-100's.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201632+00:00"
+    },
+    {
+      "paper_id": "arxiv:1411.3958v3",
+      "title": "Edge-state enhanced transport in a 2-dimensional quantum walk",
+      "authors": [
+        "Janos K. Asboth",
+        "Jonathan M. Edge"
+      ],
+      "year": 2014,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1411.3958v3",
+      "abstract": "Quantum walks on translation invariant regular graphs spread quadratically faster than their classical counterparts. The same coherence that gives them this quantum speedup inhibits, or even stops their spread in the presence of disorder. We ask how to create an efficient transport channel from a fixed source site (A) to fixed target site (B) in a disordered 2-dimensional discrete-time quantum walk by cutting some of the links. We show that the somewhat counterintuitive strategy of cutting links along a single line connecting A to B creates such a channel. The efficient transport along the cut is due to topologically protected chiral edge states, which exist even though the bulk Chern number in this system vanishes. We give a realization of the walk as a periodically driven lattice Hamiltonian, and identify the bulk topological invariant responsible for the edge states as the quasienergy winding of this Hamiltonian.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:45:14.201620+00:00"
+    }
+  ]
+}

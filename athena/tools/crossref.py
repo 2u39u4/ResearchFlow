@@ -12,7 +12,7 @@ from athena.config import get_settings
 
 CROSSREF_BASE = "https://api.crossref.org"
 _last_request_at: float = 0.0
-_MAX_RETRIES = 3
+_MAX_RETRIES = 6
 _MIN_INTERVAL = 1.0
 
 
@@ -38,7 +38,14 @@ def _get_json(path: str, params: dict[str, Any] | None = None) -> dict[str, Any]
     last_error: Exception | None = None
     for attempt in range(_MAX_RETRIES):
         _throttle()
-        resp = requests.get(url, params=params, headers=_headers(), timeout=30)
+        try:
+            resp = requests.get(
+                url, params=params, headers=_headers(), timeout=60, proxies={"http": None, "https": None}
+            )
+        except requests.RequestException as exc:
+            time.sleep(min(30, 2 ** (attempt + 1)))
+            last_error = exc
+            continue
         if resp.status_code in (429, 500, 502, 503, 504):
             time.sleep(2**attempt)
             last_error = requests.HTTPError(

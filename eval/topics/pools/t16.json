@@ -1,0 +1,420 @@
+{
+  "topic_id": "t16",
+  "topic": "differential privacy machine learning",
+  "domain": "AI/Security",
+  "protocol_version": 1,
+  "built_at": "2026-06-07T04:43:10.650629+00:00",
+  "per_source_limit": 10,
+  "min_cards": 8,
+  "research_errors": [
+    "semantic_scholar skipped: no SEMANTIC_SCHOLAR_API_KEY"
+  ],
+  "sources_ok": {
+    "semantic_scholar": false,
+    "arxiv": true,
+    "crossref": true
+  },
+  "pool_mode": "arxiv_crossref",
+  "paper_ids": [
+    "doi:10.64137/31079911/ijmst-v2i1p104",
+    "doi:10.2139/ssrn.6459158",
+    "doi:10.1201/9781003185284-9",
+    "doi:10.46793/tie24.089i",
+    "doi:10.1007/978-981-96-0437-1_2",
+    "arxiv:2306.04338v1",
+    "arxiv:2303.15563v1",
+    "arxiv:2302.08893v4",
+    "arxiv:2304.02381v2",
+    "doi:10.1038/s41598-022-24082-z",
+    "arxiv:2209.14086v2",
+    "arxiv:2201.12150v2",
+    "doi:10.1007/978-3-031-16210-7_54",
+    "arxiv:2006.16189v4",
+    "doi:10.1109/mis.2020.3010335",
+    "arxiv:1901.09697v5",
+    "doi:10.1109/cdc40024.2019.9029938",
+    "arxiv:1812.02890v1",
+    "doi:10.1109/afrcon.2017.8095692",
+    "arxiv:0803.3946v4"
+  ],
+  "cards": [
+    {
+      "paper_id": "doi:10.64137/31079911/ijmst-v2i1p104",
+      "title": "Privacy-Enhancing Machine Learning with Differential Privacy",
+      "authors": [
+        "STEPHEN ETENG"
+      ],
+      "year": 2026,
+      "venue": "International Journal of Multidisciplinary Sciences and Technology",
+      "doi": "10.64137/31079911/ijmst-v2i1p104",
+      "url": "https://doi.org/10.64137/31079911/ijmst-v2i1p104",
+      "abstract": "<jats:p>Privacy concerns in machine learning have become increasingly critical as AI systems process sensitive personal, financial, healthcare, and behavioral data. Traditional machine learning approaches often require centralizing large datasets, raising risks of data breaches, unauthorized access, and privacy violations. Differential privacy (DP) has emerged as a formal framework to quantify and guarantee privacy protection while enabling model training on sensitive data. By introducing controlled noise into data or model computations, differential privacy ensures that the inclusion or exclusion of a single individual’s data has minimal impact on model outputs, providing strong mathematical privacy guarantees. Privacy-enhancing machine learning (PEML) techniques incorporating differential privacy are applied across domains such as healthcare, finance, recommendation systems, and federated learning. These approaches balance the trade-off between data utility and privacy, enabling collaborative AI without exposing sensitive information. Challenges include maintaining model accuracy under privacy constraints, computational overhead, and adaptive threat resistance. Future directions involve integrating DP with federated and decentralized learning, adaptive privacy budgets, algorithmic optimization, and explainable privacy-aware AI. Differential privacy represents a cornerstone in building trustworthy, privacy-preserving AI systems in an increasingly data-driven world.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643315+00:00"
+    },
+    {
+      "paper_id": "doi:10.2139/ssrn.6459158",
+      "title": "Differential Privacy Techniques in Healthcare Machine Learning",
+      "authors": [
+        "Emily Wilson",
+        "Ficek Josep"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.2139/ssrn.6459158",
+      "url": "https://doi.org/10.2139/ssrn.6459158",
+      "abstract": "<jats:p>The integration of machine learning (ML) in healthcare promises unprecedented advancements in diagnostic accuracy, personalized treatment, and operational efficiency. However, the sensitive nature of medical data necessitates robust privacy-preserving mechanisms to comply with regulations such as HIPAA and GDPR. This article presents a comprehensive investigation of differential privacy (DP) techniques applied to healthcare machine learning models. We propose a novel framework that combines differential privacy with federated learning to enable multiinstitutional collaborative model training while providing formal privacy guarantees. Using a large-scale dataset of electronic health records (EHRs) and medical imaging data from three collaborating hospital systems, we evaluate the privacy-utility trade-off across multiple DP implementations, including DP-Stochastic Gradient Descent (DP-SGD), DP-Federated Averaging (DP-FedAvg), and adaptive clipping strategies. Our results demonstrate that with carefully calibrated privacy parameters (ε=3.0, δ=1e-5), models achieve diagnostic accuracy within 4.2% of non-private baselines while providing provable privacy guarantees against membership inference attacks. Furthermore, we introduce a novel visualization technique for quantifying privacy loss accumulation across training epochs. This work provides practical guidance for implementing differential privacy in clinical ML applications and establishes benchmarks for privacy-preserving healthcare analytics.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643471+00:00"
+    },
+    {
+      "paper_id": "doi:10.1201/9781003185284-9",
+      "title": "Machine Learning with Differential Privacy",
+      "authors": [
+        "Anand D. Sarwate"
+      ],
+      "year": 2024,
+      "venue": "Handbook of Sharing Confidential Data",
+      "doi": "10.1201/9781003185284-9",
+      "url": "https://doi.org/10.1201/9781003185284-9",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643349+00:00"
+    },
+    {
+      "paper_id": "doi:10.46793/tie24.089i",
+      "title": "Privacy-Preserving in Machine Learning: Differential Privacy Case Study",
+      "authors": [
+        "Aleksa Iričanin",
+        "Olga Ristić",
+        "Marjan Milošević"
+      ],
+      "year": 2024,
+      "venue": "10th International Scientific Conference Technics, Informatic, and Education",
+      "doi": "10.46793/tie24.089i",
+      "url": "https://doi.org/10.46793/tie24.089i",
+      "abstract": "<jats:p>The burgeoning field of Machine Learning (ML) has revolutionized various aspects of our lives. However, the reliance on vast amounts of data, often containing personal information, raises concerns about individual privacy. Striking a balance between effective ML model training and protecting sensitive data is crucial for responsible development and ethical implementation. This paper explores the challenges and potential solutions for preserving privacy in ML training, focusing on differential privacy (DP). The advantages of implementing DP in ML training include robust protection of individual data, enabling meaningful insights from large datasets while maintaining privacy. This is essential for ethical and responsible data usage in machine learning applications. However, DP in ML training presents challenges including scalability issues and trade-offs between utility and privacy. The paper also covers the mathematical mechanisms of Laplace and Gaussian and their noise addition, followed by a comparative analysis of their efficiency within the dataset.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643451+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-981-96-0437-1_2",
+      "title": "Navigating Differential Privacy Constraints in Machine Learning",
+      "authors": [
+        "Trung Ha",
+        "Tran Khanh Dang"
+      ],
+      "year": 2024,
+      "venue": "Communications in Computer and Information Science",
+      "doi": "10.1007/978-981-96-0437-1_2",
+      "url": "https://doi.org/10.1007/978-981-96-0437-1_2",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643461+00:00"
+    },
+    {
+      "paper_id": "arxiv:2306.04338v1",
+      "title": "Changing Data Sources in the Age of Machine Learning for Official Statistics",
+      "authors": [
+        "Cedric De Boom",
+        "Michael Reusens"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2306.04338v1",
+      "abstract": "Data science has become increasingly essential for the production of official statistics, as it enables the automated collection, processing, and analysis of large amounts of data. With such data science practices in place, it enables more timely, more insightful and more flexible reporting. However, the quality and integrity of data-science-driven statistics rely on the accuracy and reliability of the data sources and the machine learning techniques that support them. In particular, changes in data sources are inevitable to occur and pose significant risks that are crucial to address in the context of machine learning for official statistics.\n  This paper gives an overview of the main risks, liabilities, and uncertainties associated with changing data sources in the context of machine learning for official statistics. We provide a checklist of the most prevalent origins and causes of changing data sources; not only on a technical level but also regarding ownership, ethics, regulation, and public perception. Next, we highlight the repercussions of changing data sources on statistical reporting. These include technical effects such as concept drift, bias, availability, validity, accuracy and completeness, but also the neutrality and potential discontinuation of the statistical offering. We offer a few important precautionary measures, such as enhancing robustness in both data sourcing and statistical techniques, and thorough monitoring. In doing so, machine learning-based official statistics can maintain integrity, reliability, consistency, and relevance in policy-making, decision-making, and public discourse.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803180+00:00"
+    },
+    {
+      "paper_id": "arxiv:2303.15563v1",
+      "title": "Privacy-preserving machine learning for healthcare: open challenges and future perspectives",
+      "authors": [
+        "Alejandro Guerra-Manzanares",
+        "L. Julian Lechuga Lopez",
+        "Michail Maniatakos",
+        "Farah E. Shamout"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2303.15563v1",
+      "abstract": "Machine Learning (ML) has recently shown tremendous success in modeling various healthcare prediction tasks, ranging from disease diagnosis and prognosis to patient treatment. Due to the sensitive nature of medical data, privacy must be considered along the entire ML pipeline, from model training to inference. In this paper, we conduct a review of recent literature concerning Privacy-Preserving Machine Learning (PPML) for healthcare. We primarily focus on privacy-preserving training and inference-as-a-service, and perform a comprehensive review of existing trends, identify challenges, and discuss opportunities for future research directions. The aim of this review is to guide the development of private and efficient ML models in healthcare, with the prospects of translating research efforts into real-world settings.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803187+00:00"
+    },
+    {
+      "paper_id": "arxiv:2302.08893v4",
+      "title": "Active learning for data streams: a survey",
+      "authors": [
+        "Davide Cacciarelli",
+        "Murat Kulahci"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2302.08893v4",
+      "abstract": "Online active learning is a paradigm in machine learning that aims to select the most informative data points to label from a data stream. The problem of minimizing the cost associated with collecting labeled observations has gained a lot of attention in recent years, particularly in real-world applications where data is only available in an unlabeled form. Annotating each observation can be time-consuming and costly, making it difficult to obtain large amounts of labeled data. To overcome this issue, many active learning strategies have been proposed in the last decades, aiming to select the most informative observations for labeling in order to improve the performance of machine learning models. These approaches can be broadly divided into two categories: static pool-based and stream-based active learning. Pool-based active learning involves selecting a subset of observations from a closed pool of unlabeled data, and it has been the focus of many surveys and literature reviews. However, the growing availability of data streams has led to an increase in the number of approaches that focus on online active learning, which involves continuously selecting and labeling observations as they arrive in a stream. This work aims to provide an overview of the most recently proposed approaches for selecting the most informative observations from data streams in real time. We review the various techniques that have been proposed and discuss their strengths and limitations, as well as the challenges and opportunities that exist in this area of research.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803219+00:00"
+    },
+    {
+      "paper_id": "arxiv:2304.02381v2",
+      "title": "Physics-Inspired Interpretability Of Machine Learning Models",
+      "authors": [
+        "Maximilian P Niroomand",
+        "David J Wales"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2304.02381v2",
+      "abstract": "The ability to explain decisions made by machine learning models remains one of the most significant hurdles towards widespread adoption of AI in highly sensitive areas such as medicine, cybersecurity or autonomous driving. Great interest exists in understanding which features of the input data prompt model decision making. In this contribution, we propose a novel approach to identify relevant features of the input data, inspired by methods from the energy landscapes field, developed in the physical sciences. By identifying conserved weights within groups of minima of the loss landscapes, we can identify the drivers of model decision making. Analogues to this idea exist in the molecular sciences, where coordinate invariants or order parameters are employed to identify critical features of a molecule. However, no such approach exists for machine learning loss landscapes. We will demonstrate the applicability of energy landscape methods to machine learning models and give examples, both synthetic and from the real world, for how these methods can help to make models more interpretable.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803222+00:00"
+    },
+    {
+      "paper_id": "doi:10.1038/s41598-022-24082-z",
+      "title": "Quantum machine learning with differential privacy",
+      "authors": [
+        "William M. Watkins",
+        "Samuel Yen-Chi Chen",
+        "Shinjae Yoo"
+      ],
+      "year": 2023,
+      "venue": "Scientific Reports",
+      "doi": "10.1038/s41598-022-24082-z",
+      "url": "https://doi.org/10.1038/s41598-022-24082-z",
+      "abstract": "<jats:title>Abstract</jats:title><jats:p>Quantum machine learning (QML) can complement the growing trend of using learned models for a myriad of classification tasks, from image recognition to natural speech processing. There exists the potential for a quantum advantage due to the intractability of quantum operations on a classical computer. Many datasets used in machine learning are crowd sourced or contain some private information, but to the best of our knowledge, no current QML models are equipped with privacy-preserving features. This raises concerns as it is paramount that models do not expose sensitive information. Thus, privacy-preserving algorithms need to be implemented with QML. One solution is to make the machine learning algorithm differentially private, meaning the effect of a single data point on the training dataset is minimized. Differentially private machine learning models have been investigated, but differential privacy has not been thoroughly studied in the context of QML. In this study, we develop a hybrid quantum-classical model that is trained to preserve privacy using differentially private optimization algorithm. This marks the first proof-of-principle demonstration of privacy-preserving QML. The experiments demonstrate that differentially private QML can protect user-sensitive information without signficiantly diminishing model accuracy. Although the quantum model is simulated and tested on a classical computer, it demonstrates potential to be efficiently implemented on near-term quantum devices [noisy intermediate-scale quantum (NISQ)]. The approach’s success is illustrated via the classification of spatially classed two-dimensional datasets and a binary MNIST classification. This implementation of privacy-preserving QML will ensure confidentiality and accurate learning on NISQ technology.</jats:p>",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643378+00:00"
+    },
+    {
+      "paper_id": "arxiv:2209.14086v2",
+      "title": "Momentum Gradient Descent Federated Learning with Local Differential Privacy",
+      "authors": [
+        "Mengde Han",
+        "Tianqing Zhu",
+        "Wanlei Zhou"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2209.14086v2",
+      "abstract": "Nowadays, the development of information technology is growing rapidly. In the big data era, the privacy of personal information has been more pronounced. The major challenge is to find a way to guarantee that sensitive personal information is not disclosed while data is published and analyzed. Centralized differential privacy is established on the assumption of a trusted third-party data curator. However, this assumption is not always true in reality. As a new privacy preservation model, local differential privacy has relatively strong privacy guarantees. Although federated learning has relatively been a privacy-preserving approach for distributed learning, it still introduces various privacy concerns. To avoid privacy threats and reduce communication costs, in this article, we propose integrating federated learning and local differential privacy with momentum gradient descent to improve the performance of machine learning models.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803200+00:00"
+    },
+    {
+      "paper_id": "arxiv:2201.12150v2",
+      "title": "Learning Curves for Decision Making in Supervised Machine Learning: A Survey",
+      "authors": [
+        "Felix Mohr",
+        "Jan N. van Rijn"
+      ],
+      "year": 2022,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2201.12150v2",
+      "abstract": "Learning curves are a concept from social sciences that has been adopted in the context of machine learning to assess the performance of a learning algorithm with respect to a certain resource, e.g., the number of training examples or the number of training iterations. Learning curves have important applications in several machine learning contexts, most notably in data acquisition, early stopping of model training, and model selection. For instance, learning curves can be used to model the performance of the combination of an algorithm and its hyperparameter configuration, providing insights into their potential suitability at an early stage and often expediting the algorithm selection process. Various learning curve models have been proposed to use learning curves for decision making. Some of these models answer the binary decision question of whether a given algorithm at a certain budget will outperform a certain reference performance, whereas more complex models predict the entire learning curve of an algorithm. We contribute a framework that categorises learning curve approaches using three criteria: the decision-making situation they address, the intrinsic learning curve question they answer and the type of resources they use. We survey papers from the literature and classify them into this framework.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803204+00:00"
+    },
+    {
+      "paper_id": "doi:10.1007/978-3-031-16210-7_54",
+      "title": "How Differential Privacy Reinforces Privacy of Machine Learning Models?",
+      "authors": [
+        "Sana Ben Hamida",
+        "Hichem Mrabet",
+        "Abderrazak Jemai"
+      ],
+      "year": 2022,
+      "venue": "Communications in Computer and Information Science",
+      "doi": "10.1007/978-3-031-16210-7_54",
+      "url": "https://doi.org/10.1007/978-3-031-16210-7_54",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643438+00:00"
+    },
+    {
+      "paper_id": "arxiv:2006.16189v4",
+      "title": "DOME: Recommendations for supervised machine learning validation in biology",
+      "authors": [
+        "Ian Walsh",
+        "Dmytro Fishman",
+        "Dario Garcia-Gasulla",
+        "Tiina Titma",
+        "Gianluca Pollastri",
+        "The ELIXIR Machine Learning focus group",
+        "Jen Harrow",
+        "Fotis E. Psomopoulos",
+        "Silvio C. E. Tosatto"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/2006.16189v4",
+      "abstract": "Modern biology frequently relies on machine learning to provide predictions and improve decision processes. There have been recent calls for more scrutiny on machine learning performance and possible limitations. Here we present a set of community-wide recommendations aiming to help establish standards of supervised machine learning validation in biology. Adopting a structured methods description for machine learning based on data, optimization, model, evaluation (DOME) will aim to help both reviewers and readers to better understand and assess the performance and limitations of a method or outcome. The recommendations are formulated as questions to anyone wishing to pursue implementation of a machine learning algorithm. Answers to these questions can be easily included in the supplementary material of published papers.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803196+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/mis.2020.3010335",
+      "title": "Preserving User Privacy for Machine Learning: Local Differential Privacy or Federated Machine Learning?",
+      "authors": [
+        "Huadi Zheng",
+        "Haibo Hu",
+        "Ziyang Han"
+      ],
+      "year": 2020,
+      "venue": "IEEE Intelligent Systems",
+      "doi": "10.1109/mis.2020.3010335",
+      "url": "https://doi.org/10.1109/mis.2020.3010335",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643426+00:00"
+    },
+    {
+      "paper_id": "arxiv:1901.09697v5",
+      "title": "Bayesian Differential Privacy for Machine Learning",
+      "authors": [
+        "Aleksei Triastcyn",
+        "Boi Faltings"
+      ],
+      "year": 2019,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1901.09697v5",
+      "abstract": "Traditional differential privacy is independent of the data distribution. However, this is not well-matched with the modern machine learning context, where models are trained on specific data. As a result, achieving meaningful privacy guarantees in ML often excessively reduces accuracy. We propose Bayesian differential privacy (BDP), which takes into account the data distribution to provide more practical privacy guarantees. We also derive a general privacy accounting method under BDP, building upon the well-known moments accountant. Our experiments demonstrate that in-distribution samples in classic machine learning datasets, such as MNIST and CIFAR-10, enjoy significantly stronger privacy guarantees than postulated by DP, while models maintain high classification accuracy.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803159+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/cdc40024.2019.9029938",
+      "title": "Differential Privacy-preserving Distributed Machine Learning",
+      "authors": [
+        "Xin Wang",
+        "Hideaki Ishii",
+        "Linkang Du",
+        "Peng Cheng",
+        "Jiming Chen"
+      ],
+      "year": 2019,
+      "venue": "2019 IEEE 58th Conference on Decision and Control (CDC)",
+      "doi": "10.1109/cdc40024.2019.9029938",
+      "url": "https://doi.org/10.1109/cdc40024.2019.9029938",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643415+00:00"
+    },
+    {
+      "paper_id": "arxiv:1812.02890v1",
+      "title": "Three Tools for Practical Differential Privacy",
+      "authors": [
+        "Koen Lennart van der Veen",
+        "Ruben Seggers",
+        "Peter Bloem",
+        "Giorgio Patrini"
+      ],
+      "year": 2018,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/1812.02890v1",
+      "abstract": "Differentially private learning on real-world data poses challenges for standard machine learning practice: privacy guarantees are difficult to interpret, hyperparameter tuning on private data reduces the privacy budget, and ad-hoc privacy attacks are often required to test model privacy. We introduce three tools to make differentially private machine learning more practical: (1) simple sanity checks which can be carried out in a centralized manner before training, (2) an adaptive clipping bound to reduce the effective number of tuneable privacy parameters, and (3) we show that large-batch training improves model performance.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803216+00:00"
+    },
+    {
+      "paper_id": "doi:10.1109/afrcon.2017.8095692",
+      "title": "Privacy-preserving quantum machine learning using differential privacy",
+      "authors": [
+        "Makhamisa Senekane",
+        "Mhlambululi Mafu",
+        "Benedict Molibeli Taele"
+      ],
+      "year": 2017,
+      "venue": "2017 IEEE AFRICON",
+      "doi": "10.1109/afrcon.2017.8095692",
+      "url": "https://doi.org/10.1109/afrcon.2017.8095692",
+      "abstract": "",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "crossref",
+      "retrieved_at": "2026-06-07T04:43:10.643366+00:00"
+    },
+    {
+      "paper_id": "arxiv:0803.3946v4",
+      "title": "On the `Semantics' of Differential Privacy: A Bayesian Formulation",
+      "authors": [
+        "Shiva Prasad Kasiviswanathan",
+        "Adam Smith"
+      ],
+      "year": 2008,
+      "venue": "arXiv",
+      "doi": "",
+      "url": "https://arxiv.org/pdf/0803.3946v4",
+      "abstract": "Differential privacy is a definition of \"privacy'\" for algorithms that analyze and publish information about statistical databases. It is often claimed that differential privacy provides guarantees against adversaries with arbitrary side information. In this paper, we provide a precise formulation of these guarantees in terms of the inferences drawn by a Bayesian adversary. We show that this formulation is satisfied by both \"vanilla\" differential privacy as well as a relaxation known as (epsilon,delta)-differential privacy. Our formulation follows the ideas originally due to Dwork and McSherry [Dwork 2006]. This paper is, to our knowledge, the first place such a formulation appears explicitly. The analysis of the relaxed definition is new to this paper, and provides some concrete guidance for setting parameters when using (epsilon,delta)-differential privacy.",
+      "contributions": [],
+      "methods": [],
+      "limitations": [],
+      "source": "arxiv",
+      "retrieved_at": "2026-06-07T04:43:07.803211+00:00"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ from typing import Any
 
 from athena.agents.critic import run_critic, supported_only
 from athena.agents.planner import run_planner
-from athena.agents.research import run_research
+from athena.agents.research import CriticalResearchSourcesError, run_research
 from athena.agents.writer import run_writer
 from athena.graph.citations_from_corpus import build_citations_for_validation
 from athena.graph.state import AthenaState, state_validation_payload
@@ -99,10 +99,20 @@ def research_node(state: AthenaState) -> dict[str, Any]:
     per_source = int(constraints.get("per_source_limit", 15))
     min_cards = int(constraints.get("min_cards", 10))
 
-    result = run_research(query, per_source_limit=per_source, min_cards=min_cards)
+    result = run_research(
+        query,
+        arxiv_query=topic,
+        fallback_topic=topic if query != topic else None,
+        per_source_limit=per_source,
+        min_cards=min_cards,
+    )
+    if not result.critical_sources_ok:
+        raise CriticalResearchSourcesError(result.errors)
+
     update: dict[str, Any] = {
         "papers": result.cards,
         "research_errors": result.errors,
+        "research_sources_ok": result.sources_ok,
     }
     merged = {**state, **update}
     update.update(
@@ -111,7 +121,11 @@ def research_node(state: AthenaState) -> dict[str, Any]:
             step="research",
             agent="research",
             summary=f"{len(result.cards)} papers (query={query!r})",
-            payload={"errors": result.errors, "count": len(result.cards)},
+            payload={
+                "errors": result.errors,
+                "count": len(result.cards),
+                "sources_ok": result.sources_ok,
+            },
         )
     )
     return update

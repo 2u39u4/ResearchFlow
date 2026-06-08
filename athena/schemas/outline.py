@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pydantic import BaseModel, Field
 
-DEFAULT_TODO_MARKER = "[TODO: 作者补充论证]"
+DEFAULT_TODO_MARKER = "[TODO: author to complete]"
 
 
 class OutlineSection(BaseModel):
