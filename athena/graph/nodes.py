@@ -59,11 +59,18 @@ def _coerce_outline(raw: Outline | dict | None) -> Outline | None:
     return Outline.model_validate(raw)
 
 
-def _search_query(state: AthenaState, topic: str) -> str:
+def _search_queries(state: AthenaState, topic: str) -> list[str]:
+    """All distinct search-task queries from the plan (primary first), so the plan
+    materially drives retrieval. Falls back to the topic when the plan has none."""
+    queries: list[str] = []
     for task in _coerce_tasks(state.get("tasks") or []):
-        if task.type == "search" and task.query.strip():
-            return task.query.strip()
-    return topic
+        if task.type == "search":
+            q = task.query.strip()
+            if q and q not in queries:
+                queries.append(q)
+    if not queries:
+        queries = [topic]
+    return queries
 
 
 def planner_node(state: AthenaState) -> dict[str, Any]:
@@ -93,12 +100,28 @@ def planner_node(state: AthenaState) -> dict[str, Any]:
     return update
 
 
+def _int_or_none(value: Any) -> int | None:
+    try:
+        return int(value) if value is not None else None
+    except (TypeError, ValueError):
+        return None
+
+
 def research_node(state: AthenaState) -> dict[str, Any]:
     topic = (state.get("topic") or "").strip()
-    query = _search_query(state, topic)
+    queries = _search_queries(state, topic)
+    primary = queries[0]
     constraints = state.get("constraints") or {}
     per_source = int(constraints.get("per_source_limit", 15))
     min_cards = int(constraints.get("min_cards", 10))
+    year_min = _int_or_none(constraints.get("year_min"))
+    year_max = _int_or_none(constraints.get("year_max"))
+
+    # Domain (when provided) becomes an extra, more specific retrieval query.
+    extra_queries = queries[1:]
+    domain = str(constraints.get("domain") or "").strip()
+    if domain:
+        extra_queries = [*extra_queries, f"{primary} {domain}"]
 
     # On a revision pass, broaden retrieval to recover from unresolved citations.
     revisions = int(state.get("revisions") or 0)
@@ -107,11 +130,14 @@ def research_node(state: AthenaState) -> dict[str, Any]:
         min_cards = min_cards + 2 * revisions
 
     result = run_research(
-        query,
+        primary,
         arxiv_query=topic,
-        fallback_topic=topic if query != topic else None,
+        fallback_topic=topic if primary != topic else None,
         per_source_limit=per_source,
         min_cards=min_cards,
+        extra_queries=extra_queries,
+        year_min=year_min,
+        year_max=year_max,
     )
     if not result.critical_sources_ok:
         raise CriticalResearchSourcesError(result.errors)
@@ -122,15 +148,18 @@ def research_node(state: AthenaState) -> dict[str, Any]:
         "research_sources_ok": result.sources_ok,
     }
     merged = {**state, **update}
+    all_queries = [primary, *extra_queries]
     update.update(
         append_trace(
             merged,
             step="research",
             agent="research",
-            summary=f"{len(result.cards)} papers (query={query!r})",
+            summary=f"{len(result.cards)} papers ({len(all_queries)} plan queries)",
             payload={
                 "errors": result.errors,
                 "count": len(result.cards),
+                "queries": all_queries,
+                "year_range": [year_min, year_max],
                 "sources_ok": result.sources_ok,
             },
         )

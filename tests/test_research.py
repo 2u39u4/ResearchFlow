@@ -63,6 +63,53 @@ def test_run_research_critical_sources_arxiv_ok(mock_arxiv, mock_s2, mock_cr, mo
     assert CRITICAL_SOURCES_MSG not in result.errors
 
 
+@patch("athena.agents.research.get_settings")
+@patch("athena.agents.research._fetch_crossref")
+@patch("athena.agents.research._fetch_semantic_scholar")
+@patch("athena.agents.research._fetch_arxiv")
+def test_run_research_multi_query_merges(mock_arxiv, mock_s2, mock_cr, mock_settings):
+    mock_settings.return_value.semantic_scholar_uses_anonymous = True
+    # Each arXiv query returns a distinct card so we can prove all plan queries ran.
+    mock_arxiv.side_effect = lambda q, limit: [
+        KnowledgeCard(paper_id=f"arxiv::{q}", title=f"Paper {q}", year=2024, source="arxiv")
+    ]
+    mock_cr.return_value = []
+
+    result = run_research(
+        "rag",
+        per_source_limit=5,
+        min_cards=1,
+        extra_queries=["graph rag", "rag evaluation"],
+    )
+    ids = {c.paper_id for c in result.cards}
+    # Primary + 2 extras all contributed distinct cards.
+    assert ids == {"arxiv::rag", "arxiv::graph rag", "arxiv::rag evaluation"}
+
+
+@patch("athena.agents.research.get_settings")
+@patch("athena.agents.research._fetch_crossref")
+@patch("athena.agents.research._fetch_semantic_scholar")
+@patch("athena.agents.research._fetch_arxiv")
+def test_run_research_year_filter(mock_arxiv, mock_s2, mock_cr, mock_settings):
+    mock_settings.return_value.semantic_scholar_uses_anonymous = True
+
+    def _years(q, limit):
+        return [
+            KnowledgeCard(paper_id="old", title="Old", year=2010, source="arxiv"),
+            KnowledgeCard(paper_id="new", title="New", year=2024, source="arxiv"),
+            KnowledgeCard(paper_id="noyear", title="Unknown", year=None, source="arxiv"),
+        ]
+
+    mock_arxiv.side_effect = _years
+    mock_cr.return_value = []
+
+    result = run_research("rag", per_source_limit=5, min_cards=1, year_min=2020)
+    ids = {c.paper_id for c in result.cards}
+    assert "old" not in ids  # filtered out (before year_min)
+    assert "new" in ids
+    assert "noyear" in ids  # unknown year is kept
+
+
 @patch("athena.graph.nodes.run_research")
 def test_research_node_raises_when_critical_sources_fail(mock_run):
     from athena.agents.research import ResearchResult
