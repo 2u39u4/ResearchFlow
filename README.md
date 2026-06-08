@@ -19,6 +19,7 @@ The core design bet — evaluated below on a public benchmark — is that **gene
 | Pipeline fake-citation rate | 27.8% (all) → **0%** (verified-only policy) | deterministic filter |
 | Multi-agent vs single-agent literature coverage | **0.855 vs 0.787** (+6.8 pp) | paired *t*-test *p* ≈ 4.4×10⁻⁵ |
 | Blind pairwise preference (multi vs single) | 53.3% | **not** significant (*p* ≈ 0.70) — reported honestly |
+| Blind human eval (n=12) | preferred multi-agent **11/12**; multi deeper (4.83 vs 4.17) | **diverges** from the LLM judge — evidence of judge verbosity bias |
 | Critic evidence-grounding rate | **1.000** | by construction |
 
 Numbers come from 60 matched runs per RQ (20 topics × 3 repeats). A **committed, read-only snapshot** of the statistics and figures lives in [`docs/evaluation/`](docs/evaluation/) so you can verify them without re-running the multi-hour experiments. Full method and caveats: [`docs/TECHNICAL_REPORT.md`](docs/TECHNICAL_REPORT.md).
@@ -187,7 +188,7 @@ Stated up front, because credibility matters more than hype:
 
 - **Not a paper writer.** Writer produces an outline scaffold with author-completion markers, not submittable prose.
 - **LLM judges ≠ humans.** On verbose multi-agent output the judge and the human anchor disagree; depth/preference results are mixed and reported as such (see the technical report).
-- **The committed human anchor is a reproducible heuristic proxy**, not an independent human study — `ANCHOR_PROTOCOL.md` explains how to plug in real two-rater blind labels.
+- **Human evaluation is a single-rater blind study (n=12)** — directional, not a powered multi-rater study; `ANCHOR_PROTOCOL.md` covers the two-rater procedure. (A reproducible heuristic-proxy anchor is also kept as a pipeline fixture.)
 - **Verified-only policy trades recall for precision** — it zeroes fake citations by dropping unresolved references.
 - **TopicSet is 20 topics**; statistics use no multiple-comparison correction. Generalization is limited.
 

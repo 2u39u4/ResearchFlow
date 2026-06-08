@@ -1,0 +1,13 @@
+sample_id,topic_id,depth_multi_1to5,depth_single_1to5,preference_multi_single_tie,notes
+rq1_t01_r0,t01,3,5,single,preferred output clearer; the other had insufficient evidence and incoherent reasoning
+rq1_t03_r0,t03,5,5,multi,roughly equal
+rq1_t04_r0,t04,5,4,multi,preferred output had a more complete evidence chain and smoother reasoning
+rq1_t06_r0,t06,5,4,multi,preferred output better supported by evidence
+rq1_t07_r0,t07,5,4,multi,preferred output more complete
+rq1_t08_r0,t08,5,4,multi,other output slightly simpler
+rq1_t12_r0,t12,5,4,multi,preferred output better supported by evidence
+rq1_t14_r0,t14,5,4,multi,other output slightly simpler
+rq1_t15_r0,t15,5,5,multi,roughly equal
+rq1_t16_r0,t16,5,4,multi,preferred output more complete with stronger evidence
+rq1_t17_r0,t17,5,4,multi,outputs close; preferred marginally
+rq1_t18_r0,t18,5,3,multi,preferred output more complete with stronger evidence

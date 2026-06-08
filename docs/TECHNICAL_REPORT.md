@@ -173,15 +173,26 @@ We therefore report Critic as a **trust / evidence-binding module**, not as a gu
 | Pipeline fake rate (all cites) | 27.8% (18 cites) |
 | Pipeline fake rate (verified-only policy) | **0%** |
 
-### 5.4 Human anchor agreement (n=12)
+### 5.4 Human anchor agreement (real blind annotation, n=12)
+
+A single human rater scored a blind, A/B-randomized 20% stratified sample without knowing
+which output was multi- vs single-agent (`scripts/build_blind_annotation.py` →
+`scripts/ingest_human_anchor.py`; `eval/judges/human_anchor_human.csv`).
 
 | Metric | Value |
 |--------|-------|
-| Depth (single) Cohen's κ | 0.544 |
-| Depth (multi) Cohen's κ | −0.618 |
-| Preference agreement | 58.3% |
+| Depth (multi) Cohen's κ vs judge | 0.103 |
+| Depth (single) Cohen's κ vs judge | −0.012 |
+| Depth (multi) Spearman ρ vs judge | 0.372 |
+| Preference agreement with judge | 58.3% (7/12) |
 
-Human raters penalized repetitive multi-agent phrasing that the LLM judge did not; this supports keeping human anchors in the protocol.
+The human and the LLM judge **disagree on the direction of the depth gap**: the human rated
+multi-agent deeper (4.83 vs 4.17) and preferred it in 11/12 items, whereas the LLM judge
+rated single-agent deeper (4.00 vs 4.55, §5.1). This supports the hypothesis that the LLM
+judge penalizes multi-agent verbosity a human reader values for evidence depth.
+
+**Caveats:** single rater (the author), n=12, blind but not a powered multi-rater study —
+a directional sanity check, not a definitive human evaluation (see `ANCHOR_PROTOCOL.md`).
 
 ---
 

@@ -45,10 +45,26 @@ Stats: paired two-sided *t*-tests on matched topic/repeat rows; 95% CIs are norm
 | Critic improves depth | **significant** (favors no critic, p=0.0071) |
 | Validator removes pipeline fake cites | descriptive (n=18 pipeline cites) |
 
-## Human anchor vs LLM judge
-- Sample: 12 rows (~20% stratified, repeat=0)
-- CSV: `eval/judges/human_anchor_template.csv`
-- Depth (multi) Cohen's κ: -0.618
-- Depth (single) Cohen's κ: 0.544
-- Depth (multi) Spearman ρ: -0.130
-- Preference agreement: 58.3% (n=12)
+## Human anchor vs LLM judge (real blind annotation, n=12)
+
+A single human rater scored a blind, A/B-randomized 20% stratified sample (`repeat=0`)
+without knowing which output was multi- vs single-agent. Source: `eval/judges/human_anchor_human.csv`
+(produced via `scripts/build_blind_annotation.py` → `scripts/ingest_human_anchor.py`).
+
+Agreement with the LLM judge:
+- Depth (multi) Cohen's κ: 0.103
+- Depth (single) Cohen's κ: -0.012
+- Depth (multi) Spearman ρ: 0.372
+- Preference agreement: 58.3% (7/12)
+
+Key finding — **the human and the LLM judge disagree on the direction of the depth gap**:
+- Human depth: multi 4.83 vs single 4.17 (**multi deeper**); preferred multi-agent in **11/12** items.
+- LLM judge depth (RQ1): multi 4.00 vs single 4.55 (single deeper).
+
+This supports the report's hypothesis that the LLM judge penalizes multi-agent verbosity
+that a human reader actually values for evidence depth.
+
+**Caveats:** single rater (the author), n=12, blind but not a powered multi-rater study.
+Treat as a directional sanity check, not a definitive human evaluation. The earlier
+heuristic-proxy anchor (`human_anchor_template.csv`) is retained only as a pipeline fixture;
+see `eval/judges/ANCHOR_PROTOCOL.md` for the two-rater procedure.
