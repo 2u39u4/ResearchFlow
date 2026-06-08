@@ -50,5 +50,9 @@ deliverables.md
 plan.txt
 docs/local/
 
+# Blind-annotation working material (packet + secret A/B keymap); commit only the
+# final un-blinded eval/judges/human_anchor_human.csv
+eval/judges/blind/
+
 # Generated experiment outputs (run `python scripts/run_experiments.py analysis` locally)
 # Summary: results/experiments/experiment_summary.md

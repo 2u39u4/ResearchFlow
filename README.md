@@ -15,7 +15,7 @@ The core design bet — evaluated below on a public benchmark — is that **gene
 
 | Question | Result | Significance |
 |----------|--------|--------------|
-| Citation hallucination detection (HALLMARK `dev_public`) | **F1-H 0.747** · detection 0.776 · tier-weighted F1 0.813 | benchmarked vs bundled baselines |
+| Citation hallucination detection (HALLMARK `dev_public`, **full N=1119**) | **F1-H 0.747** · detection 0.776 · tier-weighted F1 0.813 | beats `doi_only` 0.373; see [breakdown](docs/evaluation/hallmark_full.md) |
 | Pipeline fake-citation rate | 27.8% (all) → **0%** (verified-only policy) | deterministic filter |
 | Multi-agent vs single-agent literature coverage | **0.855 vs 0.787** (+6.8 pp) | paired *t*-test *p* ≈ 4.4×10⁻⁵ |
 | Blind pairwise preference (multi vs single) | 53.3% | **not** significant (*p* ≈ 0.70) — reported honestly |

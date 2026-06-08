@@ -6,6 +6,7 @@ experiments. Re-running locally regenerates the same outputs under `results/expe
 
 | File | What it is |
 |------|------------|
+| [`hallmark_full.md`](hallmark_full.md) | HALLMARK on the **full** `dev_public` split (N=1119): headline metrics, baselines, per-error-type F1 |
 | [`experiment_summary.md`](experiment_summary.md) | RQ1/RQ2/RQ3 statistics: means ± SD, 95% CIs, paired *t*-tests, human-anchor agreement |
 | [`figures/rq1_coverage.png`](figures/rq1_coverage.png) | Multi- vs single-agent literature coverage |
 | [`figures/rq2_ablation.png`](figures/rq2_ablation.png) | Critic ablation (fake-rate, grounding, depth) |

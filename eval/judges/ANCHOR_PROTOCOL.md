@@ -23,24 +23,36 @@ anchor / sanity check*, and clearly mark when numbers come from real annotation 
 
 ## Producing a real human anchor (recommended for any external claim)
 
-Use `eval/judges/human_anchor_blank.csv` (same schema, no pre-filled scores) and follow:
+A blind-annotation harness automates the de-identification, randomization, and un-blinding
+so you only have to read and score. Working files live under `eval/judges/blind/`
+(gitignored — they include the secret A/B keymap); only the final un-blinded
+`eval/judges/human_anchor_human.csv` is committed.
 
-1. **Sampling** — `scripts/build_human_anchor.py` selects a ~20% stratified sample (one
-   topic per domain first, then fill), `repeat=0`. Keep this selection fixed.
-2. **De-identification** — present each system's output as **A/B only** (no "multi"/"single"
-   labels). Randomize A/B order per item using `EVAL_RANDOM_SEED`.
-3. **Two independent raters** — each scores Depth (1–5, see `rubric.md`) and Preference
-   (A / B / tie) **without** seeing the other's scores or the LLM judge's scores.
-4. **Adjudication** — compute inter-rater agreement (Cohen's κ). For items with a
-   ≥2-point depth gap or opposite preference, a third rater adjudicates; record the
-   adjudicated value.
-5. **Un-blind & record** — map A/B back to multi/single and write the final scores into
-   `human_anchor_blank.csv` (rename to `human_anchor_human.csv`).
-6. **Agreement vs LLM judge**:
-   ```bash
-   python scripts/build_human_anchor.py --csv eval/judges/human_anchor_human.csv --json
-   ```
-   This prints depth κ (multi/single), Spearman ρ, and preference agreement.
+```bash
+# 1) Build a blind packet from real RQ1 results (~12 rows = 20% stratified, repeat=0)
+python scripts/build_blind_annotation.py
+#    -> eval/judges/blind/annotation_packet.md   (read this)
+#       eval/judges/blind/rating_sheet.csv        (fill this)
+#       eval/judges/blind/_keymap.json            (secret; do not open while rating)
+
+# 2) Read annotation_packet.md. For each sample, score System A and System B:
+#       depth_A_1to5, depth_B_1to5  -> Depth 1-5 (see rubric.md)
+#       preference_A_B_tie          -> A / B / tie
+#    You do NOT know which system is multi vs single — that is the point.
+
+# 3) Un-blind into the standard human-anchor CSV + print agreement vs the LLM judge
+python scripts/ingest_human_anchor.py --json
+#    -> eval/judges/human_anchor_human.csv  (commit this)
+```
+
+**For a publishable claim**, have **two independent raters** each fill their own copy of
+`rating_sheet.csv` (regenerate the packet with a different `--seed` per rater to reshuffle
+A/B), compute inter-rater Cohen's κ, and adjudicate items with a ≥2-point depth gap or
+opposite preference with a third rater before un-blinding.
+
+The legacy `scripts/build_human_anchor.py` still produces the heuristic *proxy* CSV
+(`human_anchor_template.csv`) for the pipeline fixture; it is not a substitute for the
+blind procedure above.
 
 ## CSV schema
 
