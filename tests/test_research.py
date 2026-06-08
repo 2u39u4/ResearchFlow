@@ -63,7 +63,7 @@ def test_run_research_critical_sources_arxiv_ok(mock_arxiv, mock_s2, mock_cr, mo
     assert CRITICAL_SOURCES_MSG not in result.errors
 
 
-@patch("athena.agents.research.run_research")
+@patch("athena.graph.nodes.run_research")
 def test_research_node_raises_when_critical_sources_fail(mock_run):
     from athena.agents.research import ResearchResult
 
