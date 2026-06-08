@@ -105,6 +105,15 @@ def test_get_embedder_unknown_backend():
         get_embedder("does-not-exist")
 
 
+def test_get_embedder_auto_falls_back_to_hashing(monkeypatch):
+    # When sentence-transformers is unavailable, "auto" must use the offline backend.
+    monkeypatch.setattr("athena.rag.embeddings.sentence_transformers_available", lambda: False)
+    emb = get_embedder("auto", dim=128)
+    assert isinstance(emb, HashingEmbedder)
+    assert emb.dim == 128
+    assert emb.embed(["hello world"]).shape == (1, 128)
+
+
 def test_pdf_extraction_roundtrip():
     """Generate a tiny PDF with PyMuPDF and read it back (skips if unavailable)."""
     fitz = pytest.importorskip("fitz")

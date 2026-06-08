@@ -70,7 +70,7 @@ class Settings(BaseSettings):
     athena_ui_password: str = ""
 
     # Local PDF RAG (uploaded docs stay on-machine; never sent to scholarly APIs)
-    rag_embedding_backend: str = "hashing"  # hashing | sentence-transformers
+    rag_embedding_backend: str = "auto"  # auto | hashing | sentence-transformers
     rag_embedding_dim: int = 256  # used by the hashing backend
     rag_st_model: str = "all-MiniLM-L6-v2"  # used by sentence-transformers backend
     rag_chunk_size: int = 800

@@ -14,12 +14,21 @@ Two backends are provided:
 from __future__ import annotations
 
 import hashlib
+import importlib.util
+import logging
 import re
 from typing import Protocol
 
 import numpy as np
 
+logger = logging.getLogger(__name__)
+
 _TOKEN_RE = re.compile(r"[a-z0-9]+")
+
+
+def sentence_transformers_available() -> bool:
+    """True if the optional sentence-transformers backend can be imported."""
+    return importlib.util.find_spec("sentence_transformers") is not None
 
 
 class Embedder(Protocol):
@@ -99,15 +108,33 @@ class SentenceTransformerEmbedder:
         return np.asarray(vectors, dtype=np.float32)
 
 
+_ST_ALIASES = {"sentence-transformers", "sentence_transformers", "st"}
+
+
 def get_embedder(
-    backend: str = "hashing",
+    backend: str = "auto",
     *,
     dim: int = 256,
     model_name: str = "all-MiniLM-L6-v2",
 ) -> Embedder:
-    """Factory selecting an embedding backend by name."""
-    normalized = (backend or "hashing").strip().lower()
-    if normalized in {"sentence-transformers", "sentence_transformers", "st"}:
+    """Factory selecting an embedding backend by name.
+
+    - ``"auto"`` (default): use sentence-transformers when installed (semantic
+      embeddings), otherwise fall back to the offline hashing backend. This keeps a
+      bare install / CI deterministic and offline, while ``pip install '...[rag]'``
+      users automatically get semantic retrieval.
+    - ``"sentence-transformers"``: force the semantic backend (raises if missing).
+    - ``"hashing"``: force the offline deterministic backend.
+    """
+    normalized = (backend or "auto").strip().lower()
+    if normalized == "auto":
+        if sentence_transformers_available():
+            try:
+                return SentenceTransformerEmbedder(model_name=model_name)
+            except Exception as exc:  # pragma: no cover - defensive (e.g. model download fails)
+                logger.warning("sentence-transformers unavailable (%s); using hashing backend", exc)
+        return HashingEmbedder(dim=dim)
+    if normalized in _ST_ALIASES:
         return SentenceTransformerEmbedder(model_name=model_name)
     if normalized == "hashing":
         return HashingEmbedder(dim=dim)

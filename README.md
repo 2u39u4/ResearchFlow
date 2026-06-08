@@ -135,13 +135,13 @@ Uploaded PDFs are parsed, chunked, embedded, and indexed **locally** — never s
 ```python
 from athena.rag import PdfRagIndex
 
-index = PdfRagIndex()                 # default: deterministic, offline hashing embedder
+index = PdfRagIndex()                 # default: semantic embeddings if installed, else offline hashing
 index.add_pdf_path("paper.pdf")       # or .add_pdf_bytes(...) / .add_text(...)
 for hit in index.query("what method is proposed?", top_k=3):
     print(hit.score, hit.chunk.doc_id, hit.chunk.text[:120])
 ```
 
-Backends (via `.env`): `ATHENA_RAG_EMBEDDING_BACKEND=hashing` (default, offline) or `sentence-transformers` (needs the `[rag]` extra; set `ATHENA_RAG_USE_FAISS=true` for FAISS search).
+Backends (via `.env` `ATHENA_RAG_EMBEDDING_BACKEND`): `auto` (default — uses `sentence-transformers` semantic embeddings when the `[rag]` extra is installed, otherwise a deterministic offline hashing backend so a bare install / CI stays fast and reproducible), or force `sentence-transformers` / `hashing`. Set `ATHENA_RAG_USE_FAISS=true` for FAISS search.
 
 ## Evaluation
 
