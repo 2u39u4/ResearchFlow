@@ -1,62 +1,78 @@
 # Athena Research Assistant
 
-Multi-agent **research copilot** for academic literature review: evidence-grounded gap analysis, outline scaffolding (not full-paper generation), and **deterministic** citation verification against scholarly APIs.
+> Multi-agent research copilot that **separates LLM generation from deterministic verification** to fight citation hallucination in scholarly literature review.
 
-> **Research positioning:** Athena targets LLM hallucination and shallow synthesis in scholarly settings. It is a *research assistance* tool with an academic-integrity banner in the UI — not an essay or paper ghostwriter.
+[![CI](https://github.com/2u39u4/ResearchFlow/actions/workflows/ci.yml/badge.svg)](https://github.com/2u39u4/ResearchFlow/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Tests](https://img.shields.io/badge/tests-78%20passing-brightgreen)
 
-> **Local planning docs** (`execute.md`, `deliverables.md`, `docs/local/`) are gitignored and not part of the public repository.
+Athena retrieves real papers from scholarly APIs, generates **evidence-grounded** gap analysis and outline scaffolding, and then verifies every citation **without an LLM in the matching logic** — so bibliographic claims are machine-checkable, not hallucinated. It is a *research-assistance* tool with an academic-integrity banner in the UI, **not** an essay or paper ghostwriter.
 
-## What it does
+The core design bet — evaluated below on a public benchmark — is that **generation should be creative but verification should be deterministic**.
 
-| Capability | Description |
-|------------|-------------|
-| **Multi-source retrieval** | arXiv, Semantic Scholar, Crossref → structured `KnowledgeCard` metadata (API-only, no invented DOIs) |
-| **Citation Validator** | `verified` / `not_found` / `mismatch` via Crossref + S2 + fuzzy title match — **no LLM** in the match logic |
-| **Critic** | Gap / weakness / relative-novelty critiques, each bound to `evidence_paper_ids` from the corpus |
-| **Writer** | Outline scaffold with author-completion markers |
-| **Local PDF RAG** | Upload PDFs → parse → chunk → embed → semantic search of your own documents (stays on-machine, never sent to APIs) |
-| **Pipeline** | LangGraph: Planner → Research → Critic → Writer → Validator, with a **citation-driven revision loop** |
-| **Evaluation** | HALLMARK benchmark (F1-H **0.747** on `dev_public`) + RQ1/RQ2/RQ3 TopicSet experiments ([committed snapshot](docs/evaluation/)) |
+## Results at a glance
 
-## Architecture
+| Question | Result | Significance |
+|----------|--------|--------------|
+| Citation hallucination detection (HALLMARK `dev_public`) | **F1-H 0.747** · detection 0.776 · tier-weighted F1 0.813 | benchmarked vs bundled baselines |
+| Pipeline fake-citation rate | 27.8% (all) → **0%** (verified-only policy) | deterministic filter |
+| Multi-agent vs single-agent literature coverage | **0.855 vs 0.787** (+6.8 pp) | paired *t*-test *p* ≈ 4.4×10⁻⁵ |
+| Blind pairwise preference (multi vs single) | 53.3% | **not** significant (*p* ≈ 0.70) — reported honestly |
+| Critic evidence-grounding rate | **1.000** | by construction |
 
+Numbers come from 60 matched runs per RQ (20 topics × 3 repeats). A **committed, read-only snapshot** of the statistics and figures lives in [`docs/evaluation/`](docs/evaluation/) so you can verify them without re-running the multi-hour experiments. Full method and caveats: [`docs/TECHNICAL_REPORT.md`](docs/TECHNICAL_REPORT.md).
+
+## Why Athena
+
+LLM research assistants fail in two ways that matter for graduate-level work:
+
+1. **Citation hallucination** — references that do not resolve in any scholarly API.
+2. **Shallow synthesis** — generic critiques with no paper-level evidence.
+
+Athena addresses both: retrieval is API-only (no invented DOIs), critiques must cite `evidence_paper_ids` from the retrieved corpus, and citations are resolved deterministically against Crossref / Semantic Scholar / arXiv.
+
+## How it works
+
+```mermaid
+flowchart LR
+    T([Topic + optional private PDFs]) --> P[Planner]
+    P --> R[Research]
+    R --> C[Critic]
+    C --> W[Writer]
+    W --> V[Validator]
+    V -->|verified enough| OUT([Report + trace])
+    V -.->|too many unverified,<br/>budget remains| R
+    R -.-> SRC[(arXiv / S2 / Crossref)]
+    C -.- E[evidence-bound critiques]
+    W -.- O[outline scaffold only]
+    V -.- D[deterministic API match · no LLM]
+    T -.- RAG[(Local PDF RAG · private, on-machine)]
 ```
-Topic (+ optional private PDFs)
-        │
-        ▼
-   Planner ──► Research ──► Critic ──► Writer ──► Validator ──► Report
-                  ▲            │           │            │
-                  │            │           │            ├─ deterministic API match
-                  │            │           │            │
-                  │            │           │            ▼
-                  │            │           │     revise? (too many unverified
-                  │            │           │      citations + budget left)
-                  │            │           │            │
-                  └────────────┴───────────┴────────────┘  (loop back, broaden retrieval)
-                  │            └─ evidence-bound critiques
-                  └─ arXiv / S2 / Crossref         Local PDF RAG (private, on-machine)
-```
 
-The Validator emits a **conditional edge**: if the unverified-citation ratio exceeds
-`revision_fake_threshold` and the `max_revisions` budget remains, the graph loops back to
-Research with broader retrieval; otherwise it ends. This is a real agent feedback loop,
-not a fixed straight-line DAG.
+| Agent / module | Responsibility |
+|----------------|----------------|
+| **Planner** | Turns a topic into a typed task plan (LLM with template fallback) |
+| **Research** | Multi-source retrieval → deduplicated `KnowledgeCard` metadata (API-only) |
+| **Critic** | `gap` / `weakness` / relative-`novelty` claims, each bound to corpus `evidence_paper_ids` |
+| **Writer** | Outline scaffold with explicit `[TODO: author to complete]` markers (human-in-the-loop) |
+| **Validator** | `verified` / `not_found` / `mismatch` via DOI + fuzzy title + author/year checks — **no LLM** |
+| **Local PDF RAG** | Parse → chunk → embed → semantic search of uploaded PDFs, kept on-machine |
 
-**Documentation:** [docs/README.md](docs/README.md) — technical report, HALLMARK reproduction, experiment reproduction, resume bullets.
+**Agent feedback loop (not a straight-line DAG):** the Validator emits a *conditional edge* — when the unverified-citation ratio exceeds `revision_fake_threshold` and the `max_revisions` budget remains, the graph loops back to Research with broader retrieval; otherwise it ends.
 
-## Requirements
-
-**Python 3.10+** (CI tests 3.10 / 3.11 / 3.12). Dependencies are split so the core
-install stays light:
-
-| File / extra | Use |
-|--------------|-----|
-| `requirements.txt` | Core: pipeline, retrieval, citation validation, local PDF RAG (hashing backend), Streamlit |
-| `requirements-rag.txt` / `[rag]` | Optional: `sentence-transformers` + `faiss` for higher-quality semantic embeddings |
-| `requirements-eval.txt` / `[eval]` | Optional: `matplotlib` + `scipy` (RQ experiments) + HALLMARK runtime |
-| `requirements.lock` | Pinned exact versions for reproducible installs |
+Implementation: LangGraph orchestration in `athena/graph/`, agents in `athena/agents/`, deterministic validator in `athena/tools/citation_validator.py`.
 
 ## Quick start
+
+**Python 3.10+** (CI tests 3.10 / 3.11 / 3.12). Dependencies are split so the core install stays light:
+
+| Install target | Use |
+|----------------|-----|
+| `requirements.txt` | Core: pipeline, retrieval, citation validation, local PDF RAG (hashing backend), Streamlit |
+| `requirements-rag.txt` · `[rag]` | Optional: `sentence-transformers` + `faiss` for semantic embeddings |
+| `requirements-eval.txt` · `[eval]` | Optional: `matplotlib` + `scipy` (RQ experiments) + HALLMARK runtime |
+| `requirements.lock` | Pinned exact versions for reproducible installs |
 
 ```bash
 cd ResearchFlow
@@ -64,184 +80,122 @@ python -m venv .venv          # Python 3.10+
 source .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env
-# Edit .env — OPENAI_API_KEY optional for smoke test (LLM step skipped if empty)
+# OPENAI_API_KEY is optional for the smoke test (the LLM step is skipped if empty)
 python scripts/smoke_test.py
-pytest tests/test_storage.py -q
 ```
 
-## Research retrieval
+API keys are all optional to get started: Semantic Scholar falls back to anonymous access (~1 req/s); set `CROSSREF_MAILTO` for Crossref's polite pool; set `SEMANTIC_SCHOLAR_API_KEY` when approved.
+
+## Usage
+
+**Retrieve papers** (arXiv + Semantic Scholar + Crossref, deduplicated, API metadata only):
 
 ```bash
 python scripts/run_research.py "retrieval augmented generation"
-# JSON output; exit 1 if fewer than 10 unique cards (use --min-cards to adjust)
+# JSON to stdout; exits 1 if fewer than 10 unique cards (--min-cards to adjust)
 ```
 
-Searches **arXiv**, **Semantic Scholar**, and **Crossref**, deduplicates by DOI/title, returns `KnowledgeCard` metadata from APIs only (no LLM-hallucinated titles).
+**Validate citations** (deterministic, no LLM):
 
 ```bash
-pytest tests/test_dedup.py tests/test_converters.py tests/test_research.py -q
+python scripts/validate_citations.py my_citations.json
+# verified / not_found / mismatch per reference (Crossref + S2 + rapidfuzz)
 ```
 
-## Semantic Scholar
-
-`SEMANTIC_SCHOLAR_API_KEY` is optional. Without a key, the client uses **anonymous** access (~1 req/s). Add the key to `.env` when approved.
-
-Set `CROSSREF_MAILTO` in `.env` for Crossref polite pool (recommended).
-
-## Citation validation (deterministic, no LLM)
+**Evidence-grounded critique** (needs `OPENAI_API_KEY`):
 
 ```bash
-python scripts/validate_citations.py
-# Or: python scripts/validate_citations.py my_citations.json
+python scripts/run_critic.py "retrieval augmented generation"
+# gap / weakness / novelty; absolute-novelty phrasing is rejected
 ```
 
-Returns `verified` / `not_found` / `mismatch` per reference via Crossref + Semantic Scholar + rapidfuzz.
+**End-to-end pipeline** (Planner → Research → Critic → Writer → Validator + revision loop):
 
 ```bash
-pytest tests/test_citation_validator.py -q
+python scripts/run_pipeline.py "retrieval augmented generation" \
+  --output results/pipeline_report.json
+# Tune the loop with max_revisions / revision_fake_threshold (.env or constraints)
 ```
 
-## Local PDF RAG (private, on-machine)
+**Streamlit demo UI:**
 
-Upload PDFs to search your own documents alongside public retrieval. Uploaded files are
-parsed, chunked, embedded, and indexed **locally** — they are never sent to scholarly APIs.
+```bash
+streamlit run app/streamlit_app.py   # or: bash scripts/run_streamlit.sh
+```
+
+Topic + constraints, live pipeline progress, citation-validation badges, critique evidence cards, outline scaffold, academic-integrity banner, trace/timing table, a **"Your PDFs"** private-RAG search tab, and JSON export/load. Optional password gate via `ATHENA_UI_PASSWORD` (recommended before exposing beyond localhost).
+
+### Local PDF RAG (private, on-machine)
+
+Uploaded PDFs are parsed, chunked, embedded, and indexed **locally** — never sent to scholarly APIs.
 
 ```python
 from athena.rag import PdfRagIndex
 
-index = PdfRagIndex()                      # default: deterministic hashing embedder
-index.add_pdf_path("paper.pdf")            # or index.add_pdf_bytes(...) / index.add_text(...)
+index = PdfRagIndex()                 # default: deterministic, offline hashing embedder
+index.add_pdf_path("paper.pdf")       # or .add_pdf_bytes(...) / .add_text(...)
 for hit in index.query("what method is proposed?", top_k=3):
     print(hit.score, hit.chunk.doc_id, hit.chunk.text[:120])
 ```
 
-In the Streamlit UI, upload a PDF in the sidebar and use the **"Your PDFs"** tab to search it.
+Backends (via `.env`): `ATHENA_RAG_EMBEDDING_BACKEND=hashing` (default, offline) or `sentence-transformers` (needs the `[rag]` extra; set `ATHENA_RAG_USE_FAISS=true` for FAISS search).
 
-**Backends** (configurable via `.env`):
+## Evaluation
 
-- `ATHENA_RAG_EMBEDDING_BACKEND=hashing` (default) — dependency-free, deterministic, offline.
-- `ATHENA_RAG_EMBEDDING_BACKEND=sentence-transformers` — semantic embeddings (needs the
-  `[rag]` extra); set `ATHENA_RAG_USE_FAISS=true` to use FAISS for search.
+Three research questions over a cross-domain **TopicSet** (20 topics), with an **LLM-as-judge configured to differ from the subject model** plus a human-anchor sanity check.
 
-```bash
-pip install -r requirements-rag.txt   # optional, for semantic embeddings + FAISS
-pytest tests/test_rag.py -q
-```
-
-## HALLMARK benchmark evaluation
-
-Full guide: [docs/HALLMARK.md](docs/HALLMARK.md). `scripts/install_hallmark.sh` creates an isolated `.venv-eval` with the HALLMARK runtime.
+| RQ | What it tests |
+|----|---------------|
+| **RQ1** | Multi-agent vs single-agent coverage & depth |
+| **RQ2** | Critic ablation (evidence grounding, fake-rate, depth) |
+| **RQ3** | Citation-validator accuracy on HALLMARK + pipeline fake-citation reduction |
 
 ```bash
-bash scripts/install_hallmark.sh   # .vendor/hallmark + .venv-eval (Python 3.10+)
+pip install -r requirements-eval.txt          # matplotlib + scipy (+ HALLMARK runtime)
 
-.venv-eval/bin/python scripts/run_hallmark_eval.py --stats-only
-.venv-eval/bin/python scripts/run_hallmark_eval.py --split dev_public --limit 50 --analyze \
-  --output results/athena_dev_public_50.json \
-  --comparison-md results/athena_vs_baselines.md
-```
-
-Maps Athena `verified` / `not_found` / `mismatch` → HALLMARK `VALID` / `HALLUCINATED` (see `eval/citebench/mapping.md`).
-
-Full `dev_public` (~1,119 entries) hits Crossref/S2 APIs — use `--delay` and expect long runtimes.
-
-```bash
-pytest tests/test_hallmark_adapter.py -q
-```
-
-## Critic Agent (evidence-grounded gaps)
-
-```bash
-# Retrieve papers then critique (needs OPENAI_API_KEY)
-python scripts/run_critic.py "retrieval augmented generation"
-
-# Reuse saved research JSON
-python scripts/run_research.py "your topic" > /tmp/papers.json
-python scripts/run_critic.py "your topic" --papers-json /tmp/papers.json
-```
-
-Outputs `gap` / `weakness` / `novelty` critiques. Each claim must cite `paper_id`s from the retrieved corpus; absolute novelty phrasing is rejected. Relative novelty must refer to the retrieved set (e.g. “Among the N retrieved papers…”).
-
-```bash
-pytest tests/test_critic.py -q
-```
-
-## End-to-end pipeline (LangGraph)
-
-```bash
-python scripts/run_pipeline.py "retrieval augmented generation"
-# Optional: --output results/pipeline_report.json --thread-id my-run-1
-```
-
-Runs **Planner → Research → Critic → Writer (outline scaffold) → Citation Validator** with a
-**citation-driven revision loop** (re-research when too many citations fail verification),
-step `trace`, and SQLite checkpointing (`data/athena_checkpoints.db`). Tune the loop with
-`max_revisions` and `revision_fake_threshold` (in `.env` or pipeline constraints).
-
-```bash
-pytest tests/test_pipeline.py -q
-```
-
-## Streamlit UI
-
-```bash
-# Requires OPENAI_API_KEY and dependencies from requirements.txt
-streamlit run app/streamlit_app.py
-# Or: bash scripts/run_streamlit.sh
-```
-
-Features: topic + constraints, full pipeline run with step progress, citation validation badges, critique evidence cards, outline scaffolding, academic-integrity banner, trace/timing table, JSON export/load. Optional password gate via `ATHENA_UI_PASSWORD` when not running on localhost only.
-
-```bash
-pytest tests/test_streamlit_app.py -q
-```
-
-## Evaluation experiments (RQ1 / RQ2 / RQ3)
-
-Cross-domain **TopicSet** (20 topics), **LLM-as-judge** (configured separately from the subject model), and reproducible RQ scripts. Full guide: [docs/REPRODUCTION.md](docs/REPRODUCTION.md). Results write-up: [docs/TECHNICAL_REPORT.md](docs/TECHNICAL_REPORT.md).
-
-```bash
-pip install matplotlib scipy   # figures + stats
-
-# 1) Build reference pools (fixed protocol; slow — arXiv rate limits)
-python scripts/run_experiments.py build-pools --limit 5
-
-# 2) RQ3 only (bundled examples/ samples; no LLM; no large results/ files required)
-python scripts/run_experiments.py rq3
-
-# Judge smoke test (Gemini — paste GEMINI_API_KEY in .env first)
-python scripts/smoke_judge_gemini.py
-
-# 3) RQ1 / RQ2 (needs OPENAI_API_KEY; set JUDGE_LLM_* to a different provider/model, e.g. gemini)
-python scripts/run_experiments.py rq1 --limit 3 --repeats 3
+python scripts/run_experiments.py rq3          # bundled samples; no LLM, no API calls
+python scripts/run_experiments.py rq1 --limit 3 --repeats 3   # needs OPENAI_API_KEY + judge key
 python scripts/run_experiments.py rq2 --limit 3 --repeats 3
-
-# Pilot without judge API calls:
-python scripts/run_experiments.py rq1 --topic-ids t01 --repeats 1 --skip-judge
-
-# 4) Figures + markdown summary
-python scripts/run_experiments.py analysis
+python scripts/run_experiments.py analysis     # figures + experiment_summary.md
 ```
 
-**Outputs** (under `results/experiments/`, gitignored locally):
-
-| Path | Description |
-|------|-------------|
-| `rq1/latest.json`, `rq2/latest.json`, `rq3/latest.json` | Per-RQ raw results |
-| `figures/rq1_coverage.png`, `rq2_ablation.png`, `rq3_fake_citation.png` | Summary plots |
-| `experiment_summary.md` | Statistical summary (CI, *t*-tests, human-anchor agreement) |
-
-Human anchor template: `eval/judges/human_anchor_template.csv` (~20% stratified sample).
+**HALLMARK benchmark** (isolated env via `scripts/install_hallmark.sh`):
 
 ```bash
-pytest tests/test_eval_metrics.py -q
+.venv-eval/bin/python scripts/run_hallmark_eval.py --split dev_public --limit 50 --analyze \
+  --output results/athena_dev_public_50.json --comparison-md results/athena_vs_baselines.md
 ```
+
+Athena `verified` / `not_found` / `mismatch` map to HALLMARK `VALID` / `HALLUCINATED` (`eval/citebench/mapping.md`). Bias controls (judge ≠ subject, blind A/B, seeded order) and the honest **proxy-vs-real human-anchor protocol** are documented in [`eval/judges/ANCHOR_PROTOCOL.md`](eval/judges/ANCHOR_PROTOCOL.md). A committed snapshot of all results lives in [`docs/evaluation/`](docs/evaluation/).
+
+Reproduce the headline numbers: [`docs/REPRODUCTION.md`](docs/REPRODUCTION.md) · [`docs/HALLMARK.md`](docs/HALLMARK.md) (`EVAL_RANDOM_SEED=42`, cache in `athena_cache/`).
+
+## Testing
+
+All unit tests are offline (network calls are mocked):
+
+```bash
+pytest -q                       # full suite (78 passing, 1 skipped without HALLMARK)
+pytest tests/test_rag.py -q     # PDF RAG module
+pytest tests/test_pipeline.py -q  # graph, agents, revision loop
+ruff check . && ruff format --check .   # lint + format (enforced in CI)
+```
+
+## Limitations & non-goals
+
+Stated up front, because credibility matters more than hype:
+
+- **Not a paper writer.** Writer produces an outline scaffold with author-completion markers, not submittable prose.
+- **LLM judges ≠ humans.** On verbose multi-agent output the judge and the human anchor disagree; depth/preference results are mixed and reported as such (see the technical report).
+- **The committed human anchor is a reproducible heuristic proxy**, not an independent human study — `ANCHOR_PROTOCOL.md` explains how to plug in real two-rater blind labels.
+- **Verified-only policy trades recall for precision** — it zeroes fake citations by dropping unresolved references.
+- **TopicSet is 20 topics**; statistics use no multiple-comparison correction. Generalization is limited.
 
 ## Project layout
 
 ```
 athena/          # Core: agents, tools, llm, storage, graph
-  rag/           # Local PDF RAG: pdf parse, chunking, embeddings, vector store, index
+  rag/           # Local PDF RAG: parse, chunking, embeddings, vector store, index
 eval/            # HALLMARK adapter (citebench), LLM judge, RQ experiments, analysis
   topics/pools/  # Committed reference pools (20 topics) — skip slow build-pools on clone
   judges/        # Depth rubric + human-anchor protocol (ANCHOR_PROTOCOL.md)
@@ -250,25 +204,10 @@ docs/            # Technical report, HALLMARK & experiment reproduction, resume 
   evaluation/    # Committed read-only snapshot of RQ summary + figures
 examples/        # Minimal RQ3 / pipeline samples (no results/ required)
 scripts/         # CLI entry points
-tests/           # Offline unit tests (incl. test_rag.py)
-.github/         # CI workflow (ruff lint + pytest on Python 3.10/3.11/3.12)
+tests/           # Offline unit tests
+.github/         # CI: ruff lint + pytest on Python 3.10 / 3.11 / 3.12
 ```
 
-**Author:** Junye Zhao ([@2u39u4](https://github.com/2u39u4)) — sole developer and maintainer.
+## Author & license
 
-Licensed under [MIT](LICENSE).
-
-## Reproducing published numbers
-
-| Metric | Command / doc |
-|--------|----------------|
-| HALLMARK F1-H 0.747 | [docs/HALLMARK.md](docs/HALLMARK.md) |
-| RQ1/RQ2/RQ3 stats | [docs/REPRODUCTION.md](docs/REPRODUCTION.md) |
-| Seeds & cache | `EVAL_RANDOM_SEED=42`, `athena_cache/` |
-
-## Clear LLM cache
-
-```python
-from athena.llm.client import LLMClient
-LLMClient.clear_cache()
-```
+**Junye Zhao** — applying for MS in AI / ML, Fall 2027. Licensed under [MIT](LICENSE).

@@ -81,7 +81,7 @@ Expect **hours** of API time. Checkpointing is supported for batch resume:
 | Tier-weighted F1 | 0.813 |
 | ECE | 0.240 |
 
-Outputs are gitignored under `results/`; regenerate locally to verify.
+Regenerate locally to verify; outputs are written under `results/`.
 
 ### Batch / resume (long runs)
 

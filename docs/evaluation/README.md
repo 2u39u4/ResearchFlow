@@ -2,8 +2,7 @@
 
 This folder holds a **read-only snapshot** of the evaluation outputs so reviewers can
 verify the headline numbers without re-running the full (network-heavy, multi-hour)
-experiments. The live, regenerated outputs land under `results/experiments/`
-(gitignored); these copies are committed on purpose.
+experiments. Re-running locally regenerates the same outputs under `results/experiments/`.
 
 | File | What it is |
 |------|------------|

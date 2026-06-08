@@ -11,7 +11,7 @@
 **Evaluation artifacts:**
 
 - Committed snapshot: [`evaluation/experiment_summary.md`](evaluation/experiment_summary.md) + [`evaluation/figures/`](evaluation/figures/)
-- Regenerated locally (gitignored): `results/experiments/experiment_summary.md`, `results/athena_dev_public_full.json`
+- Regenerated locally: `results/experiments/experiment_summary.md`, `results/athena_dev_public_full.json`
 
 **Code references:**
 

@@ -1,6 +1,6 @@
 # Reproducing Athena experiments
 
-This guide lists **fixed seeds**, **cache behavior**, and **commands** to reproduce the key numbers cited in [TECHNICAL_REPORT.md](TECHNICAL_REPORT.md). Runtime outputs live under `results/` (gitignored); clone the repo and run locally.
+This guide lists **fixed seeds**, **cache behavior**, and **commands** to reproduce the key numbers cited in [TECHNICAL_REPORT.md](TECHNICAL_REPORT.md). Runtime outputs are written under `results/`; clone the repo and run locally.
 
 ---
 
@@ -153,6 +153,5 @@ Core offline coverage: `test_citation_validator.py`, `test_hallmark_adapter.py`,
 | `results/` | Generated metrics, figures, JSON |
 | `data/`, `athena_cache/` | Runtime DB + caches |
 | `.env` | Secrets |
-| `execute.md`, `deliverables.md`, `docs/local/` | Local planning only |
 
 To share numbers publicly, copy `experiment_summary.md` or figures into a release / paper appendix manually.
