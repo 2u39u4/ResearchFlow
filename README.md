@@ -198,7 +198,7 @@ tests/           # Offline unit tests
 .github/         # CI workflow (pytest)
 ```
 
-**Author:** [2u39u4](https://github.com/2u39u4) — sole developer and maintainer.
+**Author:** Junye Zhao ([@2u39u4](https://github.com/2u39u4)) — sole developer and maintainer.
 
 Licensed under [MIT](LICENSE).
 
