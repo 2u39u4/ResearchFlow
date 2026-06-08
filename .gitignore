@@ -31,6 +31,11 @@ athena_cache/
 *.faiss
 *.index
 
+# Next.js frontend
+web/node_modules/
+web/.next/
+web/.env.local
+
 # IDE
 .idea/
 .vscode/
@@ -48,6 +53,7 @@ results/
 execute.md
 deliverables.md
 plan.txt
+frontend-tasks.md
 docs/local/
 
 # Blind-annotation working material (packet + secret A/B keymap); commit only the

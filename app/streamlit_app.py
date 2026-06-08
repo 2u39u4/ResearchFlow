@@ -28,7 +28,8 @@ from app.components import (  # noqa: E402
     status_badge,
     trace_timings,
 )
-from app.upload_utils import load_bounded_json, resolve_upload_path  # noqa: E402
+from app.pdf_indexing import MAX_PDF_UPLOADS, index_pdf_uploads, remaining_pdf_slots  # noqa: E402
+from app.upload_utils import load_bounded_json  # noqa: E402
 from athena.agents.research import CriticalResearchSourcesError  # noqa: E402
 from athena.config import get_settings  # noqa: E402
 from athena.graph.build_graph import build_athena_graph, initial_state  # noqa: E402
@@ -44,27 +45,6 @@ PIPELINE_STEPS = [
     ("prepare_citations", "Prepare citations"),
     ("validator", "Validator"),
 ]
-
-
-def _save_uploaded_pdf(uploaded_file) -> Path | None:
-    if uploaded_file is None:
-        return None
-    upload_dir = ROOT / "data" / "uploads"
-    dest = resolve_upload_path(upload_dir, uploaded_file.name)
-    dest.write_bytes(uploaded_file.getvalue())
-    return dest
-
-
-def _index_uploaded_pdf(uploaded_file) -> tuple[Path | None, int]:
-    """Save the PDF and add it to the session's private RAG index. Returns (path, chunks)."""
-    dest = _save_uploaded_pdf(uploaded_file)
-    if dest is None:
-        return None, 0
-    index: PdfRagIndex = st.session_state.setdefault("pdf_index", PdfRagIndex())
-    if dest.name in index.doc_ids:
-        return dest, 0
-    n_chunks = index.add_pdf_bytes(uploaded_file.getvalue(), doc_id=dest.name, source=str(dest))
-    return dest, n_chunks
 
 
 def _require_ui_auth() -> None:
@@ -305,21 +285,51 @@ def main() -> None:
 
         st.divider()
         st.subheader("PDF upload (private RAG)")
-        pdf_file = st.file_uploader("Upload PDF (optional)", type=["pdf"])
-        if pdf_file:
-            try:
-                path, n_chunks = _index_uploaded_pdf(pdf_file)
-                if n_chunks:
-                    st.success(f"Indexed `{path.name}` — {n_chunks} chunks searchable below.")
+        st.caption(
+            f"Up to {MAX_PDF_UPLOADS} PDFs per session · local only · never sent to scholarly APIs"
+        )
+        pdf_files = st.file_uploader(
+            "Upload PDFs (optional, up to five)",
+            type=["pdf"],
+            accept_multiple_files=True,
+            help="Select up to five PDFs (⌘/Ctrl+click for multiple).",
+        )
+        if pdf_files:
+            index: PdfRagIndex = st.session_state.setdefault("pdf_index", PdfRagIndex())
+            upload_dir = ROOT / "data" / "uploads"
+            slots = remaining_pdf_slots(index)
+            if slots <= 0:
+                st.warning(
+                    f"Private index already has {MAX_PDF_UPLOADS} PDFs. "
+                    "Refresh the page to start a new session."
+                )
+            else:
+                if len(pdf_files) > slots:
+                    st.warning(
+                        f"Only {slots} more PDF(s) can be added (max {MAX_PDF_UPLOADS}). "
+                        "Extra files in this selection are ignored."
+                    )
+                uploads = [(f.name, f.getvalue()) for f in pdf_files[:slots]]
+            if slots > 0:
+                results = index_pdf_uploads(index, uploads, upload_dir=upload_dir)
+            else:
+                results = []
+            for result in results:
+                if result.error:
+                    st.error(f"Could not index `{result.filename}`: {result.error}")
+                elif result.already_indexed:
+                    st.caption(f"`{result.filename}` already indexed.")
+                elif result.chunks_added:
+                    st.success(
+                        f"Indexed `{result.filename}` — {result.chunks_added} chunks searchable below."
+                    )
                 else:
-                    st.caption(f"`{path.name}` already indexed.")
-            except Exception as exc:  # noqa: BLE001 — surface parse/index errors in the UI
-                st.error(f"Could not index PDF: {exc}")
+                    st.caption(f"`{result.filename}` indexed with no text chunks.")
         index: PdfRagIndex | None = st.session_state.get("pdf_index")
         if index and index.chunk_count:
             st.caption(
-                f"Private index: {len(index.doc_ids)} doc(s), {index.chunk_count} chunks. "
-                "Stays local — never sent to scholarly APIs."
+                f"Private index: {len(index.doc_ids)}/{MAX_PDF_UPLOADS} doc(s), "
+                f"{index.chunk_count} chunks."
             )
 
         st.divider()

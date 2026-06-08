@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ff4b4b;
+  --background: #ffffff;
+  --surface: #f0f2f6;
+  --foreground: #31333f;
+  --verified-bg: #d4edda;
+  --not-found-bg: #f8d7da;
+  --mismatch-bg: #fff3cd;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}

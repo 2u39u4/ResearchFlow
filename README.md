@@ -133,7 +133,22 @@ python scripts/run_pipeline.py "retrieval augmented generation" \
 # Tune the loop: max_revisions / revision_fake_threshold / revision_grounding_threshold
 ```
 
-**Streamlit demo UI:**
+**User web app (Next.js + Google OAuth)** — primary UI for end users:
+
+```bash
+# Terminal 1 — API gateway (port 8000)
+pip install -r api/requirements-api.txt
+bash scripts/run_api.sh
+
+# Terminal 2 — frontend (port 3000)
+cp web/.env.example web/.env.local   # fill GOOGLE_* and NEXTAUTH_SECRET
+bash scripts/run_web.sh
+```
+
+Routes: `/` landing · `/login` Google sign-in · `/app` workspace · `/app/runs/[id]` results · `/app/library` PDFs (≤5) · `/app/history` · `/profile` · `/settings` · `/help`.  
+Design tokens match the Streamlit demo (`#FF4B4B` primary, `#F0F2F6` surface). See `web/docs/DESIGN.md`.
+
+**Streamlit demo UI (legacy):**
 
 ```bash
 streamlit run app/streamlit_app.py   # or: bash scripts/run_streamlit.sh
@@ -210,6 +225,8 @@ Stated up front, because credibility matters more than hype:
 ## Project layout
 
 ```
+api/             # FastAPI gateway: auth, users, runs (SSE), library
+web/             # Next.js 14 user frontend (Google OAuth)
 athena/          # Core: agents, tools, llm, storage, graph
   rag/           # Local PDF RAG: parse, chunking, embeddings, vector store, index
 eval/            # HALLMARK adapter (citebench), LLM judge, RQ experiments, analysis

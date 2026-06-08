@@ -1,0 +1,42 @@
+openapi: 3.0.3
+info:
+  title: Athena API
+  version: "1.0"
+paths:
+  /health:
+    get:
+      summary: Health check
+  /auth/google:
+    post:
+      summary: Sync Google user and issue JWT
+  /users/me:
+    get:
+      summary: Current user profile
+    patch:
+      summary: Update profile
+    delete:
+      summary: Soft-delete account
+  /runs:
+    get:
+      summary: List runs
+    post:
+      summary: Start pipeline run
+  /runs/{id}:
+    get:
+      summary: Get run report
+    delete:
+      summary: Delete run
+  /runs/{id}/events:
+    get:
+      summary: SSE pipeline progress
+  /library/pdfs:
+    get:
+      summary: List uploaded PDFs
+    post:
+      summary: Upload PDFs
+  /library/search:
+    post:
+      summary: Search private PDF index
+  /library/pdfs/{doc_id}:
+    delete:
+      summary: Remove PDF
