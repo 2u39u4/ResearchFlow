@@ -24,6 +24,16 @@ The core design bet — evaluated below on a public benchmark — is that **gene
 
 Numbers come from 60 matched runs per RQ (20 topics × 3 repeats). A **committed, read-only snapshot** of the statistics and figures lives in [`docs/evaluation/`](docs/evaluation/) so you can verify them without re-running the multi-hour experiments. Full method and caveats: [`docs/TECHNICAL_REPORT.md`](docs/TECHNICAL_REPORT.md).
 
+### Key research insight: the LLM judge is biased against multi-agent verbosity
+
+The evaluation surfaced a result more interesting than a leaderboard win. Adding the Critic forced **evidence grounding to 1.000**, yet the LLM judge scored the *no-Critic* path **deeper** (RQ2, *p* ≈ 0.007) — counterintuitive if you assume more structure means more depth. The blind human study (n=12) then **reversed the judge**: the human rated multi-agent deeper (4.83 vs 4.17) and preferred it in **11/12** items, exactly where the LLM judge preferred single-agent. The takeaway: **the LLM-as-judge penalizes the repetitive, corpus-grounded phrasing that multi-agent evidence-binding produces, while a human reader values it for depth.** This is a concrete, reproducible example of LLM-judge bias — and the reason Athena keeps a human anchor and a *deterministic* (non-LLM) verifier in the loop rather than trusting an LLM to grade itself. *(Caveat: single rater, n=12; see [`docs/TECHNICAL_REPORT.md`](docs/TECHNICAL_REPORT.md) §5.4.)*
+
+### Key research insight: LLM-as-judge is biased against grounded output
+
+Two results point the same way. **(RQ2)** Ablating the Critic *raised* the LLM judge's depth score (4.35 vs 4.00, *p* ≈ 0.007) — even though the Critic forces every claim onto corpus evidence (grounding = 1.000). **(Human eval)** A blind human rater drew the *opposite* conclusion from the same judge: they rated multi-agent **deeper** (4.83 vs 4.17) and preferred it in **11/12** items.
+
+The takeaway: the **LLM judge penalizes the evidence-bound, corpus-relative phrasing** ("Among the N retrieved papers…") that grounding requires and that a human reader actually values — so **LLM-judge depth scores are systematically biased against grounded multi-agent synthesis.** Methodologically, this is why Athena reports grounding and human anchors alongside the judge rather than trusting an LLM judge alone — *higher evidence grounding does not imply higher judged depth.*
+
 ## Why Athena
 
 LLM research assistants fail in two ways that matter for graduate-level work:
@@ -88,6 +98,9 @@ python scripts/smoke_test.py
 ```
 
 API keys are all optional to get started: Semantic Scholar falls back to anonymous access (~1 req/s); set `CROSSREF_MAILTO` for Crossref's polite pool; set `SEMANTIC_SCHOLAR_API_KEY` when approved.
+
+> [!IMPORTANT]
+> **Set `DEFAULT_LLM_MODEL` in `.env` to a model your API key can access.** The shipped default is a placeholder and LLM calls (Planner / Critic / Writer / judge) will fail if your key can't serve it. The deterministic Citation Validator and retrieval need **no** LLM, so the smoke test and HALLMARK eval run without an LLM key. You can also point `OPENAI_BASE_URL` / `DEFAULT_LLM_PROVIDER` at OpenAI, DeepSeek, or Gemini (all OpenAI-compatible).
 
 ## Usage
 
