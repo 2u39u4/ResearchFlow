@@ -25,9 +25,6 @@ _ABSOLUTE_NOVELTY_RE = re.compile(
             r"\bworld(?:'s|s)?\s+first\b",
             r"\bunprecedented\b",
             r"\bgroundbreaking\b",
-            r"\b首创\b",
-            r"\b首次\b",
-            r"\b前所未有\b",
         ]
     ),
     re.IGNORECASE,
