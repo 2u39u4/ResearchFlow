@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import threading
 import time
 from typing import Any
 from urllib.parse import quote
@@ -12,6 +13,7 @@ from athena.config import get_settings
 
 S2_BASE = "https://api.semanticscholar.org/graph/v1"
 _last_request_at: float = 0.0
+_throttle_lock = threading.Lock()
 _MAX_RETRIES = 3
 
 
@@ -22,10 +24,11 @@ def _throttle() -> None:
     interval = settings.semantic_scholar_min_interval_sec
     if settings.semantic_scholar_uses_anonymous:
         interval = max(interval, 1.5)
-    elapsed = time.monotonic() - _last_request_at
-    if elapsed < interval:
-        time.sleep(interval - elapsed)
-    _last_request_at = time.monotonic()
+    with _throttle_lock:
+        elapsed = time.monotonic() - _last_request_at
+        if elapsed < interval:
+            time.sleep(interval - elapsed)
+        _last_request_at = time.monotonic()
 
 
 def _headers() -> dict[str, str]:
@@ -53,7 +56,7 @@ def search_papers(query: str, *, limit: int = 5) -> list[dict[str, Any]]:
         _throttle()
         resp = requests.get(url, params=params, headers=_headers(), timeout=30)
         if resp.status_code == 429:
-            wait = 2 ** attempt
+            wait = 2**attempt
             time.sleep(wait)
             last_error = requests.HTTPError(
                 f"429 Too Many Requests (retry {attempt + 1}/{_MAX_RETRIES})",

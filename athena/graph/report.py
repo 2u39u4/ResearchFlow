@@ -6,12 +6,6 @@ from typing import Any
 
 from pydantic import BaseModel
 
-from athena.schemas.citation import Citation, ValidationResult
-from athena.schemas.critique import Critique
-from athena.schemas.knowledge_card import KnowledgeCard
-from athena.schemas.outline import Outline
-from athena.schemas.task import Task
-
 
 def _dump(value: Any) -> Any:
     if isinstance(value, BaseModel):
@@ -28,6 +22,8 @@ def state_to_report(state: dict[str, Any]) -> dict[str, Any]:
         "run_id": state.get("run_id"),
         "topic": state.get("topic"),
         "constraints": state.get("constraints") or {},
+        "revisions": state.get("revisions") or 0,
+        "revision_log": state.get("revision_log") or [],
         "planner_meta": state.get("planner_meta"),
         "tasks": _dump(state.get("tasks") or []),
         "research_errors": state.get("research_errors") or [],

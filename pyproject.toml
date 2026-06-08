@@ -3,9 +3,45 @@ name = "athena-research-assistant"
 version = "0.1.0"
 description = "Multi-agent research copilot with deterministic citation verification"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Junye Zhao", email = "junyezhao9@gmail.com" }]
+
+# Core runtime: enough to run retrieval, the pipeline, citation validation,
+# the local PDF RAG (hashing backend), and the Streamlit demo.
+dependencies = [
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "python-dotenv>=1.0",
+    "langgraph>=0.2.0",
+    "langgraph-checkpoint-sqlite>=2.0.0",
+    "langchain-core>=0.3.0",
+    "openai>=1.0",
+    "arxiv>=2.1",
+    "requests>=2.31",
+    "rapidfuzz>=3.0",
+    "diskcache>=5.6",
+    "numpy>=1.24",
+    "pymupdf>=1.24",
+    "streamlit>=1.28",
+]
+
+[project.optional-dependencies]
+# Higher-quality semantic embeddings + FAISS acceleration for the PDF RAG module.
+# The default hashing backend works without these (offline, deterministic).
+rag = [
+    "faiss-cpu>=1.8",
+    "sentence-transformers>=3.0",
+]
+# RQ1/RQ2/RQ3 evaluation experiments (figures + statistics).
+eval = [
+    "matplotlib>=3.8",
+    "scipy>=1.11",
+]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -16,7 +52,15 @@ filterwarnings = [
 
 [tool.ruff]
 line-length = 100
-target-version = "py39"
+target-version = "py310"
+extend-exclude = [".vendor", ".venv", ".venv-eval"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+# Line length is enforced by the formatter; E501 would otherwise flag long
+# LLM prompt string literals that must not be reflowed (it changes the prompt).
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# CLI entry points inject the repo root into sys.path before importing athena.*
+"scripts/*" = ["E402"]

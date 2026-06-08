@@ -29,7 +29,12 @@ def sample_id(topic_id: str, repeat: int) -> str:
 
 def score_depth_rubric(system_data: dict[str, Any], llm_depth: int) -> tuple[int, str]:
     """
-    Human-style depth score: rubric read with structural adjustments on LLM baseline.
+    Reproducible *heuristic proxy* for a human depth score (NOT real human annotation).
+
+    Starts from the LLM judge's depth and applies deterministic structural adjustments
+    (penalize repetitive corpus phrasing / TODO placeholders; reward cross-paper
+    comparison + full evidence linkage). See ``eval/judges/ANCHOR_PROTOCOL.md`` for how
+    to produce and plug in genuine two-rater blind annotations.
     """
     critiques = system_data.get("critiques") or []
     outline = system_data.get("outline") or {}
@@ -42,8 +47,7 @@ def score_depth_rubric(system_data: dict[str, Any], llm_depth: int) -> tuple[int
     rep = sum(1 for _p, cnt in Counter(prefixes).items() if cnt >= 2)
     text = " ".join(claims).lower()
     has_compare = any(
-        w in text
-        for w in ("compare", "versus", "whereas", "contrast", "relative to", "unlike")
+        w in text for w in ("compare", "versus", "whereas", "contrast", "relative to", "unlike")
     )
     bullets = sum(len(s.get("bullets") or []) for s in (outline.get("sections") or []))
 
@@ -114,8 +118,7 @@ def select_stratified_rows(
     picked = [
         r
         for r in rows
-        if r["topic_id"] in selected_ids[:target]
-        and (repeat is None or int(r["repeat"]) == repeat)
+        if r["topic_id"] in selected_ids[:target] and (repeat is None or int(r["repeat"]) == repeat)
     ]
     return sorted(picked, key=lambda r: (r["topic_id"], r["repeat"]))
 
@@ -159,9 +162,7 @@ def build_human_anchor_row(row: dict[str, Any]) -> dict[str, str]:
 
 
 def build_llm_lookup(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
-    return {
-        sample_id(row["topic_id"], int(row["repeat"])): build_llm_row(row) for row in rows
-    }
+    return {sample_id(row["topic_id"], int(row["repeat"])): build_llm_row(row) for row in rows}
 
 
 def write_human_anchor_csv(
@@ -198,11 +199,7 @@ def compute_agreement(
         payload = json.load(f)
     all_rows = payload.get("rows") or []
     sample_ids = {r.get("sample_id", "").strip() for r in human_rows}
-    matched = [
-        r
-        for r in all_rows
-        if sample_id(r["topic_id"], int(r["repeat"])) in sample_ids
-    ]
+    matched = [r for r in all_rows if sample_id(r["topic_id"], int(r["repeat"])) in sample_ids]
     llm_lookup = build_llm_lookup(matched)
     stats = human_anchor_agreement(human_rows, llm_lookup)
     stats["n_human_rows"] = len(human_rows)

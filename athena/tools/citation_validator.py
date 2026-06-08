@@ -7,6 +7,7 @@ Pipeline: DOI lookup (Crossref) -> else title search (Crossref + Semantic Schola
 
 from __future__ import annotations
 
+import logging
 import re
 from dataclasses import dataclass
 from typing import Any, Optional
@@ -22,6 +23,8 @@ from athena.tools.crossref import lookup_doi, search_by_title
 from athena.tools.normalize import normalize_doi, normalize_title
 from athena.tools.semantic_scholar import lookup_by_doi as s2_lookup_by_doi
 from athena.tools.semantic_scholar import search_papers as s2_search_papers
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -109,8 +112,8 @@ def _resolve_by_doi(doi: str) -> Optional[ResolvedWork]:
             papers = search_arxiv(f"id:{arxiv_id}", max_results=1)
             if papers:
                 return _work_from_arxiv(papers[0])
-        except Exception:
-            pass
+        except Exception as exc:
+            logger.debug("arXiv DOI resolution failed for %s: %s", doi, exc)
 
     try:
         s2_item = s2_lookup_by_doi(doi)
@@ -118,8 +121,8 @@ def _resolve_by_doi(doi: str) -> Optional[ResolvedWork]:
             work = _work_from_s2(s2_item)
             if work:
                 return work
-    except Exception:
-        pass
+    except Exception as exc:
+        logger.debug("Semantic Scholar DOI resolution failed for %s: %s", doi, exc)
     return None
 
 
@@ -156,13 +159,15 @@ def _search_candidates(title: str, top_k: int) -> list[ResolvedWork]:
             if resolved.doi:
                 seen_doi.add(resolved.doi)
             candidates.append(resolved)
-    except Exception:
-        pass
+    except Exception as exc:
+        logger.debug("Semantic Scholar title search failed for %r: %s", title, exc)
 
     return candidates
 
 
-def _best_title_match(query_title: str, candidates: list[ResolvedWork]) -> tuple[Optional[ResolvedWork], float]:
+def _best_title_match(
+    query_title: str, candidates: list[ResolvedWork]
+) -> tuple[Optional[ResolvedWork], float]:
     best: Optional[ResolvedWork] = None
     best_score = 0.0
     for cand in candidates:

@@ -1,0 +1,32 @@
+# Pinned direct dependencies for reproducible installs (core + rag + eval + dev).
+# Versions verified against the development environment. For a clean install:
+#   pip install -r requirements.lock
+# Regenerate after upgrades with: pip freeze (then prune to direct deps).
+
+# Core
+pydantic==2.13.4
+pydantic-settings==2.11.0
+python-dotenv==1.2.1
+langgraph==0.6.11
+langgraph-checkpoint-sqlite==2.0.11
+langchain-core==0.3.86
+openai==2.40.0
+arxiv==2.4.1
+requests==2.32.5
+numpy==2.0.2
+pymupdf==1.26.5
+rapidfuzz==3.13.0
+diskcache==5.6.3
+streamlit==1.50.0
+
+# Optional: PDF RAG semantic backend (requirements-rag.txt)
+faiss-cpu==1.13.0
+sentence-transformers==5.1.2
+
+# Optional: evaluation experiments (requirements-eval.txt)
+matplotlib==3.9.4
+scipy==1.13.1
+
+# Dev / test
+pytest==8.4.2
+ruff==0.6.9

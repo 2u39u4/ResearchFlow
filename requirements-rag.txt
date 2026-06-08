@@ -1,0 +1,9 @@
+# Optional: high-quality semantic embeddings + FAISS for the local PDF RAG module.
+# The default hashing backend (in core requirements) works without these.
+# Enable with: ATHENA_RAG_EMBEDDING_BACKEND=sentence-transformers  (+ ATHENA_RAG_USE_FAISS=true)
+#
+#   pip install -r requirements.txt -r requirements-rag.txt
+#   # or: pip install 'athena-research-assistant[rag]'
+
+faiss-cpu>=1.8
+sentence-transformers>=3.0

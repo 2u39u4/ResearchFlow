@@ -14,31 +14,54 @@ Multi-agent **research copilot** for academic literature review: evidence-ground
 | **Citation Validator** | `verified` / `not_found` / `mismatch` via Crossref + S2 + fuzzy title match — **no LLM** in the match logic |
 | **Critic** | Gap / weakness / relative-novelty critiques, each bound to `evidence_paper_ids` from the corpus |
 | **Writer** | Outline scaffold with author-completion markers |
-| **Pipeline** | LangGraph: Planner → Research → Critic → Writer → Validator |
-| **Evaluation** | HALLMARK benchmark (F1-H **0.747** on `dev_public`) + RQ1/RQ2/RQ3 TopicSet experiments |
+| **Local PDF RAG** | Upload PDFs → parse → chunk → embed → semantic search of your own documents (stays on-machine, never sent to APIs) |
+| **Pipeline** | LangGraph: Planner → Research → Critic → Writer → Validator, with a **citation-driven revision loop** |
+| **Evaluation** | HALLMARK benchmark (F1-H **0.747** on `dev_public`) + RQ1/RQ2/RQ3 TopicSet experiments ([committed snapshot](docs/evaluation/)) |
 
 ## Architecture
 
 ```
-Topic (+ optional PDFs)
+Topic (+ optional private PDFs)
         │
         ▼
    Planner ──► Research ──► Critic ──► Writer ──► Validator ──► Report
+                  ▲            │           │            │
+                  │            │           │            ├─ deterministic API match
                   │            │           │            │
-                  │            │           │            └─ deterministic API match
-                  │            │           └─ outline scaffold only
+                  │            │           │            ▼
+                  │            │           │     revise? (too many unverified
+                  │            │           │      citations + budget left)
+                  │            │           │            │
+                  └────────────┴───────────┴────────────┘  (loop back, broaden retrieval)
                   │            └─ evidence-bound critiques
-                  └─ arXiv / S2 / Crossref
+                  └─ arXiv / S2 / Crossref         Local PDF RAG (private, on-machine)
 ```
 
+The Validator emits a **conditional edge**: if the unverified-citation ratio exceeds
+`revision_fake_threshold` and the `max_revisions` budget remains, the graph loops back to
+Research with broader retrieval; otherwise it ends. This is a real agent feedback loop,
+not a fixed straight-line DAG.
+
 **Documentation:** [docs/README.md](docs/README.md) — technical report, HALLMARK reproduction, experiment reproduction, resume bullets.
+
+## Requirements
+
+**Python 3.10+** (CI tests 3.10 / 3.11 / 3.12). Dependencies are split so the core
+install stays light:
+
+| File / extra | Use |
+|--------------|-----|
+| `requirements.txt` | Core: pipeline, retrieval, citation validation, local PDF RAG (hashing backend), Streamlit |
+| `requirements-rag.txt` / `[rag]` | Optional: `sentence-transformers` + `faiss` for higher-quality semantic embeddings |
+| `requirements-eval.txt` / `[eval]` | Optional: `matplotlib` + `scipy` (RQ experiments) + HALLMARK runtime |
+| `requirements.lock` | Pinned exact versions for reproducible installs |
 
 ## Quick start
 
 ```bash
 cd ResearchFlow
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+python -m venv .venv          # Python 3.10+
+source .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env
 # Edit .env — OPENAI_API_KEY optional for smoke test (LLM step skipped if empty)
@@ -78,9 +101,36 @@ Returns `verified` / `not_found` / `mismatch` per reference via Crossref + Seman
 pytest tests/test_citation_validator.py -q
 ```
 
+## Local PDF RAG (private, on-machine)
+
+Upload PDFs to search your own documents alongside public retrieval. Uploaded files are
+parsed, chunked, embedded, and indexed **locally** — they are never sent to scholarly APIs.
+
+```python
+from athena.rag import PdfRagIndex
+
+index = PdfRagIndex()                      # default: deterministic hashing embedder
+index.add_pdf_path("paper.pdf")            # or index.add_pdf_bytes(...) / index.add_text(...)
+for hit in index.query("what method is proposed?", top_k=3):
+    print(hit.score, hit.chunk.doc_id, hit.chunk.text[:120])
+```
+
+In the Streamlit UI, upload a PDF in the sidebar and use the **"Your PDFs"** tab to search it.
+
+**Backends** (configurable via `.env`):
+
+- `ATHENA_RAG_EMBEDDING_BACKEND=hashing` (default) — dependency-free, deterministic, offline.
+- `ATHENA_RAG_EMBEDDING_BACKEND=sentence-transformers` — semantic embeddings (needs the
+  `[rag]` extra); set `ATHENA_RAG_USE_FAISS=true` to use FAISS for search.
+
+```bash
+pip install -r requirements-rag.txt   # optional, for semantic embeddings + FAISS
+pytest tests/test_rag.py -q
+```
+
 ## HALLMARK benchmark evaluation
 
-Requires **Python 3.10+** (the main venv may be 3.9; use `python3.11` if available). Full guide: [docs/HALLMARK.md](docs/HALLMARK.md).
+Full guide: [docs/HALLMARK.md](docs/HALLMARK.md). `scripts/install_hallmark.sh` creates an isolated `.venv-eval` with the HALLMARK runtime.
 
 ```bash
 bash scripts/install_hallmark.sh   # .vendor/hallmark + .venv-eval (Python 3.10+)
@@ -123,7 +173,10 @@ python scripts/run_pipeline.py "retrieval augmented generation"
 # Optional: --output results/pipeline_report.json --thread-id my-run-1
 ```
 
-Runs **Planner → Research → Critic → Writer (outline scaffold) → Citation Validator** with step `trace` and SQLite checkpointing (`data/athena_checkpoints.db`).
+Runs **Planner → Research → Critic → Writer (outline scaffold) → Citation Validator** with a
+**citation-driven revision loop** (re-research when too many citations fail verification),
+step `trace`, and SQLite checkpointing (`data/athena_checkpoints.db`). Tune the loop with
+`max_revisions` and `revision_fake_threshold` (in `.env` or pipeline constraints).
 
 ```bash
 pytest tests/test_pipeline.py -q
@@ -187,15 +240,18 @@ pytest tests/test_eval_metrics.py -q
 ## Project layout
 
 ```
-athena/          # Core: agents, tools, llm, storage, graph, rag
+athena/          # Core: agents, tools, llm, storage, graph
+  rag/           # Local PDF RAG: pdf parse, chunking, embeddings, vector store, index
 eval/            # HALLMARK adapter (citebench), LLM judge, RQ experiments, analysis
   topics/pools/  # Committed reference pools (20 topics) — skip slow build-pools on clone
-app/             # Streamlit demo UI
+  judges/        # Depth rubric + human-anchor protocol (ANCHOR_PROTOCOL.md)
+app/             # Streamlit demo UI (+ private PDF RAG tab)
 docs/            # Technical report, HALLMARK & experiment reproduction, resume bullets
+  evaluation/    # Committed read-only snapshot of RQ summary + figures
 examples/        # Minimal RQ3 / pipeline samples (no results/ required)
 scripts/         # CLI entry points
-tests/           # Offline unit tests
-.github/         # CI workflow (pytest)
+tests/           # Offline unit tests (incl. test_rag.py)
+.github/         # CI workflow (ruff lint + pytest on Python 3.10/3.11/3.12)
 ```
 
 **Author:** Junye Zhao ([@2u39u4](https://github.com/2u39u4)) — sole developer and maintainer.

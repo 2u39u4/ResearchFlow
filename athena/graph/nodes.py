@@ -1,4 +1,4 @@
-"""LangGraph nodes: Planner → Research → Critic → Writer → Validator."""
+"""LangGraph nodes: Planner → Research → Critic → Writer → Validator (+ revise loop)."""
 
 from __future__ import annotations
 
@@ -9,6 +9,7 @@ from athena.agents.critic import run_critic, supported_only
 from athena.agents.planner import run_planner
 from athena.agents.research import CriticalResearchSourcesError, run_research
 from athena.agents.writer import run_writer
+from athena.config import get_settings
 from athena.graph.citations_from_corpus import build_citations_for_validation
 from athena.graph.state import AthenaState, state_validation_payload
 from athena.graph.tracing import append_trace
@@ -98,6 +99,12 @@ def research_node(state: AthenaState) -> dict[str, Any]:
     constraints = state.get("constraints") or {}
     per_source = int(constraints.get("per_source_limit", 15))
     min_cards = int(constraints.get("min_cards", 10))
+
+    # On a revision pass, broaden retrieval to recover from unresolved citations.
+    revisions = int(state.get("revisions") or 0)
+    if revisions > 0:
+        per_source = min(per_source + 5 * revisions, 50)
+        min_cards = min_cards + 2 * revisions
 
     result = run_research(
         query,
@@ -238,6 +245,66 @@ def validate_citations_node(state: AthenaState) -> dict[str, Any]:
             agent="validator",
             summary=f"{verified}/{len(results)} citations verified",
             payload={"validation_report_json": update["validation_report_json"]},
+        )
+    )
+    return update
+
+
+def _unverified_ratio(results: list[ValidationResult]) -> float:
+    if not results:
+        return 0.0
+    unverified = sum(1 for r in results if r.status != "verified")
+    return unverified / len(results)
+
+
+def route_after_validation(state: AthenaState) -> str:
+    """
+    Conditional edge: decide whether to revise (re-research) or finish.
+
+    Closes the agent loop — if too many citations fail deterministic verification
+    and the revision budget is not exhausted, route back to Research with broader
+    retrieval. Otherwise end. Returns the routing key 'revise' or 'finish'.
+    """
+    raw = state.get("validation_report") or []
+    results: list[ValidationResult] = [
+        r if isinstance(r, ValidationResult) else ValidationResult.model_validate(r) for r in raw
+    ]
+    constraints = state.get("constraints") or {}
+    settings = get_settings()
+    max_revisions = int(constraints.get("max_revisions", settings.max_revisions))
+    threshold = float(constraints.get("revision_fake_threshold", settings.revision_fake_threshold))
+
+    revisions = int(state.get("revisions") or 0)
+    if not results or revisions >= max_revisions:
+        return "finish"
+    if _unverified_ratio(results) > threshold:
+        return "revise"
+    return "finish"
+
+
+def revise_node(state: AthenaState) -> dict[str, Any]:
+    """Increment the revision counter before re-entering Research."""
+    revisions = int(state.get("revisions") or 0) + 1
+    results = state.get("validation_report") or []
+    ratio = _unverified_ratio(
+        [
+            r if isinstance(r, ValidationResult) else ValidationResult.model_validate(r)
+            for r in results
+        ]
+    )
+    entry = {"revision": revisions, "unverified_ratio": round(ratio, 3)}
+    revision_log = list(state.get("revision_log") or [])
+    revision_log.append(entry)
+
+    update: dict[str, Any] = {"revisions": revisions, "revision_log": revision_log}
+    merged = {**state, **update}
+    update.update(
+        append_trace(
+            merged,
+            step="revise",
+            agent="controller",
+            summary=f"revision {revisions}: {ratio:.0%} citations unverified → re-research",
+            payload=entry,
         )
     )
     return update

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import threading
 import time
 from typing import Any
 from urllib.parse import quote
@@ -12,16 +13,18 @@ from athena.config import get_settings
 
 CROSSREF_BASE = "https://api.crossref.org"
 _last_request_at: float = 0.0
+_throttle_lock = threading.Lock()
 _MAX_RETRIES = 6
 _MIN_INTERVAL = 1.0
 
 
 def _throttle() -> None:
     global _last_request_at
-    elapsed = time.monotonic() - _last_request_at
-    if elapsed < _MIN_INTERVAL:
-        time.sleep(_MIN_INTERVAL - elapsed)
-    _last_request_at = time.monotonic()
+    with _throttle_lock:
+        elapsed = time.monotonic() - _last_request_at
+        if elapsed < _MIN_INTERVAL:
+            time.sleep(_MIN_INTERVAL - elapsed)
+        _last_request_at = time.monotonic()
 
 
 def _headers() -> dict[str, str]:
@@ -40,7 +43,11 @@ def _get_json(path: str, params: dict[str, Any] | None = None) -> dict[str, Any]
         _throttle()
         try:
             resp = requests.get(
-                url, params=params, headers=_headers(), timeout=60, proxies={"http": None, "https": None}
+                url,
+                params=params,
+                headers=_headers(),
+                timeout=60,
+                proxies={"http": None, "https": None},
             )
         except requests.RequestException as exc:
             time.sleep(min(30, 2 ** (attempt + 1)))

@@ -69,6 +69,19 @@ class Settings(BaseSettings):
     # Streamlit demo — empty = no password gate (local dev only)
     athena_ui_password: str = ""
 
+    # Local PDF RAG (uploaded docs stay on-machine; never sent to scholarly APIs)
+    rag_embedding_backend: str = "hashing"  # hashing | sentence-transformers
+    rag_embedding_dim: int = 256  # used by the hashing backend
+    rag_st_model: str = "all-MiniLM-L6-v2"  # used by sentence-transformers backend
+    rag_chunk_size: int = 800
+    rag_chunk_overlap: int = 150
+    rag_use_faiss: bool = False  # opt-in FAISS acceleration when installed
+    rag_top_k: int = 5
+
+    # Agent revision loop (citation-verification feedback)
+    max_revisions: int = 1
+    revision_fake_threshold: float = 0.34  # rerun research if > this fraction unverified
+
     @property
     def semantic_scholar_uses_anonymous(self) -> bool:
         return not bool(self.semantic_scholar_api_key.strip())

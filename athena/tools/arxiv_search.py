@@ -7,14 +7,14 @@ import json
 import logging
 import time
 from dataclasses import dataclass
-
-logger = logging.getLogger(__name__)
 from typing import Any
 
 import arxiv
 import diskcache
 
 from athena.config import get_settings
+
+logger = logging.getLogger(__name__)
 
 _last_request_at: float = 0.0
 _MAX_RETRIES = 3

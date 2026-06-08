@@ -2,23 +2,20 @@
 
 from __future__ import annotations
 
-import json
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
-import pytest
+from langgraph.checkpoint.memory import MemorySaver
 
 from athena.agents.planner import default_task_plan, run_planner
 from athena.agents.writer import fallback_outline
 from athena.graph.build_graph import build_athena_graph, initial_state
 from athena.graph.citations_from_corpus import build_citations_for_validation, collect_paper_ids
-from athena.graph.nodes import planner_node, prepare_citations_node, research_node
+from athena.graph.nodes import prepare_citations_node, research_node
 from athena.graph.report import state_to_report
 from athena.graph.tracing import append_trace
 from athena.schemas.critique import Critique
 from athena.schemas.knowledge_card import KnowledgeCard
 from athena.schemas.outline import DEFAULT_TODO_MARKER, Outline, OutlineSection
-from athena.schemas.task import TaskPlan
-from langgraph.checkpoint.memory import MemorySaver
 
 
 def _card(pid: str) -> KnowledgeCard:
@@ -49,9 +46,7 @@ def test_append_trace():
 
 def test_collect_paper_ids_from_critiques():
     papers = [_card("a:1"), _card("a:2")]
-    critiques = [
-        Critique(claim="gap", type="gap", evidence_paper_ids=["a:1"], confidence=0.8)
-    ]
+    critiques = [Critique(claim="gap", type="gap", evidence_paper_ids=["a:1"], confidence=0.8)]
     outline = Outline(
         title="T",
         sections=[OutlineSection(heading="S", evidence_paper_ids=["a:2"])],
@@ -171,7 +166,9 @@ def test_pipeline_invoke_mocked(
         errors=[],
     )
     mock_validate.return_value = [
-        ValidationResult(status="verified", citation=build_citations_for_validation([_card("a:1")], [], None)[0])
+        ValidationResult(
+            status="verified", citation=build_citations_for_validation([_card("a:1")], [], None)[0]
+        )
     ]
 
     graph = build_athena_graph(checkpointer=MemorySaver(), use_sqlite=False)
@@ -187,11 +184,118 @@ def test_pipeline_invoke_mocked(
     assert len(report["validation_report"]) >= 1
 
 
+def test_route_after_validation_finishes_when_verified():
+    from athena.graph.nodes import route_after_validation
+    from athena.schemas.citation import Citation, ValidationResult
+
+    cit = Citation(title="T", doi="10.1/x")
+    state = {
+        "validation_report": [ValidationResult(status="verified", citation=cit)],
+        "revisions": 0,
+    }
+    assert route_after_validation(state) == "finish"
+
+
+def test_route_after_validation_revises_when_unverified():
+    from athena.graph.nodes import route_after_validation
+    from athena.schemas.citation import Citation, ValidationResult
+
+    cit = Citation(title="T", doi="10.1/x")
+    state = {
+        "validation_report": [
+            ValidationResult(status="not_found", citation=cit),
+            ValidationResult(status="mismatch", citation=cit),
+        ],
+        "revisions": 0,
+        "constraints": {"max_revisions": 1, "revision_fake_threshold": 0.3},
+    }
+    assert route_after_validation(state) == "revise"
+
+
+def test_route_after_validation_respects_budget():
+    from athena.graph.nodes import route_after_validation
+    from athena.schemas.citation import Citation, ValidationResult
+
+    cit = Citation(title="T", doi="10.1/x")
+    state = {
+        "validation_report": [ValidationResult(status="not_found", citation=cit)],
+        "revisions": 1,
+        "constraints": {"max_revisions": 1},
+    }
+    assert route_after_validation(state) == "finish"
+
+
+@patch("athena.graph.nodes.run_planner")
+@patch("athena.graph.nodes.run_research")
+@patch("athena.graph.nodes.run_critic")
+@patch("athena.graph.nodes.run_writer")
+@patch("athena.graph.nodes.validate_citations")
+def test_pipeline_revision_loop_runs_once(
+    mock_validate,
+    mock_writer,
+    mock_critic,
+    mock_research,
+    mock_planner,
+):
+    from athena.agents.critic import CriticResult
+    from athena.agents.planner import PlannerResult
+    from athena.agents.research import ResearchResult
+    from athena.agents.writer import WriterResult
+    from athena.schemas.citation import ValidationResult
+
+    mock_planner.return_value = PlannerResult(
+        topic="rag", plan=default_task_plan("rag"), model="m", used_fallback=True, errors=[]
+    )
+    mock_research.return_value = ResearchResult(
+        topic="rag",
+        cards=[_card("a:1")],
+        errors=[],
+        sources_ok={"arxiv": True, "semantic_scholar": True, "crossref": True},
+    )
+    mock_critic.return_value = CriticResult(
+        topic="rag",
+        corpus_size=1,
+        critiques=[Critique(claim="c", type="gap", evidence_paper_ids=["a:1"], confidence=0.8)],
+        dropped_unsupported=0,
+        evidence_grounding_rate=1.0,
+        model="m",
+        errors=[],
+    )
+    mock_writer.return_value = WriterResult(
+        topic="rag",
+        outline=Outline(
+            title="O",
+            sections=[
+                OutlineSection(
+                    heading="I", bullets=[DEFAULT_TODO_MARKER], evidence_paper_ids=["a:1"]
+                )
+            ],
+        ),
+        model="m",
+        used_fallback=False,
+        errors=[],
+    )
+    citation = build_citations_for_validation([_card("a:1")], [], None)[0]
+    # First validation pass: unresolved → triggers one revision; second pass also unresolved.
+    mock_validate.return_value = [ValidationResult(status="not_found", citation=citation)]
+
+    graph = build_athena_graph(checkpointer=MemorySaver(), use_sqlite=False)
+    final = graph.invoke(
+        initial_state(
+            "rag", constraints={"min_cards": 1, "per_source_limit": 5, "max_revisions": 1}
+        ),
+        config={"configurable": {"thread_id": "test-revision-1"}},
+    )
+    report = state_to_report(final)
+    # Loop ran exactly once (budget=1): validator executed twice, revisions==1.
+    assert report["revisions"] == 1
+    assert mock_validate.call_count == 2
+    assert any(t["step"] == "revise" for t in report["trace"])
+
+
 def test_prepare_citations_node():
     papers = [_card("a:1")]
-    critiques = [
-        Critique(claim="g", type="gap", evidence_paper_ids=["a:1"], confidence=0.7)
-    ]
+    critiques = [Critique(claim="g", type="gap", evidence_paper_ids=["a:1"], confidence=0.7)]
     out = prepare_citations_node(
         {
             "papers": papers,

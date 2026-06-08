@@ -6,6 +6,7 @@ Run: streamlit run app/streamlit_app.py
 
 from __future__ import annotations
 
+import hmac
 import json
 import sys
 import uuid
@@ -32,6 +33,7 @@ from athena.agents.research import CriticalResearchSourcesError  # noqa: E402
 from athena.config import get_settings  # noqa: E402
 from athena.graph.build_graph import build_athena_graph, initial_state  # noqa: E402
 from athena.graph.report import state_to_report  # noqa: E402
+from athena.rag import PdfRagIndex  # noqa: E402
 from athena.storage.sqlite import init_db, persist_traces  # noqa: E402
 
 PIPELINE_STEPS = [
@@ -53,6 +55,18 @@ def _save_uploaded_pdf(uploaded_file) -> Path | None:
     return dest
 
 
+def _index_uploaded_pdf(uploaded_file) -> tuple[Path | None, int]:
+    """Save the PDF and add it to the session's private RAG index. Returns (path, chunks)."""
+    dest = _save_uploaded_pdf(uploaded_file)
+    if dest is None:
+        return None, 0
+    index: PdfRagIndex = st.session_state.setdefault("pdf_index", PdfRagIndex())
+    if dest.name in index.doc_ids:
+        return dest, 0
+    n_chunks = index.add_pdf_bytes(uploaded_file.getvalue(), doc_id=dest.name, source=str(dest))
+    return dest, n_chunks
+
+
 def _require_ui_auth() -> None:
     """Optional password gate when ATHENA_UI_PASSWORD is set."""
     password = get_settings().athena_ui_password.strip()
@@ -64,7 +78,7 @@ def _require_ui_auth() -> None:
     st.caption("Set `ATHENA_UI_PASSWORD` in `.env` when exposing this app beyond localhost.")
     entered = st.text_input("Password", type="password", key="ui_password_input")
     if st.button("Unlock", type="primary"):
-        if entered == password:
+        if hmac.compare_digest(entered, password):
             st.session_state.ui_authenticated = True
             st.rerun()
         st.error("Invalid password.")
@@ -93,8 +107,8 @@ def _run_pipeline(
                 completed.append(node_name)
                 idx = len(completed)
                 progress.progress(
-                    idx / len(PIPELINE_STEPS),
-                    text=f"Completed: {node_name} ({idx}/{len(PIPELINE_STEPS)})",
+                    min(idx / len(PIPELINE_STEPS), 1.0),
+                    text=f"Completed: {node_name} ({idx} steps)",
                 )
                 log.markdown(f"- Finished **{node_name}**")
     except CriticalResearchSourcesError as exc:
@@ -220,6 +234,35 @@ def _render_validation(report: dict[str, Any]) -> None:
                 st.json(details)
 
 
+def _render_pdf_context(default_query: str) -> None:
+    index: PdfRagIndex | None = st.session_state.get("pdf_index")
+    if not index or not index.chunk_count:
+        st.info(
+            "No PDF indexed yet. Upload a PDF in the sidebar to search your own documents. "
+            "Uploaded files stay on this machine and are never sent to scholarly APIs."
+        )
+        return
+    st.caption(
+        f"Searching {len(index.doc_ids)} private document(s) · {index.chunk_count} chunks · "
+        f"backend: {get_settings().rag_embedding_backend}"
+    )
+    query = st.text_input(
+        "Search your uploaded PDFs",
+        value=default_query,
+        key="pdf_rag_query",
+        placeholder="e.g. what method does this paper use?",
+    )
+    if not query.strip():
+        return
+    hits = index.query(query, top_k=get_settings().rag_top_k)
+    if not hits:
+        st.info("No relevant passages found.")
+        return
+    for i, hit in enumerate(hits, 1):
+        with st.expander(f"#{i} · {hit.chunk.doc_id} (p.{hit.chunk.page}) · score {hit.score:.3f}"):
+            st.markdown(hit.chunk.text)
+
+
 def _render_trace(report: dict[str, Any]) -> None:
     trace = report.get("trace") or []
     if not trace:
@@ -251,7 +294,9 @@ def main() -> None:
     with st.sidebar:
         st.header("Settings")
         topic = st.text_input("Research topic", placeholder="e.g. retrieval augmented generation")
-        year_min = st.number_input("Year from (optional)", min_value=1990, max_value=2030, value=2018)
+        year_min = st.number_input(
+            "Year from (optional)", min_value=1990, max_value=2030, value=2018
+        )
         year_max = st.number_input("Year to (optional)", min_value=1990, max_value=2030, value=2026)
         domain = st.text_input("Domain / field (optional)", placeholder="e.g. NLP, systems")
         min_cards = st.slider("Minimum papers", 5, 20, 10)
@@ -259,14 +304,22 @@ def main() -> None:
         use_checkpoint = st.checkbox("SQLite checkpoint", value=True)
 
         st.divider()
-        st.subheader("PDF upload")
+        st.subheader("PDF upload (private RAG)")
         pdf_file = st.file_uploader("Upload PDF (optional)", type=["pdf"])
         if pdf_file:
-            path = _save_uploaded_pdf(pdf_file)
-            st.caption(f"Saved to `{path}`")
-            st.info(
-                "PDF private RAG indexing is not wired in this build. "
-                "The file is stored for future use; retrieval still uses public APIs."
+            try:
+                path, n_chunks = _index_uploaded_pdf(pdf_file)
+                if n_chunks:
+                    st.success(f"Indexed `{path.name}` — {n_chunks} chunks searchable below.")
+                else:
+                    st.caption(f"`{path.name}` already indexed.")
+            except Exception as exc:  # noqa: BLE001 — surface parse/index errors in the UI
+                st.error(f"Could not index PDF: {exc}")
+        index: PdfRagIndex | None = st.session_state.get("pdf_index")
+        if index and index.chunk_count:
+            st.caption(
+                f"Private index: {len(index.doc_ids)} doc(s), {index.chunk_count} chunks. "
+                "Stays local — never sent to scholarly APIs."
             )
 
         st.divider()
@@ -312,19 +365,32 @@ def main() -> None:
 
     report = st.session_state.report
     if not report:
-        st.info("Enter a topic and click **Run full pipeline**, or load a saved JSON report from the sidebar.")
+        st.info(
+            "Enter a topic and click **Run full pipeline**, or load a saved JSON report from the sidebar."
+        )
         return
 
     if st.session_state.last_run_at:
-        st.caption(f"Last run: {st.session_state.last_run_at} · run_id: `{report.get('run_id', '—')}`")
+        st.caption(
+            f"Last run: {st.session_state.last_run_at} · run_id: `{report.get('run_id', '—')}`"
+        )
 
-    tab_overview, tab_papers, tab_critiques, tab_outline, tab_citations, tab_trace = st.tabs(
+    (
+        tab_overview,
+        tab_papers,
+        tab_critiques,
+        tab_outline,
+        tab_citations,
+        tab_pdf,
+        tab_trace,
+    ) = st.tabs(
         [
             "Overview",
             "Papers",
             "Critiques & evidence",
             "Outline",
             "Citation validation",
+            "Your PDFs",
             "Progress & logs",
         ]
     )
@@ -345,6 +411,9 @@ def main() -> None:
 
     with tab_citations:
         _render_validation(report)
+
+    with tab_pdf:
+        _render_pdf_context(report.get("topic") or "")
 
     with tab_trace:
         _render_trace(report)

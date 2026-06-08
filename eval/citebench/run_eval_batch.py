@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -21,7 +20,11 @@ from eval.citebench.checkpoint import (
     save_state,
 )
 from eval.citebench.hallmark_adapter import run_athena_on_blind_entries
-from eval.citebench.run_eval import _default_hallmark_root, _ensure_hallmark_import, analyze_misclassifications
+from eval.citebench.run_eval import (
+    _default_hallmark_root,
+    _ensure_hallmark_import,
+    analyze_misclassifications,
+)
 
 
 def _print_metrics(result: Any, *, prefix: str = "") -> None:
@@ -44,7 +47,9 @@ def _predictions_for_entries(entries: list[Any], pred_by_key: dict[str, Any]) ->
 
     missing = [e.bibtex_key for e in entries if e.bibtex_key not in pred_by_key]
     if missing:
-        raise RuntimeError(f"Missing predictions for {len(missing)} entries (first: {missing[0]!r})")
+        raise RuntimeError(
+            f"Missing predictions for {len(missing)} entries (first: {missing[0]!r})"
+        )
     return [Prediction.from_dict(pred_by_key[e.bibtex_key]) for e in entries]
 
 
@@ -138,7 +143,6 @@ def run_batch_eval(
             tool_name=tool_name,
             split_name=split,
         )
-        batch_metrics = json.loads(batch_result.to_json())
         batch_path = batch_result_path(paths["batches"], batch_index, end)
         batch_path.write_text(batch_result.to_json())
         print(f"Wrote batch metrics {batch_path}")
