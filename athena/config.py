@@ -78,9 +78,10 @@ class Settings(BaseSettings):
     rag_use_faiss: bool = False  # opt-in FAISS acceleration when installed
     rag_top_k: int = 5
 
-    # Agent revision loop (citation-verification feedback)
+    # Agent controller / revision loop (failure-driven repair)
     max_revisions: int = 1
-    revision_fake_threshold: float = 0.34  # rerun research if > this fraction unverified
+    revision_fake_threshold: float = 0.34  # re-research if > this fraction unverified
+    revision_grounding_threshold: float = 0.5  # re-critique if grounding below this
 
     @property
     def semantic_scholar_uses_anonymous(self) -> bool:

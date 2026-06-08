@@ -184,20 +184,23 @@ def test_pipeline_invoke_mocked(
     assert len(report["validation_report"]) >= 1
 
 
-def test_route_after_validation_finishes_when_verified():
-    from athena.graph.nodes import route_after_validation
+def test_controller_finishes_when_verified():
+    from athena.graph.nodes import diagnose_repair, route_after_controller
     from athena.schemas.citation import Citation, ValidationResult
 
     cit = Citation(title="T", doi="10.1/x")
     state = {
         "validation_report": [ValidationResult(status="verified", citation=cit)],
+        "papers": [_card("a:1")] * 10,
         "revisions": 0,
     }
-    assert route_after_validation(state) == "finish"
+    action, _ = diagnose_repair(state)
+    assert action == "finish"
+    assert route_after_controller({"repair_action": action}) == "finish"
 
 
-def test_route_after_validation_revises_when_unverified():
-    from athena.graph.nodes import route_after_validation
+def test_controller_broadens_when_unverified():
+    from athena.graph.nodes import diagnose_repair, route_after_controller
     from athena.schemas.citation import Citation, ValidationResult
 
     cit = Citation(title="T", doi="10.1/x")
@@ -206,23 +209,57 @@ def test_route_after_validation_revises_when_unverified():
             ValidationResult(status="not_found", citation=cit),
             ValidationResult(status="mismatch", citation=cit),
         ],
+        "papers": [_card("a:1")] * 10,
         "revisions": 0,
-        "constraints": {"max_revisions": 1, "revision_fake_threshold": 0.3},
+        "constraints": {"max_revisions": 1, "revision_fake_threshold": 0.3, "min_cards": 1},
     }
-    assert route_after_validation(state) == "revise"
+    action, _ = diagnose_repair(state)
+    assert action == "research_broaden"
+    assert route_after_controller({"repair_action": action}) == "research"
 
 
-def test_route_after_validation_respects_budget():
-    from athena.graph.nodes import route_after_validation
+def test_controller_relaxes_when_too_few_papers():
+    from athena.graph.nodes import diagnose_repair, route_after_controller
+
+    state = {
+        "validation_report": [],
+        "papers": [_card("a:1")],
+        "revisions": 0,
+        "constraints": {"max_revisions": 1, "min_cards": 10},
+    }
+    action, _ = diagnose_repair(state)
+    assert action == "research_relax"
+    assert route_after_controller({"repair_action": action}) == "research"
+
+
+def test_controller_recritiques_when_low_grounding():
+    from athena.graph.nodes import diagnose_repair, route_after_controller
     from athena.schemas.citation import Citation, ValidationResult
 
     cit = Citation(title="T", doi="10.1/x")
     state = {
-        "validation_report": [ValidationResult(status="not_found", citation=cit)],
-        "revisions": 1,
-        "constraints": {"max_revisions": 1},
+        "validation_report": [ValidationResult(status="verified", citation=cit)],
+        "papers": [_card("a:1")] * 10,
+        "critic_meta": {"evidence_grounding_rate": 0.2},
+        "revisions": 0,
+        "constraints": {"max_revisions": 1, "min_cards": 1, "revision_grounding_threshold": 0.5},
     }
-    assert route_after_validation(state) == "finish"
+    action, _ = diagnose_repair(state)
+    assert action == "recritique"
+    assert route_after_controller({"repair_action": action}) == "critic"
+
+
+def test_controller_respects_budget():
+    from athena.graph.nodes import diagnose_repair
+
+    state = {
+        "validation_report": [],
+        "papers": [_card("a:1")],
+        "revisions": 1,
+        "constraints": {"max_revisions": 1, "min_cards": 10},
+    }
+    action, _ = diagnose_repair(state)
+    assert action == "finish"
 
 
 @patch("athena.graph.nodes.run_planner")
@@ -290,7 +327,7 @@ def test_pipeline_revision_loop_runs_once(
     # Loop ran exactly once (budget=1): validator executed twice, revisions==1.
     assert report["revisions"] == 1
     assert mock_validate.call_count == 2
-    assert any(t["step"] == "revise" for t in report["trace"])
+    assert any(t["step"] == "controller" for t in report["trace"])
 
 
 def test_prepare_citations_node():

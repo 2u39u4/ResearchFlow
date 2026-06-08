@@ -5,7 +5,7 @@
 [![CI](https://github.com/2u39u4/ResearchFlow/actions/workflows/ci.yml/badge.svg)](https://github.com/2u39u4/ResearchFlow/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Tests](https://img.shields.io/badge/tests-78%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-84%20passing-brightgreen)
 
 Athena retrieves real papers from scholarly APIs, generates **evidence-grounded** gap analysis and outline scaffolding, and then verifies every citation **without an LLM in the matching logic** — so bibliographic claims are machine-checkable, not hallucinated. It is a *research-assistance* tool with an academic-integrity banner in the UI, **not** an essay or paper ghostwriter.
 
@@ -42,8 +42,10 @@ flowchart LR
     R --> C[Critic]
     C --> W[Writer]
     W --> V[Validator]
-    V -->|verified enough| OUT([Report + trace])
-    V -.->|too many unverified,<br/>budget remains| R
+    V --> CTRL{Controller}
+    CTRL -->|repaired / no issue| OUT([Report + trace])
+    CTRL -.->|broaden / relax retrieval| R
+    CTRL -.->|weak grounding: re-critique| C
     R -.-> SRC[(arXiv / S2 / Crossref)]
     C -.- E[evidence-bound critiques]
     W -.- O[outline scaffold only]
@@ -60,7 +62,7 @@ flowchart LR
 | **Validator** | `verified` / `not_found` / `mismatch` via DOI + fuzzy title + author/year checks — **no LLM** |
 | **Local PDF RAG** | Parse → chunk → embed → semantic search of uploaded PDFs, kept on-machine |
 
-**Agent feedback loop (not a straight-line DAG):** the Validator emits a *conditional edge* — when the unverified-citation ratio exceeds `revision_fake_threshold` and the `max_revisions` budget remains, the graph loops back to Research with broader retrieval; otherwise it ends.
+**Agent feedback loop (not a straight-line DAG):** after validation a **Controller** diagnoses the dominant failure mode and picks a repair action — *broaden* retrieval (too many unverified citations), *relax* filters and widen retrieval (too few papers), or *re-run the Critic* (weak evidence grounding) — bounded by `max_revisions`; otherwise it ends. The decision and diagnosis are recorded in the run trace.
 
 Implementation: LangGraph orchestration in `athena/graph/`, agents in `athena/agents/`, deterministic validator in `athena/tools/citation_validator.py`.
 
@@ -110,12 +112,12 @@ python scripts/run_critic.py "retrieval augmented generation"
 # gap / weakness / novelty; absolute-novelty phrasing is rejected
 ```
 
-**End-to-end pipeline** (Planner → Research → Critic → Writer → Validator + revision loop):
+**End-to-end pipeline** (Planner → Research → Critic → Writer → Validator → Controller loop):
 
 ```bash
 python scripts/run_pipeline.py "retrieval augmented generation" \
   --output results/pipeline_report.json
-# Tune the loop with max_revisions / revision_fake_threshold (.env or constraints)
+# Tune the loop: max_revisions / revision_fake_threshold / revision_grounding_threshold
 ```
 
 **Streamlit demo UI:**

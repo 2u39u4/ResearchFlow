@@ -11,12 +11,12 @@ from langgraph.graph import END, START, StateGraph
 
 from athena.config import get_settings
 from athena.graph.nodes import (
+    controller_node,
     critic_node,
     planner_node,
     prepare_citations_node,
     research_node,
-    revise_node,
-    route_after_validation,
+    route_after_controller,
     validate_citations_node,
     writer_node,
 )
@@ -36,13 +36,16 @@ def get_sqlite_checkpointer(db_path: Path | None = None) -> Any:
 
 def build_athena_graph(*, checkpointer: Any | None = None, use_sqlite: bool = True):
     """
-    Planner → Research → Critic → Writer → prepare_citations → Validator
-                  ▲                                                │
-                  └──────────── revise (if too many unverified) ◄──┘
+    Planner → Research → Critic → Writer → prepare_citations → Validator → Controller
+                  ▲          ▲                                                  │
+                  │          └─ recritique ◄──────────────────────────────────┤
+                  └─ research_broaden / research_relax ◄──────────────────────┘
+                                                                       (else) → END
 
-    The Validator emits a conditional edge: when the unverified-citation ratio
-    exceeds ``revision_fake_threshold`` and the ``max_revisions`` budget remains,
-    the graph loops back through Research with broader retrieval; otherwise it ends.
+    After validation, a Controller node diagnoses the dominant failure mode and
+    chooses a repair action (re-research with broader/relaxed retrieval, or re-run
+    the Critic), bounded by ``max_revisions``; otherwise the run ends. This makes the
+    pipeline a policy-driven agent loop rather than a fixed straight-line DAG.
     """
     graph = StateGraph(AthenaState)
     graph.add_node("planner", planner_node)
@@ -51,7 +54,7 @@ def build_athena_graph(*, checkpointer: Any | None = None, use_sqlite: bool = Tr
     graph.add_node("writer", writer_node)
     graph.add_node("prepare_citations", prepare_citations_node)
     graph.add_node("validator", validate_citations_node)
-    graph.add_node("revise", revise_node)
+    graph.add_node("controller", controller_node)
 
     graph.add_edge(START, "planner")
     graph.add_edge("planner", "research")
@@ -59,12 +62,12 @@ def build_athena_graph(*, checkpointer: Any | None = None, use_sqlite: bool = Tr
     graph.add_edge("critic", "writer")
     graph.add_edge("writer", "prepare_citations")
     graph.add_edge("prepare_citations", "validator")
+    graph.add_edge("validator", "controller")
     graph.add_conditional_edges(
-        "validator",
-        route_after_validation,
-        {"revise": "revise", "finish": END},
+        "controller",
+        route_after_controller,
+        {"research": "research", "critic": "critic", "finish": END},
     )
-    graph.add_edge("revise", "research")
 
     if checkpointer is None and use_sqlite:
         try:

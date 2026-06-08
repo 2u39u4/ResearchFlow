@@ -123,11 +123,15 @@ def research_node(state: AthenaState) -> dict[str, Any]:
     if domain:
         extra_queries = [*extra_queries, f"{primary} {domain}"]
 
-    # On a revision pass, broaden retrieval to recover from unresolved citations.
+    # On a revision pass, broaden retrieval to recover from the diagnosed failure.
     revisions = int(state.get("revisions") or 0)
     if revisions > 0:
         per_source = min(per_source + 5 * revisions, 50)
         min_cards = min_cards + 2 * revisions
+    # "research_relax": coverage shortfall — widen further and drop the year filter.
+    if state.get("repair_action") == "research_relax":
+        per_source = min(per_source + 10, 50)
+        year_min = year_max = None
 
     result = run_research(
         primary,
@@ -286,54 +290,96 @@ def _unverified_ratio(results: list[ValidationResult]) -> float:
     return unverified / len(results)
 
 
-def route_after_validation(state: AthenaState) -> str:
-    """
-    Conditional edge: decide whether to revise (re-research) or finish.
+# Repair actions the controller can choose, and the node each routes to.
+_ACTION_ROUTES = {
+    "research_broaden": "research",  # too many unverified citations -> wider retrieval
+    "research_relax": "research",  # too few papers -> relax filters + wider retrieval
+    "recritique": "critic",  # weak evidence grounding -> re-run the Critic
+    "finish": "finish",
+}
 
-    Closes the agent loop — if too many citations fail deterministic verification
-    and the revision budget is not exhausted, route back to Research with broader
-    retrieval. Otherwise end. Returns the routing key 'revise' or 'finish'.
+
+def diagnose_repair(state: AthenaState) -> tuple[str, dict[str, Any]]:
+    """Inspect the run and choose a repair action (the controller's policy).
+
+    Returns (action, diagnosis). Priority: unresolved citations > too few papers >
+    weak evidence grounding. Returns 'finish' when nothing needs repair or the
+    revision budget is exhausted.
     """
-    raw = state.get("validation_report") or []
-    results: list[ValidationResult] = [
-        r if isinstance(r, ValidationResult) else ValidationResult.model_validate(r) for r in raw
-    ]
     constraints = state.get("constraints") or {}
     settings = get_settings()
     max_revisions = int(constraints.get("max_revisions", settings.max_revisions))
-    threshold = float(constraints.get("revision_fake_threshold", settings.revision_fake_threshold))
+    fake_threshold = float(
+        constraints.get("revision_fake_threshold", settings.revision_fake_threshold)
+    )
+    grounding_threshold = float(
+        constraints.get("revision_grounding_threshold", settings.revision_grounding_threshold)
+    )
+    min_cards = int(constraints.get("min_cards", 10))
+
+    raw = state.get("validation_report") or []
+    results = [
+        r if isinstance(r, ValidationResult) else ValidationResult.model_validate(r) for r in raw
+    ]
+    ratio = _unverified_ratio(results)
+    paper_count = len(state.get("papers") or [])
+    grounding = (state.get("critic_meta") or {}).get("evidence_grounding_rate")
+
+    diagnosis = {
+        "unverified_ratio": round(ratio, 3),
+        "paper_count": paper_count,
+        "evidence_grounding_rate": grounding,
+    }
 
     revisions = int(state.get("revisions") or 0)
-    if not results or revisions >= max_revisions:
-        return "finish"
-    if _unverified_ratio(results) > threshold:
-        return "revise"
-    return "finish"
+    if revisions >= max_revisions:
+        return "finish", diagnosis
+    if results and ratio > fake_threshold:
+        return "research_broaden", diagnosis
+    if paper_count < min_cards:
+        return "research_relax", diagnosis
+    if grounding is not None and grounding < grounding_threshold:
+        return "recritique", diagnosis
+    return "finish", diagnosis
 
 
-def revise_node(state: AthenaState) -> dict[str, Any]:
-    """Increment the revision counter before re-entering Research."""
+def controller_node(state: AthenaState) -> dict[str, Any]:
+    """Diagnose the run and pick a repair action (re-research / re-critique / finish).
+
+    This is the agent's decision point: rather than a fixed straight-line DAG, the
+    controller reads validation, coverage, and grounding signals and routes to the
+    repair that matches the dominant failure mode, bounded by ``max_revisions``.
+    """
+    action, diagnosis = diagnose_repair(state)
+    update: dict[str, Any] = {"repair_action": action}
+    if action == "finish":
+        return update
+
     revisions = int(state.get("revisions") or 0) + 1
-    results = state.get("validation_report") or []
-    ratio = _unverified_ratio(
-        [
-            r if isinstance(r, ValidationResult) else ValidationResult.model_validate(r)
-            for r in results
-        ]
-    )
-    entry = {"revision": revisions, "unverified_ratio": round(ratio, 3)}
+    entry = {"revision": revisions, "action": action, **diagnosis}
     revision_log = list(state.get("revision_log") or [])
     revision_log.append(entry)
+    update["revisions"] = revisions
+    update["revision_log"] = revision_log
 
-    update: dict[str, Any] = {"revisions": revisions, "revision_log": revision_log}
+    reason = {
+        "research_broaden": f"{diagnosis['unverified_ratio']:.0%} citations unverified",
+        "research_relax": f"only {diagnosis['paper_count']} papers",
+        "recritique": f"grounding {diagnosis['evidence_grounding_rate']}",
+    }.get(action, "")
     merged = {**state, **update}
     update.update(
         append_trace(
             merged,
-            step="revise",
+            step="controller",
             agent="controller",
-            summary=f"revision {revisions}: {ratio:.0%} citations unverified → re-research",
+            summary=f"revision {revisions}: {reason} → {action}",
             payload=entry,
         )
     )
     return update
+
+
+def route_after_controller(state: AthenaState) -> str:
+    """Conditional edge: map the controller's chosen action to the next node."""
+    return _ACTION_ROUTES.get(state.get("repair_action") or "finish", "finish")

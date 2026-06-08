@@ -19,6 +19,7 @@ class AthenaState(TypedDict, total=False):
     constraints: dict[str, Any]
     revisions: int
     revision_log: list[dict[str, Any]]
+    repair_action: str
     tasks: list[Task]
     papers: list[KnowledgeCard]
     research_errors: list[str]
