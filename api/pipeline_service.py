@@ -9,10 +9,6 @@ from collections import defaultdict
 from typing import Any
 
 from api.database import update_run
-from athena.agents.research import CriticalResearchSourcesError
-from athena.graph.build_graph import build_athena_graph, initial_state
-from athena.graph.report import state_to_report
-from athena.storage.sqlite import init_db, persist_traces
 
 logger = logging.getLogger(__name__)
 
@@ -59,6 +55,11 @@ def run_pipeline_async(
     """Start pipeline in a background thread."""
 
     def _worker() -> None:
+        from athena.agents.research import CriticalResearchSourcesError
+        from athena.graph.build_graph import build_athena_graph, initial_state
+        from athena.graph.report import state_to_report
+        from athena.storage.sqlite import init_db, persist_traces
+
         try:
             update_run(run_id, status="running")
             _append_event(run_id, "pipeline", "started", topic)

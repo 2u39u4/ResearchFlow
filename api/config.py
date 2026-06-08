@@ -24,7 +24,10 @@ class ApiSettings(BaseSettings):
     )
 
     athena_data_dir: Path = Field(default=Path("./data"), alias="ATHENA_DATA_DIR")
-    athena_db_path: Path = Field(default=Path("./data/athena.db"), alias="ATHENA_DB_PATH")
+    athena_db_path: Path = Field(
+        default=Path("./data/athena_api.db"),
+        alias="API_DB_PATH",
+    )
 
     @property
     def cors_origin_list(self) -> list[str]:

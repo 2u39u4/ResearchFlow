@@ -10,10 +10,9 @@ from api.config import get_api_settings
 from api.database import delete_library_doc, list_library_docs, upsert_library_doc
 from app.pdf_indexing import MAX_PDF_UPLOADS, index_pdf_bytes, remaining_pdf_slots
 from app.upload_utils import resolve_upload_path
-from athena.rag import PdfRagIndex
 
 _index_lock = threading.Lock()
-_user_indices: dict[str, PdfRagIndex] = {}
+_user_indices: dict[str, object] = {}
 
 
 def user_upload_dir(user_id: str) -> Path:
@@ -23,7 +22,9 @@ def user_upload_dir(user_id: str) -> Path:
     return path
 
 
-def get_user_index(user_id: str) -> PdfRagIndex:
+def get_user_index(user_id: str):
+    from athena.rag import PdfRagIndex
+
     with _index_lock:
         if user_id not in _user_indices:
             idx = PdfRagIndex()

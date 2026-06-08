@@ -6,9 +6,17 @@ export const authOptions: NextAuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+      authorization: {
+        params: {
+          // Skip consent screen on repeat logins (faster when already authorized).
+          prompt: "select_account",
+          access_type: "online",
+          response_type: "code",
+        },
+      },
     }),
   ],
-  session: { strategy: "jwt" },
+  session: { strategy: "jwt", maxAge: 30 * 24 * 60 * 60 },
   pages: { signIn: "/login" },
   callbacks: {
     async jwt({ token, account, profile }) {
@@ -25,7 +33,7 @@ export const authOptions: NextAuthOptions = {
         session.user.email = token.email as string;
         session.user.name = token.name as string;
         session.user.image = token.picture as string;
-        (session.user as { id?: string }).id = token.sub as string;
+        session.user.id = token.sub as string;
       }
       return session;
     },

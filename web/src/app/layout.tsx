@@ -10,6 +10,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="dns-prefetch" href="https://accounts.google.com" />
+        <link rel="preconnect" href="https://accounts.google.com" crossOrigin="anonymous" />
+      </head>
       <body>
         <Providers>{children}</Providers>
       </body>

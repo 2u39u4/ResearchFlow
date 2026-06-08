@@ -6,26 +6,17 @@ import type {
   RunSummary,
   User,
 } from "./api-types";
+import { ensureApiToken } from "./api-token";
+import { getStoredToken, setStoredToken } from "./token-storage";
+
+export { getStoredToken, setStoredToken };
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_TIMEOUT_MS = 8000;
 
-export function getStoredToken(): string | null {
-  if (typeof window === "undefined") return null;
-  return localStorage.getItem("athena_token");
-}
-
-export function setStoredToken(token: string | null) {
-  if (typeof window === "undefined") return;
-  if (token) localStorage.setItem("athena_token", token);
-  else localStorage.removeItem("athena_token");
-}
-
-async function apiFetch<T>(
-  path: string,
-  options: RequestInit = {},
-  token?: string | null,
-): Promise<T> {
-  const auth = token ?? getStoredToken();
+async function apiFetch<T>(path: string, options: RequestInit = {}): Promise<T> {
+  await ensureApiToken();
+  const auth = getStoredToken();
   const headers: Record<string, string> = {
     ...(options.headers as Record<string, string>),
   };
@@ -33,33 +24,17 @@ async function apiFetch<T>(
   if (!(options.body instanceof FormData)) {
     headers["Content-Type"] = headers["Content-Type"] || "application/json";
   }
-  const res = await fetch(`${API_URL}${path}`, { ...options, headers });
+  const res = await fetch(`${API_URL}${path}`, {
+    ...options,
+    headers,
+    signal: options.signal ?? AbortSignal.timeout(API_TIMEOUT_MS),
+  });
   if (!res.ok) {
     const text = await res.text();
     throw new Error(text || res.statusText);
   }
   if (res.status === 204) return undefined as T;
   return res.json() as Promise<T>;
-}
-
-export async function syncGoogleUser(payload: {
-  sub: string;
-  email: string;
-  display_name?: string | null;
-  avatar_url?: string | null;
-  locale?: string;
-}): Promise<{ access_token: string; user: User }> {
-  const secret = process.env.NEXT_PUBLIC_API_SYNC_SECRET || "dev-sync-secret";
-  const res = await fetch(`${API_URL}/auth/google`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-API-Sync-Secret": secret,
-    },
-    body: JSON.stringify(payload),
-  });
-  if (!res.ok) throw new Error(await res.text());
-  return res.json();
 }
 
 export const api = {

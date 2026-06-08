@@ -4,11 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { IntegrityBanner } from "./integrity-banner";
 import { cn } from "@/lib/utils";
 import { t, type Locale } from "@/lib/i18n";
-import { setStoredToken } from "@/lib/api";
+import { ensureApiToken } from "@/lib/api-token";
+import { setStoredToken } from "@/lib/token-storage";
 
 const NAV = [
   { href: "/app", key: "workspace" as const },
@@ -29,13 +30,8 @@ export function AppShell({
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    fetch("/api/auth/athena-token")
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        if (data?.access_token) setStoredToken(data.access_token);
-      })
-      .catch(() => {});
-  }, [session]);
+    if (session?.user?.email) void ensureApiToken();
+  }, [session?.user?.email]);
 
   const sidebar = (
     <nav className="flex flex-col gap-1 p-4">
@@ -44,9 +40,10 @@ export function AppShell({
         <Link
           key={item.href}
           href={item.href}
+          prefetch
           onClick={() => setOpen(false)}
           className={cn(
-            "rounded px-3 py-2 text-sm font-medium",
+            "rounded px-3 py-2 text-sm font-medium transition-colors",
             pathname === item.href || pathname.startsWith(item.href + "/")
               ? "bg-white text-primary shadow-sm"
               : "text-foreground/80 hover:bg-white/60",
@@ -55,7 +52,11 @@ export function AppShell({
           {t(locale, item.key)}
         </Link>
       ))}
-      <Link href="/settings" className="mt-4 rounded px-3 py-2 text-sm hover:bg-white/60">
+      <Link
+        href="/settings"
+        prefetch
+        className="mt-4 rounded px-3 py-2 text-sm hover:bg-white/60"
+      >
         {t(locale, "settings")}
       </Link>
     </nav>

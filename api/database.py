@@ -68,7 +68,8 @@ def db_path() -> Path:
 @contextmanager
 def get_conn() -> Generator[sqlite3.Connection, None, None]:
     path = db_path()
-    conn = sqlite3.connect(str(path), check_same_thread=False)
+    conn = sqlite3.connect(str(path), check_same_thread=False, timeout=30)
+    conn.execute("PRAGMA journal_mode=WAL")
     conn.row_factory = sqlite3.Row
     try:
         yield conn
