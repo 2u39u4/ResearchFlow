@@ -5,7 +5,7 @@
 [![CI](https://github.com/2u39u4/ResearchFlow/actions/workflows/ci.yml/badge.svg)](https://github.com/2u39u4/ResearchFlow/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Tests](https://img.shields.io/badge/tests-84%20passing-brightgreen)
+![Tests](https://img.shields.io/badge/tests-93%20passing-brightgreen)
 
 Athena retrieves real papers from scholarly APIs, generates **evidence-grounded** gap analysis and outline scaffolding, and then verifies every citation **without an LLM in the matching logic** â€” so bibliographic claims are machine-checkable, not hallucinated. It is a *research-assistance* tool with an academic-integrity banner in the UI, **not** an essay or paper ghostwriter.
 
@@ -206,9 +206,10 @@ Reproduce the headline numbers: [`docs/REPRODUCTION.md`](docs/REPRODUCTION.md) Â
 All unit tests are offline (network calls are mocked):
 
 ```bash
-pytest -q                       # full suite (78 passing, 1 skipped without HALLMARK)
-pytest tests/test_rag.py -q     # PDF RAG module
-pytest tests/test_pipeline.py -q  # graph, agents, revision loop
+pytest -q                          # full suite (93 passing, 1 skipped without HALLMARK)
+pytest tests/test_rag.py -q        # PDF RAG module
+pytest tests/test_pipeline.py -q   # graph, agents, revision loop
+pytest tests/test_api_gateway.py -q  # FastAPI gateway (auth, runs, library)
 ruff check . && ruff format --check .   # lint + format (enforced in CI)
 ```
 
