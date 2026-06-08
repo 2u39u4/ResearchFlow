@@ -39,6 +39,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          pip install -r api/requirements-api.txt
           pip install matplotlib scipy   # eval stats are unit-tested (eval.analysis.stats)
 
       - name: Run tests

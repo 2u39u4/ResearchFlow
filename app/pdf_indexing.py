@@ -5,9 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from athena.rag import PdfRagIndex
-
 from app.upload_utils import resolve_upload_path
+from athena.rag import PdfRagIndex
 
 MAX_PDF_UPLOADS = 5
 
@@ -82,7 +81,5 @@ def index_pdf_uploads(
                 )
             )
             continue
-        results.append(
-            index_pdf_bytes(index, filename=name, data=data, upload_dir=upload_dir)
-        )
+        results.append(index_pdf_bytes(index, filename=name, data=data, upload_dir=upload_dir))
     return results

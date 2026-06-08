@@ -8,12 +8,11 @@ import uuid
 from collections import defaultdict
 from typing import Any
 
+from api.database import update_run
 from athena.agents.research import CriticalResearchSourcesError
 from athena.graph.build_graph import build_athena_graph, initial_state
 from athena.graph.report import state_to_report
 from athena.storage.sqlite import init_db, persist_traces
-
-from api.database import update_run
 
 logger = logging.getLogger(__name__)
 
@@ -33,9 +32,7 @@ _run_lock = threading.Lock()
 
 def _append_event(run_id: str, step: str, status: str, detail: str = "") -> None:
     with _run_lock:
-        _run_events[run_id].append(
-            {"step": step, "status": status, "detail": detail}
-        )
+        _run_events[run_id].append({"step": step, "status": status, "detail": detail})
 
 
 def get_events(run_id: str, after: int = 0) -> list[dict[str, Any]]:

@@ -6,12 +6,11 @@ import threading
 from pathlib import Path
 from typing import Any
 
+from api.config import get_api_settings
+from api.database import delete_library_doc, list_library_docs, upsert_library_doc
 from app.pdf_indexing import MAX_PDF_UPLOADS, index_pdf_bytes, remaining_pdf_slots
 from app.upload_utils import resolve_upload_path
 from athena.rag import PdfRagIndex
-
-from api.config import get_api_settings
-from api.database import delete_library_doc, list_library_docs, upsert_library_doc
 
 _index_lock = threading.Lock()
 _user_indices: dict[str, PdfRagIndex] = {}

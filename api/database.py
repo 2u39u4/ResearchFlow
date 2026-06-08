@@ -114,9 +114,12 @@ def upsert_user(
                 """,
                 (email, display_name, avatar_url, now, existing["id"]),
             )
-            return row_to_dict(
-                conn.execute("SELECT * FROM users WHERE id=?", (existing["id"],)).fetchone()
-            ) or {}
+            return (
+                row_to_dict(
+                    conn.execute("SELECT * FROM users WHERE id=?", (existing["id"],)).fetchone()
+                )
+                or {}
+            )
 
         user_id = new_id()
         conn.execute(
@@ -126,7 +129,9 @@ def upsert_user(
             """,
             (user_id, google_sub, email, display_name, avatar_url, locale, now, now),
         )
-        return row_to_dict(conn.execute("SELECT * FROM users WHERE id=?", (user_id,)).fetchone()) or {}
+        return (
+            row_to_dict(conn.execute("SELECT * FROM users WHERE id=?", (user_id,)).fetchone()) or {}
+        )
 
 
 def get_user_by_id(user_id: str) -> dict[str, Any] | None:
@@ -257,7 +262,9 @@ def delete_run(run_id: str, user_id: str) -> bool:
         return cur.rowcount > 0
 
 
-def upsert_library_doc(user_id: str, doc_id: str, filename: str, chunk_count: int) -> dict[str, Any]:
+def upsert_library_doc(
+    user_id: str, doc_id: str, filename: str, chunk_count: int
+) -> dict[str, Any]:
     now = utc_now()
     doc_pk = new_id()
     with get_conn() as conn:

@@ -6,7 +6,12 @@ from pathlib import Path
 
 import pytest
 
-from app.pdf_indexing import MAX_PDF_UPLOADS, index_pdf_bytes, index_pdf_uploads, remaining_pdf_slots
+from app.pdf_indexing import (
+    MAX_PDF_UPLOADS,
+    index_pdf_bytes,
+    index_pdf_uploads,
+    remaining_pdf_slots,
+)
 from athena.rag import HashingEmbedder, PdfRagIndex
 
 
