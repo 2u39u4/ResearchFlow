@@ -9,7 +9,6 @@ from typing import Any, Literal
 
 from athena.config import Settings, get_settings
 from athena.llm.client import LLMClient
-
 from eval.experiments.common import seeded_rng
 
 logger = logging.getLogger(__name__)
@@ -75,7 +74,7 @@ def score_depth(
 
     system = (
         "You are an impartial academic evaluator. Score DEPTH from 1 to 5 using the rubric. "
-        "Output JSON only: {\"score\": int, \"rationale\": \"...\"}"
+        'Output JSON only: {"score": int, "rationale": "..."}'
     )
     user = f"Topic: {topic}\n\nOutput to evaluate:\n{output_text[:12000]}"
 
@@ -117,11 +116,9 @@ def pairwise_preference(
     system = (
         "Blind comparison of two research-assistant outputs on the same topic and paper corpus. "
         "Pick which is better for literature-review planning (specific gaps, grounding, actionability). "
-        "Output JSON only: {\"preference\": \"A\"|\"B\"|\"tie\", \"rationale\": \"...\"}"
+        'Output JSON only: {"preference": "A"|"B"|"tie", "rationale": "..."}'
     )
-    user = (
-        f"Topic: {topic}\n\n--- Output A ---\n{left_text[:8000]}\n\n--- Output B ---\n{right_text[:8000]}"
-    )
+    user = f"Topic: {topic}\n\n--- Output A ---\n{left_text[:8000]}\n\n--- Output B ---\n{right_text[:8000]}"
     text = llm.chat(
         [{"role": "system", "content": system}, {"role": "user", "content": user}],
         model=model,

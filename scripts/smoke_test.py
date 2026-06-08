@@ -12,7 +12,7 @@ if str(ROOT) not in sys.path:
 
 from athena.config import get_settings
 from athena.llm.client import LLMClient
-from athena.storage.cache import clear_llm_cache, get_llm_cache, make_cache_key
+from athena.storage.cache import get_llm_cache, make_cache_key
 from athena.storage.sqlite import get_db, init_db, insert_sample_records
 from athena.tools.arxiv_search import search_arxiv
 from athena.tools.semantic_scholar import ping as s2_ping

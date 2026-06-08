@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
-
 from eval.experiments.common import (
     resume_rows,
     save_topic_checkpoint,

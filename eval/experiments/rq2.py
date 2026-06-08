@@ -10,7 +10,6 @@ from athena.agents.writer import run_writer
 from athena.config import get_settings
 from athena.graph.citations_from_corpus import build_citations_for_validation
 from athena.tools.citation_validator import validate_citations
-
 from eval.experiments.common import (
     coerce_cards,
     fake_citation_rate,
@@ -122,7 +121,8 @@ def run_rq2(
                 "repeat": rep,
                 "no_critic": no_critic,
                 "with_critic": with_critic,
-                "delta_grounding": with_critic["evidence_grounding_rate"] - no_critic["evidence_grounding_rate"],
+                "delta_grounding": with_critic["evidence_grounding_rate"]
+                - no_critic["evidence_grounding_rate"],
                 "delta_fake_rate": (
                     no_critic["fake_citation_rate"]["fake_rate"]
                     - with_critic["fake_citation_rate"]["fake_rate"]
@@ -142,7 +142,9 @@ def run_rq2(
                 }
 
             rows = upsert_row(rows, row)
-            logger.info("RQ2 %s rep=%d grounding=%.3f", tid, rep, with_critic["evidence_grounding_rate"])
+            logger.info(
+                "RQ2 %s rep=%d grounding=%.3f", tid, rep, with_critic["evidence_grounding_rate"]
+            )
 
         save_topic_checkpoint("rq2", _payload(), tid)
         logger.info("RQ2 checkpoint saved for %s (%d rows total)", tid, len(rows))

@@ -6,13 +6,13 @@ from dataclasses import dataclass, field
 
 import pytest
 
+from athena.schemas.citation import Citation, ValidationResult
 from eval.citebench.hallmark_adapter import (
     blind_fields_to_citation,
     parse_bibtex_authors,
     validation_result_to_prediction,
     validation_status_to_hallmark,
 )
-from athena.schemas.citation import Citation, ValidationResult
 
 
 @dataclass

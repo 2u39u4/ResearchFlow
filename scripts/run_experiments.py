@@ -52,7 +52,12 @@ def cmd_build_pools(args: argparse.Namespace) -> int:
                 per_source_limit=args.per_source,
                 min_cards=args.min_cards,
             )
-            logger.info("Built pool %s: %d papers (arxiv=%s)", tid, len(pool["paper_ids"]), pool["sources_ok"].get("arxiv"))
+            logger.info(
+                "Built pool %s: %d papers (arxiv=%s)",
+                tid,
+                len(pool["paper_ids"]),
+                pool["sources_ok"].get("arxiv"),
+            )
             built_in_run += 1
         except Exception as exc:
             failed += 1
@@ -130,9 +135,16 @@ def main() -> int:
     def add_common(p: argparse.ArgumentParser) -> None:
         p.add_argument("--limit", type=int, default=None, help="Max topics (pilot: 3)")
         p.add_argument("--topic-ids", nargs="*", help="Subset e.g. t01 t02")
-        p.add_argument("--repeats", type=int, default=None, help="Repeats per topic (default EVAL_DEFAULT_REPEATS)")
+        p.add_argument(
+            "--repeats",
+            type=int,
+            default=None,
+            help="Repeats per topic (default EVAL_DEFAULT_REPEATS)",
+        )
         p.add_argument("--skip-judge", action="store_true", help="Skip LLM judge (metrics only)")
-        p.add_argument("--fresh", action="store_true", help="Ignore checkpoint and start rows from scratch")
+        p.add_argument(
+            "--fresh", action="store_true", help="Ignore checkpoint and start rows from scratch"
+        )
 
     p_build = sub.add_parser("build-pools", help="Build reference paper pools")
     add_common(p_build)

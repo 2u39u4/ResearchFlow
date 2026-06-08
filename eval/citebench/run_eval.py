@@ -54,16 +54,12 @@ def print_split_stats(entries: list) -> None:
 def analyze_misclassifications(entries: list, predictions: list, *, limit: int = 5) -> None:
     pred_map = {p.bibtex_key: p for p in predictions}
     false_pos = [
-        e
-        for e in entries
-        if e.label == "VALID" and pred_map[e.bibtex_key].label == "HALLUCINATED"
+        e for e in entries if e.label == "VALID" and pred_map[e.bibtex_key].label == "HALLUCINATED"
     ]
     false_neg = [
-        e
-        for e in entries
-        if e.label == "HALLUCINATED" and pred_map[e.bibtex_key].label == "VALID"
+        e for e in entries if e.label == "HALLUCINATED" and pred_map[e.bibtex_key].label == "VALID"
     ]
-    print(f"\n  Misclassification summary:")
+    print("\n  Misclassification summary:")
     print(f"    False positives (valid flagged): {len(false_pos)}")
     print(f"    False negatives (hallucination missed): {len(false_neg)}")
 
@@ -82,6 +78,7 @@ def analyze_misclassifications(entries: list, predictions: list, *, limit: int =
             htype = e.hallucination_type or "?"
             title = (e.fields.get("title") or "")[:60]
             print(f"    [{htype} T{tier}] {e.bibtex_key}: {title!r} — {p.reason[:80]}")
+
 
 def main(argv: list[str] | None = None) -> int:
     _ensure_hallmark_import()

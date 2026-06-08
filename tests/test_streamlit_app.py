@@ -17,8 +17,18 @@ def test_papers_by_id():
 
 def test_trace_timings():
     trace = [
-        {"step": "planner", "agent": "planner", "summary": "ok", "created_at": "2026-01-01T00:00:00+00:00"},
-        {"step": "research", "agent": "research", "summary": "ok", "created_at": "2026-01-01T00:00:05+00:00"},
+        {
+            "step": "planner",
+            "agent": "planner",
+            "summary": "ok",
+            "created_at": "2026-01-01T00:00:00+00:00",
+        },
+        {
+            "step": "research",
+            "agent": "research",
+            "summary": "ok",
+            "created_at": "2026-01-01T00:00:05+00:00",
+        },
     ]
     rows = trace_timings(trace)
     assert rows[1]["duration_sec"] == 5.0

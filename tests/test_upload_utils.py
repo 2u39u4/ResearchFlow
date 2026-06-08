@@ -1,7 +1,6 @@
 """Upload safety helpers for Streamlit."""
 
 import json
-from pathlib import Path
 
 import pytest
 

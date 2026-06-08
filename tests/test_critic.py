@@ -8,9 +8,9 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from athena.agents.critic import (
+    apply_novelty_policy,
     bind_evidence,
     check_relative_novelty,
-    apply_novelty_policy,
     grounding_rate,
     run_critic,
     supported_only,
@@ -135,7 +135,9 @@ def test_critic_node(mock_run):
         topic="rag",
         corpus_size=1,
         critiques=[
-            Critique(claim="Among the 1 retrieved papers, gap.", type="gap", evidence_paper_ids=["a:1"])
+            Critique(
+                claim="Among the 1 retrieved papers, gap.", type="gap", evidence_paper_ids=["a:1"]
+            )
         ],
         dropped_unsupported=0,
         evidence_grounding_rate=1.0,

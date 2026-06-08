@@ -9,7 +9,7 @@ from typing import Any
 import matplotlib.pyplot as plt
 import numpy as np
 
-from eval.analysis.stats import mean_std, paired_ttest
+from eval.analysis.stats import mean_std
 
 
 def _load_latest(rq: str) -> dict[str, Any] | None:
@@ -64,7 +64,14 @@ def plot_rq2(out_dir: Path) -> Path | None:
     x = np.arange(2)
     fn = mean_std(fake_nc)
     fw = mean_std(fake_wc)
-    axes[1].bar(x - 0.15, [fn["mean"], fw["mean"]], width=0.3, yerr=[fn["std"], fw["std"]], label="fake_rate", color=["#adb5bd", "#2a9d8f"])
+    axes[1].bar(
+        x - 0.15,
+        [fn["mean"], fw["mean"]],
+        width=0.3,
+        yerr=[fn["std"], fw["std"]],
+        label="fake_rate",
+        color=["#adb5bd", "#2a9d8f"],
+    )
     axes[1].set_xticks(x)
     axes[1].set_xticklabels(["No Critic", "With Critic"])
     axes[1].set_ylim(0, 1)

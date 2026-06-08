@@ -11,7 +11,7 @@ from athena.schemas.citation import Citation, ValidationResult, ValidationStatus
 from athena.tools.citation_validator import CitationValidator, validate_citation
 
 if TYPE_CHECKING:
-    from hallmark.dataset.schema import BlindEntry, Prediction
+    from hallmark.dataset.schema import Prediction
 
 # BibTeX "Author1 and Author2" — split on " and " (case-sensitive per BibTeX convention).
 _AUTHOR_SPLIT = re.compile(r"\s+and\s+")

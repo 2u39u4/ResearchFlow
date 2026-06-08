@@ -8,8 +8,7 @@ import pytest
 
 from athena.graph.nodes import validate_citations_node
 from athena.schemas.citation import Citation
-from athena.tools.citation_validator import CitationValidator, validate_citation
-
+from athena.tools.citation_validator import validate_citation
 
 ATTENTION_CROSSREF = {
     "DOI": "10.48550/arxiv.1706.03762",

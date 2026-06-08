@@ -128,7 +128,9 @@ def collect_output_paper_ids(
         else:
             ids.update(c.evidence_paper_ids)
     if outline:
-        sections = outline.sections if hasattr(outline, "sections") else (outline.get("sections") or [])
+        sections = (
+            outline.sections if hasattr(outline, "sections") else (outline.get("sections") or [])
+        )
         for section in sections:
             if isinstance(section, dict):
                 ids.update(section.get("evidence_paper_ids") or [])

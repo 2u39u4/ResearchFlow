@@ -13,9 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from athena.agents.research import CriticalResearchSourcesError
 from athena.graph.build_graph import build_athena_graph, initial_state
 from athena.graph.report import state_to_report
-from athena.agents.research import CriticalResearchSourcesError
 from athena.storage.sqlite import init_db, persist_traces
 
 

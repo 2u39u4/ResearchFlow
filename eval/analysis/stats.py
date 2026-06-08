@@ -66,7 +66,11 @@ def paired_ttest(a: Sequence[float], b: Sequence[float]) -> dict[str, float | No
         from scipy import stats
 
         res = stats.ttest_rel(a_arr, b_arr)
-        return {"statistic": float(res.statistic), "pvalue": float(res.pvalue), "n": int(a_arr.size)}
+        return {
+            "statistic": float(res.statistic),
+            "pvalue": float(res.pvalue),
+            "n": int(a_arr.size),
+        }
     except Exception:
         return {"statistic": None, "pvalue": None, "n": int(a_arr.size)}
 
@@ -150,10 +154,10 @@ def human_anchor_agreement(
             continue
 
         human_pref = (
-            row.get("preference_multi_single_tie")
-            or row.get("preference_a_b_tie")
-            or ""
-        ).strip().lower()
+            (row.get("preference_multi_single_tie") or row.get("preference_a_b_tie") or "")
+            .strip()
+            .lower()
+        )
         llm_pref = (llm.get("preference") or "").strip().lower()
         if human_pref and llm_pref:
             pref_n += 1

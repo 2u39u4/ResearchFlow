@@ -6,6 +6,7 @@ import json
 import logging
 from dataclasses import dataclass, field
 
+from athena.config import get_settings
 from athena.schemas.knowledge_card import KnowledgeCard
 from athena.tools.arxiv_search import search_arxiv
 from athena.tools.converters import (
@@ -15,7 +16,6 @@ from athena.tools.converters import (
 )
 from athena.tools.crossref import search_by_title
 from athena.tools.dedup import deduplicate_cards
-from athena.config import get_settings
 from athena.tools.semantic_scholar import search_papers as search_semantic_scholar
 
 logger = logging.getLogger(__name__)
@@ -175,7 +175,7 @@ def run_research(
         errors.insert(0, _critical_sources_message())
 
     merged = deduplicate_cards(raw)
-    merged.sort(key=lambda c: (c.year or 0), reverse=True)
+    merged.sort(key=lambda c: c.year or 0, reverse=True)
 
     if len(merged) < min_cards and not errors:
         errors.append(

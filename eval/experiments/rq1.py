@@ -8,7 +8,6 @@ from typing import Any
 from athena.agents.critic import run_critic
 from athena.agents.writer import run_writer
 from athena.config import get_settings
-
 from eval.experiments.baselines.single_agent import run_single_agent
 from eval.experiments.common import (
     coerce_cards,

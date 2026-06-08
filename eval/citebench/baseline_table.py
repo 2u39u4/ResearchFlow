@@ -29,8 +29,7 @@ def format_metrics_row(tool: str, metrics: dict[str, Any]) -> str:
     ece = metrics.get("ece")
     n = metrics.get("num_entries", "—")
     return (
-        f"| {tool} | {n} | "
-        f"{dr:.3f} | {f1:.3f} | {tw:.3f} | {fpr:.3f} | {ece:.3f} |"
+        f"| {tool} | {n} | {dr:.3f} | {f1:.3f} | {tw:.3f} | {fpr:.3f} | {ece:.3f} |"
         if all(isinstance(x, (int, float)) for x in (dr, f1, tw, fpr, ece))
         else f"| {tool} | {n} | — | — | — | — | — |"
     )

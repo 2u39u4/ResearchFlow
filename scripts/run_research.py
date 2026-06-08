@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from athena.agents.research import CriticalResearchSourcesError, run_research
+from athena.agents.research import run_research
 
 
 def main() -> int:

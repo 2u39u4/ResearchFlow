@@ -9,7 +9,6 @@ from typing import Any
 
 from eval.analysis.stats import (
     binomial_test_vs_half,
-    ci95,
     format_mean_ci,
     mean_std,
     mean_std_ci,
@@ -68,7 +67,9 @@ def build_markdown() -> str:
             )
             bt = binomial_test_vs_half(wins, len(rows))
             if bt["pvalue"] is not None:
-                lines.append(f"- Binomial test vs 50%: p={bt['pvalue']:.4f} ({_sig_label(bt['pvalue'])})")
+                lines.append(
+                    f"- Binomial test vs 50%: p={bt['pvalue']:.4f} ({_sig_label(bt['pvalue'])})"
+                )
         if rows:
             cov_m = [r["coverage"]["multi_agent"] for r in rows]
             cov_s = [r["coverage"]["single_agent"] for r in rows]
@@ -80,8 +81,7 @@ def build_markdown() -> str:
                     f"p={tt_cov['pvalue']:.2e} ({_sig_label(tt_cov['pvalue'])})"
                 )
                 lines.append(
-                    f"- Coverage difference: {format_mean_ci(diff_cov)} "
-                    "(positive → multi higher)"
+                    f"- Coverage difference: {format_mean_ci(diff_cov)} (positive → multi higher)"
                 )
             if "depth" in rows[0]:
                 dm = [r["depth"]["multi_agent"] for r in rows]
@@ -251,7 +251,9 @@ def build_markdown() -> str:
             if ra is not None:
                 lines.append(f"- Depth A Spearman ρ: {ra:.3f}")
         if pa is not None:
-            lines.append(f"- Preference agreement: {pa:.1%} (n={anchor_stats.get('n_preference', 0)})")
+            lines.append(
+                f"- Preference agreement: {pa:.1%} (n={anchor_stats.get('n_preference', 0)})"
+            )
         lines.append("")
 
     return "\n".join(lines)

@@ -12,6 +12,4 @@ class StepLog(BaseModel):
     agent: str
     summary: str
     payload: dict = Field(default_factory=dict)
-    created_at: str = Field(
-        default_factory=lambda: datetime.now(timezone.utc).isoformat()
-    )
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())

@@ -1,9 +1,5 @@
 """Storage and cache unit tests — no network."""
 
-import json
-import tempfile
-from pathlib import Path
-
 from athena.storage.cache import clear_llm_cache, get_llm_cache, make_cache_key
 from athena.storage.sqlite import get_db, init_db, insert_sample_records
 

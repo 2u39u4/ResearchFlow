@@ -13,7 +13,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from athena.agents.critic import run_critic, supported_only
-from athena.agents.research import CriticalResearchSourcesError, run_research
+from athena.agents.research import run_research
 from athena.schemas.knowledge_card import KnowledgeCard
 
 
@@ -29,7 +29,9 @@ def _load_cards(path: Path) -> list[KnowledgeCard]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Athena critic (gap / weakness / relative novelty)")
+    parser = argparse.ArgumentParser(
+        description="Athena critic (gap / weakness / relative novelty)"
+    )
     parser.add_argument("topic", help="Research topic")
     parser.add_argument(
         "--papers-json",

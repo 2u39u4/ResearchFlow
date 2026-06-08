@@ -75,13 +75,19 @@ def run_single_agent(
             max_tokens=settings.critic_max_tokens,
         )
         data = _parse_json(text)
-        raw_critiques = CritiqueBatch.model_validate({"critiques": data.get("critiques", [])}).critiques
+        raw_critiques = CritiqueBatch.model_validate(
+            {"critiques": data.get("critiques", [])}
+        ).critiques
         processed = bind_evidence(apply_novelty_policy(raw_critiques, n_papers=n), valid_ids)
         outline = None
         if data.get("outline"):
             outline = Outline.model_validate(data["outline"])
-        return SingleAgentResult(topic=topic, critiques=processed, outline=outline, model=model, errors=errors)
+        return SingleAgentResult(
+            topic=topic, critiques=processed, outline=outline, model=model, errors=errors
+        )
     except Exception as exc:
         logger.exception("single_agent failed")
         errors.append(str(exc))
-        return SingleAgentResult(topic=topic, critiques=[], outline=None, model=model, errors=errors)
+        return SingleAgentResult(
+            topic=topic, critiques=[], outline=None, model=model, errors=errors
+        )
